@@ -22,6 +22,7 @@
     "dist"
   ],
   "scripts": {
+    "prepare": "tsup",
     "build": "tsup",
     "test": "vitest run",
     "test:watch": "vitest"
@@ -29,9 +30,11 @@
   "peerDependencies": {
     "zod": "^3.22.0"
   },
-  "devDependencies": {
+  "dependencies": {
     "tsup": "^8.5.1",
-    "typescript": "^5.5.0",
+    "typescript": "^5.5.0"
+  },
+  "devDependencies": {
     "vitest": "^1.4.0",
     "zod": "^3.22.4"
   },
