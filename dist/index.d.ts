@@ -1014,19 +1014,27 @@ declare const BeyondPaperSchema: z.ZodObject<{
         options: z.ZodOptional<z.ZodArray<z.ZodObject<{
             uid: z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>;
             label: z.ZodString;
+            icon: z.ZodOptional<z.ZodString>;
+            value: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
             uid: string & {
                 readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
             };
             label: string;
+            value?: number | undefined;
+            icon?: string | undefined;
         }, {
             uid: string & {
                 readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
             };
             label: string;
+            value?: number | undefined;
+            icon?: string | undefined;
         }>, "many">>;
         isMultiple: z.ZodOptional<z.ZodBoolean>;
-        defaultValue: z.ZodOptional<z.ZodString>;
+        hasNumericValue: z.ZodOptional<z.ZodBoolean>;
+        hasIcon: z.ZodOptional<z.ZodBoolean>;
+        defaultOptionUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">>;
     }, "strip", z.ZodTypeAny, {
         type: "choice";
         name: string;
@@ -1039,12 +1047,16 @@ declare const BeyondPaperSchema: z.ZodObject<{
                 readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
             };
             label: string;
+            value?: number | undefined;
+            icon?: string | undefined;
         }[] | undefined;
         label?: string | undefined;
         isMandatory?: boolean | undefined;
         isHiddenFromSheet?: boolean | undefined;
-        defaultValue?: string | undefined;
         isMultiple?: boolean | undefined;
+        hasNumericValue?: boolean | undefined;
+        hasIcon?: boolean | undefined;
+        defaultOptionUids?: VariableChoiceUid[] | undefined;
     }, {
         type: "choice";
         name: string;
@@ -1057,12 +1069,16 @@ declare const BeyondPaperSchema: z.ZodObject<{
                 readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
             };
             label: string;
+            value?: number | undefined;
+            icon?: string | undefined;
         }[] | undefined;
         label?: string | undefined;
         isMandatory?: boolean | undefined;
         isHiddenFromSheet?: boolean | undefined;
-        defaultValue?: string | undefined;
         isMultiple?: boolean | undefined;
+        hasNumericValue?: boolean | undefined;
+        hasIcon?: boolean | undefined;
+        defaultOptionUids?: VariableChoiceUid[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
     } & {
@@ -1113,6 +1129,51 @@ declare const BeyondPaperSchema: z.ZodObject<{
         type: z.ZodLiteral<"roll">;
         diceFormula: z.ZodOptional<z.ZodString>;
         depsVariablesUid: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
     }, "strip", z.ZodTypeAny, {
         type: "roll";
         name: string;
@@ -1125,6 +1186,19 @@ declare const BeyondPaperSchema: z.ZodObject<{
         isHiddenFromSheet?: boolean | undefined;
         depsVariablesUid?: VariableUid[] | undefined;
         diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
     }, {
         type: "roll";
         name: string;
@@ -1137,6 +1211,19 @@ declare const BeyondPaperSchema: z.ZodObject<{
         isHiddenFromSheet?: boolean | undefined;
         depsVariablesUid?: VariableUid[] | undefined;
         diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
     }>]>, "many">;
     widgets: z.ZodArray<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -1992,6 +2079,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         variableUid: z.ZodOptional<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>;
     } & {
         type: z.ZodLiteral<"pips">;
+        icon: z.ZodOptional<z.ZodString>;
         gapX: z.ZodOptional<z.ZodNumber>;
         gapY: z.ZodOptional<z.ZodNumber>;
         max: z.ZodOptional<z.ZodNumber>;
@@ -2002,6 +2090,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        icon?: string | undefined;
         area?: {
             width: number;
             height: number;
@@ -2034,6 +2123,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        icon?: string | undefined;
         area?: {
             width: number;
             height: number;
@@ -2060,6 +2150,154 @@ declare const BeyondPaperSchema: z.ZodObject<{
         maxVariable?: VariableUid | null | undefined;
         gapX?: number | undefined;
         gapY?: number | undefined;
+    }>, z.ZodObject<{
+        uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
+    } & {
+        name: z.ZodString;
+    } & {
+        area: z.ZodOptional<z.ZodNullable<z.ZodObject<{
+            width: z.ZodNumber;
+            height: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            width: number;
+            height: number;
+        }, {
+            width: number;
+            height: number;
+        }>>>;
+    } & {
+        position: z.ZodOptional<z.ZodNullable<z.ZodObject<{
+            left: z.ZodNumber;
+            top: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            left: number;
+            top: number;
+        }, {
+            left: number;
+            top: number;
+        }>>>;
+    } & {
+        style: z.ZodOptional<z.ZodNullable<z.ZodObject<{
+            justifyContent: z.ZodOptional<z.ZodString>;
+            alignItems: z.ZodOptional<z.ZodString>;
+            flexDirection: z.ZodOptional<z.ZodString>;
+            lineHeight: z.ZodOptional<z.ZodNumber>;
+            fontFamilyId: z.ZodOptional<z.ZodString>;
+            fontScale: z.ZodOptional<z.ZodNumber>;
+            color: z.ZodOptional<z.ZodString>;
+            paddingTop: z.ZodOptional<z.ZodNumber>;
+            paddingRight: z.ZodOptional<z.ZodNumber>;
+            paddingBottom: z.ZodOptional<z.ZodNumber>;
+            paddingLeft: z.ZodOptional<z.ZodNumber>;
+        }, "strip", z.ZodTypeAny, {
+            color?: string | undefined;
+            justifyContent?: string | undefined;
+            alignItems?: string | undefined;
+            flexDirection?: string | undefined;
+            lineHeight?: number | undefined;
+            fontFamilyId?: string | undefined;
+            fontScale?: number | undefined;
+            paddingTop?: number | undefined;
+            paddingRight?: number | undefined;
+            paddingBottom?: number | undefined;
+            paddingLeft?: number | undefined;
+        }, {
+            color?: string | undefined;
+            justifyContent?: string | undefined;
+            alignItems?: string | undefined;
+            flexDirection?: string | undefined;
+            lineHeight?: number | undefined;
+            fontFamilyId?: string | undefined;
+            fontScale?: number | undefined;
+            paddingTop?: number | undefined;
+            paddingRight?: number | undefined;
+            paddingBottom?: number | undefined;
+            paddingLeft?: number | undefined;
+        }>>>;
+    } & {
+        variableUid: z.ZodOptional<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>;
+    } & {
+        type: z.ZodLiteral<"bar">;
+        min: z.ZodOptional<z.ZodNumber>;
+        max: z.ZodOptional<z.ZodNumber>;
+        maxVariable: z.ZodOptional<z.ZodNullable<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>>;
+        unit: z.ZodOptional<z.ZodString>;
+        orientation: z.ZodOptional<z.ZodEnum<["ltr", "rtl", "ttb", "btt"]>>;
+        barColor: z.ZodOptional<z.ZodString>;
+        bgColor: z.ZodOptional<z.ZodString>;
+        showValue: z.ZodOptional<z.ZodBoolean>;
+    }, "strip", z.ZodTypeAny, {
+        type: "bar";
+        name: string;
+        uid: string & {
+            readonly __bypp_flavor?: "WidgetUid" | undefined;
+        };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
+        style?: {
+            color?: string | undefined;
+            justifyContent?: string | undefined;
+            alignItems?: string | undefined;
+            flexDirection?: string | undefined;
+            lineHeight?: number | undefined;
+            fontFamilyId?: string | undefined;
+            fontScale?: number | undefined;
+            paddingTop?: number | undefined;
+            paddingRight?: number | undefined;
+            paddingBottom?: number | undefined;
+            paddingLeft?: number | undefined;
+        } | null | undefined;
+        variableUid?: VariableUid | undefined;
+        min?: number | undefined;
+        max?: number | undefined;
+        maxVariable?: VariableUid | null | undefined;
+        unit?: string | undefined;
+        orientation?: "ltr" | "rtl" | "ttb" | "btt" | undefined;
+        barColor?: string | undefined;
+        bgColor?: string | undefined;
+        showValue?: boolean | undefined;
+    }, {
+        type: "bar";
+        name: string;
+        uid: string & {
+            readonly __bypp_flavor?: "WidgetUid" | undefined;
+        };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
+        style?: {
+            color?: string | undefined;
+            justifyContent?: string | undefined;
+            alignItems?: string | undefined;
+            flexDirection?: string | undefined;
+            lineHeight?: number | undefined;
+            fontFamilyId?: string | undefined;
+            fontScale?: number | undefined;
+            paddingTop?: number | undefined;
+            paddingRight?: number | undefined;
+            paddingBottom?: number | undefined;
+            paddingLeft?: number | undefined;
+        } | null | undefined;
+        variableUid?: VariableUid | undefined;
+        min?: number | undefined;
+        max?: number | undefined;
+        maxVariable?: VariableUid | null | undefined;
+        unit?: string | undefined;
+        orientation?: "ltr" | "rtl" | "ttb" | "btt" | undefined;
+        barColor?: string | undefined;
+        bgColor?: string | undefined;
+        showValue?: boolean | undefined;
     }>]>, "many">;
     randomTables: z.ZodArray<z.ZodObject<{
         uid: z.ZodType<RandomTableUid, z.ZodTypeDef, RandomTableUid>;
@@ -2500,6 +2738,8 @@ declare const BeyondPaperSchema: z.ZodObject<{
     } & {
         name: z.ZodString;
     } & {
+        opacity: z.ZodOptional<z.ZodNumber>;
+    } & {
         originalUrl: z.ZodOptional<z.ZodString>;
         thumbnailUrl: z.ZodOptional<z.ZodString>;
         squareUrl: z.ZodOptional<z.ZodString>;
@@ -2516,6 +2756,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
+        opacity?: number | undefined;
     }, {
         type: "customImage";
         name: string;
@@ -2526,10 +2767,13 @@ declare const BeyondPaperSchema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
+        opacity?: number | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<SceneBackgroundUid, z.ZodTypeDef, SceneBackgroundUid>;
     } & {
         name: z.ZodString;
+    } & {
+        opacity: z.ZodOptional<z.ZodNumber>;
     } & {
         videoUrl: z.ZodOptional<z.ZodString>;
         videoDimensions: z.ZodOptional<z.ZodObject<{
@@ -2555,6 +2799,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
             width: number;
             height: number;
         } | undefined;
+        opacity?: number | undefined;
     }, {
         type: "customVideo";
         name: string;
@@ -2566,6 +2811,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
             width: number;
             height: number;
         } | undefined;
+        opacity?: number | undefined;
     }>]>, "many">;
     assets: z.ZodArray<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
@@ -3069,12 +3315,16 @@ declare const BeyondPaperSchema: z.ZodObject<{
                 readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
             };
             label: string;
+            value?: number | undefined;
+            icon?: string | undefined;
         }[] | undefined;
         label?: string | undefined;
         isMandatory?: boolean | undefined;
         isHiddenFromSheet?: boolean | undefined;
-        defaultValue?: string | undefined;
         isMultiple?: boolean | undefined;
+        hasNumericValue?: boolean | undefined;
+        hasIcon?: boolean | undefined;
+        defaultOptionUids?: VariableChoiceUid[] | undefined;
     } | {
         type: "formula";
         name: string;
@@ -3099,6 +3349,19 @@ declare const BeyondPaperSchema: z.ZodObject<{
         isHiddenFromSheet?: boolean | undefined;
         depsVariablesUid?: VariableUid[] | undefined;
         diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
     })[];
     widgets: ({
         type: "empty";
@@ -3288,6 +3551,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        icon?: string | undefined;
         area?: {
             width: number;
             height: number;
@@ -3314,6 +3578,42 @@ declare const BeyondPaperSchema: z.ZodObject<{
         maxVariable?: VariableUid | null | undefined;
         gapX?: number | undefined;
         gapY?: number | undefined;
+    } | {
+        type: "bar";
+        name: string;
+        uid: string & {
+            readonly __bypp_flavor?: "WidgetUid" | undefined;
+        };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
+        style?: {
+            color?: string | undefined;
+            justifyContent?: string | undefined;
+            alignItems?: string | undefined;
+            flexDirection?: string | undefined;
+            lineHeight?: number | undefined;
+            fontFamilyId?: string | undefined;
+            fontScale?: number | undefined;
+            paddingTop?: number | undefined;
+            paddingRight?: number | undefined;
+            paddingBottom?: number | undefined;
+            paddingLeft?: number | undefined;
+        } | null | undefined;
+        variableUid?: VariableUid | undefined;
+        min?: number | undefined;
+        max?: number | undefined;
+        maxVariable?: VariableUid | null | undefined;
+        unit?: string | undefined;
+        orientation?: "ltr" | "rtl" | "ttb" | "btt" | undefined;
+        barColor?: string | undefined;
+        bgColor?: string | undefined;
+        showValue?: boolean | undefined;
     })[];
     randomTables: {
         uid: string & {
@@ -3438,6 +3738,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
+        opacity?: number | undefined;
     } | {
         type: "customVideo";
         name: string;
@@ -3449,6 +3750,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
             width: number;
             height: number;
         } | undefined;
+        opacity?: number | undefined;
     })[];
     assets: ({
         type: "image";
@@ -3821,12 +4123,16 @@ declare const BeyondPaperSchema: z.ZodObject<{
                 readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
             };
             label: string;
+            value?: number | undefined;
+            icon?: string | undefined;
         }[] | undefined;
         label?: string | undefined;
         isMandatory?: boolean | undefined;
         isHiddenFromSheet?: boolean | undefined;
-        defaultValue?: string | undefined;
         isMultiple?: boolean | undefined;
+        hasNumericValue?: boolean | undefined;
+        hasIcon?: boolean | undefined;
+        defaultOptionUids?: VariableChoiceUid[] | undefined;
     } | {
         type: "formula";
         name: string;
@@ -3851,6 +4157,19 @@ declare const BeyondPaperSchema: z.ZodObject<{
         isHiddenFromSheet?: boolean | undefined;
         depsVariablesUid?: VariableUid[] | undefined;
         diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
     })[];
     widgets: ({
         type: "empty";
@@ -4040,6 +4359,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        icon?: string | undefined;
         area?: {
             width: number;
             height: number;
@@ -4066,6 +4386,42 @@ declare const BeyondPaperSchema: z.ZodObject<{
         maxVariable?: VariableUid | null | undefined;
         gapX?: number | undefined;
         gapY?: number | undefined;
+    } | {
+        type: "bar";
+        name: string;
+        uid: string & {
+            readonly __bypp_flavor?: "WidgetUid" | undefined;
+        };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
+        style?: {
+            color?: string | undefined;
+            justifyContent?: string | undefined;
+            alignItems?: string | undefined;
+            flexDirection?: string | undefined;
+            lineHeight?: number | undefined;
+            fontFamilyId?: string | undefined;
+            fontScale?: number | undefined;
+            paddingTop?: number | undefined;
+            paddingRight?: number | undefined;
+            paddingBottom?: number | undefined;
+            paddingLeft?: number | undefined;
+        } | null | undefined;
+        variableUid?: VariableUid | undefined;
+        min?: number | undefined;
+        max?: number | undefined;
+        maxVariable?: VariableUid | null | undefined;
+        unit?: string | undefined;
+        orientation?: "ltr" | "rtl" | "ttb" | "btt" | undefined;
+        barColor?: string | undefined;
+        bgColor?: string | undefined;
+        showValue?: boolean | undefined;
     })[];
     randomTables: {
         uid: string & {
@@ -4190,6 +4546,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
+        opacity?: number | undefined;
     } | {
         type: "customVideo";
         name: string;
@@ -4201,6 +4558,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
             width: number;
             height: number;
         } | undefined;
+        opacity?: number | undefined;
     })[];
     assets: ({
         type: "image";
@@ -6271,16 +6629,22 @@ type Dataset = z.infer<typeof DatasetSchema>;
 declare const ChoiceOptionSchema: z.ZodObject<{
     uid: z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>;
     label: z.ZodString;
+    icon: z.ZodOptional<z.ZodString>;
+    value: z.ZodOptional<z.ZodNumber>;
 }, "strip", z.ZodTypeAny, {
     uid: string & {
         readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
     };
     label: string;
+    value?: number | undefined;
+    icon?: string | undefined;
 }, {
     uid: string & {
         readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
     };
     label: string;
+    value?: number | undefined;
+    icon?: string | undefined;
 }>;
 type ChoiceOption = z.infer<typeof ChoiceOptionSchema>;
 declare const VariableBaseSchema: z.ZodObject<{
@@ -6437,19 +6801,27 @@ declare const ChoiceVariableSchema: z.ZodObject<{
     options: z.ZodOptional<z.ZodArray<z.ZodObject<{
         uid: z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>;
         label: z.ZodString;
+        icon: z.ZodOptional<z.ZodString>;
+        value: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
         uid: string & {
             readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
         };
         label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
     }, {
         uid: string & {
             readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
         };
         label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
     }>, "many">>;
     isMultiple: z.ZodOptional<z.ZodBoolean>;
-    defaultValue: z.ZodOptional<z.ZodString>;
+    hasNumericValue: z.ZodOptional<z.ZodBoolean>;
+    hasIcon: z.ZodOptional<z.ZodBoolean>;
+    defaultOptionUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">>;
 }, "strip", z.ZodTypeAny, {
     type: "choice";
     name: string;
@@ -6462,12 +6834,16 @@ declare const ChoiceVariableSchema: z.ZodObject<{
             readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
         };
         label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
     }[] | undefined;
     label?: string | undefined;
     isMandatory?: boolean | undefined;
     isHiddenFromSheet?: boolean | undefined;
-    defaultValue?: string | undefined;
     isMultiple?: boolean | undefined;
+    hasNumericValue?: boolean | undefined;
+    hasIcon?: boolean | undefined;
+    defaultOptionUids?: VariableChoiceUid[] | undefined;
 }, {
     type: "choice";
     name: string;
@@ -6480,12 +6856,16 @@ declare const ChoiceVariableSchema: z.ZodObject<{
             readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
         };
         label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
     }[] | undefined;
     label?: string | undefined;
     isMandatory?: boolean | undefined;
     isHiddenFromSheet?: boolean | undefined;
-    defaultValue?: string | undefined;
     isMultiple?: boolean | undefined;
+    hasNumericValue?: boolean | undefined;
+    hasIcon?: boolean | undefined;
+    defaultOptionUids?: VariableChoiceUid[] | undefined;
 }>;
 type ChoiceVariable = z.infer<typeof ChoiceVariableSchema>;
 declare const FormulaVariableSchema: z.ZodObject<{
@@ -6527,6 +6907,85 @@ declare const FormulaVariableSchema: z.ZodObject<{
     depsVariablesUid?: VariableUid[] | undefined;
 }>;
 type FormulaVariable = z.infer<typeof FormulaVariableSchema>;
+declare const IconCompoSlotConfigSchema: z.ZodObject<{
+    icon: z.ZodNullable<z.ZodString>;
+    size: z.ZodOptional<z.ZodNumber>;
+    rotate: z.ZodOptional<z.ZodNumber>;
+    revert: z.ZodOptional<z.ZodBoolean>;
+}, "strip", z.ZodTypeAny, {
+    icon: string | null;
+    size?: number | undefined;
+    rotate?: number | undefined;
+    revert?: boolean | undefined;
+}, {
+    icon: string | null;
+    size?: number | undefined;
+    rotate?: number | undefined;
+    revert?: boolean | undefined;
+}>;
+type IconCompoSlotConfig = z.infer<typeof IconCompoSlotConfigSchema>;
+declare const IconCompoSchema: z.ZodRecord<z.ZodString, z.ZodObject<{
+    icon: z.ZodNullable<z.ZodString>;
+    size: z.ZodOptional<z.ZodNumber>;
+    rotate: z.ZodOptional<z.ZodNumber>;
+    revert: z.ZodOptional<z.ZodBoolean>;
+}, "strip", z.ZodTypeAny, {
+    icon: string | null;
+    size?: number | undefined;
+    rotate?: number | undefined;
+    revert?: boolean | undefined;
+}, {
+    icon: string | null;
+    size?: number | undefined;
+    rotate?: number | undefined;
+    revert?: boolean | undefined;
+}>>;
+type IconCompo = z.infer<typeof IconCompoSchema>;
+declare const ActionVisualSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+    type: z.ZodLiteral<"awesome">;
+    icon: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    type: "awesome";
+    icon: string;
+}, {
+    type: "awesome";
+    icon: string;
+}>, z.ZodObject<{
+    type: z.ZodLiteral<"compo">;
+    icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+        icon: z.ZodNullable<z.ZodString>;
+        size: z.ZodOptional<z.ZodNumber>;
+        rotate: z.ZodOptional<z.ZodNumber>;
+        revert: z.ZodOptional<z.ZodBoolean>;
+    }, "strip", z.ZodTypeAny, {
+        icon: string | null;
+        size?: number | undefined;
+        rotate?: number | undefined;
+        revert?: boolean | undefined;
+    }, {
+        icon: string | null;
+        size?: number | undefined;
+        rotate?: number | undefined;
+        revert?: boolean | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "compo";
+    icons: Record<string, {
+        icon: string | null;
+        size?: number | undefined;
+        rotate?: number | undefined;
+        revert?: boolean | undefined;
+    }>;
+}, {
+    type: "compo";
+    icons: Record<string, {
+        icon: string | null;
+        size?: number | undefined;
+        rotate?: number | undefined;
+        revert?: boolean | undefined;
+    }>;
+}>]>;
+type ActionVisual = z.infer<typeof ActionVisualSchema>;
 declare const RollVariableSchema: z.ZodObject<{
     uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
 } & {
@@ -6540,6 +6999,51 @@ declare const RollVariableSchema: z.ZodObject<{
     type: z.ZodLiteral<"roll">;
     diceFormula: z.ZodOptional<z.ZodString>;
     depsVariablesUid: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+    visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+        type: z.ZodLiteral<"awesome">;
+        icon: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        type: "awesome";
+        icon: string;
+    }, {
+        type: "awesome";
+        icon: string;
+    }>, z.ZodObject<{
+        type: z.ZodLiteral<"compo">;
+        icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+            icon: z.ZodNullable<z.ZodString>;
+            size: z.ZodOptional<z.ZodNumber>;
+            rotate: z.ZodOptional<z.ZodNumber>;
+            revert: z.ZodOptional<z.ZodBoolean>;
+        }, "strip", z.ZodTypeAny, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>>;
+    }, "strip", z.ZodTypeAny, {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    }, {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    }>]>>;
+    hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
 }, "strip", z.ZodTypeAny, {
     type: "roll";
     name: string;
@@ -6552,6 +7056,19 @@ declare const RollVariableSchema: z.ZodObject<{
     isHiddenFromSheet?: boolean | undefined;
     depsVariablesUid?: VariableUid[] | undefined;
     diceFormula?: string | undefined;
+    visual?: {
+        type: "awesome";
+        icon: string;
+    } | {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    } | undefined;
+    hue?: number | null | undefined;
 }, {
     type: "roll";
     name: string;
@@ -6564,6 +7081,19 @@ declare const RollVariableSchema: z.ZodObject<{
     isHiddenFromSheet?: boolean | undefined;
     depsVariablesUid?: VariableUid[] | undefined;
     diceFormula?: string | undefined;
+    visual?: {
+        type: "awesome";
+        icon: string;
+    } | {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    } | undefined;
+    hue?: number | null | undefined;
 }>;
 type RollVariable = z.infer<typeof RollVariableSchema>;
 declare const VariableSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
@@ -6685,19 +7215,27 @@ declare const VariableSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     options: z.ZodOptional<z.ZodArray<z.ZodObject<{
         uid: z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>;
         label: z.ZodString;
+        icon: z.ZodOptional<z.ZodString>;
+        value: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
         uid: string & {
             readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
         };
         label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
     }, {
         uid: string & {
             readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
         };
         label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
     }>, "many">>;
     isMultiple: z.ZodOptional<z.ZodBoolean>;
-    defaultValue: z.ZodOptional<z.ZodString>;
+    hasNumericValue: z.ZodOptional<z.ZodBoolean>;
+    hasIcon: z.ZodOptional<z.ZodBoolean>;
+    defaultOptionUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">>;
 }, "strip", z.ZodTypeAny, {
     type: "choice";
     name: string;
@@ -6710,12 +7248,16 @@ declare const VariableSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
         };
         label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
     }[] | undefined;
     label?: string | undefined;
     isMandatory?: boolean | undefined;
     isHiddenFromSheet?: boolean | undefined;
-    defaultValue?: string | undefined;
     isMultiple?: boolean | undefined;
+    hasNumericValue?: boolean | undefined;
+    hasIcon?: boolean | undefined;
+    defaultOptionUids?: VariableChoiceUid[] | undefined;
 }, {
     type: "choice";
     name: string;
@@ -6728,12 +7270,16 @@ declare const VariableSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
         };
         label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
     }[] | undefined;
     label?: string | undefined;
     isMandatory?: boolean | undefined;
     isHiddenFromSheet?: boolean | undefined;
-    defaultValue?: string | undefined;
     isMultiple?: boolean | undefined;
+    hasNumericValue?: boolean | undefined;
+    hasIcon?: boolean | undefined;
+    defaultOptionUids?: VariableChoiceUid[] | undefined;
 }>, z.ZodObject<{
     uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
 } & {
@@ -6784,6 +7330,51 @@ declare const VariableSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     type: z.ZodLiteral<"roll">;
     diceFormula: z.ZodOptional<z.ZodString>;
     depsVariablesUid: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+    visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+        type: z.ZodLiteral<"awesome">;
+        icon: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        type: "awesome";
+        icon: string;
+    }, {
+        type: "awesome";
+        icon: string;
+    }>, z.ZodObject<{
+        type: z.ZodLiteral<"compo">;
+        icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+            icon: z.ZodNullable<z.ZodString>;
+            size: z.ZodOptional<z.ZodNumber>;
+            rotate: z.ZodOptional<z.ZodNumber>;
+            revert: z.ZodOptional<z.ZodBoolean>;
+        }, "strip", z.ZodTypeAny, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>>;
+    }, "strip", z.ZodTypeAny, {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    }, {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    }>]>>;
+    hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
 }, "strip", z.ZodTypeAny, {
     type: "roll";
     name: string;
@@ -6796,6 +7387,19 @@ declare const VariableSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     isHiddenFromSheet?: boolean | undefined;
     depsVariablesUid?: VariableUid[] | undefined;
     diceFormula?: string | undefined;
+    visual?: {
+        type: "awesome";
+        icon: string;
+    } | {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    } | undefined;
+    hue?: number | null | undefined;
 }, {
     type: "roll";
     name: string;
@@ -6808,6 +7412,19 @@ declare const VariableSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     isHiddenFromSheet?: boolean | undefined;
     depsVariablesUid?: VariableUid[] | undefined;
     diceFormula?: string | undefined;
+    visual?: {
+        type: "awesome";
+        icon: string;
+    } | {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    } | undefined;
+    hue?: number | null | undefined;
 }>]>;
 type Variable = z.infer<typeof VariableSchema>;
 
@@ -7799,6 +8416,7 @@ declare const WidgetPipsSchema: z.ZodObject<{
     variableUid: z.ZodOptional<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>;
 } & {
     type: z.ZodLiteral<"pips">;
+    icon: z.ZodOptional<z.ZodString>;
     gapX: z.ZodOptional<z.ZodNumber>;
     gapY: z.ZodOptional<z.ZodNumber>;
     max: z.ZodOptional<z.ZodNumber>;
@@ -7809,6 +8427,7 @@ declare const WidgetPipsSchema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    icon?: string | undefined;
     area?: {
         width: number;
         height: number;
@@ -7841,6 +8460,7 @@ declare const WidgetPipsSchema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    icon?: string | undefined;
     area?: {
         width: number;
         height: number;
@@ -7869,6 +8489,158 @@ declare const WidgetPipsSchema: z.ZodObject<{
     gapY?: number | undefined;
 }>;
 type WidgetPips = z.infer<typeof WidgetPipsSchema>;
+declare const BarOrientationSchema: z.ZodEnum<["ltr", "rtl", "ttb", "btt"]>;
+type BarOrientation = z.infer<typeof BarOrientationSchema>;
+declare const WidgetBarSchema: z.ZodObject<{
+    uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
+} & {
+    name: z.ZodString;
+} & {
+    area: z.ZodOptional<z.ZodNullable<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>>;
+} & {
+    position: z.ZodOptional<z.ZodNullable<z.ZodObject<{
+        left: z.ZodNumber;
+        top: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        left: number;
+        top: number;
+    }, {
+        left: number;
+        top: number;
+    }>>>;
+} & {
+    style: z.ZodOptional<z.ZodNullable<z.ZodObject<{
+        justifyContent: z.ZodOptional<z.ZodString>;
+        alignItems: z.ZodOptional<z.ZodString>;
+        flexDirection: z.ZodOptional<z.ZodString>;
+        lineHeight: z.ZodOptional<z.ZodNumber>;
+        fontFamilyId: z.ZodOptional<z.ZodString>;
+        fontScale: z.ZodOptional<z.ZodNumber>;
+        color: z.ZodOptional<z.ZodString>;
+        paddingTop: z.ZodOptional<z.ZodNumber>;
+        paddingRight: z.ZodOptional<z.ZodNumber>;
+        paddingBottom: z.ZodOptional<z.ZodNumber>;
+        paddingLeft: z.ZodOptional<z.ZodNumber>;
+    }, "strip", z.ZodTypeAny, {
+        color?: string | undefined;
+        justifyContent?: string | undefined;
+        alignItems?: string | undefined;
+        flexDirection?: string | undefined;
+        lineHeight?: number | undefined;
+        fontFamilyId?: string | undefined;
+        fontScale?: number | undefined;
+        paddingTop?: number | undefined;
+        paddingRight?: number | undefined;
+        paddingBottom?: number | undefined;
+        paddingLeft?: number | undefined;
+    }, {
+        color?: string | undefined;
+        justifyContent?: string | undefined;
+        alignItems?: string | undefined;
+        flexDirection?: string | undefined;
+        lineHeight?: number | undefined;
+        fontFamilyId?: string | undefined;
+        fontScale?: number | undefined;
+        paddingTop?: number | undefined;
+        paddingRight?: number | undefined;
+        paddingBottom?: number | undefined;
+        paddingLeft?: number | undefined;
+    }>>>;
+} & {
+    variableUid: z.ZodOptional<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>;
+} & {
+    type: z.ZodLiteral<"bar">;
+    min: z.ZodOptional<z.ZodNumber>;
+    max: z.ZodOptional<z.ZodNumber>;
+    maxVariable: z.ZodOptional<z.ZodNullable<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>>;
+    unit: z.ZodOptional<z.ZodString>;
+    orientation: z.ZodOptional<z.ZodEnum<["ltr", "rtl", "ttb", "btt"]>>;
+    barColor: z.ZodOptional<z.ZodString>;
+    bgColor: z.ZodOptional<z.ZodString>;
+    showValue: z.ZodOptional<z.ZodBoolean>;
+}, "strip", z.ZodTypeAny, {
+    type: "bar";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "WidgetUid" | undefined;
+    };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
+    style?: {
+        color?: string | undefined;
+        justifyContent?: string | undefined;
+        alignItems?: string | undefined;
+        flexDirection?: string | undefined;
+        lineHeight?: number | undefined;
+        fontFamilyId?: string | undefined;
+        fontScale?: number | undefined;
+        paddingTop?: number | undefined;
+        paddingRight?: number | undefined;
+        paddingBottom?: number | undefined;
+        paddingLeft?: number | undefined;
+    } | null | undefined;
+    variableUid?: VariableUid | undefined;
+    min?: number | undefined;
+    max?: number | undefined;
+    maxVariable?: VariableUid | null | undefined;
+    unit?: string | undefined;
+    orientation?: "ltr" | "rtl" | "ttb" | "btt" | undefined;
+    barColor?: string | undefined;
+    bgColor?: string | undefined;
+    showValue?: boolean | undefined;
+}, {
+    type: "bar";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "WidgetUid" | undefined;
+    };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
+    style?: {
+        color?: string | undefined;
+        justifyContent?: string | undefined;
+        alignItems?: string | undefined;
+        flexDirection?: string | undefined;
+        lineHeight?: number | undefined;
+        fontFamilyId?: string | undefined;
+        fontScale?: number | undefined;
+        paddingTop?: number | undefined;
+        paddingRight?: number | undefined;
+        paddingBottom?: number | undefined;
+        paddingLeft?: number | undefined;
+    } | null | undefined;
+    variableUid?: VariableUid | undefined;
+    min?: number | undefined;
+    max?: number | undefined;
+    maxVariable?: VariableUid | null | undefined;
+    unit?: string | undefined;
+    orientation?: "ltr" | "rtl" | "ttb" | "btt" | undefined;
+    barColor?: string | undefined;
+    bgColor?: string | undefined;
+    showValue?: boolean | undefined;
+}>;
+type WidgetBar = z.infer<typeof WidgetBarSchema>;
 declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
 } & {
@@ -8723,6 +9495,7 @@ declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     variableUid: z.ZodOptional<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>;
 } & {
     type: z.ZodLiteral<"pips">;
+    icon: z.ZodOptional<z.ZodString>;
     gapX: z.ZodOptional<z.ZodNumber>;
     gapY: z.ZodOptional<z.ZodNumber>;
     max: z.ZodOptional<z.ZodNumber>;
@@ -8733,6 +9506,7 @@ declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    icon?: string | undefined;
     area?: {
         width: number;
         height: number;
@@ -8765,6 +9539,7 @@ declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    icon?: string | undefined;
     area?: {
         width: number;
         height: number;
@@ -8791,6 +9566,154 @@ declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     maxVariable?: VariableUid | null | undefined;
     gapX?: number | undefined;
     gapY?: number | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
+} & {
+    name: z.ZodString;
+} & {
+    area: z.ZodOptional<z.ZodNullable<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>>;
+} & {
+    position: z.ZodOptional<z.ZodNullable<z.ZodObject<{
+        left: z.ZodNumber;
+        top: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        left: number;
+        top: number;
+    }, {
+        left: number;
+        top: number;
+    }>>>;
+} & {
+    style: z.ZodOptional<z.ZodNullable<z.ZodObject<{
+        justifyContent: z.ZodOptional<z.ZodString>;
+        alignItems: z.ZodOptional<z.ZodString>;
+        flexDirection: z.ZodOptional<z.ZodString>;
+        lineHeight: z.ZodOptional<z.ZodNumber>;
+        fontFamilyId: z.ZodOptional<z.ZodString>;
+        fontScale: z.ZodOptional<z.ZodNumber>;
+        color: z.ZodOptional<z.ZodString>;
+        paddingTop: z.ZodOptional<z.ZodNumber>;
+        paddingRight: z.ZodOptional<z.ZodNumber>;
+        paddingBottom: z.ZodOptional<z.ZodNumber>;
+        paddingLeft: z.ZodOptional<z.ZodNumber>;
+    }, "strip", z.ZodTypeAny, {
+        color?: string | undefined;
+        justifyContent?: string | undefined;
+        alignItems?: string | undefined;
+        flexDirection?: string | undefined;
+        lineHeight?: number | undefined;
+        fontFamilyId?: string | undefined;
+        fontScale?: number | undefined;
+        paddingTop?: number | undefined;
+        paddingRight?: number | undefined;
+        paddingBottom?: number | undefined;
+        paddingLeft?: number | undefined;
+    }, {
+        color?: string | undefined;
+        justifyContent?: string | undefined;
+        alignItems?: string | undefined;
+        flexDirection?: string | undefined;
+        lineHeight?: number | undefined;
+        fontFamilyId?: string | undefined;
+        fontScale?: number | undefined;
+        paddingTop?: number | undefined;
+        paddingRight?: number | undefined;
+        paddingBottom?: number | undefined;
+        paddingLeft?: number | undefined;
+    }>>>;
+} & {
+    variableUid: z.ZodOptional<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>;
+} & {
+    type: z.ZodLiteral<"bar">;
+    min: z.ZodOptional<z.ZodNumber>;
+    max: z.ZodOptional<z.ZodNumber>;
+    maxVariable: z.ZodOptional<z.ZodNullable<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>>;
+    unit: z.ZodOptional<z.ZodString>;
+    orientation: z.ZodOptional<z.ZodEnum<["ltr", "rtl", "ttb", "btt"]>>;
+    barColor: z.ZodOptional<z.ZodString>;
+    bgColor: z.ZodOptional<z.ZodString>;
+    showValue: z.ZodOptional<z.ZodBoolean>;
+}, "strip", z.ZodTypeAny, {
+    type: "bar";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "WidgetUid" | undefined;
+    };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
+    style?: {
+        color?: string | undefined;
+        justifyContent?: string | undefined;
+        alignItems?: string | undefined;
+        flexDirection?: string | undefined;
+        lineHeight?: number | undefined;
+        fontFamilyId?: string | undefined;
+        fontScale?: number | undefined;
+        paddingTop?: number | undefined;
+        paddingRight?: number | undefined;
+        paddingBottom?: number | undefined;
+        paddingLeft?: number | undefined;
+    } | null | undefined;
+    variableUid?: VariableUid | undefined;
+    min?: number | undefined;
+    max?: number | undefined;
+    maxVariable?: VariableUid | null | undefined;
+    unit?: string | undefined;
+    orientation?: "ltr" | "rtl" | "ttb" | "btt" | undefined;
+    barColor?: string | undefined;
+    bgColor?: string | undefined;
+    showValue?: boolean | undefined;
+}, {
+    type: "bar";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "WidgetUid" | undefined;
+    };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
+    style?: {
+        color?: string | undefined;
+        justifyContent?: string | undefined;
+        alignItems?: string | undefined;
+        flexDirection?: string | undefined;
+        lineHeight?: number | undefined;
+        fontFamilyId?: string | undefined;
+        fontScale?: number | undefined;
+        paddingTop?: number | undefined;
+        paddingRight?: number | undefined;
+        paddingBottom?: number | undefined;
+        paddingLeft?: number | undefined;
+    } | null | undefined;
+    variableUid?: VariableUid | undefined;
+    min?: number | undefined;
+    max?: number | undefined;
+    maxVariable?: VariableUid | null | undefined;
+    unit?: string | undefined;
+    orientation?: "ltr" | "rtl" | "ttb" | "btt" | undefined;
+    barColor?: string | undefined;
+    bgColor?: string | undefined;
+    showValue?: boolean | undefined;
 }>]>;
 type Widget = z.infer<typeof WidgetSchema>;
 
@@ -9690,16 +10613,20 @@ declare const SceneBackgroundBaseSchema: z.ZodObject<{
     uid: z.ZodType<SceneBackgroundUid, z.ZodTypeDef, SceneBackgroundUid>;
 } & {
     name: z.ZodString;
+} & {
+    opacity: z.ZodOptional<z.ZodNumber>;
 }, "strip", z.ZodTypeAny, {
     name: string;
     uid: string & {
         readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
     };
+    opacity?: number | undefined;
 }, {
     name: string;
     uid: string & {
         readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
     };
+    opacity?: number | undefined;
 }>;
 type SceneBackgroundBase = z.infer<typeof SceneBackgroundBaseSchema>;
 declare const CustomImageSceneBackgroundSchema: z.ZodObject<{
@@ -9707,6 +10634,8 @@ declare const CustomImageSceneBackgroundSchema: z.ZodObject<{
 } & {
     name: z.ZodString;
 } & {
+    opacity: z.ZodOptional<z.ZodNumber>;
+} & {
     originalUrl: z.ZodOptional<z.ZodString>;
     thumbnailUrl: z.ZodOptional<z.ZodString>;
     squareUrl: z.ZodOptional<z.ZodString>;
@@ -9723,6 +10652,7 @@ declare const CustomImageSceneBackgroundSchema: z.ZodObject<{
     thumbnailUrl?: string | undefined;
     squareUrl?: string | undefined;
     closeupUrl?: string | undefined;
+    opacity?: number | undefined;
 }, {
     type: "customImage";
     name: string;
@@ -9733,6 +10663,7 @@ declare const CustomImageSceneBackgroundSchema: z.ZodObject<{
     thumbnailUrl?: string | undefined;
     squareUrl?: string | undefined;
     closeupUrl?: string | undefined;
+    opacity?: number | undefined;
 }>;
 type CustomImageSceneBackground = z.infer<typeof CustomImageSceneBackgroundSchema>;
 declare const CustomVideoSceneBackgroundSchema: z.ZodObject<{
@@ -9740,6 +10671,8 @@ declare const CustomVideoSceneBackgroundSchema: z.ZodObject<{
 } & {
     name: z.ZodString;
 } & {
+    opacity: z.ZodOptional<z.ZodNumber>;
+} & {
     videoUrl: z.ZodOptional<z.ZodString>;
     videoDimensions: z.ZodOptional<z.ZodObject<{
         width: z.ZodNumber;
@@ -9764,6 +10697,7 @@ declare const CustomVideoSceneBackgroundSchema: z.ZodObject<{
         width: number;
         height: number;
     } | undefined;
+    opacity?: number | undefined;
 }, {
     type: "customVideo";
     name: string;
@@ -9775,12 +10709,15 @@ declare const CustomVideoSceneBackgroundSchema: z.ZodObject<{
         width: number;
         height: number;
     } | undefined;
+    opacity?: number | undefined;
 }>;
 type CustomVideoSceneBackground = z.infer<typeof CustomVideoSceneBackgroundSchema>;
 declare const SceneBackgroundSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: z.ZodType<SceneBackgroundUid, z.ZodTypeDef, SceneBackgroundUid>;
 } & {
     name: z.ZodString;
+} & {
+    opacity: z.ZodOptional<z.ZodNumber>;
 } & {
     originalUrl: z.ZodOptional<z.ZodString>;
     thumbnailUrl: z.ZodOptional<z.ZodString>;
@@ -9798,6 +10735,7 @@ declare const SceneBackgroundSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObjec
     thumbnailUrl?: string | undefined;
     squareUrl?: string | undefined;
     closeupUrl?: string | undefined;
+    opacity?: number | undefined;
 }, {
     type: "customImage";
     name: string;
@@ -9808,10 +10746,13 @@ declare const SceneBackgroundSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObjec
     thumbnailUrl?: string | undefined;
     squareUrl?: string | undefined;
     closeupUrl?: string | undefined;
+    opacity?: number | undefined;
 }>, z.ZodObject<{
     uid: z.ZodType<SceneBackgroundUid, z.ZodTypeDef, SceneBackgroundUid>;
 } & {
     name: z.ZodString;
+} & {
+    opacity: z.ZodOptional<z.ZodNumber>;
 } & {
     videoUrl: z.ZodOptional<z.ZodString>;
     videoDimensions: z.ZodOptional<z.ZodObject<{
@@ -9837,6 +10778,7 @@ declare const SceneBackgroundSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObjec
         width: number;
         height: number;
     } | undefined;
+    opacity?: number | undefined;
 }, {
     type: "customVideo";
     name: string;
@@ -9848,6 +10790,7 @@ declare const SceneBackgroundSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObjec
         width: number;
         height: number;
     } | undefined;
+    opacity?: number | undefined;
 }>]>;
 type SceneBackground = z.infer<typeof SceneBackgroundSchema>;
 
@@ -10305,4 +11248,4 @@ declare const DialectSchema: z.ZodObject<{
 }>;
 type Dialect = z.infer<typeof DialectSchema>;
 
-export { AbilityEntitySchema, type Asset, type AssetBase, AssetBaseSchema, AssetSchema, type AssetUid, AssetUidSchema, type AudioAsset, AudioAssetSchema, type AudioExternalAsset, AudioExternalAssetSchema, BYPP_FORMAT_EXT, BYPP_FORMAT_VERSION, type BeyondPaper, BeyondPaperSchema, type BooleanVariable, BooleanVariableSchema, type Asset as ByppAsset, type AssetBase as ByppAssetBase, type CharacterEntity as ByppCharacterEntity, type Chunk as ByppChunk, type ChunkBase as ByppChunkBase, type ChunkGallery as ByppChunkGallery, type ChunkRandom as ByppChunkRandom, type ChunkText as ByppChunkText, type ChunkTextProxy as ByppChunkTextProxy, type CreatureEntity as ByppCreatureEntity, type Dataset as ByppDataset, type Dialect as ByppDialect, type DialectFont as ByppDialectFont, type Entity as ByppEntity, type EntityBase as ByppEntityBase, type GroupEntity as ByppGroupEntity, type GroupRank as ByppGroupRank, type GroupRankCharacter as ByppGroupRankCharacter, type Page as ByppPage, type PageEntity as ByppPageEntity, type PageStandard as ByppPageStandard, type PlaceEntity as ByppPlaceEntity, type RandomTable as ByppRandomTable, type RandomTableRow as ByppRandomTableRow, type Scene as ByppScene, type SceneBackground as ByppSceneBackground, type SceneBackgroundBase as ByppSceneBackgroundBase, type SceneMap as ByppSceneMap, type SceneMapBase as ByppSceneMapBase, type Tag as ByppTag, type TagCategory as ByppTagCategory, type Variable as ByppVariable, type VariableBase as ByppVariableBase, type Widget as ByppWidget, type WidgetBase as ByppWidgetBase, type CharacterEntity, CharacterEntitySchema, type ChoiceOption, ChoiceOptionSchema, type ChoiceVariable, ChoiceVariableSchema, type Chunk, type ChunkBase, ChunkBaseSchema, type ChunkBlockStyle, ChunkBlockStyleSchema, type ChunkGallery, ChunkGallerySchema, type ChunkHeadingLevel, ChunkHeadingLevelSchema, type ChunkHeadingMode, ChunkHeadingModeSchema, type ChunkRandom, ChunkRandomSchema, ChunkSchema, type ChunkText, type ChunkTextProxy, ChunkTextProxySchema, ChunkTextSchema, type ChunkUid, ChunkUidSchema, type CreatureEntity, CreatureEntitySchema, type CustomImageSceneBackground, CustomImageSceneBackgroundSchema, type CustomImageSceneMap, CustomImageSceneMapSchema, type CustomVideoSceneBackground, CustomVideoSceneBackgroundSchema, type CustomVideoSceneMap, CustomVideoSceneMapSchema, type Dataset, DatasetSchema, DatasetTargetSchema, type DatasetUid, DatasetUidSchema, type Dd2VttSceneMap, Dd2VttSceneMapSchema, type Dialect, type DialectFont, DialectFontSchema, DialectSchema, type DialectUid, DialectUidSchema, type Entity, type EntityAsset, EntityAssetSchema, type EntityBase, EntityBaseSchema, EntitySchema, type EntityType, EntityTypeSchema, type EntityUid, EntityUidSchema, EventEntitySchema, type FormulaVariable, FormulaVariableSchema, type GridData, GridDataSchema, type GroupEntity, GroupEntitySchema, type GroupRank, type GroupRankCharacter, GroupRankCharacterSchema, GroupRankSchema, type ImageAsset, ImageAssetSchema, type ImageDimensions, ImageDimensionsSchema, ItemEntitySchema, NoteEntitySchema, type NumberVariable, NumberVariableSchema, type Page, type PageEntity, PageEntitySchema, PageSchema, type PageStandard, PageStandardSchema, type PageUid, PageUidSchema, type PlaceEntity, PlaceEntitySchema, type RandomTable, type RandomTableRow, RandomTableRowSchema, type RandomTableRowUid, RandomTableRowUidSchema, RandomTableSchema, type RandomTableUid, RandomTableUidSchema, type RollVariable, RollVariableSchema, type Scene, type SceneBackground, type SceneBackgroundBase, SceneBackgroundBaseSchema, SceneBackgroundSchema, type SceneBackgroundUid, SceneBackgroundUidSchema, type SceneGameMode, SceneGameModeSchema, type SceneMap, type SceneMapBase, SceneMapBaseSchema, SceneMapSchema, type SceneMapUid, SceneMapUidSchema, SceneSchema, type SceneUid, SceneUidSchema, type SheetUid, SheetUidSchema, StoryEntitySchema, StyleSchema, type Tag, type TagCategory, TagCategorySchema, type TagCategoryUid, TagCategoryUidSchema, TagSchema, type TagUid, TagUidSchema, type TextVariable, TextVariableSchema, type Variable, type VariableBase, VariableBaseSchema, type VariableChoiceUid, VariableChoiceUidSchema, VariableDataValueSchema, VariableSchema, type VariableUid, VariableUidSchema, VariablesDataRecordSchema, type VideoAsset, VideoAssetSchema, type Widget, type WidgetBase, WidgetBaseSchema, type WidgetBigNumber, WidgetBigNumberSchema, type WidgetBulletList, WidgetBulletListSchema, type WidgetEmpty, WidgetEmptySchema, type WidgetInlineList, WidgetInlineListSchema, type WidgetPips, WidgetPipsSchema, type WidgetPlainText, WidgetPlainTextSchema, WidgetSchema, type WidgetToggle, WidgetToggleSchema, type WidgetUid, WidgetUidSchema, WithArchiveSchema, WithAreaSchema, WithAssetsSchema, WithAudioUrlsSchema, WithDataSchema, WithImagesUrlsSchema, WithNameSchema, WithPagesSchema, WithPositionSchema, WithScenesSchema, WithStyleSchema, WithVideoUrlsSchema };
+export { AbilityEntitySchema, type ActionVisual, ActionVisualSchema, type Asset, type AssetBase, AssetBaseSchema, AssetSchema, type AssetUid, AssetUidSchema, type AudioAsset, AudioAssetSchema, type AudioExternalAsset, AudioExternalAssetSchema, BYPP_FORMAT_EXT, BYPP_FORMAT_VERSION, type BarOrientation, BarOrientationSchema, type BeyondPaper, BeyondPaperSchema, type BooleanVariable, BooleanVariableSchema, type Asset as ByppAsset, type AssetBase as ByppAssetBase, type CharacterEntity as ByppCharacterEntity, type Chunk as ByppChunk, type ChunkBase as ByppChunkBase, type ChunkGallery as ByppChunkGallery, type ChunkRandom as ByppChunkRandom, type ChunkText as ByppChunkText, type ChunkTextProxy as ByppChunkTextProxy, type CreatureEntity as ByppCreatureEntity, type Dataset as ByppDataset, type Dialect as ByppDialect, type DialectFont as ByppDialectFont, type Entity as ByppEntity, type EntityBase as ByppEntityBase, type GroupEntity as ByppGroupEntity, type GroupRank as ByppGroupRank, type GroupRankCharacter as ByppGroupRankCharacter, type Page as ByppPage, type PageEntity as ByppPageEntity, type PageStandard as ByppPageStandard, type PlaceEntity as ByppPlaceEntity, type RandomTable as ByppRandomTable, type RandomTableRow as ByppRandomTableRow, type Scene as ByppScene, type SceneBackground as ByppSceneBackground, type SceneBackgroundBase as ByppSceneBackgroundBase, type SceneMap as ByppSceneMap, type SceneMapBase as ByppSceneMapBase, type Tag as ByppTag, type TagCategory as ByppTagCategory, type Variable as ByppVariable, type VariableBase as ByppVariableBase, type Widget as ByppWidget, type WidgetBase as ByppWidgetBase, type CharacterEntity, CharacterEntitySchema, type ChoiceOption, ChoiceOptionSchema, type ChoiceVariable, ChoiceVariableSchema, type Chunk, type ChunkBase, ChunkBaseSchema, type ChunkBlockStyle, ChunkBlockStyleSchema, type ChunkGallery, ChunkGallerySchema, type ChunkHeadingLevel, ChunkHeadingLevelSchema, type ChunkHeadingMode, ChunkHeadingModeSchema, type ChunkRandom, ChunkRandomSchema, ChunkSchema, type ChunkText, type ChunkTextProxy, ChunkTextProxySchema, ChunkTextSchema, type ChunkUid, ChunkUidSchema, type CreatureEntity, CreatureEntitySchema, type CustomImageSceneBackground, CustomImageSceneBackgroundSchema, type CustomImageSceneMap, CustomImageSceneMapSchema, type CustomVideoSceneBackground, CustomVideoSceneBackgroundSchema, type CustomVideoSceneMap, CustomVideoSceneMapSchema, type Dataset, DatasetSchema, DatasetTargetSchema, type DatasetUid, DatasetUidSchema, type Dd2VttSceneMap, Dd2VttSceneMapSchema, type Dialect, type DialectFont, DialectFontSchema, DialectSchema, type DialectUid, DialectUidSchema, type Entity, type EntityAsset, EntityAssetSchema, type EntityBase, EntityBaseSchema, EntitySchema, type EntityType, EntityTypeSchema, type EntityUid, EntityUidSchema, EventEntitySchema, type FormulaVariable, FormulaVariableSchema, type GridData, GridDataSchema, type GroupEntity, GroupEntitySchema, type GroupRank, type GroupRankCharacter, GroupRankCharacterSchema, GroupRankSchema, type IconCompo, IconCompoSchema, type IconCompoSlotConfig, IconCompoSlotConfigSchema, type ImageAsset, ImageAssetSchema, type ImageDimensions, ImageDimensionsSchema, ItemEntitySchema, NoteEntitySchema, type NumberVariable, NumberVariableSchema, type Page, type PageEntity, PageEntitySchema, PageSchema, type PageStandard, PageStandardSchema, type PageUid, PageUidSchema, type PlaceEntity, PlaceEntitySchema, type RandomTable, type RandomTableRow, RandomTableRowSchema, type RandomTableRowUid, RandomTableRowUidSchema, RandomTableSchema, type RandomTableUid, RandomTableUidSchema, type RollVariable, RollVariableSchema, type Scene, type SceneBackground, type SceneBackgroundBase, SceneBackgroundBaseSchema, SceneBackgroundSchema, type SceneBackgroundUid, SceneBackgroundUidSchema, type SceneGameMode, SceneGameModeSchema, type SceneMap, type SceneMapBase, SceneMapBaseSchema, SceneMapSchema, type SceneMapUid, SceneMapUidSchema, SceneSchema, type SceneUid, SceneUidSchema, type SheetUid, SheetUidSchema, StoryEntitySchema, StyleSchema, type Tag, type TagCategory, TagCategorySchema, type TagCategoryUid, TagCategoryUidSchema, TagSchema, type TagUid, TagUidSchema, type TextVariable, TextVariableSchema, type Variable, type VariableBase, VariableBaseSchema, type VariableChoiceUid, VariableChoiceUidSchema, VariableDataValueSchema, VariableSchema, type VariableUid, VariableUidSchema, VariablesDataRecordSchema, type VideoAsset, VideoAssetSchema, type Widget, type WidgetBar, WidgetBarSchema, type WidgetBase, WidgetBaseSchema, type WidgetBigNumber, WidgetBigNumberSchema, type WidgetBulletList, WidgetBulletListSchema, type WidgetEmpty, WidgetEmptySchema, type WidgetInlineList, WidgetInlineListSchema, type WidgetPips, WidgetPipsSchema, type WidgetPlainText, WidgetPlainTextSchema, WidgetSchema, type WidgetToggle, WidgetToggleSchema, type WidgetUid, WidgetUidSchema, WithArchiveSchema, WithAreaSchema, WithAssetsSchema, WithAudioUrlsSchema, WithDataSchema, WithImagesUrlsSchema, WithNameSchema, WithPagesSchema, WithPositionSchema, WithScenesSchema, WithStyleSchema, WithVideoUrlsSchema };

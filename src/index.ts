@@ -167,6 +167,8 @@ export {
   WidgetBulletListSchema,
   WidgetInlineListSchema,
   WidgetPipsSchema,
+  WidgetBarSchema,
+  BarOrientationSchema,
   type Widget,
   type WidgetBase,
   type WidgetEmpty,
@@ -176,7 +178,19 @@ export {
   type WidgetBulletList,
   type WidgetInlineList,
   type WidgetPips,
+  type WidgetBar,
+  type BarOrientation,
 } from "./models/widget.schema";
+
+// Action visual (used by RollVariable)
+export {
+  ActionVisualSchema,
+  IconCompoSchema,
+  IconCompoSlotConfigSchema,
+  type ActionVisual,
+  type IconCompo,
+  type IconCompoSlotConfig,
+} from "./models/variable.schema";
 
 // Random Table
 export {

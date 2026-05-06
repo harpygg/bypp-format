@@ -6,7 +6,10 @@ import { SceneBackgroundUidSchema } from "../uid";
 
 export const SceneBackgroundBaseSchema = z
   .object({ uid: SceneBackgroundUidSchema })
-  .merge(WithNameSchema);
+  .merge(WithNameSchema)
+  .extend({
+    opacity: z.number().optional(),
+  });
 
 export type SceneBackgroundBase = z.infer<typeof SceneBackgroundBaseSchema>;
 

@@ -21,6 +21,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var index_exports = {};
 __export(index_exports, {
   AbilityEntitySchema: () => AbilityEntitySchema,
+  ActionVisualSchema: () => ActionVisualSchema,
   AssetBaseSchema: () => AssetBaseSchema,
   AssetSchema: () => AssetSchema,
   AssetUidSchema: () => AssetUidSchema,
@@ -28,6 +29,7 @@ __export(index_exports, {
   AudioExternalAssetSchema: () => AudioExternalAssetSchema,
   BYPP_FORMAT_EXT: () => BYPP_FORMAT_EXT,
   BYPP_FORMAT_VERSION: () => BYPP_FORMAT_VERSION,
+  BarOrientationSchema: () => BarOrientationSchema,
   BeyondPaperSchema: () => BeyondPaperSchema,
   BooleanVariableSchema: () => BooleanVariableSchema,
   CharacterEntitySchema: () => CharacterEntitySchema,
@@ -66,6 +68,8 @@ __export(index_exports, {
   GroupEntitySchema: () => GroupEntitySchema,
   GroupRankCharacterSchema: () => GroupRankCharacterSchema,
   GroupRankSchema: () => GroupRankSchema,
+  IconCompoSchema: () => IconCompoSchema,
+  IconCompoSlotConfigSchema: () => IconCompoSlotConfigSchema,
   ImageAssetSchema: () => ImageAssetSchema,
   ImageDimensionsSchema: () => ImageDimensionsSchema,
   ItemEntitySchema: () => ItemEntitySchema,
@@ -105,6 +109,7 @@ __export(index_exports, {
   VariableUidSchema: () => VariableUidSchema,
   VariablesDataRecordSchema: () => VariablesDataRecordSchema,
   VideoAssetSchema: () => VideoAssetSchema,
+  WidgetBarSchema: () => WidgetBarSchema,
   WidgetBaseSchema: () => WidgetBaseSchema,
   WidgetBigNumberSchema: () => WidgetBigNumberSchema,
   WidgetBulletListSchema: () => WidgetBulletListSchema,
@@ -459,7 +464,9 @@ var SceneSchema = import_zod18.z.object({ uid: SceneUidSchema }).merge(WithNameS
 
 // src/models/scene-background.schema.ts
 var import_zod19 = require("zod");
-var SceneBackgroundBaseSchema = import_zod19.z.object({ uid: SceneBackgroundUidSchema }).merge(WithNameSchema);
+var SceneBackgroundBaseSchema = import_zod19.z.object({ uid: SceneBackgroundUidSchema }).merge(WithNameSchema).extend({
+  opacity: import_zod19.z.number().optional()
+});
 var CustomImageSceneBackgroundSchema = SceneBackgroundBaseSchema.merge(
   WithImagesUrlsSchema
 ).extend({
@@ -525,7 +532,9 @@ var TagCategorySchema = import_zod22.z.object({ uid: TagCategoryUidSchema }).mer
 var import_zod23 = require("zod");
 var ChoiceOptionSchema = import_zod23.z.object({
   uid: VariableChoiceUidSchema,
-  label: import_zod23.z.string()
+  label: import_zod23.z.string(),
+  icon: import_zod23.z.string().optional(),
+  value: import_zod23.z.number().optional()
 });
 var VariableBaseSchema = import_zod23.z.object({ uid: VariableUidSchema }).merge(WithNameSchema).extend({
   datasetsUids: import_zod23.z.array(DatasetUidSchema),
@@ -550,17 +559,32 @@ var ChoiceVariableSchema = VariableBaseSchema.extend({
   type: import_zod23.z.literal("choice"),
   options: import_zod23.z.array(ChoiceOptionSchema).optional(),
   isMultiple: import_zod23.z.boolean().optional(),
-  defaultValue: import_zod23.z.string().optional()
+  hasNumericValue: import_zod23.z.boolean().optional(),
+  hasIcon: import_zod23.z.boolean().optional(),
+  defaultOptionUids: import_zod23.z.array(VariableChoiceUidSchema).optional()
 });
 var FormulaVariableSchema = VariableBaseSchema.extend({
   type: import_zod23.z.literal("formula"),
   formula: import_zod23.z.string().optional(),
   depsVariablesUid: import_zod23.z.array(VariableUidSchema).optional()
 });
+var IconCompoSlotConfigSchema = import_zod23.z.object({
+  icon: import_zod23.z.string().nullable(),
+  size: import_zod23.z.number().optional(),
+  rotate: import_zod23.z.number().optional(),
+  revert: import_zod23.z.boolean().optional()
+});
+var IconCompoSchema = import_zod23.z.record(import_zod23.z.string(), IconCompoSlotConfigSchema);
+var ActionVisualSchema = import_zod23.z.discriminatedUnion("type", [
+  import_zod23.z.object({ type: import_zod23.z.literal("awesome"), icon: import_zod23.z.string() }),
+  import_zod23.z.object({ type: import_zod23.z.literal("compo"), icons: IconCompoSchema })
+]);
 var RollVariableSchema = VariableBaseSchema.extend({
   type: import_zod23.z.literal("roll"),
   diceFormula: import_zod23.z.string().optional(),
-  depsVariablesUid: import_zod23.z.array(VariableUidSchema).optional()
+  depsVariablesUid: import_zod23.z.array(VariableUidSchema).optional(),
+  visual: ActionVisualSchema.optional(),
+  hue: import_zod23.z.number().nullable().optional()
 });
 var VariableSchema = import_zod23.z.discriminatedUnion("type", [
   NumberVariableSchema,
@@ -649,10 +673,23 @@ var WidgetInlineListSchema = WidgetBaseSchema.extend({
 });
 var WidgetPipsSchema = WidgetBaseSchema.extend({
   type: import_zod27.z.literal("pips"),
+  icon: import_zod27.z.string().optional(),
   gapX: import_zod27.z.number().optional(),
   gapY: import_zod27.z.number().optional(),
   max: import_zod27.z.number().optional(),
   maxVariable: VariableUidSchema.nullable().optional()
+});
+var BarOrientationSchema = import_zod27.z.enum(["ltr", "rtl", "ttb", "btt"]);
+var WidgetBarSchema = WidgetBaseSchema.extend({
+  type: import_zod27.z.literal("bar"),
+  min: import_zod27.z.number().optional(),
+  max: import_zod27.z.number().optional(),
+  maxVariable: VariableUidSchema.nullable().optional(),
+  unit: import_zod27.z.string().optional(),
+  orientation: BarOrientationSchema.optional(),
+  barColor: import_zod27.z.string().optional(),
+  bgColor: import_zod27.z.string().optional(),
+  showValue: import_zod27.z.boolean().optional()
 });
 var WidgetSchema = import_zod27.z.discriminatedUnion("type", [
   WidgetEmptySchema,
@@ -661,7 +698,8 @@ var WidgetSchema = import_zod27.z.discriminatedUnion("type", [
   WidgetToggleSchema,
   WidgetBulletListSchema,
   WidgetInlineListSchema,
-  WidgetPipsSchema
+  WidgetPipsSchema,
+  WidgetBarSchema
 ]);
 
 // src/bypp.schema.ts
@@ -692,6 +730,7 @@ var BeyondPaperSchema = import_zod28.z.object({
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   AbilityEntitySchema,
+  ActionVisualSchema,
   AssetBaseSchema,
   AssetSchema,
   AssetUidSchema,
@@ -699,6 +738,7 @@ var BeyondPaperSchema = import_zod28.z.object({
   AudioExternalAssetSchema,
   BYPP_FORMAT_EXT,
   BYPP_FORMAT_VERSION,
+  BarOrientationSchema,
   BeyondPaperSchema,
   BooleanVariableSchema,
   CharacterEntitySchema,
@@ -737,6 +777,8 @@ var BeyondPaperSchema = import_zod28.z.object({
   GroupEntitySchema,
   GroupRankCharacterSchema,
   GroupRankSchema,
+  IconCompoSchema,
+  IconCompoSlotConfigSchema,
   ImageAssetSchema,
   ImageDimensionsSchema,
   ItemEntitySchema,
@@ -776,6 +818,7 @@ var BeyondPaperSchema = import_zod28.z.object({
   VariableUidSchema,
   VariablesDataRecordSchema,
   VideoAssetSchema,
+  WidgetBarSchema,
   WidgetBaseSchema,
   WidgetBigNumberSchema,
   WidgetBulletListSchema,

@@ -9,6 +9,8 @@ import {
 export const ChoiceOptionSchema = z.object({
   uid: VariableChoiceUidSchema,
   label: z.string(),
+  icon: z.string().optional(),
+  value: z.number().optional(),
 });
 
 export type ChoiceOption = z.infer<typeof ChoiceOptionSchema>;
@@ -51,7 +53,9 @@ export const ChoiceVariableSchema = VariableBaseSchema.extend({
   type: z.literal("choice"),
   options: z.array(ChoiceOptionSchema).optional(),
   isMultiple: z.boolean().optional(),
-  defaultValue: z.string().optional(),
+  hasNumericValue: z.boolean().optional(),
+  hasIcon: z.boolean().optional(),
+  defaultOptionUids: z.array(VariableChoiceUidSchema).optional(),
 });
 
 export type ChoiceVariable = z.infer<typeof ChoiceVariableSchema>;
@@ -64,10 +68,32 @@ export const FormulaVariableSchema = VariableBaseSchema.extend({
 
 export type FormulaVariable = z.infer<typeof FormulaVariableSchema>;
 
+export const IconCompoSlotConfigSchema = z.object({
+  icon: z.string().nullable(),
+  size: z.number().optional(),
+  rotate: z.number().optional(),
+  revert: z.boolean().optional(),
+});
+
+export type IconCompoSlotConfig = z.infer<typeof IconCompoSlotConfigSchema>;
+
+export const IconCompoSchema = z.record(z.string(), IconCompoSlotConfigSchema);
+
+export type IconCompo = z.infer<typeof IconCompoSchema>;
+
+export const ActionVisualSchema = z.discriminatedUnion("type", [
+  z.object({ type: z.literal("awesome"), icon: z.string() }),
+  z.object({ type: z.literal("compo"), icons: IconCompoSchema }),
+]);
+
+export type ActionVisual = z.infer<typeof ActionVisualSchema>;
+
 export const RollVariableSchema = VariableBaseSchema.extend({
   type: z.literal("roll"),
   diceFormula: z.string().optional(),
   depsVariablesUid: z.array(VariableUidSchema).optional(),
+  visual: ActionVisualSchema.optional(),
+  hue: z.number().nullable().optional(),
 });
 
 export type RollVariable = z.infer<typeof RollVariableSchema>;

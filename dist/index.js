@@ -327,7 +327,9 @@ var SceneSchema = z18.object({ uid: SceneUidSchema }).merge(WithNameSchema).exte
 
 // src/models/scene-background.schema.ts
 import { z as z19 } from "zod";
-var SceneBackgroundBaseSchema = z19.object({ uid: SceneBackgroundUidSchema }).merge(WithNameSchema);
+var SceneBackgroundBaseSchema = z19.object({ uid: SceneBackgroundUidSchema }).merge(WithNameSchema).extend({
+  opacity: z19.number().optional()
+});
 var CustomImageSceneBackgroundSchema = SceneBackgroundBaseSchema.merge(
   WithImagesUrlsSchema
 ).extend({
@@ -393,7 +395,9 @@ var TagCategorySchema = z22.object({ uid: TagCategoryUidSchema }).merge(WithName
 import { z as z23 } from "zod";
 var ChoiceOptionSchema = z23.object({
   uid: VariableChoiceUidSchema,
-  label: z23.string()
+  label: z23.string(),
+  icon: z23.string().optional(),
+  value: z23.number().optional()
 });
 var VariableBaseSchema = z23.object({ uid: VariableUidSchema }).merge(WithNameSchema).extend({
   datasetsUids: z23.array(DatasetUidSchema),
@@ -418,17 +422,32 @@ var ChoiceVariableSchema = VariableBaseSchema.extend({
   type: z23.literal("choice"),
   options: z23.array(ChoiceOptionSchema).optional(),
   isMultiple: z23.boolean().optional(),
-  defaultValue: z23.string().optional()
+  hasNumericValue: z23.boolean().optional(),
+  hasIcon: z23.boolean().optional(),
+  defaultOptionUids: z23.array(VariableChoiceUidSchema).optional()
 });
 var FormulaVariableSchema = VariableBaseSchema.extend({
   type: z23.literal("formula"),
   formula: z23.string().optional(),
   depsVariablesUid: z23.array(VariableUidSchema).optional()
 });
+var IconCompoSlotConfigSchema = z23.object({
+  icon: z23.string().nullable(),
+  size: z23.number().optional(),
+  rotate: z23.number().optional(),
+  revert: z23.boolean().optional()
+});
+var IconCompoSchema = z23.record(z23.string(), IconCompoSlotConfigSchema);
+var ActionVisualSchema = z23.discriminatedUnion("type", [
+  z23.object({ type: z23.literal("awesome"), icon: z23.string() }),
+  z23.object({ type: z23.literal("compo"), icons: IconCompoSchema })
+]);
 var RollVariableSchema = VariableBaseSchema.extend({
   type: z23.literal("roll"),
   diceFormula: z23.string().optional(),
-  depsVariablesUid: z23.array(VariableUidSchema).optional()
+  depsVariablesUid: z23.array(VariableUidSchema).optional(),
+  visual: ActionVisualSchema.optional(),
+  hue: z23.number().nullable().optional()
 });
 var VariableSchema = z23.discriminatedUnion("type", [
   NumberVariableSchema,
@@ -517,10 +536,23 @@ var WidgetInlineListSchema = WidgetBaseSchema.extend({
 });
 var WidgetPipsSchema = WidgetBaseSchema.extend({
   type: z27.literal("pips"),
+  icon: z27.string().optional(),
   gapX: z27.number().optional(),
   gapY: z27.number().optional(),
   max: z27.number().optional(),
   maxVariable: VariableUidSchema.nullable().optional()
+});
+var BarOrientationSchema = z27.enum(["ltr", "rtl", "ttb", "btt"]);
+var WidgetBarSchema = WidgetBaseSchema.extend({
+  type: z27.literal("bar"),
+  min: z27.number().optional(),
+  max: z27.number().optional(),
+  maxVariable: VariableUidSchema.nullable().optional(),
+  unit: z27.string().optional(),
+  orientation: BarOrientationSchema.optional(),
+  barColor: z27.string().optional(),
+  bgColor: z27.string().optional(),
+  showValue: z27.boolean().optional()
 });
 var WidgetSchema = z27.discriminatedUnion("type", [
   WidgetEmptySchema,
@@ -529,7 +561,8 @@ var WidgetSchema = z27.discriminatedUnion("type", [
   WidgetToggleSchema,
   WidgetBulletListSchema,
   WidgetInlineListSchema,
-  WidgetPipsSchema
+  WidgetPipsSchema,
+  WidgetBarSchema
 ]);
 
 // src/bypp.schema.ts
@@ -559,6 +592,7 @@ var BeyondPaperSchema = z28.object({
 });
 export {
   AbilityEntitySchema,
+  ActionVisualSchema,
   AssetBaseSchema,
   AssetSchema,
   AssetUidSchema,
@@ -566,6 +600,7 @@ export {
   AudioExternalAssetSchema,
   BYPP_FORMAT_EXT,
   BYPP_FORMAT_VERSION,
+  BarOrientationSchema,
   BeyondPaperSchema,
   BooleanVariableSchema,
   CharacterEntitySchema,
@@ -604,6 +639,8 @@ export {
   GroupEntitySchema,
   GroupRankCharacterSchema,
   GroupRankSchema,
+  IconCompoSchema,
+  IconCompoSlotConfigSchema,
   ImageAssetSchema,
   ImageDimensionsSchema,
   ItemEntitySchema,
@@ -643,6 +680,7 @@ export {
   VariableUidSchema,
   VariablesDataRecordSchema,
   VideoAssetSchema,
+  WidgetBarSchema,
   WidgetBaseSchema,
   WidgetBigNumberSchema,
   WidgetBulletListSchema,

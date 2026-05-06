@@ -69,6 +69,7 @@ export type WidgetInlineList = z.infer<typeof WidgetInlineListSchema>;
 
 export const WidgetPipsSchema = WidgetBaseSchema.extend({
   type: z.literal("pips"),
+  icon: z.string().optional(),
   gapX: z.number().optional(),
   gapY: z.number().optional(),
   max: z.number().optional(),
@@ -76,6 +77,24 @@ export const WidgetPipsSchema = WidgetBaseSchema.extend({
 });
 
 export type WidgetPips = z.infer<typeof WidgetPipsSchema>;
+
+export const BarOrientationSchema = z.enum(["ltr", "rtl", "ttb", "btt"]);
+
+export type BarOrientation = z.infer<typeof BarOrientationSchema>;
+
+export const WidgetBarSchema = WidgetBaseSchema.extend({
+  type: z.literal("bar"),
+  min: z.number().optional(),
+  max: z.number().optional(),
+  maxVariable: VariableUidSchema.nullable().optional(),
+  unit: z.string().optional(),
+  orientation: BarOrientationSchema.optional(),
+  barColor: z.string().optional(),
+  bgColor: z.string().optional(),
+  showValue: z.boolean().optional(),
+});
+
+export type WidgetBar = z.infer<typeof WidgetBarSchema>;
 
 export const WidgetSchema = z.discriminatedUnion("type", [
   WidgetEmptySchema,
@@ -85,6 +104,7 @@ export const WidgetSchema = z.discriminatedUnion("type", [
   WidgetBulletListSchema,
   WidgetInlineListSchema,
   WidgetPipsSchema,
+  WidgetBarSchema,
 ]);
 
 export type Widget = z.infer<typeof WidgetSchema>;
