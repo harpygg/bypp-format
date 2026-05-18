@@ -23,6 +23,9 @@ export type {
   DialectUid,
   SheetUid,
   VariableChoiceUid,
+  DataTableUid,
+  DataTableRowUid,
+  DataTableColumnUid,
 } from "./uid";
 
 // Branded UID Zod schemas (runtime validators)
@@ -44,6 +47,9 @@ export {
   DialectUidSchema,
   SheetUidSchema,
   VariableChoiceUidSchema,
+  DataTableUidSchema,
+  DataTableRowUidSchema,
+  DataTableColumnUidSchema,
 } from "./uid";
 
 // Mixin schemas
@@ -67,6 +73,10 @@ export { WithAssetsSchema } from "./mixins/with-assets.schema";
 export { WithAreaSchema } from "./mixins/with-area.schema";
 export { WithPositionSchema } from "./mixins/with-position.schema";
 export { WithStyleSchema, StyleSchema } from "./mixins/with-style.schema";
+export {
+  TranslatableTextSchema,
+  type TranslatableText,
+} from "./mixins/translatable-text.schema";
 
 // Entity
 export {
@@ -144,6 +154,8 @@ export {
   ChoiceVariableSchema,
   FormulaVariableSchema,
   RollVariableSchema,
+  DataTableRefVariableSchema,
+  DataTableLookupVariableSchema,
   ChoiceOptionSchema,
   type Variable,
   type VariableBase,
@@ -153,6 +165,8 @@ export {
   type ChoiceVariable,
   type FormulaVariable,
   type RollVariable,
+  type DataTableRefVariable,
+  type DataTableLookupVariable,
   type ChoiceOption,
 } from "./models/variable.schema";
 
@@ -266,6 +280,37 @@ export {
   type DialectFont,
 } from "./models/dialect.schema";
 
+// Sheet
+export { SheetSchema, type Sheet } from "./models/sheet.schema";
+
+// Data Table
+export {
+  DataTableSchema,
+  DataTableColumnSchema,
+  DataTableColumnNumberSchema,
+  DataTableColumnTextSchema,
+  DataTableColumnBooleanSchema,
+  DataTableColumnChoiceSchema,
+  DataTableColumnIconSchema,
+  DataTableColumnTranslatableTextSchema,
+  DataTableColumnDataTableRefSchema,
+  DataTableColumnDataTableLookupSchema,
+  DataTableRowSchema,
+  DataTableCellValueSchema,
+  type DataTable,
+  type DataTableColumn,
+  type DataTableColumnNumber,
+  type DataTableColumnText,
+  type DataTableColumnBoolean,
+  type DataTableColumnChoice,
+  type DataTableColumnIcon,
+  type DataTableColumnTranslatableText,
+  type DataTableColumnDataTableRef,
+  type DataTableColumnDataTableLookup,
+  type DataTableRow,
+  type DataTableCellValue,
+} from "./models/data-table.schema";
+
 // ─── Bypp-prefixed type aliases ─────────────────────────────────────
 // For consumers (like Harpy) that have their own types with the same
 // names and want to avoid `import { Entity as ByppEntity }` aliasing.
@@ -305,3 +350,9 @@ export type { Asset as ByppAsset } from "./models/asset.schema";
 export type { AssetBase as ByppAssetBase } from "./models/asset.schema";
 export type { Dialect as ByppDialect } from "./models/dialect.schema";
 export type { DialectFont as ByppDialectFont } from "./models/dialect.schema";
+export type { Sheet as ByppSheet } from "./models/sheet.schema";
+export type { DataTable as ByppDataTable } from "./models/data-table.schema";
+export type { DataTableColumn as ByppDataTableColumn } from "./models/data-table.schema";
+export type { DataTableRow as ByppDataTableRow } from "./models/data-table.schema";
+export type { DataTableRefVariable as ByppDataTableRefVariable } from "./models/variable.schema";
+export type { DataTableLookupVariable as ByppDataTableLookupVariable } from "./models/variable.schema";

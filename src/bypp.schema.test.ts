@@ -3,7 +3,7 @@ import { BeyondPaperSchema, type BeyondPaper } from "./bypp.schema";
 
 describe("BeyondPaperSchema", () => {
   const validMinimal: BeyondPaper = {
-    version: 1,
+    version: 2,
     format: "bypp",
     name: "Test Bundle",
     exportedAt: "2026-03-22T12:00:00.000Z",
@@ -15,6 +15,8 @@ describe("BeyondPaperSchema", () => {
     datasets: [],
     variables: [],
     widgets: [],
+    sheets: [],
+    dataTables: [],
     randomTables: [],
     tags: [],
     tagCategories: [],

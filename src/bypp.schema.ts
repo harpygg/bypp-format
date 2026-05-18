@@ -3,6 +3,7 @@ import { BYPP_FORMAT_VERSION } from "./version";
 import { AssetSchema } from "./models/asset.schema";
 import { ChunkSchema } from "./models/chunk.schema";
 import { DatasetSchema } from "./models/dataset.schema";
+import { DataTableSchema } from "./models/data-table.schema";
 import { DialectSchema } from "./models/dialect.schema";
 import { EntitySchema } from "./models/entity.schema";
 import { PageSchema } from "./models/page.schema";
@@ -10,6 +11,7 @@ import { RandomTableSchema } from "./models/random-table.schema";
 import { SceneSchema } from "./models/scene.schema";
 import { SceneBackgroundSchema } from "./models/scene-background.schema";
 import { SceneMapSchema } from "./models/scene-map.schema";
+import { SheetSchema } from "./models/sheet.schema";
 import { TagSchema } from "./models/tag.schema";
 import { TagCategorySchema } from "./models/tag-category.schema";
 import { VariableSchema } from "./models/variable.schema";
@@ -33,6 +35,8 @@ export const BeyondPaperSchema = z.object({
   datasets: z.array(DatasetSchema),
   variables: z.array(VariableSchema),
   widgets: z.array(WidgetSchema),
+  sheets: z.array(SheetSchema),
+  dataTables: z.array(DataTableSchema),
   randomTables: z.array(RandomTableSchema),
   tags: z.array(TagSchema),
   tagCategories: z.array(TagCategorySchema),

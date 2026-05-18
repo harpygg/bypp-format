@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-declare const BYPP_FORMAT_VERSION = 1;
+declare const BYPP_FORMAT_VERSION = 2;
 declare const BYPP_FORMAT_EXT = "bypp";
 
 /**
@@ -35,6 +35,9 @@ type AssetUid = Flavor<"AssetUid">;
 type DialectUid = Flavor<"DialectUid">;
 type SheetUid = Flavor<"SheetUid">;
 type VariableChoiceUid = Flavor<"VariableChoiceUid">;
+type DataTableUid = Flavor<"DataTableUid">;
+type DataTableRowUid = Flavor<"DataTableRowUid">;
+type DataTableColumnUid = Flavor<"DataTableColumnUid">;
 declare const EntityUidSchema: z.ZodType<EntityUid>;
 declare const PageUidSchema: z.ZodType<PageUid>;
 declare const ChunkUidSchema: z.ZodType<ChunkUid>;
@@ -52,9 +55,12 @@ declare const AssetUidSchema: z.ZodType<AssetUid>;
 declare const DialectUidSchema: z.ZodType<DialectUid>;
 declare const SheetUidSchema: z.ZodType<SheetUid>;
 declare const VariableChoiceUidSchema: z.ZodType<VariableChoiceUid>;
+declare const DataTableUidSchema: z.ZodType<DataTableUid>;
+declare const DataTableRowUidSchema: z.ZodType<DataTableRowUid>;
+declare const DataTableColumnUidSchema: z.ZodType<DataTableColumnUid>;
 
 declare const BeyondPaperSchema: z.ZodObject<{
-    version: z.ZodLiteral<1>;
+    version: z.ZodLiteral<2>;
     format: z.ZodLiteral<"bypp">;
     name: z.ZodString;
     exportedAt: z.ZodString;
@@ -747,7 +753,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         content: string;
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     }, {
@@ -758,7 +764,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         content: string;
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     }>, z.ZodObject<{
@@ -784,7 +790,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     }, {
         type: "textProxy";
@@ -799,7 +805,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
@@ -818,7 +824,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     }, {
         type: "gallery";
@@ -828,7 +834,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
@@ -850,7 +856,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         folded?: boolean | undefined;
     }, {
@@ -863,7 +869,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         folded?: boolean | undefined;
     }>]>, "many">;
@@ -1224,6 +1230,104 @@ declare const BeyondPaperSchema: z.ZodObject<{
             }>;
         } | undefined;
         hue?: number | null | undefined;
+    }>, z.ZodObject<{
+        uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+    } & {
+        name: z.ZodString;
+    } & {
+        datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+        isMandatory: z.ZodOptional<z.ZodBoolean>;
+        isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+        label: z.ZodOptional<z.ZodString>;
+    } & {
+        type: z.ZodLiteral<"dataTableRef">;
+        dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+        labelColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+        valueColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+        iconColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+        isMultiple: z.ZodOptional<z.ZodBoolean>;
+        defaultRowUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableRowUid, z.ZodTypeDef, DataTableRowUid>, "many">>;
+    }, "strip", z.ZodTypeAny, {
+        type: "dataTableRef";
+        name: string;
+        uid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+        datasetsUids: DatasetUid[];
+        label?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isHiddenFromSheet?: boolean | undefined;
+        isMultiple?: boolean | undefined;
+        dataTableUid?: DataTableUid | undefined;
+        labelColumnUid?: DataTableColumnUid | undefined;
+        valueColumnUid?: DataTableColumnUid | undefined;
+        iconColumnUid?: DataTableColumnUid | undefined;
+        defaultRowUids?: DataTableRowUid[] | undefined;
+    }, {
+        type: "dataTableRef";
+        name: string;
+        uid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+        datasetsUids: DatasetUid[];
+        label?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isHiddenFromSheet?: boolean | undefined;
+        isMultiple?: boolean | undefined;
+        dataTableUid?: DataTableUid | undefined;
+        labelColumnUid?: DataTableColumnUid | undefined;
+        valueColumnUid?: DataTableColumnUid | undefined;
+        iconColumnUid?: DataTableColumnUid | undefined;
+        defaultRowUids?: DataTableRowUid[] | undefined;
+    }>, z.ZodObject<{
+        uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+    } & {
+        name: z.ZodString;
+    } & {
+        datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+        isMandatory: z.ZodOptional<z.ZodBoolean>;
+        isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+        label: z.ZodOptional<z.ZodString>;
+    } & {
+        type: z.ZodLiteral<"dataTableLookup">;
+        sourceVariableUid: z.ZodOptional<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>;
+        dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+        columnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+        chainedLabelColumnUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>, "many">>;
+        multiAggregator: z.ZodOptional<z.ZodEnum<["concat", "sum", "avg", "min", "max"]>>;
+        multiSeparator: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "dataTableLookup";
+        name: string;
+        uid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+        datasetsUids: DatasetUid[];
+        label?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isHiddenFromSheet?: boolean | undefined;
+        dataTableUid?: DataTableUid | undefined;
+        sourceVariableUid?: VariableUid | undefined;
+        columnUid?: DataTableColumnUid | undefined;
+        chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+        multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+        multiSeparator?: string | undefined;
+    }, {
+        type: "dataTableLookup";
+        name: string;
+        uid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+        datasetsUids: DatasetUid[];
+        label?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isHiddenFromSheet?: boolean | undefined;
+        dataTableUid?: DataTableUid | undefined;
+        sourceVariableUid?: VariableUid | undefined;
+        columnUid?: DataTableColumnUid | undefined;
+        chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+        multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+        multiSeparator?: string | undefined;
     }>]>, "many">;
     widgets: z.ZodArray<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -1427,6 +1531,8 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        min?: number | undefined;
+        max?: number | undefined;
         area?: {
             width: number;
             height: number;
@@ -1449,8 +1555,6 @@ declare const BeyondPaperSchema: z.ZodObject<{
             paddingLeft?: number | undefined;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
-        min?: number | undefined;
-        max?: number | undefined;
         maxVariable?: VariableUid | null | undefined;
         unit?: string | undefined;
     }, {
@@ -1459,6 +1563,8 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        min?: number | undefined;
+        max?: number | undefined;
         area?: {
             width: number;
             height: number;
@@ -1481,8 +1587,6 @@ declare const BeyondPaperSchema: z.ZodObject<{
             paddingLeft?: number | undefined;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
-        min?: number | undefined;
-        max?: number | undefined;
         maxVariable?: VariableUid | null | undefined;
         unit?: string | undefined;
     }>, z.ZodObject<{
@@ -2090,6 +2194,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        max?: number | undefined;
         icon?: string | undefined;
         area?: {
             width: number;
@@ -2113,7 +2218,6 @@ declare const BeyondPaperSchema: z.ZodObject<{
             paddingLeft?: number | undefined;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
-        max?: number | undefined;
         maxVariable?: VariableUid | null | undefined;
         gapX?: number | undefined;
         gapY?: number | undefined;
@@ -2123,6 +2227,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        max?: number | undefined;
         icon?: string | undefined;
         area?: {
             width: number;
@@ -2146,7 +2251,6 @@ declare const BeyondPaperSchema: z.ZodObject<{
             paddingLeft?: number | undefined;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
-        max?: number | undefined;
         maxVariable?: VariableUid | null | undefined;
         gapX?: number | undefined;
         gapY?: number | undefined;
@@ -2232,6 +2336,8 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        min?: number | undefined;
+        max?: number | undefined;
         area?: {
             width: number;
             height: number;
@@ -2254,8 +2360,6 @@ declare const BeyondPaperSchema: z.ZodObject<{
             paddingLeft?: number | undefined;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
-        min?: number | undefined;
-        max?: number | undefined;
         maxVariable?: VariableUid | null | undefined;
         unit?: string | undefined;
         orientation?: "ltr" | "rtl" | "ttb" | "btt" | undefined;
@@ -2268,6 +2372,8 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        min?: number | undefined;
+        max?: number | undefined;
         area?: {
             width: number;
             height: number;
@@ -2290,8 +2396,6 @@ declare const BeyondPaperSchema: z.ZodObject<{
             paddingLeft?: number | undefined;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
-        min?: number | undefined;
-        max?: number | undefined;
         maxVariable?: VariableUid | null | undefined;
         unit?: string | undefined;
         orientation?: "ltr" | "rtl" | "ttb" | "btt" | undefined;
@@ -2299,6 +2403,564 @@ declare const BeyondPaperSchema: z.ZodObject<{
         bgColor?: string | undefined;
         showValue?: boolean | undefined;
     }>]>, "many">;
+    sheets: z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>;
+    } & {
+        originalUrl: z.ZodOptional<z.ZodString>;
+        thumbnailUrl: z.ZodOptional<z.ZodString>;
+        squareUrl: z.ZodOptional<z.ZodString>;
+        closeupUrl: z.ZodOptional<z.ZodString>;
+    } & {
+        name: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+        widgetUids: z.ZodArray<z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>, "many">;
+        compatibleDatasetUid: z.ZodOptional<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>>;
+    }, "strip", z.ZodTypeAny, {
+        uid: string & {
+            readonly __bypp_flavor?: "SheetUid" | undefined;
+        };
+        widgetUids: WidgetUid[];
+        originalUrl?: string | undefined;
+        thumbnailUrl?: string | undefined;
+        squareUrl?: string | undefined;
+        closeupUrl?: string | undefined;
+        name?: string | null | undefined;
+        compatibleDatasetUid?: DatasetUid | undefined;
+    }, {
+        uid: string & {
+            readonly __bypp_flavor?: "SheetUid" | undefined;
+        };
+        widgetUids: WidgetUid[];
+        originalUrl?: string | undefined;
+        thumbnailUrl?: string | undefined;
+        squareUrl?: string | undefined;
+        closeupUrl?: string | undefined;
+        name?: string | null | undefined;
+        compatibleDatasetUid?: DatasetUid | undefined;
+    }>, "many">;
+    dataTables: z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>;
+        name: z.ZodRecord<z.ZodString, z.ZodString>;
+        icon: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+        weight: z.ZodOptional<z.ZodNumber>;
+        adminOnly: z.ZodOptional<z.ZodBoolean>;
+        sourceUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+        columns: z.ZodArray<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+            label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+            icon: z.ZodOptional<z.ZodString>;
+            isMandatory: z.ZodOptional<z.ZodBoolean>;
+        } & {
+            type: z.ZodLiteral<"number">;
+            defaultNumber: z.ZodOptional<z.ZodNumber>;
+        }, "strip", z.ZodTypeAny, {
+            type: "number";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultNumber?: number | undefined;
+        }, {
+            type: "number";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultNumber?: number | undefined;
+        }>, z.ZodObject<{
+            uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+            label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+            icon: z.ZodOptional<z.ZodString>;
+            isMandatory: z.ZodOptional<z.ZodBoolean>;
+        } & {
+            type: z.ZodLiteral<"text">;
+            maxChars: z.ZodOptional<z.ZodNumber>;
+            defaultValue: z.ZodOptional<z.ZodString>;
+        }, "strip", z.ZodTypeAny, {
+            type: "text";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultValue?: string | undefined;
+            maxChars?: number | undefined;
+        }, {
+            type: "text";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultValue?: string | undefined;
+            maxChars?: number | undefined;
+        }>, z.ZodObject<{
+            uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+            label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+            icon: z.ZodOptional<z.ZodString>;
+            isMandatory: z.ZodOptional<z.ZodBoolean>;
+        } & {
+            type: z.ZodLiteral<"boolean">;
+            defaultBoolean: z.ZodOptional<z.ZodBoolean>;
+        }, "strip", z.ZodTypeAny, {
+            type: "boolean";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultBoolean?: boolean | undefined;
+        }, {
+            type: "boolean";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultBoolean?: boolean | undefined;
+        }>, z.ZodObject<{
+            uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+            label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+            icon: z.ZodOptional<z.ZodString>;
+            isMandatory: z.ZodOptional<z.ZodBoolean>;
+        } & {
+            type: z.ZodLiteral<"choice">;
+            options: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                uid: z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>;
+                label: z.ZodString;
+                icon: z.ZodOptional<z.ZodString>;
+                value: z.ZodOptional<z.ZodNumber>;
+            }, "strip", z.ZodTypeAny, {
+                uid: string & {
+                    readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+                };
+                label: string;
+                value?: number | undefined;
+                icon?: string | undefined;
+            }, {
+                uid: string & {
+                    readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+                };
+                label: string;
+                value?: number | undefined;
+                icon?: string | undefined;
+            }>, "many">>;
+            isMultiple: z.ZodOptional<z.ZodBoolean>;
+            hasNumericValue: z.ZodOptional<z.ZodBoolean>;
+            hasIcon: z.ZodOptional<z.ZodBoolean>;
+        }, "strip", z.ZodTypeAny, {
+            type: "choice";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            options?: {
+                uid: string & {
+                    readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+                };
+                label: string;
+                value?: number | undefined;
+                icon?: string | undefined;
+            }[] | undefined;
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            isMultiple?: boolean | undefined;
+            hasNumericValue?: boolean | undefined;
+            hasIcon?: boolean | undefined;
+        }, {
+            type: "choice";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            options?: {
+                uid: string & {
+                    readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+                };
+                label: string;
+                value?: number | undefined;
+                icon?: string | undefined;
+            }[] | undefined;
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            isMultiple?: boolean | undefined;
+            hasNumericValue?: boolean | undefined;
+            hasIcon?: boolean | undefined;
+        }>, z.ZodObject<{
+            uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+            label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+            icon: z.ZodOptional<z.ZodString>;
+            isMandatory: z.ZodOptional<z.ZodBoolean>;
+        } & {
+            type: z.ZodLiteral<"icon">;
+            defaultIcon: z.ZodOptional<z.ZodString>;
+        }, "strip", z.ZodTypeAny, {
+            type: "icon";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultIcon?: string | undefined;
+        }, {
+            type: "icon";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultIcon?: string | undefined;
+        }>, z.ZodObject<{
+            uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+            label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+            icon: z.ZodOptional<z.ZodString>;
+            isMandatory: z.ZodOptional<z.ZodBoolean>;
+        } & {
+            type: z.ZodLiteral<"translatableText">;
+            defaultValue: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "translatableText";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultValue?: Record<string, string> | undefined;
+        }, {
+            type: "translatableText";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultValue?: Record<string, string> | undefined;
+        }>, z.ZodObject<{
+            uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+            label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+            icon: z.ZodOptional<z.ZodString>;
+            isMandatory: z.ZodOptional<z.ZodBoolean>;
+        } & {
+            type: z.ZodLiteral<"dataTableRef">;
+            dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+            labelColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+            valueColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+            iconColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+            isMultiple: z.ZodOptional<z.ZodBoolean>;
+            defaultRowUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableRowUid, z.ZodTypeDef, DataTableRowUid>, "many">>;
+        }, "strip", z.ZodTypeAny, {
+            type: "dataTableRef";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            isMultiple?: boolean | undefined;
+            dataTableUid?: DataTableUid | undefined;
+            labelColumnUid?: DataTableColumnUid | undefined;
+            valueColumnUid?: DataTableColumnUid | undefined;
+            iconColumnUid?: DataTableColumnUid | undefined;
+            defaultRowUids?: DataTableRowUid[] | undefined;
+        }, {
+            type: "dataTableRef";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            isMultiple?: boolean | undefined;
+            dataTableUid?: DataTableUid | undefined;
+            labelColumnUid?: DataTableColumnUid | undefined;
+            valueColumnUid?: DataTableColumnUid | undefined;
+            iconColumnUid?: DataTableColumnUid | undefined;
+            defaultRowUids?: DataTableRowUid[] | undefined;
+        }>, z.ZodObject<{
+            uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+            label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+            icon: z.ZodOptional<z.ZodString>;
+            isMandatory: z.ZodOptional<z.ZodBoolean>;
+        } & {
+            type: z.ZodLiteral<"dataTableLookup">;
+            sourceColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+            dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+            columnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+            chainedLabelColumnUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>, "many">>;
+            multiAggregator: z.ZodOptional<z.ZodEnum<["concat", "sum", "avg", "min", "max"]>>;
+            multiSeparator: z.ZodOptional<z.ZodString>;
+        }, "strip", z.ZodTypeAny, {
+            type: "dataTableLookup";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            dataTableUid?: DataTableUid | undefined;
+            columnUid?: DataTableColumnUid | undefined;
+            chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+            multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+            multiSeparator?: string | undefined;
+            sourceColumnUid?: DataTableColumnUid | undefined;
+        }, {
+            type: "dataTableLookup";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            dataTableUid?: DataTableUid | undefined;
+            columnUid?: DataTableColumnUid | undefined;
+            chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+            multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+            multiSeparator?: string | undefined;
+            sourceColumnUid?: DataTableColumnUid | undefined;
+        }>]>, "many">;
+        rows: z.ZodArray<z.ZodObject<{
+            uid: z.ZodType<DataTableRowUid, z.ZodTypeDef, DataTableRowUid>;
+            data: z.ZodOptional<z.ZodRecord<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodString, "many">, z.ZodRecord<z.ZodString, z.ZodString>, z.ZodNull]>>>;
+        }, "strip", z.ZodTypeAny, {
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableRowUid" | undefined;
+            };
+            data?: Record<DataTableColumnUid, string | number | boolean | string[] | Record<string, string> | null> | undefined;
+        }, {
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableRowUid" | undefined;
+            };
+            data?: Record<DataTableColumnUid, string | number | boolean | string[] | Record<string, string> | null> | undefined;
+        }>, "many">;
+    }, "strip", z.ZodTypeAny, {
+        name: Record<string, string>;
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableUid" | undefined;
+        };
+        columns: ({
+            type: "number";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultNumber?: number | undefined;
+        } | {
+            type: "text";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultValue?: string | undefined;
+            maxChars?: number | undefined;
+        } | {
+            type: "boolean";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultBoolean?: boolean | undefined;
+        } | {
+            type: "choice";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            options?: {
+                uid: string & {
+                    readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+                };
+                label: string;
+                value?: number | undefined;
+                icon?: string | undefined;
+            }[] | undefined;
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            isMultiple?: boolean | undefined;
+            hasNumericValue?: boolean | undefined;
+            hasIcon?: boolean | undefined;
+        } | {
+            type: "icon";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultIcon?: string | undefined;
+        } | {
+            type: "translatableText";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultValue?: Record<string, string> | undefined;
+        } | {
+            type: "dataTableRef";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            isMultiple?: boolean | undefined;
+            dataTableUid?: DataTableUid | undefined;
+            labelColumnUid?: DataTableColumnUid | undefined;
+            valueColumnUid?: DataTableColumnUid | undefined;
+            iconColumnUid?: DataTableColumnUid | undefined;
+            defaultRowUids?: DataTableRowUid[] | undefined;
+        } | {
+            type: "dataTableLookup";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            dataTableUid?: DataTableUid | undefined;
+            columnUid?: DataTableColumnUid | undefined;
+            chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+            multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+            multiSeparator?: string | undefined;
+            sourceColumnUid?: DataTableColumnUid | undefined;
+        })[];
+        rows: {
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableRowUid" | undefined;
+            };
+            data?: Record<DataTableColumnUid, string | number | boolean | string[] | Record<string, string> | null> | undefined;
+        }[];
+        weight?: number | undefined;
+        icon?: string | null | undefined;
+        adminOnly?: boolean | undefined;
+        sourceUid?: DataTableUid | undefined;
+    }, {
+        name: Record<string, string>;
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableUid" | undefined;
+        };
+        columns: ({
+            type: "number";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultNumber?: number | undefined;
+        } | {
+            type: "text";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultValue?: string | undefined;
+            maxChars?: number | undefined;
+        } | {
+            type: "boolean";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultBoolean?: boolean | undefined;
+        } | {
+            type: "choice";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            options?: {
+                uid: string & {
+                    readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+                };
+                label: string;
+                value?: number | undefined;
+                icon?: string | undefined;
+            }[] | undefined;
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            isMultiple?: boolean | undefined;
+            hasNumericValue?: boolean | undefined;
+            hasIcon?: boolean | undefined;
+        } | {
+            type: "icon";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultIcon?: string | undefined;
+        } | {
+            type: "translatableText";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultValue?: Record<string, string> | undefined;
+        } | {
+            type: "dataTableRef";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            isMultiple?: boolean | undefined;
+            dataTableUid?: DataTableUid | undefined;
+            labelColumnUid?: DataTableColumnUid | undefined;
+            valueColumnUid?: DataTableColumnUid | undefined;
+            iconColumnUid?: DataTableColumnUid | undefined;
+            defaultRowUids?: DataTableRowUid[] | undefined;
+        } | {
+            type: "dataTableLookup";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            dataTableUid?: DataTableUid | undefined;
+            columnUid?: DataTableColumnUid | undefined;
+            chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+            multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+            multiSeparator?: string | undefined;
+            sourceColumnUid?: DataTableColumnUid | undefined;
+        })[];
+        rows: {
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableRowUid" | undefined;
+            };
+            data?: Record<DataTableColumnUid, string | number | boolean | string[] | Record<string, string> | null> | undefined;
+        }[];
+        weight?: number | undefined;
+        icon?: string | null | undefined;
+        adminOnly?: boolean | undefined;
+        sourceUid?: DataTableUid | undefined;
+    }>, "many">;
     randomTables: z.ZodArray<z.ZodObject<{
         uid: z.ZodType<RandomTableUid, z.ZodTypeDef, RandomTableUid>;
         title: z.ZodString;
@@ -2326,7 +2988,6 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "RandomTableUid" | undefined;
         };
-        title: string;
         rows: {
             uid: string & {
                 readonly __bypp_flavor?: "RandomTableRowUid" | undefined;
@@ -2335,11 +2996,11 @@ declare const BeyondPaperSchema: z.ZodObject<{
             range: number;
             randomTableUid?: RandomTableUid | undefined;
         }[];
+        title: string;
     }, {
         uid: string & {
             readonly __bypp_flavor?: "RandomTableUid" | undefined;
         };
-        title: string;
         rows: {
             uid: string & {
                 readonly __bypp_flavor?: "RandomTableRowUid" | undefined;
@@ -2348,6 +3009,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
             range: number;
             randomTableUid?: RandomTableUid | undefined;
         }[];
+        title: string;
     }>, "many">;
     tags: z.ZodArray<z.ZodObject<{
         uid: z.ZodType<TagUid, z.ZodTypeDef, TagUid>;
@@ -3003,7 +3665,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
     }>]>, "many">;
 }, "strip", z.ZodTypeAny, {
     name: string;
-    version: 1;
+    version: 2;
     format: "bypp";
     exportedAt: string;
     bundleVersion: string;
@@ -3217,7 +3879,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         content: string;
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     } | {
@@ -3233,7 +3895,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     } | {
         type: "gallery";
@@ -3243,7 +3905,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     } | {
         type: "random";
@@ -3255,7 +3917,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         folded?: boolean | undefined;
     })[];
@@ -3362,6 +4024,38 @@ declare const BeyondPaperSchema: z.ZodObject<{
             }>;
         } | undefined;
         hue?: number | null | undefined;
+    } | {
+        type: "dataTableRef";
+        name: string;
+        uid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+        datasetsUids: DatasetUid[];
+        label?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isHiddenFromSheet?: boolean | undefined;
+        isMultiple?: boolean | undefined;
+        dataTableUid?: DataTableUid | undefined;
+        labelColumnUid?: DataTableColumnUid | undefined;
+        valueColumnUid?: DataTableColumnUid | undefined;
+        iconColumnUid?: DataTableColumnUid | undefined;
+        defaultRowUids?: DataTableRowUid[] | undefined;
+    } | {
+        type: "dataTableLookup";
+        name: string;
+        uid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+        datasetsUids: DatasetUid[];
+        label?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isHiddenFromSheet?: boolean | undefined;
+        dataTableUid?: DataTableUid | undefined;
+        sourceVariableUid?: VariableUid | undefined;
+        columnUid?: DataTableColumnUid | undefined;
+        chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+        multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+        multiSeparator?: string | undefined;
     })[];
     widgets: ({
         type: "empty";
@@ -3397,6 +4091,8 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        min?: number | undefined;
+        max?: number | undefined;
         area?: {
             width: number;
             height: number;
@@ -3419,8 +4115,6 @@ declare const BeyondPaperSchema: z.ZodObject<{
             paddingLeft?: number | undefined;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
-        min?: number | undefined;
-        max?: number | undefined;
         maxVariable?: VariableUid | null | undefined;
         unit?: string | undefined;
     } | {
@@ -3551,6 +4245,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        max?: number | undefined;
         icon?: string | undefined;
         area?: {
             width: number;
@@ -3574,7 +4269,6 @@ declare const BeyondPaperSchema: z.ZodObject<{
             paddingLeft?: number | undefined;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
-        max?: number | undefined;
         maxVariable?: VariableUid | null | undefined;
         gapX?: number | undefined;
         gapY?: number | undefined;
@@ -3584,6 +4278,8 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        min?: number | undefined;
+        max?: number | undefined;
         area?: {
             width: number;
             height: number;
@@ -3606,8 +4302,6 @@ declare const BeyondPaperSchema: z.ZodObject<{
             paddingLeft?: number | undefined;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
-        min?: number | undefined;
-        max?: number | undefined;
         maxVariable?: VariableUid | null | undefined;
         unit?: string | undefined;
         orientation?: "ltr" | "rtl" | "ttb" | "btt" | undefined;
@@ -3615,11 +4309,132 @@ declare const BeyondPaperSchema: z.ZodObject<{
         bgColor?: string | undefined;
         showValue?: boolean | undefined;
     })[];
+    sheets: {
+        uid: string & {
+            readonly __bypp_flavor?: "SheetUid" | undefined;
+        };
+        widgetUids: WidgetUid[];
+        originalUrl?: string | undefined;
+        thumbnailUrl?: string | undefined;
+        squareUrl?: string | undefined;
+        closeupUrl?: string | undefined;
+        name?: string | null | undefined;
+        compatibleDatasetUid?: DatasetUid | undefined;
+    }[];
+    dataTables: {
+        name: Record<string, string>;
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableUid" | undefined;
+        };
+        columns: ({
+            type: "number";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultNumber?: number | undefined;
+        } | {
+            type: "text";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultValue?: string | undefined;
+            maxChars?: number | undefined;
+        } | {
+            type: "boolean";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultBoolean?: boolean | undefined;
+        } | {
+            type: "choice";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            options?: {
+                uid: string & {
+                    readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+                };
+                label: string;
+                value?: number | undefined;
+                icon?: string | undefined;
+            }[] | undefined;
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            isMultiple?: boolean | undefined;
+            hasNumericValue?: boolean | undefined;
+            hasIcon?: boolean | undefined;
+        } | {
+            type: "icon";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultIcon?: string | undefined;
+        } | {
+            type: "translatableText";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultValue?: Record<string, string> | undefined;
+        } | {
+            type: "dataTableRef";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            isMultiple?: boolean | undefined;
+            dataTableUid?: DataTableUid | undefined;
+            labelColumnUid?: DataTableColumnUid | undefined;
+            valueColumnUid?: DataTableColumnUid | undefined;
+            iconColumnUid?: DataTableColumnUid | undefined;
+            defaultRowUids?: DataTableRowUid[] | undefined;
+        } | {
+            type: "dataTableLookup";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            dataTableUid?: DataTableUid | undefined;
+            columnUid?: DataTableColumnUid | undefined;
+            chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+            multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+            multiSeparator?: string | undefined;
+            sourceColumnUid?: DataTableColumnUid | undefined;
+        })[];
+        rows: {
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableRowUid" | undefined;
+            };
+            data?: Record<DataTableColumnUid, string | number | boolean | string[] | Record<string, string> | null> | undefined;
+        }[];
+        weight?: number | undefined;
+        icon?: string | null | undefined;
+        adminOnly?: boolean | undefined;
+        sourceUid?: DataTableUid | undefined;
+    }[];
     randomTables: {
         uid: string & {
             readonly __bypp_flavor?: "RandomTableUid" | undefined;
         };
-        title: string;
         rows: {
             uid: string & {
                 readonly __bypp_flavor?: "RandomTableRowUid" | undefined;
@@ -3628,6 +4443,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
             range: number;
             randomTableUid?: RandomTableUid | undefined;
         }[];
+        title: string;
     }[];
     tags: {
         name: string;
@@ -3811,7 +4627,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
     })[];
 }, {
     name: string;
-    version: 1;
+    version: 2;
     format: "bypp";
     exportedAt: string;
     bundleVersion: string;
@@ -4025,7 +4841,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         content: string;
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     } | {
@@ -4041,7 +4857,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     } | {
         type: "gallery";
@@ -4051,7 +4867,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     } | {
         type: "random";
@@ -4063,7 +4879,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         folded?: boolean | undefined;
     })[];
@@ -4170,6 +4986,38 @@ declare const BeyondPaperSchema: z.ZodObject<{
             }>;
         } | undefined;
         hue?: number | null | undefined;
+    } | {
+        type: "dataTableRef";
+        name: string;
+        uid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+        datasetsUids: DatasetUid[];
+        label?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isHiddenFromSheet?: boolean | undefined;
+        isMultiple?: boolean | undefined;
+        dataTableUid?: DataTableUid | undefined;
+        labelColumnUid?: DataTableColumnUid | undefined;
+        valueColumnUid?: DataTableColumnUid | undefined;
+        iconColumnUid?: DataTableColumnUid | undefined;
+        defaultRowUids?: DataTableRowUid[] | undefined;
+    } | {
+        type: "dataTableLookup";
+        name: string;
+        uid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+        datasetsUids: DatasetUid[];
+        label?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isHiddenFromSheet?: boolean | undefined;
+        dataTableUid?: DataTableUid | undefined;
+        sourceVariableUid?: VariableUid | undefined;
+        columnUid?: DataTableColumnUid | undefined;
+        chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+        multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+        multiSeparator?: string | undefined;
     })[];
     widgets: ({
         type: "empty";
@@ -4205,6 +5053,8 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        min?: number | undefined;
+        max?: number | undefined;
         area?: {
             width: number;
             height: number;
@@ -4227,8 +5077,6 @@ declare const BeyondPaperSchema: z.ZodObject<{
             paddingLeft?: number | undefined;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
-        min?: number | undefined;
-        max?: number | undefined;
         maxVariable?: VariableUid | null | undefined;
         unit?: string | undefined;
     } | {
@@ -4359,6 +5207,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        max?: number | undefined;
         icon?: string | undefined;
         area?: {
             width: number;
@@ -4382,7 +5231,6 @@ declare const BeyondPaperSchema: z.ZodObject<{
             paddingLeft?: number | undefined;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
-        max?: number | undefined;
         maxVariable?: VariableUid | null | undefined;
         gapX?: number | undefined;
         gapY?: number | undefined;
@@ -4392,6 +5240,8 @@ declare const BeyondPaperSchema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        min?: number | undefined;
+        max?: number | undefined;
         area?: {
             width: number;
             height: number;
@@ -4414,8 +5264,6 @@ declare const BeyondPaperSchema: z.ZodObject<{
             paddingLeft?: number | undefined;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
-        min?: number | undefined;
-        max?: number | undefined;
         maxVariable?: VariableUid | null | undefined;
         unit?: string | undefined;
         orientation?: "ltr" | "rtl" | "ttb" | "btt" | undefined;
@@ -4423,11 +5271,132 @@ declare const BeyondPaperSchema: z.ZodObject<{
         bgColor?: string | undefined;
         showValue?: boolean | undefined;
     })[];
+    sheets: {
+        uid: string & {
+            readonly __bypp_flavor?: "SheetUid" | undefined;
+        };
+        widgetUids: WidgetUid[];
+        originalUrl?: string | undefined;
+        thumbnailUrl?: string | undefined;
+        squareUrl?: string | undefined;
+        closeupUrl?: string | undefined;
+        name?: string | null | undefined;
+        compatibleDatasetUid?: DatasetUid | undefined;
+    }[];
+    dataTables: {
+        name: Record<string, string>;
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableUid" | undefined;
+        };
+        columns: ({
+            type: "number";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultNumber?: number | undefined;
+        } | {
+            type: "text";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultValue?: string | undefined;
+            maxChars?: number | undefined;
+        } | {
+            type: "boolean";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultBoolean?: boolean | undefined;
+        } | {
+            type: "choice";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            options?: {
+                uid: string & {
+                    readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+                };
+                label: string;
+                value?: number | undefined;
+                icon?: string | undefined;
+            }[] | undefined;
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            isMultiple?: boolean | undefined;
+            hasNumericValue?: boolean | undefined;
+            hasIcon?: boolean | undefined;
+        } | {
+            type: "icon";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultIcon?: string | undefined;
+        } | {
+            type: "translatableText";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            defaultValue?: Record<string, string> | undefined;
+        } | {
+            type: "dataTableRef";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            isMultiple?: boolean | undefined;
+            dataTableUid?: DataTableUid | undefined;
+            labelColumnUid?: DataTableColumnUid | undefined;
+            valueColumnUid?: DataTableColumnUid | undefined;
+            iconColumnUid?: DataTableColumnUid | undefined;
+            defaultRowUids?: DataTableRowUid[] | undefined;
+        } | {
+            type: "dataTableLookup";
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+            };
+            label?: Record<string, string> | undefined;
+            icon?: string | undefined;
+            isMandatory?: boolean | undefined;
+            dataTableUid?: DataTableUid | undefined;
+            columnUid?: DataTableColumnUid | undefined;
+            chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+            multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+            multiSeparator?: string | undefined;
+            sourceColumnUid?: DataTableColumnUid | undefined;
+        })[];
+        rows: {
+            uid: string & {
+                readonly __bypp_flavor?: "DataTableRowUid" | undefined;
+            };
+            data?: Record<DataTableColumnUid, string | number | boolean | string[] | Record<string, string> | null> | undefined;
+        }[];
+        weight?: number | undefined;
+        icon?: string | null | undefined;
+        adminOnly?: boolean | undefined;
+        sourceUid?: DataTableUid | undefined;
+    }[];
     randomTables: {
         uid: string & {
             readonly __bypp_flavor?: "RandomTableUid" | undefined;
         };
-        title: string;
         rows: {
             uid: string & {
                 readonly __bypp_flavor?: "RandomTableRowUid" | undefined;
@@ -4436,6 +5405,7 @@ declare const BeyondPaperSchema: z.ZodObject<{
             range: number;
             randomTableUid?: RandomTableUid | undefined;
         }[];
+        title: string;
     }[];
     tags: {
         name: string;
@@ -4888,6 +5858,15 @@ declare const WithStyleSchema: z.ZodObject<{
         paddingLeft?: number | undefined;
     } | null | undefined;
 }>;
+
+/**
+ * A record of locale-keyed strings. Used for content shipped across languages
+ * (data-table column labels, translatable-text cell values, etc.).
+ *
+ * Example: `{ en: "Wizard", fr: "Magicien", de: "Magier" }`
+ */
+declare const TranslatableTextSchema: z.ZodRecord<z.ZodString, z.ZodString>;
+type TranslatableText = z.infer<typeof TranslatableTextSchema>;
 
 declare const EntityTypeSchema: z.ZodEnum<["character", "creature", "place", "group", "item", "ability", "event", "story", "note"]>;
 type EntityType = z.infer<typeof EntityTypeSchema>;
@@ -6298,7 +7277,7 @@ declare const ChunkBaseSchema: z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }, {
     uid: string & {
@@ -6306,7 +7285,7 @@ declare const ChunkBaseSchema: z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }>;
 type ChunkBase = z.infer<typeof ChunkBaseSchema>;
@@ -6328,7 +7307,7 @@ declare const ChunkTextSchema: z.ZodObject<{
     content: string;
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
     mentionedEntitiesUids?: EntityUid[] | undefined;
 }, {
@@ -6339,7 +7318,7 @@ declare const ChunkTextSchema: z.ZodObject<{
     content: string;
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
     mentionedEntitiesUids?: EntityUid[] | undefined;
 }>;
@@ -6367,7 +7346,7 @@ declare const ChunkTextProxySchema: z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }, {
     type: "textProxy";
@@ -6382,7 +7361,7 @@ declare const ChunkTextProxySchema: z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }>;
 type ChunkTextProxy = z.infer<typeof ChunkTextProxySchema>;
@@ -6403,7 +7382,7 @@ declare const ChunkGallerySchema: z.ZodObject<{
     assetUids: AssetUid[];
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }, {
     type: "gallery";
@@ -6413,7 +7392,7 @@ declare const ChunkGallerySchema: z.ZodObject<{
     assetUids: AssetUid[];
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }>;
 type ChunkGallery = z.infer<typeof ChunkGallerySchema>;
@@ -6437,7 +7416,7 @@ declare const ChunkRandomSchema: z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
     folded?: boolean | undefined;
 }, {
@@ -6450,7 +7429,7 @@ declare const ChunkRandomSchema: z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
     folded?: boolean | undefined;
 }>;
@@ -6473,7 +7452,7 @@ declare const ChunkSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     content: string;
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
     mentionedEntitiesUids?: EntityUid[] | undefined;
 }, {
@@ -6484,7 +7463,7 @@ declare const ChunkSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     content: string;
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
     mentionedEntitiesUids?: EntityUid[] | undefined;
 }>, z.ZodObject<{
@@ -6510,7 +7489,7 @@ declare const ChunkSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }, {
     type: "textProxy";
@@ -6525,7 +7504,7 @@ declare const ChunkSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }>, z.ZodObject<{
     uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
@@ -6544,7 +7523,7 @@ declare const ChunkSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     assetUids: AssetUid[];
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }, {
     type: "gallery";
@@ -6554,7 +7533,7 @@ declare const ChunkSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     assetUids: AssetUid[];
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }>, z.ZodObject<{
     uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
@@ -6576,7 +7555,7 @@ declare const ChunkSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
     folded?: boolean | undefined;
 }, {
@@ -6589,7 +7568,7 @@ declare const ChunkSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
     folded?: boolean | undefined;
 }>]>;
@@ -7096,6 +8075,117 @@ declare const RollVariableSchema: z.ZodObject<{
     hue?: number | null | undefined;
 }>;
 type RollVariable = z.infer<typeof RollVariableSchema>;
+/**
+ * Variable whose value points to row(s) of a target data-table.
+ * Display uses `labelColumnUid`; formulas read `valueColumnUid`.
+ */
+declare const DataTableRefVariableSchema: z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"dataTableRef">;
+    dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+    labelColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    valueColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    iconColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    isMultiple: z.ZodOptional<z.ZodBoolean>;
+    defaultRowUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableRowUid, z.ZodTypeDef, DataTableRowUid>, "many">>;
+}, "strip", z.ZodTypeAny, {
+    type: "dataTableRef";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    isMultiple?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    labelColumnUid?: DataTableColumnUid | undefined;
+    valueColumnUid?: DataTableColumnUid | undefined;
+    iconColumnUid?: DataTableColumnUid | undefined;
+    defaultRowUids?: DataTableRowUid[] | undefined;
+}, {
+    type: "dataTableRef";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    isMultiple?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    labelColumnUid?: DataTableColumnUid | undefined;
+    valueColumnUid?: DataTableColumnUid | undefined;
+    iconColumnUid?: DataTableColumnUid | undefined;
+    defaultRowUids?: DataTableRowUid[] | undefined;
+}>;
+type DataTableRefVariable = z.infer<typeof DataTableRefVariableSchema>;
+/**
+ * Derived variable: reads a cell from a data-table given row uid(s)
+ * supplied by an upstream `dataTableRef` variable. No stored value of its
+ * own. Multi-row aggregation via `multiAggregator`.
+ */
+declare const DataTableLookupVariableSchema: z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"dataTableLookup">;
+    sourceVariableUid: z.ZodOptional<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>;
+    dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+    columnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    chainedLabelColumnUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>, "many">>;
+    multiAggregator: z.ZodOptional<z.ZodEnum<["concat", "sum", "avg", "min", "max"]>>;
+    multiSeparator: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "dataTableLookup";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    sourceVariableUid?: VariableUid | undefined;
+    columnUid?: DataTableColumnUid | undefined;
+    chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+    multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+    multiSeparator?: string | undefined;
+}, {
+    type: "dataTableLookup";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    sourceVariableUid?: VariableUid | undefined;
+    columnUid?: DataTableColumnUid | undefined;
+    chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+    multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+    multiSeparator?: string | undefined;
+}>;
+type DataTableLookupVariable = z.infer<typeof DataTableLookupVariableSchema>;
 declare const VariableSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
 } & {
@@ -7425,6 +8515,104 @@ declare const VariableSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         }>;
     } | undefined;
     hue?: number | null | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"dataTableRef">;
+    dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+    labelColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    valueColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    iconColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    isMultiple: z.ZodOptional<z.ZodBoolean>;
+    defaultRowUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableRowUid, z.ZodTypeDef, DataTableRowUid>, "many">>;
+}, "strip", z.ZodTypeAny, {
+    type: "dataTableRef";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    isMultiple?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    labelColumnUid?: DataTableColumnUid | undefined;
+    valueColumnUid?: DataTableColumnUid | undefined;
+    iconColumnUid?: DataTableColumnUid | undefined;
+    defaultRowUids?: DataTableRowUid[] | undefined;
+}, {
+    type: "dataTableRef";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    isMultiple?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    labelColumnUid?: DataTableColumnUid | undefined;
+    valueColumnUid?: DataTableColumnUid | undefined;
+    iconColumnUid?: DataTableColumnUid | undefined;
+    defaultRowUids?: DataTableRowUid[] | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"dataTableLookup">;
+    sourceVariableUid: z.ZodOptional<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>;
+    dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+    columnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    chainedLabelColumnUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>, "many">>;
+    multiAggregator: z.ZodOptional<z.ZodEnum<["concat", "sum", "avg", "min", "max"]>>;
+    multiSeparator: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "dataTableLookup";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    sourceVariableUid?: VariableUid | undefined;
+    columnUid?: DataTableColumnUid | undefined;
+    chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+    multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+    multiSeparator?: string | undefined;
+}, {
+    type: "dataTableLookup";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    sourceVariableUid?: VariableUid | undefined;
+    columnUid?: DataTableColumnUid | undefined;
+    chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+    multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+    multiSeparator?: string | undefined;
 }>]>;
 type Variable = z.infer<typeof VariableSchema>;
 
@@ -7754,6 +8942,8 @@ declare const WidgetBigNumberSchema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    min?: number | undefined;
+    max?: number | undefined;
     area?: {
         width: number;
         height: number;
@@ -7776,8 +8966,6 @@ declare const WidgetBigNumberSchema: z.ZodObject<{
         paddingLeft?: number | undefined;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
-    min?: number | undefined;
-    max?: number | undefined;
     maxVariable?: VariableUid | null | undefined;
     unit?: string | undefined;
 }, {
@@ -7786,6 +8974,8 @@ declare const WidgetBigNumberSchema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    min?: number | undefined;
+    max?: number | undefined;
     area?: {
         width: number;
         height: number;
@@ -7808,8 +8998,6 @@ declare const WidgetBigNumberSchema: z.ZodObject<{
         paddingLeft?: number | undefined;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
-    min?: number | undefined;
-    max?: number | undefined;
     maxVariable?: VariableUid | null | undefined;
     unit?: string | undefined;
 }>;
@@ -8427,6 +9615,7 @@ declare const WidgetPipsSchema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    max?: number | undefined;
     icon?: string | undefined;
     area?: {
         width: number;
@@ -8450,7 +9639,6 @@ declare const WidgetPipsSchema: z.ZodObject<{
         paddingLeft?: number | undefined;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
-    max?: number | undefined;
     maxVariable?: VariableUid | null | undefined;
     gapX?: number | undefined;
     gapY?: number | undefined;
@@ -8460,6 +9648,7 @@ declare const WidgetPipsSchema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    max?: number | undefined;
     icon?: string | undefined;
     area?: {
         width: number;
@@ -8483,7 +9672,6 @@ declare const WidgetPipsSchema: z.ZodObject<{
         paddingLeft?: number | undefined;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
-    max?: number | undefined;
     maxVariable?: VariableUid | null | undefined;
     gapX?: number | undefined;
     gapY?: number | undefined;
@@ -8573,6 +9761,8 @@ declare const WidgetBarSchema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    min?: number | undefined;
+    max?: number | undefined;
     area?: {
         width: number;
         height: number;
@@ -8595,8 +9785,6 @@ declare const WidgetBarSchema: z.ZodObject<{
         paddingLeft?: number | undefined;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
-    min?: number | undefined;
-    max?: number | undefined;
     maxVariable?: VariableUid | null | undefined;
     unit?: string | undefined;
     orientation?: "ltr" | "rtl" | "ttb" | "btt" | undefined;
@@ -8609,6 +9797,8 @@ declare const WidgetBarSchema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    min?: number | undefined;
+    max?: number | undefined;
     area?: {
         width: number;
         height: number;
@@ -8631,8 +9821,6 @@ declare const WidgetBarSchema: z.ZodObject<{
         paddingLeft?: number | undefined;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
-    min?: number | undefined;
-    max?: number | undefined;
     maxVariable?: VariableUid | null | undefined;
     unit?: string | undefined;
     orientation?: "ltr" | "rtl" | "ttb" | "btt" | undefined;
@@ -8843,6 +10031,8 @@ declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    min?: number | undefined;
+    max?: number | undefined;
     area?: {
         width: number;
         height: number;
@@ -8865,8 +10055,6 @@ declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingLeft?: number | undefined;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
-    min?: number | undefined;
-    max?: number | undefined;
     maxVariable?: VariableUid | null | undefined;
     unit?: string | undefined;
 }, {
@@ -8875,6 +10063,8 @@ declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    min?: number | undefined;
+    max?: number | undefined;
     area?: {
         width: number;
         height: number;
@@ -8897,8 +10087,6 @@ declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingLeft?: number | undefined;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
-    min?: number | undefined;
-    max?: number | undefined;
     maxVariable?: VariableUid | null | undefined;
     unit?: string | undefined;
 }>, z.ZodObject<{
@@ -9506,6 +10694,7 @@ declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    max?: number | undefined;
     icon?: string | undefined;
     area?: {
         width: number;
@@ -9529,7 +10718,6 @@ declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingLeft?: number | undefined;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
-    max?: number | undefined;
     maxVariable?: VariableUid | null | undefined;
     gapX?: number | undefined;
     gapY?: number | undefined;
@@ -9539,6 +10727,7 @@ declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    max?: number | undefined;
     icon?: string | undefined;
     area?: {
         width: number;
@@ -9562,7 +10751,6 @@ declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingLeft?: number | undefined;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
-    max?: number | undefined;
     maxVariable?: VariableUid | null | undefined;
     gapX?: number | undefined;
     gapY?: number | undefined;
@@ -9648,6 +10836,8 @@ declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    min?: number | undefined;
+    max?: number | undefined;
     area?: {
         width: number;
         height: number;
@@ -9670,8 +10860,6 @@ declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingLeft?: number | undefined;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
-    min?: number | undefined;
-    max?: number | undefined;
     maxVariable?: VariableUid | null | undefined;
     unit?: string | undefined;
     orientation?: "ltr" | "rtl" | "ttb" | "btt" | undefined;
@@ -9684,6 +10872,8 @@ declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    min?: number | undefined;
+    max?: number | undefined;
     area?: {
         width: number;
         height: number;
@@ -9706,8 +10896,6 @@ declare const WidgetSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingLeft?: number | undefined;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
-    min?: number | undefined;
-    max?: number | undefined;
     maxVariable?: VariableUid | null | undefined;
     unit?: string | undefined;
     orientation?: "ltr" | "rtl" | "ttb" | "btt" | undefined;
@@ -9765,7 +10953,6 @@ declare const RandomTableSchema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "RandomTableUid" | undefined;
     };
-    title: string;
     rows: {
         uid: string & {
             readonly __bypp_flavor?: "RandomTableRowUid" | undefined;
@@ -9774,11 +10961,11 @@ declare const RandomTableSchema: z.ZodObject<{
         range: number;
         randomTableUid?: RandomTableUid | undefined;
     }[];
+    title: string;
 }, {
     uid: string & {
         readonly __bypp_flavor?: "RandomTableUid" | undefined;
     };
-    title: string;
     rows: {
         uid: string & {
             readonly __bypp_flavor?: "RandomTableRowUid" | undefined;
@@ -9787,6 +10974,7 @@ declare const RandomTableSchema: z.ZodObject<{
         range: number;
         randomTableUid?: RandomTableUid | undefined;
     }[];
+    title: string;
 }>;
 type RandomTable = z.infer<typeof RandomTableSchema>;
 
@@ -11248,4 +12436,1185 @@ declare const DialectSchema: z.ZodObject<{
 }>;
 type Dialect = z.infer<typeof DialectSchema>;
 
-export { AbilityEntitySchema, type ActionVisual, ActionVisualSchema, type Asset, type AssetBase, AssetBaseSchema, AssetSchema, type AssetUid, AssetUidSchema, type AudioAsset, AudioAssetSchema, type AudioExternalAsset, AudioExternalAssetSchema, BYPP_FORMAT_EXT, BYPP_FORMAT_VERSION, type BarOrientation, BarOrientationSchema, type BeyondPaper, BeyondPaperSchema, type BooleanVariable, BooleanVariableSchema, type Asset as ByppAsset, type AssetBase as ByppAssetBase, type CharacterEntity as ByppCharacterEntity, type Chunk as ByppChunk, type ChunkBase as ByppChunkBase, type ChunkGallery as ByppChunkGallery, type ChunkRandom as ByppChunkRandom, type ChunkText as ByppChunkText, type ChunkTextProxy as ByppChunkTextProxy, type CreatureEntity as ByppCreatureEntity, type Dataset as ByppDataset, type Dialect as ByppDialect, type DialectFont as ByppDialectFont, type Entity as ByppEntity, type EntityBase as ByppEntityBase, type GroupEntity as ByppGroupEntity, type GroupRank as ByppGroupRank, type GroupRankCharacter as ByppGroupRankCharacter, type Page as ByppPage, type PageEntity as ByppPageEntity, type PageStandard as ByppPageStandard, type PlaceEntity as ByppPlaceEntity, type RandomTable as ByppRandomTable, type RandomTableRow as ByppRandomTableRow, type Scene as ByppScene, type SceneBackground as ByppSceneBackground, type SceneBackgroundBase as ByppSceneBackgroundBase, type SceneMap as ByppSceneMap, type SceneMapBase as ByppSceneMapBase, type Tag as ByppTag, type TagCategory as ByppTagCategory, type Variable as ByppVariable, type VariableBase as ByppVariableBase, type Widget as ByppWidget, type WidgetBase as ByppWidgetBase, type CharacterEntity, CharacterEntitySchema, type ChoiceOption, ChoiceOptionSchema, type ChoiceVariable, ChoiceVariableSchema, type Chunk, type ChunkBase, ChunkBaseSchema, type ChunkBlockStyle, ChunkBlockStyleSchema, type ChunkGallery, ChunkGallerySchema, type ChunkHeadingLevel, ChunkHeadingLevelSchema, type ChunkHeadingMode, ChunkHeadingModeSchema, type ChunkRandom, ChunkRandomSchema, ChunkSchema, type ChunkText, type ChunkTextProxy, ChunkTextProxySchema, ChunkTextSchema, type ChunkUid, ChunkUidSchema, type CreatureEntity, CreatureEntitySchema, type CustomImageSceneBackground, CustomImageSceneBackgroundSchema, type CustomImageSceneMap, CustomImageSceneMapSchema, type CustomVideoSceneBackground, CustomVideoSceneBackgroundSchema, type CustomVideoSceneMap, CustomVideoSceneMapSchema, type Dataset, DatasetSchema, DatasetTargetSchema, type DatasetUid, DatasetUidSchema, type Dd2VttSceneMap, Dd2VttSceneMapSchema, type Dialect, type DialectFont, DialectFontSchema, DialectSchema, type DialectUid, DialectUidSchema, type Entity, type EntityAsset, EntityAssetSchema, type EntityBase, EntityBaseSchema, EntitySchema, type EntityType, EntityTypeSchema, type EntityUid, EntityUidSchema, EventEntitySchema, type FormulaVariable, FormulaVariableSchema, type GridData, GridDataSchema, type GroupEntity, GroupEntitySchema, type GroupRank, type GroupRankCharacter, GroupRankCharacterSchema, GroupRankSchema, type IconCompo, IconCompoSchema, type IconCompoSlotConfig, IconCompoSlotConfigSchema, type ImageAsset, ImageAssetSchema, type ImageDimensions, ImageDimensionsSchema, ItemEntitySchema, NoteEntitySchema, type NumberVariable, NumberVariableSchema, type Page, type PageEntity, PageEntitySchema, PageSchema, type PageStandard, PageStandardSchema, type PageUid, PageUidSchema, type PlaceEntity, PlaceEntitySchema, type RandomTable, type RandomTableRow, RandomTableRowSchema, type RandomTableRowUid, RandomTableRowUidSchema, RandomTableSchema, type RandomTableUid, RandomTableUidSchema, type RollVariable, RollVariableSchema, type Scene, type SceneBackground, type SceneBackgroundBase, SceneBackgroundBaseSchema, SceneBackgroundSchema, type SceneBackgroundUid, SceneBackgroundUidSchema, type SceneGameMode, SceneGameModeSchema, type SceneMap, type SceneMapBase, SceneMapBaseSchema, SceneMapSchema, type SceneMapUid, SceneMapUidSchema, SceneSchema, type SceneUid, SceneUidSchema, type SheetUid, SheetUidSchema, StoryEntitySchema, StyleSchema, type Tag, type TagCategory, TagCategorySchema, type TagCategoryUid, TagCategoryUidSchema, TagSchema, type TagUid, TagUidSchema, type TextVariable, TextVariableSchema, type Variable, type VariableBase, VariableBaseSchema, type VariableChoiceUid, VariableChoiceUidSchema, VariableDataValueSchema, VariableSchema, type VariableUid, VariableUidSchema, VariablesDataRecordSchema, type VideoAsset, VideoAssetSchema, type Widget, type WidgetBar, WidgetBarSchema, type WidgetBase, WidgetBaseSchema, type WidgetBigNumber, WidgetBigNumberSchema, type WidgetBulletList, WidgetBulletListSchema, type WidgetEmpty, WidgetEmptySchema, type WidgetInlineList, WidgetInlineListSchema, type WidgetPips, WidgetPipsSchema, type WidgetPlainText, WidgetPlainTextSchema, WidgetSchema, type WidgetToggle, WidgetToggleSchema, type WidgetUid, WidgetUidSchema, WithArchiveSchema, WithAreaSchema, WithAssetsSchema, WithAudioUrlsSchema, WithDataSchema, WithImagesUrlsSchema, WithNameSchema, WithPagesSchema, WithPositionSchema, WithScenesSchema, WithStyleSchema, WithVideoUrlsSchema };
+/**
+ * A sheet — the visual canvas that lays out widgets driven by a dataset's
+ * variables. Sheets reference top-level widgets by UID (ordered).
+ *
+ * `compatibleDatasetUid` is the dataset whose variables this sheet renders.
+ * It mirrors `dataset.sheetUid` and helps a reader find the right sheet for
+ * a given dataset without re-walking every sheet.
+ */
+declare const SheetSchema: z.ZodObject<{
+    uid: z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    name: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    widgetUids: z.ZodArray<z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>, "many">;
+    compatibleDatasetUid: z.ZodOptional<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>>;
+}, "strip", z.ZodTypeAny, {
+    uid: string & {
+        readonly __bypp_flavor?: "SheetUid" | undefined;
+    };
+    widgetUids: WidgetUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    name?: string | null | undefined;
+    compatibleDatasetUid?: DatasetUid | undefined;
+}, {
+    uid: string & {
+        readonly __bypp_flavor?: "SheetUid" | undefined;
+    };
+    widgetUids: WidgetUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    name?: string | null | undefined;
+    compatibleDatasetUid?: DatasetUid | undefined;
+}>;
+type Sheet = z.infer<typeof SheetSchema>;
+
+declare const DataTableColumnNumberSchema: z.ZodObject<{
+    uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+    label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    icon: z.ZodOptional<z.ZodString>;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+} & {
+    type: z.ZodLiteral<"number">;
+    defaultNumber: z.ZodOptional<z.ZodNumber>;
+}, "strip", z.ZodTypeAny, {
+    type: "number";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultNumber?: number | undefined;
+}, {
+    type: "number";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultNumber?: number | undefined;
+}>;
+type DataTableColumnNumber = z.infer<typeof DataTableColumnNumberSchema>;
+declare const DataTableColumnTextSchema: z.ZodObject<{
+    uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+    label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    icon: z.ZodOptional<z.ZodString>;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+} & {
+    type: z.ZodLiteral<"text">;
+    maxChars: z.ZodOptional<z.ZodNumber>;
+    defaultValue: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "text";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultValue?: string | undefined;
+    maxChars?: number | undefined;
+}, {
+    type: "text";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultValue?: string | undefined;
+    maxChars?: number | undefined;
+}>;
+type DataTableColumnText = z.infer<typeof DataTableColumnTextSchema>;
+declare const DataTableColumnBooleanSchema: z.ZodObject<{
+    uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+    label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    icon: z.ZodOptional<z.ZodString>;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+} & {
+    type: z.ZodLiteral<"boolean">;
+    defaultBoolean: z.ZodOptional<z.ZodBoolean>;
+}, "strip", z.ZodTypeAny, {
+    type: "boolean";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultBoolean?: boolean | undefined;
+}, {
+    type: "boolean";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultBoolean?: boolean | undefined;
+}>;
+type DataTableColumnBoolean = z.infer<typeof DataTableColumnBooleanSchema>;
+declare const DataTableColumnChoiceSchema: z.ZodObject<{
+    uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+    label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    icon: z.ZodOptional<z.ZodString>;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+} & {
+    type: z.ZodLiteral<"choice">;
+    options: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>;
+        label: z.ZodString;
+        icon: z.ZodOptional<z.ZodString>;
+        value: z.ZodOptional<z.ZodNumber>;
+    }, "strip", z.ZodTypeAny, {
+        uid: string & {
+            readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+        };
+        label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
+    }, {
+        uid: string & {
+            readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+        };
+        label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
+    }>, "many">>;
+    isMultiple: z.ZodOptional<z.ZodBoolean>;
+    hasNumericValue: z.ZodOptional<z.ZodBoolean>;
+    hasIcon: z.ZodOptional<z.ZodBoolean>;
+}, "strip", z.ZodTypeAny, {
+    type: "choice";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    options?: {
+        uid: string & {
+            readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+        };
+        label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
+    }[] | undefined;
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isMultiple?: boolean | undefined;
+    hasNumericValue?: boolean | undefined;
+    hasIcon?: boolean | undefined;
+}, {
+    type: "choice";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    options?: {
+        uid: string & {
+            readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+        };
+        label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
+    }[] | undefined;
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isMultiple?: boolean | undefined;
+    hasNumericValue?: boolean | undefined;
+    hasIcon?: boolean | undefined;
+}>;
+type DataTableColumnChoice = z.infer<typeof DataTableColumnChoiceSchema>;
+declare const DataTableColumnIconSchema: z.ZodObject<{
+    uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+    label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    icon: z.ZodOptional<z.ZodString>;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+} & {
+    type: z.ZodLiteral<"icon">;
+    defaultIcon: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "icon";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultIcon?: string | undefined;
+}, {
+    type: "icon";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultIcon?: string | undefined;
+}>;
+type DataTableColumnIcon = z.infer<typeof DataTableColumnIconSchema>;
+declare const DataTableColumnTranslatableTextSchema: z.ZodObject<{
+    uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+    label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    icon: z.ZodOptional<z.ZodString>;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+} & {
+    type: z.ZodLiteral<"translatableText">;
+    defaultValue: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+}, "strip", z.ZodTypeAny, {
+    type: "translatableText";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultValue?: Record<string, string> | undefined;
+}, {
+    type: "translatableText";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultValue?: Record<string, string> | undefined;
+}>;
+type DataTableColumnTranslatableText = z.infer<typeof DataTableColumnTranslatableTextSchema>;
+/**
+ * Per-row reference to another data-table's row(s).
+ * Display / formula resolution looks up the referenced row in
+ * `dataTableUid` and reads `labelColumnUid` (display) / `valueColumnUid` (value).
+ */
+declare const DataTableColumnDataTableRefSchema: z.ZodObject<{
+    uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+    label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    icon: z.ZodOptional<z.ZodString>;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+} & {
+    type: z.ZodLiteral<"dataTableRef">;
+    dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+    labelColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    valueColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    iconColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    isMultiple: z.ZodOptional<z.ZodBoolean>;
+    defaultRowUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableRowUid, z.ZodTypeDef, DataTableRowUid>, "many">>;
+}, "strip", z.ZodTypeAny, {
+    type: "dataTableRef";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isMultiple?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    labelColumnUid?: DataTableColumnUid | undefined;
+    valueColumnUid?: DataTableColumnUid | undefined;
+    iconColumnUid?: DataTableColumnUid | undefined;
+    defaultRowUids?: DataTableRowUid[] | undefined;
+}, {
+    type: "dataTableRef";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isMultiple?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    labelColumnUid?: DataTableColumnUid | undefined;
+    valueColumnUid?: DataTableColumnUid | undefined;
+    iconColumnUid?: DataTableColumnUid | undefined;
+    defaultRowUids?: DataTableRowUid[] | undefined;
+}>;
+type DataTableColumnDataTableRef = z.infer<typeof DataTableColumnDataTableRefSchema>;
+/**
+ * Derived column: reads a cell of another data-table given row uid(s)
+ * supplied by a sibling `dataTableRef` column (`sourceColumnUid`).
+ * Carries no row data of its own.
+ */
+declare const DataTableColumnDataTableLookupSchema: z.ZodObject<{
+    uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+    label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    icon: z.ZodOptional<z.ZodString>;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+} & {
+    type: z.ZodLiteral<"dataTableLookup">;
+    sourceColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+    columnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    chainedLabelColumnUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>, "many">>;
+    multiAggregator: z.ZodOptional<z.ZodEnum<["concat", "sum", "avg", "min", "max"]>>;
+    multiSeparator: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "dataTableLookup";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    columnUid?: DataTableColumnUid | undefined;
+    chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+    multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+    multiSeparator?: string | undefined;
+    sourceColumnUid?: DataTableColumnUid | undefined;
+}, {
+    type: "dataTableLookup";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    columnUid?: DataTableColumnUid | undefined;
+    chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+    multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+    multiSeparator?: string | undefined;
+    sourceColumnUid?: DataTableColumnUid | undefined;
+}>;
+type DataTableColumnDataTableLookup = z.infer<typeof DataTableColumnDataTableLookupSchema>;
+declare const DataTableColumnSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+    uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+    label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    icon: z.ZodOptional<z.ZodString>;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+} & {
+    type: z.ZodLiteral<"number">;
+    defaultNumber: z.ZodOptional<z.ZodNumber>;
+}, "strip", z.ZodTypeAny, {
+    type: "number";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultNumber?: number | undefined;
+}, {
+    type: "number";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultNumber?: number | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+    label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    icon: z.ZodOptional<z.ZodString>;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+} & {
+    type: z.ZodLiteral<"text">;
+    maxChars: z.ZodOptional<z.ZodNumber>;
+    defaultValue: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "text";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultValue?: string | undefined;
+    maxChars?: number | undefined;
+}, {
+    type: "text";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultValue?: string | undefined;
+    maxChars?: number | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+    label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    icon: z.ZodOptional<z.ZodString>;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+} & {
+    type: z.ZodLiteral<"boolean">;
+    defaultBoolean: z.ZodOptional<z.ZodBoolean>;
+}, "strip", z.ZodTypeAny, {
+    type: "boolean";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultBoolean?: boolean | undefined;
+}, {
+    type: "boolean";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultBoolean?: boolean | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+    label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    icon: z.ZodOptional<z.ZodString>;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+} & {
+    type: z.ZodLiteral<"choice">;
+    options: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>;
+        label: z.ZodString;
+        icon: z.ZodOptional<z.ZodString>;
+        value: z.ZodOptional<z.ZodNumber>;
+    }, "strip", z.ZodTypeAny, {
+        uid: string & {
+            readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+        };
+        label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
+    }, {
+        uid: string & {
+            readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+        };
+        label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
+    }>, "many">>;
+    isMultiple: z.ZodOptional<z.ZodBoolean>;
+    hasNumericValue: z.ZodOptional<z.ZodBoolean>;
+    hasIcon: z.ZodOptional<z.ZodBoolean>;
+}, "strip", z.ZodTypeAny, {
+    type: "choice";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    options?: {
+        uid: string & {
+            readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+        };
+        label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
+    }[] | undefined;
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isMultiple?: boolean | undefined;
+    hasNumericValue?: boolean | undefined;
+    hasIcon?: boolean | undefined;
+}, {
+    type: "choice";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    options?: {
+        uid: string & {
+            readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+        };
+        label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
+    }[] | undefined;
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isMultiple?: boolean | undefined;
+    hasNumericValue?: boolean | undefined;
+    hasIcon?: boolean | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+    label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    icon: z.ZodOptional<z.ZodString>;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+} & {
+    type: z.ZodLiteral<"icon">;
+    defaultIcon: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "icon";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultIcon?: string | undefined;
+}, {
+    type: "icon";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultIcon?: string | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+    label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    icon: z.ZodOptional<z.ZodString>;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+} & {
+    type: z.ZodLiteral<"translatableText">;
+    defaultValue: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+}, "strip", z.ZodTypeAny, {
+    type: "translatableText";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultValue?: Record<string, string> | undefined;
+}, {
+    type: "translatableText";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    defaultValue?: Record<string, string> | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+    label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    icon: z.ZodOptional<z.ZodString>;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+} & {
+    type: z.ZodLiteral<"dataTableRef">;
+    dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+    labelColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    valueColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    iconColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    isMultiple: z.ZodOptional<z.ZodBoolean>;
+    defaultRowUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableRowUid, z.ZodTypeDef, DataTableRowUid>, "many">>;
+}, "strip", z.ZodTypeAny, {
+    type: "dataTableRef";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isMultiple?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    labelColumnUid?: DataTableColumnUid | undefined;
+    valueColumnUid?: DataTableColumnUid | undefined;
+    iconColumnUid?: DataTableColumnUid | undefined;
+    defaultRowUids?: DataTableRowUid[] | undefined;
+}, {
+    type: "dataTableRef";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isMultiple?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    labelColumnUid?: DataTableColumnUid | undefined;
+    valueColumnUid?: DataTableColumnUid | undefined;
+    iconColumnUid?: DataTableColumnUid | undefined;
+    defaultRowUids?: DataTableRowUid[] | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+    label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    icon: z.ZodOptional<z.ZodString>;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+} & {
+    type: z.ZodLiteral<"dataTableLookup">;
+    sourceColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+    columnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    chainedLabelColumnUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>, "many">>;
+    multiAggregator: z.ZodOptional<z.ZodEnum<["concat", "sum", "avg", "min", "max"]>>;
+    multiSeparator: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "dataTableLookup";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    columnUid?: DataTableColumnUid | undefined;
+    chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+    multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+    multiSeparator?: string | undefined;
+    sourceColumnUid?: DataTableColumnUid | undefined;
+}, {
+    type: "dataTableLookup";
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+    };
+    label?: Record<string, string> | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    columnUid?: DataTableColumnUid | undefined;
+    chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+    multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+    multiSeparator?: string | undefined;
+    sourceColumnUid?: DataTableColumnUid | undefined;
+}>]>;
+type DataTableColumn = z.infer<typeof DataTableColumnSchema>;
+declare const DataTableCellValueSchema: z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodString, "many">, z.ZodRecord<z.ZodString, z.ZodString>, z.ZodNull]>;
+type DataTableCellValue = z.infer<typeof DataTableCellValueSchema>;
+declare const DataTableRowSchema: z.ZodObject<{
+    uid: z.ZodType<DataTableRowUid, z.ZodTypeDef, DataTableRowUid>;
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodString, "many">, z.ZodRecord<z.ZodString, z.ZodString>, z.ZodNull]>>>;
+}, "strip", z.ZodTypeAny, {
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableRowUid" | undefined;
+    };
+    data?: Record<DataTableColumnUid, string | number | boolean | string[] | Record<string, string> | null> | undefined;
+}, {
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableRowUid" | undefined;
+    };
+    data?: Record<DataTableColumnUid, string | number | boolean | string[] | Record<string, string> | null> | undefined;
+}>;
+type DataTableRow = z.infer<typeof DataTableRowSchema>;
+declare const DataTableSchema: z.ZodObject<{
+    uid: z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>;
+    name: z.ZodRecord<z.ZodString, z.ZodString>;
+    icon: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    weight: z.ZodOptional<z.ZodNumber>;
+    adminOnly: z.ZodOptional<z.ZodBoolean>;
+    sourceUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+    columns: z.ZodArray<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+        uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+        label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+        icon: z.ZodOptional<z.ZodString>;
+        isMandatory: z.ZodOptional<z.ZodBoolean>;
+    } & {
+        type: z.ZodLiteral<"number">;
+        defaultNumber: z.ZodOptional<z.ZodNumber>;
+    }, "strip", z.ZodTypeAny, {
+        type: "number";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultNumber?: number | undefined;
+    }, {
+        type: "number";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultNumber?: number | undefined;
+    }>, z.ZodObject<{
+        uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+        label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+        icon: z.ZodOptional<z.ZodString>;
+        isMandatory: z.ZodOptional<z.ZodBoolean>;
+    } & {
+        type: z.ZodLiteral<"text">;
+        maxChars: z.ZodOptional<z.ZodNumber>;
+        defaultValue: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "text";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultValue?: string | undefined;
+        maxChars?: number | undefined;
+    }, {
+        type: "text";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultValue?: string | undefined;
+        maxChars?: number | undefined;
+    }>, z.ZodObject<{
+        uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+        label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+        icon: z.ZodOptional<z.ZodString>;
+        isMandatory: z.ZodOptional<z.ZodBoolean>;
+    } & {
+        type: z.ZodLiteral<"boolean">;
+        defaultBoolean: z.ZodOptional<z.ZodBoolean>;
+    }, "strip", z.ZodTypeAny, {
+        type: "boolean";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultBoolean?: boolean | undefined;
+    }, {
+        type: "boolean";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultBoolean?: boolean | undefined;
+    }>, z.ZodObject<{
+        uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+        label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+        icon: z.ZodOptional<z.ZodString>;
+        isMandatory: z.ZodOptional<z.ZodBoolean>;
+    } & {
+        type: z.ZodLiteral<"choice">;
+        options: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            uid: z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>;
+            label: z.ZodString;
+            icon: z.ZodOptional<z.ZodString>;
+            value: z.ZodOptional<z.ZodNumber>;
+        }, "strip", z.ZodTypeAny, {
+            uid: string & {
+                readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+            };
+            label: string;
+            value?: number | undefined;
+            icon?: string | undefined;
+        }, {
+            uid: string & {
+                readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+            };
+            label: string;
+            value?: number | undefined;
+            icon?: string | undefined;
+        }>, "many">>;
+        isMultiple: z.ZodOptional<z.ZodBoolean>;
+        hasNumericValue: z.ZodOptional<z.ZodBoolean>;
+        hasIcon: z.ZodOptional<z.ZodBoolean>;
+    }, "strip", z.ZodTypeAny, {
+        type: "choice";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        options?: {
+            uid: string & {
+                readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+            };
+            label: string;
+            value?: number | undefined;
+            icon?: string | undefined;
+        }[] | undefined;
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isMultiple?: boolean | undefined;
+        hasNumericValue?: boolean | undefined;
+        hasIcon?: boolean | undefined;
+    }, {
+        type: "choice";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        options?: {
+            uid: string & {
+                readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+            };
+            label: string;
+            value?: number | undefined;
+            icon?: string | undefined;
+        }[] | undefined;
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isMultiple?: boolean | undefined;
+        hasNumericValue?: boolean | undefined;
+        hasIcon?: boolean | undefined;
+    }>, z.ZodObject<{
+        uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+        label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+        icon: z.ZodOptional<z.ZodString>;
+        isMandatory: z.ZodOptional<z.ZodBoolean>;
+    } & {
+        type: z.ZodLiteral<"icon">;
+        defaultIcon: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "icon";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultIcon?: string | undefined;
+    }, {
+        type: "icon";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultIcon?: string | undefined;
+    }>, z.ZodObject<{
+        uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+        label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+        icon: z.ZodOptional<z.ZodString>;
+        isMandatory: z.ZodOptional<z.ZodBoolean>;
+    } & {
+        type: z.ZodLiteral<"translatableText">;
+        defaultValue: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+    }, "strip", z.ZodTypeAny, {
+        type: "translatableText";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultValue?: Record<string, string> | undefined;
+    }, {
+        type: "translatableText";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultValue?: Record<string, string> | undefined;
+    }>, z.ZodObject<{
+        uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+        label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+        icon: z.ZodOptional<z.ZodString>;
+        isMandatory: z.ZodOptional<z.ZodBoolean>;
+    } & {
+        type: z.ZodLiteral<"dataTableRef">;
+        dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+        labelColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+        valueColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+        iconColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+        isMultiple: z.ZodOptional<z.ZodBoolean>;
+        defaultRowUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableRowUid, z.ZodTypeDef, DataTableRowUid>, "many">>;
+    }, "strip", z.ZodTypeAny, {
+        type: "dataTableRef";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isMultiple?: boolean | undefined;
+        dataTableUid?: DataTableUid | undefined;
+        labelColumnUid?: DataTableColumnUid | undefined;
+        valueColumnUid?: DataTableColumnUid | undefined;
+        iconColumnUid?: DataTableColumnUid | undefined;
+        defaultRowUids?: DataTableRowUid[] | undefined;
+    }, {
+        type: "dataTableRef";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isMultiple?: boolean | undefined;
+        dataTableUid?: DataTableUid | undefined;
+        labelColumnUid?: DataTableColumnUid | undefined;
+        valueColumnUid?: DataTableColumnUid | undefined;
+        iconColumnUid?: DataTableColumnUid | undefined;
+        defaultRowUids?: DataTableRowUid[] | undefined;
+    }>, z.ZodObject<{
+        uid: z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>;
+        label: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+        icon: z.ZodOptional<z.ZodString>;
+        isMandatory: z.ZodOptional<z.ZodBoolean>;
+    } & {
+        type: z.ZodLiteral<"dataTableLookup">;
+        sourceColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+        dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+        columnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+        chainedLabelColumnUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>, "many">>;
+        multiAggregator: z.ZodOptional<z.ZodEnum<["concat", "sum", "avg", "min", "max"]>>;
+        multiSeparator: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "dataTableLookup";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        dataTableUid?: DataTableUid | undefined;
+        columnUid?: DataTableColumnUid | undefined;
+        chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+        multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+        multiSeparator?: string | undefined;
+        sourceColumnUid?: DataTableColumnUid | undefined;
+    }, {
+        type: "dataTableLookup";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        dataTableUid?: DataTableUid | undefined;
+        columnUid?: DataTableColumnUid | undefined;
+        chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+        multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+        multiSeparator?: string | undefined;
+        sourceColumnUid?: DataTableColumnUid | undefined;
+    }>]>, "many">;
+    rows: z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<DataTableRowUid, z.ZodTypeDef, DataTableRowUid>;
+        data: z.ZodOptional<z.ZodRecord<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodString, "many">, z.ZodRecord<z.ZodString, z.ZodString>, z.ZodNull]>>>;
+    }, "strip", z.ZodTypeAny, {
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableRowUid" | undefined;
+        };
+        data?: Record<DataTableColumnUid, string | number | boolean | string[] | Record<string, string> | null> | undefined;
+    }, {
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableRowUid" | undefined;
+        };
+        data?: Record<DataTableColumnUid, string | number | boolean | string[] | Record<string, string> | null> | undefined;
+    }>, "many">;
+}, "strip", z.ZodTypeAny, {
+    name: Record<string, string>;
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableUid" | undefined;
+    };
+    columns: ({
+        type: "number";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultNumber?: number | undefined;
+    } | {
+        type: "text";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultValue?: string | undefined;
+        maxChars?: number | undefined;
+    } | {
+        type: "boolean";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultBoolean?: boolean | undefined;
+    } | {
+        type: "choice";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        options?: {
+            uid: string & {
+                readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+            };
+            label: string;
+            value?: number | undefined;
+            icon?: string | undefined;
+        }[] | undefined;
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isMultiple?: boolean | undefined;
+        hasNumericValue?: boolean | undefined;
+        hasIcon?: boolean | undefined;
+    } | {
+        type: "icon";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultIcon?: string | undefined;
+    } | {
+        type: "translatableText";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultValue?: Record<string, string> | undefined;
+    } | {
+        type: "dataTableRef";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isMultiple?: boolean | undefined;
+        dataTableUid?: DataTableUid | undefined;
+        labelColumnUid?: DataTableColumnUid | undefined;
+        valueColumnUid?: DataTableColumnUid | undefined;
+        iconColumnUid?: DataTableColumnUid | undefined;
+        defaultRowUids?: DataTableRowUid[] | undefined;
+    } | {
+        type: "dataTableLookup";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        dataTableUid?: DataTableUid | undefined;
+        columnUid?: DataTableColumnUid | undefined;
+        chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+        multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+        multiSeparator?: string | undefined;
+        sourceColumnUid?: DataTableColumnUid | undefined;
+    })[];
+    rows: {
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableRowUid" | undefined;
+        };
+        data?: Record<DataTableColumnUid, string | number | boolean | string[] | Record<string, string> | null> | undefined;
+    }[];
+    weight?: number | undefined;
+    icon?: string | null | undefined;
+    adminOnly?: boolean | undefined;
+    sourceUid?: DataTableUid | undefined;
+}, {
+    name: Record<string, string>;
+    uid: string & {
+        readonly __bypp_flavor?: "DataTableUid" | undefined;
+    };
+    columns: ({
+        type: "number";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultNumber?: number | undefined;
+    } | {
+        type: "text";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultValue?: string | undefined;
+        maxChars?: number | undefined;
+    } | {
+        type: "boolean";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultBoolean?: boolean | undefined;
+    } | {
+        type: "choice";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        options?: {
+            uid: string & {
+                readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+            };
+            label: string;
+            value?: number | undefined;
+            icon?: string | undefined;
+        }[] | undefined;
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isMultiple?: boolean | undefined;
+        hasNumericValue?: boolean | undefined;
+        hasIcon?: boolean | undefined;
+    } | {
+        type: "icon";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultIcon?: string | undefined;
+    } | {
+        type: "translatableText";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        defaultValue?: Record<string, string> | undefined;
+    } | {
+        type: "dataTableRef";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isMultiple?: boolean | undefined;
+        dataTableUid?: DataTableUid | undefined;
+        labelColumnUid?: DataTableColumnUid | undefined;
+        valueColumnUid?: DataTableColumnUid | undefined;
+        iconColumnUid?: DataTableColumnUid | undefined;
+        defaultRowUids?: DataTableRowUid[] | undefined;
+    } | {
+        type: "dataTableLookup";
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableColumnUid" | undefined;
+        };
+        label?: Record<string, string> | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        dataTableUid?: DataTableUid | undefined;
+        columnUid?: DataTableColumnUid | undefined;
+        chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+        multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+        multiSeparator?: string | undefined;
+        sourceColumnUid?: DataTableColumnUid | undefined;
+    })[];
+    rows: {
+        uid: string & {
+            readonly __bypp_flavor?: "DataTableRowUid" | undefined;
+        };
+        data?: Record<DataTableColumnUid, string | number | boolean | string[] | Record<string, string> | null> | undefined;
+    }[];
+    weight?: number | undefined;
+    icon?: string | null | undefined;
+    adminOnly?: boolean | undefined;
+    sourceUid?: DataTableUid | undefined;
+}>;
+type DataTable = z.infer<typeof DataTableSchema>;
+
+export { AbilityEntitySchema, type ActionVisual, ActionVisualSchema, type Asset, type AssetBase, AssetBaseSchema, AssetSchema, type AssetUid, AssetUidSchema, type AudioAsset, AudioAssetSchema, type AudioExternalAsset, AudioExternalAssetSchema, BYPP_FORMAT_EXT, BYPP_FORMAT_VERSION, type BarOrientation, BarOrientationSchema, type BeyondPaper, BeyondPaperSchema, type BooleanVariable, BooleanVariableSchema, type Asset as ByppAsset, type AssetBase as ByppAssetBase, type CharacterEntity as ByppCharacterEntity, type Chunk as ByppChunk, type ChunkBase as ByppChunkBase, type ChunkGallery as ByppChunkGallery, type ChunkRandom as ByppChunkRandom, type ChunkText as ByppChunkText, type ChunkTextProxy as ByppChunkTextProxy, type CreatureEntity as ByppCreatureEntity, type DataTable as ByppDataTable, type DataTableColumn as ByppDataTableColumn, type DataTableLookupVariable as ByppDataTableLookupVariable, type DataTableRefVariable as ByppDataTableRefVariable, type DataTableRow as ByppDataTableRow, type Dataset as ByppDataset, type Dialect as ByppDialect, type DialectFont as ByppDialectFont, type Entity as ByppEntity, type EntityBase as ByppEntityBase, type GroupEntity as ByppGroupEntity, type GroupRank as ByppGroupRank, type GroupRankCharacter as ByppGroupRankCharacter, type Page as ByppPage, type PageEntity as ByppPageEntity, type PageStandard as ByppPageStandard, type PlaceEntity as ByppPlaceEntity, type RandomTable as ByppRandomTable, type RandomTableRow as ByppRandomTableRow, type Scene as ByppScene, type SceneBackground as ByppSceneBackground, type SceneBackgroundBase as ByppSceneBackgroundBase, type SceneMap as ByppSceneMap, type SceneMapBase as ByppSceneMapBase, type Sheet as ByppSheet, type Tag as ByppTag, type TagCategory as ByppTagCategory, type Variable as ByppVariable, type VariableBase as ByppVariableBase, type Widget as ByppWidget, type WidgetBase as ByppWidgetBase, type CharacterEntity, CharacterEntitySchema, type ChoiceOption, ChoiceOptionSchema, type ChoiceVariable, ChoiceVariableSchema, type Chunk, type ChunkBase, ChunkBaseSchema, type ChunkBlockStyle, ChunkBlockStyleSchema, type ChunkGallery, ChunkGallerySchema, type ChunkHeadingLevel, ChunkHeadingLevelSchema, type ChunkHeadingMode, ChunkHeadingModeSchema, type ChunkRandom, ChunkRandomSchema, ChunkSchema, type ChunkText, type ChunkTextProxy, ChunkTextProxySchema, ChunkTextSchema, type ChunkUid, ChunkUidSchema, type CreatureEntity, CreatureEntitySchema, type CustomImageSceneBackground, CustomImageSceneBackgroundSchema, type CustomImageSceneMap, CustomImageSceneMapSchema, type CustomVideoSceneBackground, CustomVideoSceneBackgroundSchema, type CustomVideoSceneMap, CustomVideoSceneMapSchema, type DataTable, type DataTableCellValue, DataTableCellValueSchema, type DataTableColumn, type DataTableColumnBoolean, DataTableColumnBooleanSchema, type DataTableColumnChoice, DataTableColumnChoiceSchema, type DataTableColumnDataTableLookup, DataTableColumnDataTableLookupSchema, type DataTableColumnDataTableRef, DataTableColumnDataTableRefSchema, type DataTableColumnIcon, DataTableColumnIconSchema, type DataTableColumnNumber, DataTableColumnNumberSchema, DataTableColumnSchema, type DataTableColumnText, DataTableColumnTextSchema, type DataTableColumnTranslatableText, DataTableColumnTranslatableTextSchema, type DataTableColumnUid, DataTableColumnUidSchema, type DataTableLookupVariable, DataTableLookupVariableSchema, type DataTableRefVariable, DataTableRefVariableSchema, type DataTableRow, DataTableRowSchema, type DataTableRowUid, DataTableRowUidSchema, DataTableSchema, type DataTableUid, DataTableUidSchema, type Dataset, DatasetSchema, DatasetTargetSchema, type DatasetUid, DatasetUidSchema, type Dd2VttSceneMap, Dd2VttSceneMapSchema, type Dialect, type DialectFont, DialectFontSchema, DialectSchema, type DialectUid, DialectUidSchema, type Entity, type EntityAsset, EntityAssetSchema, type EntityBase, EntityBaseSchema, EntitySchema, type EntityType, EntityTypeSchema, type EntityUid, EntityUidSchema, EventEntitySchema, type FormulaVariable, FormulaVariableSchema, type GridData, GridDataSchema, type GroupEntity, GroupEntitySchema, type GroupRank, type GroupRankCharacter, GroupRankCharacterSchema, GroupRankSchema, type IconCompo, IconCompoSchema, type IconCompoSlotConfig, IconCompoSlotConfigSchema, type ImageAsset, ImageAssetSchema, type ImageDimensions, ImageDimensionsSchema, ItemEntitySchema, NoteEntitySchema, type NumberVariable, NumberVariableSchema, type Page, type PageEntity, PageEntitySchema, PageSchema, type PageStandard, PageStandardSchema, type PageUid, PageUidSchema, type PlaceEntity, PlaceEntitySchema, type RandomTable, type RandomTableRow, RandomTableRowSchema, type RandomTableRowUid, RandomTableRowUidSchema, RandomTableSchema, type RandomTableUid, RandomTableUidSchema, type RollVariable, RollVariableSchema, type Scene, type SceneBackground, type SceneBackgroundBase, SceneBackgroundBaseSchema, SceneBackgroundSchema, type SceneBackgroundUid, SceneBackgroundUidSchema, type SceneGameMode, SceneGameModeSchema, type SceneMap, type SceneMapBase, SceneMapBaseSchema, SceneMapSchema, type SceneMapUid, SceneMapUidSchema, SceneSchema, type SceneUid, SceneUidSchema, type Sheet, SheetSchema, type SheetUid, SheetUidSchema, StoryEntitySchema, StyleSchema, type Tag, type TagCategory, TagCategorySchema, type TagCategoryUid, TagCategoryUidSchema, TagSchema, type TagUid, TagUidSchema, type TextVariable, TextVariableSchema, type TranslatableText, TranslatableTextSchema, type Variable, type VariableBase, VariableBaseSchema, type VariableChoiceUid, VariableChoiceUidSchema, VariableDataValueSchema, VariableSchema, type VariableUid, VariableUidSchema, VariablesDataRecordSchema, type VideoAsset, VideoAssetSchema, type Widget, type WidgetBar, WidgetBarSchema, type WidgetBase, WidgetBaseSchema, type WidgetBigNumber, WidgetBigNumberSchema, type WidgetBulletList, WidgetBulletListSchema, type WidgetEmpty, WidgetEmptySchema, type WidgetInlineList, WidgetInlineListSchema, type WidgetPips, WidgetPipsSchema, type WidgetPlainText, WidgetPlainTextSchema, WidgetSchema, type WidgetToggle, WidgetToggleSchema, type WidgetUid, WidgetUidSchema, WithArchiveSchema, WithAreaSchema, WithAssetsSchema, WithAudioUrlsSchema, WithDataSchema, WithImagesUrlsSchema, WithNameSchema, WithPagesSchema, WithPositionSchema, WithScenesSchema, WithStyleSchema, WithVideoUrlsSchema };

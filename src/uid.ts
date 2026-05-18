@@ -35,6 +35,9 @@ export type DialectUid = Flavor<"DialectUid">;
 export type SheetUid = Flavor<"SheetUid">;
 export type EntityTokenUid = Flavor<"EntityTokenUid">;
 export type VariableChoiceUid = Flavor<"VariableChoiceUid">;
+export type DataTableUid = Flavor<"DataTableUid">;
+export type DataTableRowUid = Flavor<"DataTableRowUid">;
+export type DataTableColumnUid = Flavor<"DataTableColumnUid">;
 
 // ─── Zod schemas for branded UIDs ───────────────────────────────────
 // At runtime these are just z.string(). The `as` cast gives us the
@@ -59,3 +62,6 @@ export const DialectUidSchema = z.string() as unknown as z.ZodType<DialectUid>;
 export const SheetUidSchema = z.string() as unknown as z.ZodType<SheetUid>;
 export const EntityTokenUidSchema = z.string() as unknown as z.ZodType<EntityTokenUid>;
 export const VariableChoiceUidSchema = z.string() as unknown as z.ZodType<VariableChoiceUid>;
+export const DataTableUidSchema = z.string() as unknown as z.ZodType<DataTableUid>;
+export const DataTableRowUidSchema = z.string() as unknown as z.ZodType<DataTableRowUid>;
+export const DataTableColumnUidSchema = z.string() as unknown as z.ZodType<DataTableColumnUid>;

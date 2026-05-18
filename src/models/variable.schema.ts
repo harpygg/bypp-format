@@ -2,6 +2,9 @@ import { z } from "zod";
 import { WithNameSchema } from "../mixins/with-name.schema";
 import {
   DatasetUidSchema,
+  DataTableColumnUidSchema,
+  DataTableRowUidSchema,
+  DataTableUidSchema,
   VariableChoiceUidSchema,
   VariableUidSchema,
 } from "../uid";
@@ -98,6 +101,41 @@ export const RollVariableSchema = VariableBaseSchema.extend({
 
 export type RollVariable = z.infer<typeof RollVariableSchema>;
 
+/**
+ * Variable whose value points to row(s) of a target data-table.
+ * Display uses `labelColumnUid`; formulas read `valueColumnUid`.
+ */
+export const DataTableRefVariableSchema = VariableBaseSchema.extend({
+  type: z.literal("dataTableRef"),
+  dataTableUid: DataTableUidSchema.optional(),
+  labelColumnUid: DataTableColumnUidSchema.optional(),
+  valueColumnUid: DataTableColumnUidSchema.optional(),
+  iconColumnUid: DataTableColumnUidSchema.optional(),
+  isMultiple: z.boolean().optional(),
+  defaultRowUids: z.array(DataTableRowUidSchema).optional(),
+});
+
+export type DataTableRefVariable = z.infer<typeof DataTableRefVariableSchema>;
+
+/**
+ * Derived variable: reads a cell from a data-table given row uid(s)
+ * supplied by an upstream `dataTableRef` variable. No stored value of its
+ * own. Multi-row aggregation via `multiAggregator`.
+ */
+export const DataTableLookupVariableSchema = VariableBaseSchema.extend({
+  type: z.literal("dataTableLookup"),
+  sourceVariableUid: VariableUidSchema.optional(),
+  dataTableUid: DataTableUidSchema.optional(),
+  columnUid: DataTableColumnUidSchema.optional(),
+  chainedLabelColumnUids: z.array(DataTableColumnUidSchema).optional(),
+  multiAggregator: z.enum(["concat", "sum", "avg", "min", "max"]).optional(),
+  multiSeparator: z.string().optional(),
+});
+
+export type DataTableLookupVariable = z.infer<
+  typeof DataTableLookupVariableSchema
+>;
+
 export const VariableSchema = z.discriminatedUnion("type", [
   NumberVariableSchema,
   TextVariableSchema,
@@ -105,6 +143,8 @@ export const VariableSchema = z.discriminatedUnion("type", [
   ChoiceVariableSchema,
   FormulaVariableSchema,
   RollVariableSchema,
+  DataTableRefVariableSchema,
+  DataTableLookupVariableSchema,
 ]);
 
 export type Variable = z.infer<typeof VariableSchema>;
