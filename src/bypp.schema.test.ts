@@ -3,11 +3,14 @@ import { BeyondPaperSchema, type BeyondPaper } from "./bypp.schema";
 
 describe("BeyondPaperSchema", () => {
   const validMinimal: BeyondPaper = {
-    version: 2,
+    version: 3,
     format: "bypp",
     name: "Test Bundle",
     exportedAt: "2026-03-22T12:00:00.000Z",
     bundleVersion: "1.0.0",
+    license: "CC-BY",
+    licenseVersion: "4.0",
+    attribution: { authorName: "Alice" },
     dialects: [],
     entities: [],
     pages: [],

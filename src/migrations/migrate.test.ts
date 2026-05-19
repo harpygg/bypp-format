@@ -220,15 +220,16 @@ describe("migrate", () => {
     });
 
     it("rejects a downgrade when a step is missing", () => {
-      // Synthetic v3 input — no DOWN_MIGRATIONS[3] registered.
-      const v3 = { ...v2Minimal, version: 3 };
-      expect(() => migrate(v3, 1)).toThrow(
-        /input does not conform to v3 schema|no downgrade registered/,
+      // Synthetic v99 input — no DOWN_MIGRATIONS[99] registered.
+      const vFuture = { ...v2Minimal, version: 99 };
+      expect(() => migrate(vFuture, 1)).toThrow(
+        /input does not conform to v99 schema|no downgrade registered/,
       );
     });
 
     it("exports a DOWN_MIGRATIONS registry keyed by source version", () => {
       expect(typeof DOWN_MIGRATIONS[2]).toBe("function");
+      expect(typeof DOWN_MIGRATIONS[3]).toBe("function");
     });
   });
 });

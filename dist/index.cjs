@@ -30,6 +30,8 @@ __export(index_exports, {
   AssetSchema: () => AssetV1Schema,
   AssetUidSchema: () => AssetUidSchema,
   AssetV1Schema: () => AssetV1Schema,
+  AttributionSchema: () => AttributionV3Schema,
+  AttributionV3Schema: () => AttributionV3Schema,
   AudioAssetSchema: () => AudioAssetV1Schema,
   AudioAssetV1Schema: () => AudioAssetV1Schema,
   AudioExternalAssetSchema: () => AudioExternalAssetV1Schema,
@@ -38,11 +40,14 @@ __export(index_exports, {
   BYPP_FORMAT_VERSION: () => BYPP_FORMAT_VERSION,
   BarOrientationSchema: () => BarOrientationV1Schema,
   BarOrientationV1Schema: () => BarOrientationV1Schema,
-  BeyondPaperSchema: () => BeyondPaperV2Schema,
+  BeyondPaperSchema: () => BeyondPaperV3Schema,
   BeyondPaperV1Schema: () => BeyondPaperV1Schema,
   BeyondPaperV2Schema: () => BeyondPaperV2Schema,
+  BeyondPaperV3Schema: () => BeyondPaperV3Schema,
   BooleanVariableSchema: () => BooleanVariableV1Schema,
   BooleanVariableV1Schema: () => BooleanVariableV1Schema,
+  CcLicenseSchema: () => CcLicenseV3Schema,
+  CcLicenseV3Schema: () => CcLicenseV3Schema,
   CharacterEntitySchema: () => CharacterEntityV1Schema,
   CharacterEntityV1Schema: () => CharacterEntityV1Schema,
   ChoiceOptionSchema: () => ChoiceOptionV1Schema,
@@ -165,6 +170,8 @@ __export(index_exports, {
   PageStandardV1Schema: () => PageStandardV1Schema,
   PageUidSchema: () => PageUidSchema,
   PageV1Schema: () => PageV1Schema,
+  ParentAttributionSchema: () => ParentAttributionV3Schema,
+  ParentAttributionV3Schema: () => ParentAttributionV3Schema,
   PlaceEntitySchema: () => PlaceEntityV1Schema,
   PlaceEntityV1Schema: () => PlaceEntityV1Schema,
   RandomTableRowSchema: () => RandomTableRowV1Schema,
@@ -273,10 +280,10 @@ __export(index_exports, {
 module.exports = __toCommonJS(index_exports);
 
 // src/version.ts
-var BYPP_FORMAT_VERSION = 2;
+var BYPP_FORMAT_VERSION = 3;
 var BYPP_FORMAT_EXT = "bypp";
 
-// src/schemas/bypp.v2.schema.ts
+// src/schemas/bypp.v3.schema.ts
 var import_zod33 = require("zod");
 
 // src/models/asset.v1.schema.ts
@@ -996,15 +1003,42 @@ var WidgetV1Schema = import_zod32.z.discriminatedUnion("type", [
   WidgetBarV1Schema
 ]);
 
-// src/schemas/bypp.v2.schema.ts
-var BeyondPaperV2Schema = import_zod33.z.object({
+// src/schemas/bypp.v3.schema.ts
+var CcLicenseV3Schema = import_zod33.z.enum([
+  "CC0",
+  "CC-BY",
+  "CC-BY-SA",
+  "CC-BY-NC",
+  "CC-BY-NC-SA",
+  "CC-BY-ND",
+  "CC-BY-NC-ND",
+  "ARR"
+]);
+var AttributionV3Schema = import_zod33.z.object({
+  authorName: import_zod33.z.string().min(1),
+  authorUrl: import_zod33.z.string().url().optional(),
+  sourceUrl: import_zod33.z.string().url().optional()
+});
+var ParentAttributionV3Schema = import_zod33.z.object({
+  artifactName: import_zod33.z.string().min(1),
+  authorName: import_zod33.z.string().min(1),
+  license: CcLicenseV3Schema,
+  sourceUrl: import_zod33.z.string().url().optional()
+});
+var BeyondPaperV3Schema = import_zod33.z.object({
   // Format metadata
-  version: import_zod33.z.literal(2),
+  version: import_zod33.z.literal(3),
   format: import_zod33.z.literal("bypp"),
   // Bundle metadata
   name: import_zod33.z.string(),
   exportedAt: import_zod33.z.string(),
   bundleVersion: import_zod33.z.string(),
+  // Licensing & attribution (new in v3)
+  license: CcLicenseV3Schema,
+  licenseVersion: import_zod33.z.literal("4.0"),
+  attribution: AttributionV3Schema,
+  parentAttribution: ParentAttributionV3Schema.optional(),
+  creatorLinks: import_zod33.z.array(import_zod33.z.string().url()).optional(),
   // Content
   dialects: import_zod33.z.array(DialectV1Schema),
   entities: import_zod33.z.array(EntityV1Schema),
@@ -1051,6 +1085,35 @@ var BeyondPaperV1Schema = import_zod34.z.object({
   assets: import_zod34.z.array(AssetV1Schema)
 });
 
+// src/schemas/bypp.v2.schema.ts
+var import_zod35 = require("zod");
+var BeyondPaperV2Schema = import_zod35.z.object({
+  // Format metadata
+  version: import_zod35.z.literal(2),
+  format: import_zod35.z.literal("bypp"),
+  // Bundle metadata
+  name: import_zod35.z.string(),
+  exportedAt: import_zod35.z.string(),
+  bundleVersion: import_zod35.z.string(),
+  // Content
+  dialects: import_zod35.z.array(DialectV1Schema),
+  entities: import_zod35.z.array(EntityV1Schema),
+  pages: import_zod35.z.array(PageV1Schema),
+  chunks: import_zod35.z.array(ChunkV1Schema),
+  datasets: import_zod35.z.array(DatasetV1Schema),
+  variables: import_zod35.z.array(VariableV2Schema),
+  widgets: import_zod35.z.array(WidgetV1Schema),
+  sheets: import_zod35.z.array(SheetV2Schema),
+  dataTables: import_zod35.z.array(DataTableV2Schema),
+  randomTables: import_zod35.z.array(RandomTableV1Schema),
+  tags: import_zod35.z.array(TagV1Schema),
+  tagCategories: import_zod35.z.array(TagCategoryV1Schema),
+  scenes: import_zod35.z.array(SceneV1Schema),
+  sceneMaps: import_zod35.z.array(SceneMapV1Schema),
+  sceneBackgrounds: import_zod35.z.array(SceneBackgroundV1Schema),
+  assets: import_zod35.z.array(AssetV1Schema)
+});
+
 // src/migrations/v1-to-v2.ts
 var v1ToV2 = (v1) => ({
   ...v1,
@@ -1073,16 +1136,46 @@ var v2ToV1 = (v2) => {
   };
 };
 
+// src/migrations/v2-to-v3.ts
+var v2ToV3 = (v2) => ({
+  ...v2,
+  version: 3,
+  license: "ARR",
+  licenseVersion: "4.0",
+  attribution: { authorName: "Unknown" }
+});
+
+// src/migrations/v3-to-v2.ts
+var v3ToV2 = (v3) => {
+  const {
+    license,
+    licenseVersion,
+    attribution,
+    parentAttribution,
+    creatorLinks,
+    ...rest
+  } = v3;
+  void license;
+  void licenseVersion;
+  void attribution;
+  void parentAttribution;
+  void creatorLinks;
+  return { ...rest, version: 2 };
+};
+
 // src/migrations/index.ts
 var MIGRATIONS = {
-  1: v1ToV2
+  1: v1ToV2,
+  2: v2ToV3
 };
 var DOWN_MIGRATIONS = {
-  2: v2ToV1
+  2: v2ToV1,
+  3: v3ToV2
 };
 var SCHEMA_BY_VERSION = {
   1: BeyondPaperV1Schema,
-  2: BeyondPaperV2Schema
+  2: BeyondPaperV2Schema,
+  3: BeyondPaperV3Schema
 };
 var migrate = (raw, targetVersion = BYPP_FORMAT_VERSION) => {
   if (typeof raw !== "object" || raw === null) {
@@ -1160,6 +1253,8 @@ var validateStep = (current, version) => {
   AssetSchema,
   AssetUidSchema,
   AssetV1Schema,
+  AttributionSchema,
+  AttributionV3Schema,
   AudioAssetSchema,
   AudioAssetV1Schema,
   AudioExternalAssetSchema,
@@ -1171,8 +1266,11 @@ var validateStep = (current, version) => {
   BeyondPaperSchema,
   BeyondPaperV1Schema,
   BeyondPaperV2Schema,
+  BeyondPaperV3Schema,
   BooleanVariableSchema,
   BooleanVariableV1Schema,
+  CcLicenseSchema,
+  CcLicenseV3Schema,
   CharacterEntitySchema,
   CharacterEntityV1Schema,
   ChoiceOptionSchema,
@@ -1295,6 +1393,8 @@ var validateStep = (current, version) => {
   PageStandardV1Schema,
   PageUidSchema,
   PageV1Schema,
+  ParentAttributionSchema,
+  ParentAttributionV3Schema,
   PlaceEntitySchema,
   PlaceEntityV1Schema,
   RandomTableRowSchema,

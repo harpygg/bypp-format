@@ -13,6 +13,26 @@ export {
   BeyondPaperV2Schema,
   type BeyondPaperV2,
 } from "./schemas/bypp.v2.schema";
+export {
+  BeyondPaperV3Schema,
+  CcLicenseV3Schema,
+  AttributionV3Schema,
+  ParentAttributionV3Schema,
+  type BeyondPaperV3,
+  type CcLicenseV3,
+  type AttributionV3,
+  type ParentAttributionV3,
+} from "./schemas/bypp.v3.schema";
+
+// Current aliases for license types
+export {
+  CcLicenseV3Schema as CcLicenseSchema,
+  AttributionV3Schema as AttributionSchema,
+  ParentAttributionV3Schema as ParentAttributionSchema,
+  type CcLicenseV3 as CcLicense,
+  type AttributionV3 as Attribution,
+  type ParentAttributionV3 as ParentAttribution,
+} from "./schemas/bypp.v3.schema";
 
 // Migrations
 export {

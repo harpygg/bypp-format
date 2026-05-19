@@ -9,6 +9,69 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v3 — 2026-05
+
+### Added
+- Top-level **licensing & attribution metadata**
+  ([`BeyondPaperV3Schema`](src/schemas/bypp.v3.schema.ts)). Every bundle
+  now carries its legal terms inline, so a `.bypp` downloaded for offline
+  use keeps full legal context.
+
+  - **`license`** — one of 8 values:
+    - `CC0` — public domain dedication
+    - `CC-BY` — attribution required
+    - `CC-BY-SA` — attribution + share-alike (viral)
+    - `CC-BY-NC` — attribution + non-commercial
+    - `CC-BY-NC-SA` — attribution + non-commercial + share-alike
+    - `CC-BY-ND` — attribution + no derivatives
+    - `CC-BY-NC-ND` — attribution + non-commercial + no derivatives
+    - `ARR` — all rights reserved (the only legal value for
+      non-distributable bundles; default when migrating from v2)
+
+  - **`licenseVersion`** — locked to `"4.0"`. Only Creative Commons 4.0 is
+    supported; older CC versions are out of scope.
+
+  - **`attribution`** — required block: `{ authorName, authorUrl?, sourceUrl? }`.
+    Carried even by `CC0` (originally-created-by credit) and `ARR`
+    (ownership statement).
+
+  - **`parentAttribution`** — optional. Set when a bundle is transmuted
+    (derived) from another. Snapshot of the parent's `artifactName`,
+    `authorName`, `license`, optional `sourceUrl` — so the credit chain
+    survives offline use.
+
+  - **`creatorLinks`** — optional list of additional URLs where the
+    creator can be found (other profiles, Ko-fi, Gumroad, Patreon,
+    Itch.io, a Discord, a personal blog…). `attribution.authorUrl`
+    already carries the canonical home page; `creatorLinks` is
+    everything else.
+
+- Schema exports for the new types: `CcLicenseSchema`, `AttributionSchema`,
+  `ParentAttributionSchema` (and their `V3`-suffixed canonical names).
+- Migrations: `MIGRATIONS[2] = v2ToV3` (forward — defaults `license: "ARR"`
+  and `attribution: { authorName: "Unknown" }` since v2 bundles carry no
+  legal metadata) and `DOWN_MIGRATIONS[3] = v3ToV2` (backward, lossy —
+  strips all licensing fields).
+
+### Changed
+- `BYPP_FORMAT_VERSION` bumped to `3`. `BeyondPaperSchema` now points at
+  `BeyondPaperV3Schema`; `type BeyondPaper` is `BeyondPaperV3`.
+
+### Removed
+- Nothing. v3 is purely additive over v2 at the format level. The lossy
+  v3 → v2 downgrade strips v3-only fields but doesn't touch anything that
+  was already in v2.
+
+### Notes for consumers
+- Producers MUST set a real `license` value. The forward migration's
+  `"ARR"` default exists only to make legacy v2 bundles parseable; emitting
+  fresh v3 bundles with `"Unknown"` author or unintentional `"ARR"` is a
+  bug on the producer's side.
+- Compatibility between parent and derivative licenses (e.g. CC-BY-SA
+  forces SA on all descendants; ND/ARR forbid derivatives entirely) is
+  the **consumer's** responsibility. The format records the licenses; it
+  doesn't enforce the rules.
+
 ## Format v2 — 2026-03
 
 ### Added
