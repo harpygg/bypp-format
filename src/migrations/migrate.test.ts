@@ -230,6 +230,147 @@ describe("migrate", () => {
     it("exports a DOWN_MIGRATIONS registry keyed by source version", () => {
       expect(typeof DOWN_MIGRATIONS[2]).toBe("function");
       expect(typeof DOWN_MIGRATIONS[3]).toBe("function");
+      expect(typeof DOWN_MIGRATIONS[4]).toBe("function");
+    });
+  });
+
+  // ─── v3 → v4 specifics ──────────────────────────────────────────────
+
+  describe("v3 → v4", () => {
+    const v3Minimal = {
+      version: 3,
+      format: "bypp",
+      name: "v3 bundle",
+      exportedAt: "2026-03-22T12:00:00.000Z",
+      bundleVersion: "1.0.0",
+      license: "CC-BY",
+      licenseVersion: "4.0",
+      attribution: { authorName: "Alice" },
+      dialects: [],
+      entities: [],
+      pages: [],
+      chunks: [],
+      datasets: [],
+      variables: [],
+      widgets: [],
+      sheets: [],
+      dataTables: [],
+      randomTables: [],
+      tags: [],
+      tagCategories: [],
+      scenes: [],
+      sceneMaps: [],
+      sceneBackgrounds: [],
+      assets: [],
+    };
+
+    it("upgrades a minimal v3 bundle to v4", () => {
+      const v4 = migrate(v3Minimal, 4) as { version: number };
+      expect(v4.version).toBe(4);
+    });
+
+    it("renames parentAttribution.artifactName → bundleName", () => {
+      const v3 = {
+        ...v3Minimal,
+        parentAttribution: {
+          artifactName: "Old bundle",
+          authorName: "Bob",
+          license: "CC-BY" as const,
+        },
+      };
+      const v4 = migrate(v3, 4) as {
+        parentAttribution?: { bundleName?: string; artifactName?: string };
+      };
+      expect(v4.parentAttribution?.bundleName).toBe("Old bundle");
+      expect(v4.parentAttribution?.artifactName).toBeUndefined();
+    });
+
+    it("collapses a dd2vtt scene map into customImage with sourceFormat annotation", () => {
+      const v3 = {
+        ...v3Minimal,
+        sceneMaps: [
+          {
+            uid: "sm-1",
+            name: "Tavern",
+            type: "dd2vtt" as const,
+            grid: {
+              type: "square" as const,
+              size: 70,
+              sizeInUnit: 5,
+              measureUnit: "ft",
+              lineWidth: 1,
+              offset: { x: 0, z: 0 },
+            },
+            originalUrl: "https://example.com/tavern.jpg",
+          },
+        ],
+      };
+      const v4 = migrate(v3, 4) as {
+        sceneMaps: Array<{ type: string; sourceFormat?: string }>;
+      };
+      expect(v4.sceneMaps[0].type).toBe("customImage");
+      expect(v4.sceneMaps[0].sourceFormat).toBe("dd2vtt");
+    });
+
+    it("drops scene.weather and scene.gameMode (removed in v4)", () => {
+      const v3 = {
+        ...v3Minimal,
+        scenes: [
+          {
+            uid: "scene-1",
+            name: "Battle",
+            weather: "fog" as const,
+            gameMode: "3d_vtt" as const,
+          },
+        ],
+      };
+      const v4 = migrate(v3, 4) as {
+        scenes: Array<Record<string, unknown>>;
+      };
+      expect(v4.scenes[0]).not.toHaveProperty("weather");
+      expect(v4.scenes[0]).not.toHaveProperty("gameMode");
+    });
+
+    it("downgrades v4 → v3 by renaming bundleName back to artifactName", () => {
+      const v4 = {
+        ...v3Minimal,
+        version: 4 as const,
+        parentAttribution: {
+          bundleName: "Origin",
+          authorName: "Bob",
+          license: "CC-BY" as const,
+        },
+      };
+      const v3 = migrate(v4, 3) as {
+        parentAttribution?: { artifactName?: string };
+      };
+      expect(v3.parentAttribution?.artifactName).toBe("Origin");
+    });
+
+    it("downgrades a customImage scene map with sourceFormat='dd2vtt' back to dd2vtt variant", () => {
+      const v4 = {
+        ...v3Minimal,
+        version: 4 as const,
+        sceneMaps: [
+          {
+            uid: "sm-1",
+            name: "Tavern",
+            type: "customImage" as const,
+            grid: {
+              type: "square" as const,
+              size: 70,
+              sizeInUnit: 5,
+              measureUnit: "ft",
+              lineWidth: 1,
+              offset: { x: 0, z: 0 },
+            },
+            originalUrl: "https://example.com/tavern.jpg",
+            sourceFormat: "dd2vtt",
+          },
+        ],
+      };
+      const v3 = migrate(v4, 3) as { sceneMaps: Array<{ type: string }> };
+      expect(v3.sceneMaps[0].type).toBe("dd2vtt");
     });
   });
 });

@@ -1,28 +1,38 @@
 // src/version.ts
-var BYPP_FORMAT_VERSION = 3;
+var BYPP_FORMAT_VERSION = 4;
 var BYPP_FORMAT_EXT = "bypp";
 
-// src/schemas/bypp.v3.schema.ts
-import { z as z33 } from "zod";
+// src/schemas/bypp.v4.schema.ts
+import { z as z52 } from "zod";
 
-// src/models/asset.v1.schema.ts
-import { z as z6 } from "zod";
+// src/models/asset.v2.schema.ts
+import { z as z7 } from "zod";
 
-// src/mixins/with-audio-urls.v1.schema.ts
+// src/mixins/with-audio-urls.v2.schema.ts
 import { z } from "zod";
-var WithAudioUrlsV1Schema = z.object({
-  audioUrl: z.string().optional(),
+var KNOWN_AUDIO_EXTS = [
+  "mp3",
+  "ogg",
+  "wav",
+  "flac",
+  "aac",
+  "opus",
+  "webm",
+  "m4a"
+];
+var WithAudioUrlsV2Schema = z.object({
+  audioUrl: z.string().url().optional(),
   audioDurationSeconds: z.number().optional(),
-  audioExt: z.enum(["mp3", "ogg"]).optional()
+  audioExt: z.string().optional()
 });
 
-// src/mixins/with-images-urls.v1.schema.ts
+// src/mixins/with-images-urls.v2.schema.ts
 import { z as z2 } from "zod";
-var WithImagesUrlsV1Schema = z2.object({
-  originalUrl: z2.string().optional(),
-  thumbnailUrl: z2.string().optional(),
-  squareUrl: z2.string().optional(),
-  closeupUrl: z2.string().optional()
+var WithImagesUrlsV2Schema = z2.object({
+  originalUrl: z2.string().url().optional(),
+  thumbnailUrl: z2.string().url().optional(),
+  squareUrl: z2.string().url().optional(),
+  closeupUrl: z2.string().url().optional()
 });
 
 // src/mixins/with-name.v1.schema.ts
@@ -42,70 +52,88 @@ var WithVideoUrlsV1Schema = z4.object({
   videoDimensions: ImageDimensionsV1Schema.optional()
 });
 
-// src/uid.ts
+// src/mixins/with-video-urls.v2.schema.ts
 import { z as z5 } from "zod";
-var EntityUidSchema = z5.string();
-var PageUidSchema = z5.string();
-var ChunkUidSchema = z5.string();
-var DatasetUidSchema = z5.string();
-var VariableUidSchema = z5.string();
-var WidgetUidSchema = z5.string();
-var RandomTableUidSchema = z5.string();
-var RandomTableRowUidSchema = z5.string();
-var TagUidSchema = z5.string();
-var TagCategoryUidSchema = z5.string();
-var SceneUidSchema = z5.string();
-var SceneMapUidSchema = z5.string();
-var SceneBackgroundUidSchema = z5.string();
-var AssetUidSchema = z5.string();
-var DialectUidSchema = z5.string();
-var SheetUidSchema = z5.string();
-var EntityTokenUidSchema = z5.string();
-var VariableChoiceUidSchema = z5.string();
-var DataTableUidSchema = z5.string();
-var DataTableRowUidSchema = z5.string();
-var DataTableColumnUidSchema = z5.string();
+var WithVideoUrlsV2Schema = z5.object({
+  videoUrl: z5.string().url().optional(),
+  videoDimensions: ImageDimensionsV1Schema.optional()
+});
 
-// src/models/asset.v1.schema.ts
-var AssetBaseV1Schema = z6.object({ uid: AssetUidSchema }).merge(WithNameV1Schema);
-var ImageAssetV1Schema = AssetBaseV1Schema.merge(
-  WithImagesUrlsV1Schema
+// src/uid.ts
+import { z as z6 } from "zod";
+var EntityUidSchema = z6.string();
+var PageUidSchema = z6.string();
+var ChunkUidSchema = z6.string();
+var DatasetUidSchema = z6.string();
+var VariableUidSchema = z6.string();
+var WidgetUidSchema = z6.string();
+var RandomTableUidSchema = z6.string();
+var RandomTableRowUidSchema = z6.string();
+var TagUidSchema = z6.string();
+var TagCategoryUidSchema = z6.string();
+var SceneUidSchema = z6.string();
+var SceneMapUidSchema = z6.string();
+var SceneBackgroundUidSchema = z6.string();
+var AssetUidSchema = z6.string();
+var DialectUidSchema = z6.string();
+var SheetUidSchema = z6.string();
+var EntityTokenUidSchema = z6.string();
+var VariableChoiceUidSchema = z6.string();
+var DataTableUidSchema = z6.string();
+var DataTableRowUidSchema = z6.string();
+var DataTableColumnUidSchema = z6.string();
+
+// src/models/asset.v2.schema.ts
+var KNOWN_EXTERNAL_AUDIO_PROVIDERS = [
+  "youtube",
+  "soundcloud",
+  "vimeo",
+  "bandcamp",
+  "spotify"
+];
+var AssetBaseV2Schema = z7.object({ uid: AssetUidSchema }).merge(WithNameV1Schema);
+var ImageAssetV2Schema = AssetBaseV2Schema.merge(
+  WithImagesUrlsV2Schema
 ).extend({
-  type: z6.literal("image"),
+  type: z7.literal("image"),
   dimensions: ImageDimensionsV1Schema
 });
-var VideoAssetV1Schema = AssetBaseV1Schema.merge(
-  WithVideoUrlsV1Schema
+var VideoAssetV2Schema = AssetBaseV2Schema.merge(
+  WithVideoUrlsV2Schema
 ).extend({
-  type: z6.literal("video"),
+  type: z7.literal("video"),
   dimensions: ImageDimensionsV1Schema
 });
-var AudioAssetV1Schema = AssetBaseV1Schema.merge(
-  WithAudioUrlsV1Schema
+var AudioAssetV2Schema = AssetBaseV2Schema.merge(
+  WithAudioUrlsV2Schema
 ).extend({
-  type: z6.literal("audio")
+  type: z7.literal("audio")
 });
-var AudioExternalAssetV1Schema = AssetBaseV1Schema.extend({
-  type: z6.literal("audio-external"),
-  youtubeVideoId: z6.string(),
-  thumbnailUrl: z6.string(),
-  durationSeconds: z6.number()
+var AudioExternalAssetV2Schema = AssetBaseV2Schema.extend({
+  type: z7.literal("audio-external"),
+  provider: z7.string(),
+  externalId: z7.string(),
+  thumbnailUrl: z7.string().url().optional(),
+  durationSeconds: z7.number().optional()
 });
-var EntityAssetV1Schema = AssetBaseV1Schema.extend({
-  type: z6.literal("entity"),
+var EntityAssetV2Schema = AssetBaseV2Schema.extend({
+  type: z7.literal("entity"),
   entityUid: EntityUidSchema
 });
-var AssetV1Schema = z6.discriminatedUnion("type", [
-  ImageAssetV1Schema,
-  VideoAssetV1Schema,
-  AudioAssetV1Schema,
-  AudioExternalAssetV1Schema,
-  EntityAssetV1Schema
+var AssetV2Schema = z7.discriminatedUnion("type", [
+  ImageAssetV2Schema,
+  VideoAssetV2Schema,
+  AudioAssetV2Schema,
+  AudioExternalAssetV2Schema,
+  EntityAssetV2Schema
 ]);
 
+// src/models/chunk.v2.schema.ts
+import { z as z9 } from "zod";
+
 // src/models/chunk.v1.schema.ts
-import { z as z7 } from "zod";
-var ChunkBlockStyleV1Schema = z7.enum([
+import { z as z8 } from "zod";
+var ChunkBlockStyleV1Schema = z8.enum([
   "gm-tips",
   "more-info",
   "warning",
@@ -115,121 +143,160 @@ var ChunkBlockStyleV1Schema = z7.enum([
   "info",
   "rule"
 ]);
-var ChunkHeadingModeV1Schema = z7.enum(["inside", "outside"]);
-var ChunkHeadingLevelV1Schema = z7.union([
-  z7.literal(1),
-  z7.literal(2),
-  z7.literal(3),
-  z7.literal(4)
+var ChunkHeadingModeV1Schema = z8.enum(["inside", "outside"]);
+var ChunkHeadingLevelV1Schema = z8.union([
+  z8.literal(1),
+  z8.literal(2),
+  z8.literal(3),
+  z8.literal(4)
 ]);
-var ChunkBaseV1Schema = z7.object({
+var ChunkBaseV1Schema = z8.object({
   uid: ChunkUidSchema,
-  name: z7.string().nullable().optional(),
+  name: z8.string().nullable().optional(),
   blockStyle: ChunkBlockStyleV1Schema.nullable().optional(),
   headingLevel: ChunkHeadingLevelV1Schema.nullable().optional(),
   headingMode: ChunkHeadingModeV1Schema.nullable().optional()
 });
 var ChunkTextV1Schema = ChunkBaseV1Schema.extend({
-  type: z7.literal("text"),
-  content: z7.string(),
-  mentionedEntitiesUids: z7.array(EntityUidSchema).optional()
+  type: z8.literal("text"),
+  content: z8.string(),
+  mentionedEntitiesUids: z8.array(EntityUidSchema).optional()
 });
 var ChunkTextProxyV1Schema = ChunkBaseV1Schema.extend({
-  type: z7.literal("textProxy"),
+  type: z8.literal("textProxy"),
   chunkUid: ChunkUidSchema,
   entityUid: EntityUidSchema
 });
 var ChunkGalleryV1Schema = ChunkBaseV1Schema.extend({
-  type: z7.literal("gallery"),
-  assetUids: z7.array(AssetUidSchema)
+  type: z8.literal("gallery"),
+  assetUids: z8.array(AssetUidSchema)
 });
 var ChunkRandomV1Schema = ChunkBaseV1Schema.extend({
-  type: z7.literal("random"),
+  type: z8.literal("random"),
   randomTableUid: RandomTableUidSchema,
-  folded: z7.boolean().optional()
+  folded: z8.boolean().optional()
 });
-var ChunkV1Schema = z7.discriminatedUnion("type", [
+var ChunkV1Schema = z8.discriminatedUnion("type", [
   ChunkTextV1Schema,
   ChunkTextProxyV1Schema,
   ChunkGalleryV1Schema,
   ChunkRandomV1Schema
 ]);
 
-// src/models/data-table.v2.schema.ts
+// src/models/chunk.v2.schema.ts
+var ChunkBaseV2Schema = z9.object({
+  uid: ChunkUidSchema,
+  name: z9.string().optional(),
+  blockStyle: ChunkBlockStyleV1Schema.optional(),
+  headingLevel: ChunkHeadingLevelV1Schema.optional(),
+  headingMode: ChunkHeadingModeV1Schema.optional()
+});
+var ChunkTextV2Schema = ChunkBaseV2Schema.extend({
+  type: z9.literal("text"),
+  content: z9.string(),
+  mentionedEntitiesUids: z9.array(EntityUidSchema).optional()
+});
+var ChunkTextProxyV2Schema = ChunkBaseV2Schema.extend({
+  type: z9.literal("textProxy"),
+  chunkUid: ChunkUidSchema,
+  entityUid: EntityUidSchema
+});
+var ChunkGalleryV2Schema = ChunkBaseV2Schema.extend({
+  type: z9.literal("gallery"),
+  assetUids: z9.array(AssetUidSchema).default([])
+});
+var ChunkRandomV2Schema = ChunkBaseV2Schema.extend({
+  type: z9.literal("random"),
+  randomTableUid: RandomTableUidSchema,
+  folded: z9.boolean().optional()
+});
+var ChunkV2Schema = z9.discriminatedUnion("type", [
+  ChunkTextV2Schema,
+  ChunkTextProxyV2Schema,
+  ChunkGalleryV2Schema,
+  ChunkRandomV2Schema
+]);
+
+// src/models/data-table.v3.schema.ts
+import { z as z14 } from "zod";
+
+// src/mixins/with-localized-name.v2.schema.ts
 import { z as z11 } from "zod";
 
 // src/mixins/translatable-text.v2.schema.ts
-import { z as z8 } from "zod";
-var TranslatableTextV2Schema = z8.record(z8.string(), z8.string());
+import { z as z10 } from "zod";
+var TranslatableTextV2Schema = z10.record(z10.string(), z10.string());
 
 // src/mixins/with-localized-name.v2.schema.ts
-import { z as z9 } from "zod";
-var WithLocalizedNameV2Schema = z9.object({
+var WithLocalizedNameV2Schema = z11.object({
   name: TranslatableTextV2Schema
 });
 
+// src/models/data-table.v2.schema.ts
+import { z as z13 } from "zod";
+
 // src/models/variable.v1.schema.ts
-import { z as z10 } from "zod";
-var ChoiceOptionV1Schema = z10.object({
+import { z as z12 } from "zod";
+var ChoiceOptionV1Schema = z12.object({
   uid: VariableChoiceUidSchema,
-  label: z10.string(),
-  icon: z10.string().optional(),
-  value: z10.number().optional()
+  label: z12.string(),
+  icon: z12.string().optional(),
+  value: z12.number().optional()
 });
-var VariableBaseV1Schema = z10.object({ uid: VariableUidSchema }).merge(WithNameV1Schema).extend({
-  datasetsUids: z10.array(DatasetUidSchema),
-  isMandatory: z10.boolean().optional(),
-  isHiddenFromSheet: z10.boolean().optional(),
-  label: z10.string().optional()
+var VariableBaseV1Schema = z12.object({ uid: VariableUidSchema }).merge(WithNameV1Schema).extend({
+  datasetsUids: z12.array(DatasetUidSchema),
+  isMandatory: z12.boolean().optional(),
+  isHiddenFromSheet: z12.boolean().optional(),
+  label: z12.string().optional()
 });
 var NumberVariableV1Schema = VariableBaseV1Schema.extend({
-  type: z10.literal("number"),
-  defaultValue: z10.number().optional()
+  type: z12.literal("number"),
+  defaultValue: z12.number().optional()
 });
 var TextVariableV1Schema = VariableBaseV1Schema.extend({
-  type: z10.literal("text"),
-  maxChars: z10.number().optional(),
-  defaultValue: z10.string().optional()
+  type: z12.literal("text"),
+  maxChars: z12.number().optional(),
+  defaultValue: z12.string().optional()
 });
 var BooleanVariableV1Schema = VariableBaseV1Schema.extend({
-  type: z10.literal("boolean"),
-  defaultValue: z10.boolean().optional()
+  type: z12.literal("boolean"),
+  defaultValue: z12.boolean().optional()
 });
 var ChoiceVariableV1Schema = VariableBaseV1Schema.extend({
-  type: z10.literal("choice"),
-  options: z10.array(ChoiceOptionV1Schema).optional(),
-  isMultiple: z10.boolean().optional(),
-  hasNumericValue: z10.boolean().optional(),
-  hasIcon: z10.boolean().optional(),
-  defaultOptionUids: z10.array(VariableChoiceUidSchema).optional()
+  type: z12.literal("choice"),
+  options: z12.array(ChoiceOptionV1Schema).optional(),
+  isMultiple: z12.boolean().optional(),
+  hasNumericValue: z12.boolean().optional(),
+  hasIcon: z12.boolean().optional(),
+  defaultOptionUids: z12.array(VariableChoiceUidSchema).optional()
 });
 var FormulaVariableV1Schema = VariableBaseV1Schema.extend({
-  type: z10.literal("formula"),
-  formula: z10.string().optional(),
-  depsVariablesUid: z10.array(VariableUidSchema).optional()
+  type: z12.literal("formula"),
+  formula: z12.string().optional(),
+  depsVariablesUid: z12.array(VariableUidSchema).optional()
 });
-var IconCompoSlotConfigV1Schema = z10.object({
-  icon: z10.string().nullable(),
-  size: z10.number().optional(),
-  rotate: z10.number().optional(),
-  revert: z10.boolean().optional()
+var IconCompoSlotConfigV1Schema = z12.object({
+  icon: z12.string().nullable(),
+  size: z12.number().optional(),
+  rotate: z12.number().optional(),
+  revert: z12.boolean().optional()
 });
-var IconCompoV1Schema = z10.record(
-  z10.string(),
+var IconCompoV1Schema = z12.record(
+  z12.string(),
   IconCompoSlotConfigV1Schema
 );
-var ActionVisualV1Schema = z10.discriminatedUnion("type", [
-  z10.object({ type: z10.literal("awesome"), icon: z10.string() }),
-  z10.object({ type: z10.literal("compo"), icons: IconCompoV1Schema })
+var ActionVisualV1Schema = z12.discriminatedUnion("type", [
+  z12.object({ type: z12.literal("awesome"), icon: z12.string() }),
+  z12.object({ type: z12.literal("compo"), icons: IconCompoV1Schema })
 ]);
 var RollVariableV1Schema = VariableBaseV1Schema.extend({
-  type: z10.literal("roll"),
-  diceFormula: z10.string().optional(),
-  depsVariablesUid: z10.array(VariableUidSchema).optional(),
+  type: z12.literal("roll"),
+  diceFormula: z12.string().optional(),
+  depsVariablesUid: z12.array(VariableUidSchema).optional(),
   visual: ActionVisualV1Schema.optional(),
-  hue: z10.number().nullable().optional()
+  hue: z12.number().nullable().optional()
 });
-var VariableV1Schema = z10.discriminatedUnion("type", [
+var VariableV1Schema = z12.discriminatedUnion("type", [
   NumberVariableV1Schema,
   TextVariableV1Schema,
   BooleanVariableV1Schema,
@@ -239,63 +306,63 @@ var VariableV1Schema = z10.discriminatedUnion("type", [
 ]);
 
 // src/models/data-table.v2.schema.ts
-var DataTableColumnBaseV2Schema = z11.object({
+var DataTableColumnBaseV2Schema = z13.object({
   uid: DataTableColumnUidSchema,
   label: TranslatableTextV2Schema.optional(),
-  icon: z11.string().optional(),
-  isMandatory: z11.boolean().optional()
+  icon: z13.string().optional(),
+  isMandatory: z13.boolean().optional()
 });
 var DataTableColumnNumberV2Schema = DataTableColumnBaseV2Schema.extend(
   {
-    type: z11.literal("number"),
-    defaultNumber: z11.number().optional()
+    type: z13.literal("number"),
+    defaultNumber: z13.number().optional()
   }
 );
 var DataTableColumnTextV2Schema = DataTableColumnBaseV2Schema.extend({
-  type: z11.literal("text"),
-  maxChars: z11.number().optional(),
-  defaultValue: z11.string().optional()
+  type: z13.literal("text"),
+  maxChars: z13.number().optional(),
+  defaultValue: z13.string().optional()
 });
 var DataTableColumnBooleanV2Schema = DataTableColumnBaseV2Schema.extend({
-  type: z11.literal("boolean"),
-  defaultBoolean: z11.boolean().optional()
+  type: z13.literal("boolean"),
+  defaultBoolean: z13.boolean().optional()
 });
 var DataTableColumnChoiceV2Schema = DataTableColumnBaseV2Schema.extend(
   {
-    type: z11.literal("choice"),
-    options: z11.array(ChoiceOptionV1Schema).optional(),
-    isMultiple: z11.boolean().optional(),
-    hasNumericValue: z11.boolean().optional(),
-    hasIcon: z11.boolean().optional()
+    type: z13.literal("choice"),
+    options: z13.array(ChoiceOptionV1Schema).optional(),
+    isMultiple: z13.boolean().optional(),
+    hasNumericValue: z13.boolean().optional(),
+    hasIcon: z13.boolean().optional()
   }
 );
 var DataTableColumnIconV2Schema = DataTableColumnBaseV2Schema.extend({
-  type: z11.literal("icon"),
-  defaultIcon: z11.string().optional()
+  type: z13.literal("icon"),
+  defaultIcon: z13.string().optional()
 });
 var DataTableColumnTranslatableTextV2Schema = DataTableColumnBaseV2Schema.extend({
-  type: z11.literal("translatableText"),
+  type: z13.literal("translatableText"),
   defaultValue: TranslatableTextV2Schema.optional()
 });
 var DataTableColumnDataTableRefV2Schema = DataTableColumnBaseV2Schema.extend({
-  type: z11.literal("dataTableRef"),
+  type: z13.literal("dataTableRef"),
   dataTableUid: DataTableUidSchema.optional(),
   labelColumnUid: DataTableColumnUidSchema.optional(),
   valueColumnUid: DataTableColumnUidSchema.optional(),
   iconColumnUid: DataTableColumnUidSchema.optional(),
-  isMultiple: z11.boolean().optional(),
-  defaultRowUids: z11.array(DataTableRowUidSchema).optional()
+  isMultiple: z13.boolean().optional(),
+  defaultRowUids: z13.array(DataTableRowUidSchema).optional()
 });
 var DataTableColumnDataTableLookupV2Schema = DataTableColumnBaseV2Schema.extend({
-  type: z11.literal("dataTableLookup"),
+  type: z13.literal("dataTableLookup"),
   sourceColumnUid: DataTableColumnUidSchema.optional(),
   dataTableUid: DataTableUidSchema.optional(),
   columnUid: DataTableColumnUidSchema.optional(),
-  chainedLabelColumnUids: z11.array(DataTableColumnUidSchema).optional(),
-  multiAggregator: z11.enum(["concat", "sum", "avg", "min", "max"]).optional(),
-  multiSeparator: z11.string().optional()
+  chainedLabelColumnUids: z13.array(DataTableColumnUidSchema).optional(),
+  multiAggregator: z13.enum(["concat", "sum", "avg", "min", "max"]).optional(),
+  multiSeparator: z13.string().optional()
 });
-var DataTableColumnV2Schema = z11.discriminatedUnion("type", [
+var DataTableColumnV2Schema = z13.discriminatedUnion("type", [
   DataTableColumnNumberV2Schema,
   DataTableColumnTextV2Schema,
   DataTableColumnBooleanV2Schema,
@@ -305,76 +372,99 @@ var DataTableColumnV2Schema = z11.discriminatedUnion("type", [
   DataTableColumnDataTableRefV2Schema,
   DataTableColumnDataTableLookupV2Schema
 ]);
-var DataTableCellValueV2Schema = z11.union([
-  z11.string(),
-  z11.number(),
-  z11.boolean(),
-  z11.array(z11.string()),
+var DataTableCellValueV2Schema = z13.union([
+  z13.string(),
+  z13.number(),
+  z13.boolean(),
+  z13.array(z13.string()),
   TranslatableTextV2Schema,
-  z11.null()
+  z13.null()
 ]);
-var DataTableRowV2Schema = z11.object({
+var DataTableRowV2Schema = z13.object({
   uid: DataTableRowUidSchema,
-  data: z11.record(DataTableColumnUidSchema, DataTableCellValueV2Schema).optional()
+  data: z13.record(DataTableColumnUidSchema, DataTableCellValueV2Schema).optional()
 });
-var DataTableV2Schema = z11.object({ uid: DataTableUidSchema }).merge(WithLocalizedNameV2Schema).extend({
-  icon: z11.string().nullable().optional(),
-  weight: z11.number().optional(),
-  adminOnly: z11.boolean().optional(),
+var DataTableV2Schema = z13.object({ uid: DataTableUidSchema }).merge(WithLocalizedNameV2Schema).extend({
+  icon: z13.string().nullable().optional(),
+  weight: z13.number().optional(),
+  adminOnly: z13.boolean().optional(),
   sourceUid: DataTableUidSchema.optional(),
-  columns: z11.array(DataTableColumnV2Schema),
-  rows: z11.array(DataTableRowV2Schema)
+  columns: z13.array(DataTableColumnV2Schema),
+  rows: z13.array(DataTableRowV2Schema)
 });
 
-// src/models/dataset.v1.schema.ts
-import { z as z18 } from "zod";
+// src/models/data-table.v3.schema.ts
+var DataTableRowV3Schema = z14.object({
+  uid: DataTableRowUidSchema,
+  data: z14.record(DataTableColumnUidSchema, DataTableCellValueV2Schema).optional()
+});
+var DataTableV3Schema = z14.object({ uid: DataTableUidSchema }).merge(WithLocalizedNameV2Schema).extend({
+  icon: z14.string().optional(),
+  weight: z14.number().optional(),
+  adminOnly: z14.boolean().optional(),
+  sourceUid: DataTableUidSchema.optional(),
+  columns: z14.array(DataTableColumnV2Schema).default([]),
+  rows: z14.array(DataTableRowV3Schema).default([])
+});
+
+// src/models/dataset.v2.schema.ts
+import { z as z22 } from "zod";
 
 // src/models/entity.v1.schema.ts
-import { z as z17 } from "zod";
+import { z as z21 } from "zod";
 
 // src/mixins/with-archive.v1.schema.ts
-import { z as z12 } from "zod";
-var WithArchiveV1Schema = z12.object({
-  isArchived: z12.boolean()
+import { z as z15 } from "zod";
+var WithArchiveV1Schema = z15.object({
+  isArchived: z15.boolean()
 });
 
 // src/mixins/with-assets.v1.schema.ts
-import { z as z13 } from "zod";
-var WithAssetsV1Schema = z13.object({
-  assetUids: z13.array(AssetUidSchema).optional()
+import { z as z16 } from "zod";
+var WithAssetsV1Schema = z16.object({
+  assetUids: z16.array(AssetUidSchema).optional()
 });
 
 // src/mixins/with-data.v1.schema.ts
-import { z as z14 } from "zod";
-var VariableDataValueV1Schema = z14.union([
-  z14.string(),
-  z14.number(),
-  z14.boolean(),
-  z14.array(VariableChoiceUidSchema),
-  z14.null()
+import { z as z17 } from "zod";
+var VariableDataValueV1Schema = z17.union([
+  z17.string(),
+  z17.number(),
+  z17.boolean(),
+  z17.array(VariableChoiceUidSchema),
+  z17.null()
 ]);
-var VariablesDataRecordV1Schema = z14.record(
+var VariablesDataRecordV1Schema = z17.record(
   VariableUidSchema,
   VariableDataValueV1Schema
 );
-var WithDataV1Schema = z14.object({
+var WithDataV1Schema = z17.object({
   data: VariablesDataRecordV1Schema.optional()
 });
 
+// src/mixins/with-images-urls.v1.schema.ts
+import { z as z18 } from "zod";
+var WithImagesUrlsV1Schema = z18.object({
+  originalUrl: z18.string().optional(),
+  thumbnailUrl: z18.string().optional(),
+  squareUrl: z18.string().optional(),
+  closeupUrl: z18.string().optional()
+});
+
 // src/mixins/with-pages.v1.schema.ts
-import { z as z15 } from "zod";
-var WithPagesV1Schema = z15.object({
-  pagesOrder: z15.array(PageUidSchema)
+import { z as z19 } from "zod";
+var WithPagesV1Schema = z19.object({
+  pagesOrder: z19.array(PageUidSchema)
 });
 
 // src/mixins/with-scenes.v1.schema.ts
-import { z as z16 } from "zod";
-var WithScenesV1Schema = z16.object({
-  scenesUids: z16.array(SceneUidSchema)
+import { z as z20 } from "zod";
+var WithScenesV1Schema = z20.object({
+  scenesUids: z20.array(SceneUidSchema)
 });
 
 // src/models/entity.v1.schema.ts
-var EntityTypeV1Schema = z17.enum([
+var EntityTypeV1Schema = z21.enum([
   "character",
   "creature",
   "place",
@@ -385,51 +475,51 @@ var EntityTypeV1Schema = z17.enum([
   "story",
   "note"
 ]);
-var GroupRankCharacterV1Schema = z17.object({
+var GroupRankCharacterV1Schema = z21.object({
   entityUid: EntityUidSchema,
-  label: z17.string()
+  label: z21.string()
 });
-var GroupRankV1Schema = z17.object({
-  label: z17.string(),
-  characters: z17.array(GroupRankCharacterV1Schema)
+var GroupRankV1Schema = z21.object({
+  label: z21.string(),
+  characters: z21.array(GroupRankCharacterV1Schema)
 });
-var EntityBaseV1Schema = z17.object({
+var EntityBaseV1Schema = z21.object({
   uid: EntityUidSchema,
-  displayName: z17.string().nullable(),
-  description: z17.string().nullable(),
-  tagsUid: z17.array(TagUidSchema),
-  sheetOverrides: z17.record(DatasetUidSchema, SheetUidSchema).optional()
+  displayName: z21.string().nullable(),
+  description: z21.string().nullable(),
+  tagsUid: z21.array(TagUidSchema),
+  sheetOverrides: z21.record(DatasetUidSchema, SheetUidSchema).optional()
 }).merge(WithNameV1Schema).merge(WithImagesUrlsV1Schema).merge(WithArchiveV1Schema).merge(WithPagesV1Schema).merge(WithDataV1Schema).merge(WithAssetsV1Schema);
 var CharacterEntityV1Schema = EntityBaseV1Schema.extend({
-  type: z17.literal("character")
+  type: z21.literal("character")
 });
 var CreatureEntityV1Schema = EntityBaseV1Schema.extend({
-  type: z17.literal("creature")
+  type: z21.literal("creature")
 });
 var GroupEntityV1Schema = EntityBaseV1Schema.extend({
-  type: z17.literal("group"),
-  ranks: z17.array(GroupRankV1Schema),
-  charactersUids: z17.array(EntityUidSchema)
+  type: z21.literal("group"),
+  ranks: z21.array(GroupRankV1Schema),
+  charactersUids: z21.array(EntityUidSchema)
 });
 var PlaceEntityV1Schema = EntityBaseV1Schema.merge(
   WithScenesV1Schema
-).extend({ type: z17.literal("place") });
+).extend({ type: z21.literal("place") });
 var ItemEntityV1Schema = EntityBaseV1Schema.extend({
-  type: z17.literal("item")
+  type: z21.literal("item")
 });
 var NoteEntityV1Schema = EntityBaseV1Schema.extend({
-  type: z17.literal("note")
+  type: z21.literal("note")
 });
 var AbilityEntityV1Schema = EntityBaseV1Schema.extend({
-  type: z17.literal("ability")
+  type: z21.literal("ability")
 });
 var StoryEntityV1Schema = EntityBaseV1Schema.extend({
-  type: z17.literal("story")
+  type: z21.literal("story")
 });
 var EventEntityV1Schema = EntityBaseV1Schema.extend({
-  type: z17.literal("event")
+  type: z21.literal("event")
 });
-var EntityV1Schema = z17.discriminatedUnion("type", [
+var EntityV1Schema = z21.discriminatedUnion("type", [
   CharacterEntityV1Schema,
   CreatureEntityV1Schema,
   GroupEntityV1Schema,
@@ -441,170 +531,261 @@ var EntityV1Schema = z17.discriminatedUnion("type", [
   EventEntityV1Schema
 ]);
 
-// src/models/dataset.v1.schema.ts
-var DatasetTargetV1Schema = z18.union([
+// src/models/dataset.v2.schema.ts
+var DatasetTargetV2Schema = z22.union([
   EntityTypeV1Schema,
   TagUidSchema
 ]);
-var DatasetV1Schema = z18.object({ uid: DatasetUidSchema }).merge(WithNameV1Schema).extend({
-  weight: z18.number().optional(),
-  targets: z18.array(DatasetTargetV1Schema),
-  targetTagsGroup: z18.enum(["every", "some"]).optional(),
+var DatasetV2Schema = z22.object({ uid: DatasetUidSchema }).merge(WithNameV1Schema).extend({
+  weight: z22.number().optional(),
+  targets: z22.array(DatasetTargetV2Schema).default([]),
+  targetTagsGroup: z22.enum(["every", "some"]).optional(),
   sheetUid: SheetUidSchema.optional()
 });
 
-// src/models/dialect.v1.schema.ts
-import { z as z19 } from "zod";
-var DialectFontV1Schema = z19.object({
-  fontFamily: z19.string(),
-  fontUrl: z19.string()
+// src/models/dialect.v2.schema.ts
+import { z as z23 } from "zod";
+var DialectFontV2Schema = z23.object({
+  fontFamily: z23.string(),
+  fontUrl: z23.string().url()
 });
-var DialectV1Schema = z19.object({
+var DialectV2Schema = z23.object({
   uid: DialectUidSchema,
-  name: z19.string(),
-  font: DialectFontV1Schema,
-  order: z19.number().optional(),
-  spokenByEntitiesUids: z19.array(EntityUidSchema)
+  name: z23.string(),
+  font: DialectFontV2Schema,
+  order: z23.number().optional(),
+  spokenByEntitiesUids: z23.array(EntityUidSchema).default([])
 });
 
-// src/models/page.v1.schema.ts
-import { z as z20 } from "zod";
-var PageStandardV1Schema = z20.object({ uid: PageUidSchema }).merge(WithNameV1Schema).extend({
-  type: z20.literal("standard"),
-  chunksOrder: z20.array(ChunkUidSchema)
+// src/models/entity.v2.schema.ts
+import { z as z27 } from "zod";
+
+// src/mixins/with-archive.v2.schema.ts
+import { z as z24 } from "zod";
+var WithArchiveV2Schema = z24.object({
+  isArchived: z24.boolean().default(false)
 });
-var PageEntityV1Schema = z20.object({
+
+// src/mixins/with-pages.v2.schema.ts
+import { z as z25 } from "zod";
+var WithPagesV2Schema = z25.object({
+  pagesOrder: z25.array(PageUidSchema).default([])
+});
+
+// src/mixins/with-scenes.v2.schema.ts
+import { z as z26 } from "zod";
+var WithScenesV2Schema = z26.object({
+  scenesUids: z26.array(SceneUidSchema).default([])
+});
+
+// src/models/entity.v2.schema.ts
+var EntityBaseV2Schema = z27.object({
+  uid: EntityUidSchema,
+  displayName: z27.string().optional(),
+  description: z27.string().optional(),
+  tagsUid: z27.array(TagUidSchema).default([]),
+  sheetOverrides: z27.record(DatasetUidSchema, SheetUidSchema).optional()
+}).merge(WithNameV1Schema).merge(WithImagesUrlsV2Schema).merge(WithArchiveV2Schema).merge(WithPagesV2Schema).merge(WithDataV1Schema).merge(WithAssetsV1Schema);
+var CharacterEntityV2Schema = EntityBaseV2Schema.extend({
+  type: z27.literal("character")
+});
+var CreatureEntityV2Schema = EntityBaseV2Schema.extend({
+  type: z27.literal("creature")
+});
+var GroupEntityV2Schema = EntityBaseV2Schema.extend({
+  type: z27.literal("group"),
+  ranks: z27.array(GroupRankV1Schema).default([]),
+  charactersUids: z27.array(EntityUidSchema).default([])
+});
+var PlaceEntityV2Schema = EntityBaseV2Schema.merge(
+  WithScenesV2Schema
+).extend({ type: z27.literal("place") });
+var ItemEntityV2Schema = EntityBaseV2Schema.extend({
+  type: z27.literal("item")
+});
+var NoteEntityV2Schema = EntityBaseV2Schema.extend({
+  type: z27.literal("note")
+});
+var AbilityEntityV2Schema = EntityBaseV2Schema.extend({
+  type: z27.literal("ability")
+});
+var StoryEntityV2Schema = EntityBaseV2Schema.extend({
+  type: z27.literal("story")
+});
+var EventEntityV2Schema = EntityBaseV2Schema.extend({
+  type: z27.literal("event")
+});
+var EntityV2Schema = z27.discriminatedUnion("type", [
+  CharacterEntityV2Schema,
+  CreatureEntityV2Schema,
+  GroupEntityV2Schema,
+  PlaceEntityV2Schema,
+  ItemEntityV2Schema,
+  NoteEntityV2Schema,
+  AbilityEntityV2Schema,
+  StoryEntityV2Schema,
+  EventEntityV2Schema
+]);
+
+// src/models/page.v1.schema.ts
+import { z as z28 } from "zod";
+var PageStandardV1Schema = z28.object({ uid: PageUidSchema }).merge(WithNameV1Schema).extend({
+  type: z28.literal("standard"),
+  chunksOrder: z28.array(ChunkUidSchema)
+});
+var PageEntityV1Schema = z28.object({
   uid: PageUidSchema,
-  type: z20.literal("entity"),
+  type: z28.literal("entity"),
   entityUid: EntityUidSchema
 });
-var PageV1Schema = z20.discriminatedUnion("type", [
+var PageV1Schema = z28.discriminatedUnion("type", [
   PageStandardV1Schema,
   PageEntityV1Schema
 ]);
 
-// src/models/random-table.v1.schema.ts
-import { z as z21 } from "zod";
-var RandomTableRowV1Schema = z21.object({
+// src/models/random-table.v2.schema.ts
+import { z as z29 } from "zod";
+var RandomTableRowV2Schema = z29.object({
   uid: RandomTableRowUidSchema,
-  range: z21.number(),
-  content: z21.string(),
+  range: z29.number().default(1),
+  content: z29.string(),
   randomTableUid: RandomTableUidSchema.optional()
 });
-var RandomTableV1Schema = z21.object({
+var RandomTableV2Schema = z29.object({
   uid: RandomTableUidSchema,
-  title: z21.string(),
-  rows: z21.array(RandomTableRowV1Schema)
+  title: z29.string(),
+  rows: z29.array(RandomTableRowV2Schema).default([])
 });
 
-// src/models/scene.v1.schema.ts
-import { z as z22 } from "zod";
-var SceneGameModeV1Schema = z22.enum(["2d_vtt", "3d_vtt", "totm"]);
-var SceneV1Schema = z22.object({ uid: SceneUidSchema }).merge(WithNameV1Schema).extend({
-  mapUid: SceneMapUidSchema.nullable().optional(),
-  backgroundUid: SceneBackgroundUidSchema.nullable().optional(),
-  lightPositionX: z22.number().optional(),
-  lightPositionY: z22.number().optional(),
-  lightPositionZ: z22.number().optional(),
-  lightIntensity: z22.number().optional(),
-  lightColor: z22.string().optional(),
-  useCustomLightPosition: z22.boolean().optional(),
-  indoorLight: z22.boolean().optional(),
-  weather: z22.enum(["none", "fog", "dark"]).nullable().optional(),
-  gameMode: SceneGameModeV1Schema.optional()
+// src/models/scene.v2.schema.ts
+import { z as z30 } from "zod";
+var SceneV2Schema = z30.object({ uid: SceneUidSchema }).merge(WithNameV1Schema).extend({
+  mapUid: SceneMapUidSchema.optional(),
+  backgroundUid: SceneBackgroundUidSchema.optional(),
+  lightPositionX: z30.number().optional(),
+  lightPositionY: z30.number().optional(),
+  lightPositionZ: z30.number().optional(),
+  lightIntensity: z30.number().optional(),
+  lightColor: z30.string().optional(),
+  useCustomLightPosition: z30.boolean().optional(),
+  indoorLight: z30.boolean().optional()
 });
 
-// src/models/scene-background.v1.schema.ts
-import { z as z23 } from "zod";
-var SceneBackgroundBaseV1Schema = z23.object({ uid: SceneBackgroundUidSchema }).merge(WithNameV1Schema).extend({
-  opacity: z23.number().optional()
+// src/models/scene-background.v2.schema.ts
+import { z as z31 } from "zod";
+var SceneBackgroundBaseV2Schema = z31.object({ uid: SceneBackgroundUidSchema }).merge(WithNameV1Schema).extend({
+  opacity: z31.number().optional()
 });
-var CustomImageSceneBackgroundV1Schema = SceneBackgroundBaseV1Schema.merge(WithImagesUrlsV1Schema).extend({
-  type: z23.literal("customImage")
+var CustomImageSceneBackgroundV2Schema = SceneBackgroundBaseV2Schema.merge(WithImagesUrlsV2Schema).extend({
+  type: z31.literal("customImage")
 });
-var CustomVideoSceneBackgroundV1Schema = SceneBackgroundBaseV1Schema.merge(WithVideoUrlsV1Schema).extend({
-  type: z23.literal("customVideo")
+var CustomVideoSceneBackgroundV2Schema = SceneBackgroundBaseV2Schema.merge(WithVideoUrlsV2Schema).extend({
+  type: z31.literal("customVideo")
 });
-var SceneBackgroundV1Schema = z23.discriminatedUnion("type", [
-  CustomImageSceneBackgroundV1Schema,
-  CustomVideoSceneBackgroundV1Schema
+var SceneBackgroundV2Schema = z31.discriminatedUnion("type", [
+  CustomImageSceneBackgroundV2Schema,
+  CustomVideoSceneBackgroundV2Schema
 ]);
 
+// src/models/scene-map.v2.schema.ts
+import { z as z33 } from "zod";
+
 // src/models/scene-map.v1.schema.ts
-import { z as z24 } from "zod";
-var GridDataV1Schema = z24.object({
-  type: z24.enum(["square", "hexv", "hexh"]),
-  size: z24.number(),
-  sizeInUnit: z24.number(),
-  measureUnit: z24.string(),
-  lineWidth: z24.number(),
-  color: z24.string().nullable().optional(),
-  offset: z24.object({ x: z24.number(), z: z24.number() })
+import { z as z32 } from "zod";
+var GridDataV1Schema = z32.object({
+  type: z32.enum(["square", "hexv", "hexh"]),
+  size: z32.number(),
+  sizeInUnit: z32.number(),
+  measureUnit: z32.string(),
+  lineWidth: z32.number(),
+  color: z32.string().nullable().optional(),
+  offset: z32.object({ x: z32.number(), z: z32.number() })
 });
-var SceneMapBaseV1Schema = z24.object({ uid: SceneMapUidSchema }).merge(WithNameV1Schema).extend({
+var SceneMapBaseV1Schema = z32.object({ uid: SceneMapUidSchema }).merge(WithNameV1Schema).extend({
   grid: GridDataV1Schema
 });
 var CustomImageSceneMapV1Schema = SceneMapBaseV1Schema.merge(
   WithImagesUrlsV1Schema
 ).extend({
-  type: z24.literal("customImage")
+  type: z32.literal("customImage")
 });
 var CustomVideoSceneMapV1Schema = SceneMapBaseV1Schema.merge(
   WithVideoUrlsV1Schema
 ).extend({
-  type: z24.literal("customVideo")
+  type: z32.literal("customVideo")
 });
 var Dd2VttSceneMapV1Schema = SceneMapBaseV1Schema.merge(
   WithImagesUrlsV1Schema
 ).extend({
-  type: z24.literal("dd2vtt")
+  type: z32.literal("dd2vtt")
 });
-var SceneMapV1Schema = z24.discriminatedUnion("type", [
+var SceneMapV1Schema = z32.discriminatedUnion("type", [
   CustomImageSceneMapV1Schema,
   CustomVideoSceneMapV1Schema,
   Dd2VttSceneMapV1Schema
 ]);
 
-// src/models/sheet.v2.schema.ts
-import { z as z25 } from "zod";
-var SheetV2Schema = z25.object({ uid: SheetUidSchema }).merge(WithImagesUrlsV1Schema).extend({
-  name: z25.string().nullable().optional(),
-  widgetUids: z25.array(WidgetUidSchema),
+// src/models/scene-map.v2.schema.ts
+var KNOWN_VTT_SOURCE_FORMATS = ["dd2vtt", "uvtt", "fvtt"];
+var SceneMapBaseV2Schema = z33.object({ uid: SceneMapUidSchema }).merge(WithNameV1Schema).extend({
+  grid: GridDataV1Schema,
+  sourceFormat: z33.string().optional()
+});
+var CustomImageSceneMapV2Schema = SceneMapBaseV2Schema.merge(
+  WithImagesUrlsV2Schema
+).extend({
+  type: z33.literal("customImage")
+});
+var CustomVideoSceneMapV2Schema = SceneMapBaseV2Schema.merge(
+  WithVideoUrlsV2Schema
+).extend({
+  type: z33.literal("customVideo")
+});
+var SceneMapV2Schema = z33.discriminatedUnion("type", [
+  CustomImageSceneMapV2Schema,
+  CustomVideoSceneMapV2Schema
+]);
+
+// src/models/sheet.v3.schema.ts
+import { z as z34 } from "zod";
+var SheetV3Schema = z34.object({ uid: SheetUidSchema }).merge(WithImagesUrlsV2Schema).extend({
+  name: z34.string().optional(),
+  widgetUids: z34.array(WidgetUidSchema).default([]),
   compatibleDatasetUid: DatasetUidSchema.optional()
 });
 
-// src/models/tag.v1.schema.ts
-import { z as z26 } from "zod";
-var TagV1Schema = z26.object({ uid: TagUidSchema }).merge(WithNameV1Schema).extend({
-  categoryUid: TagCategoryUidSchema.nullable(),
-  useAsFolder: z26.boolean()
+// src/models/tag.v2.schema.ts
+import { z as z35 } from "zod";
+var TagV2Schema = z35.object({ uid: TagUidSchema }).merge(WithNameV1Schema).extend({
+  categoryUid: TagCategoryUidSchema.optional(),
+  useAsFolder: z35.boolean().default(false)
 });
 
 // src/models/tag-category.v1.schema.ts
-import { z as z27 } from "zod";
-var TagCategoryV1Schema = z27.object({ uid: TagCategoryUidSchema }).merge(WithNameV1Schema);
+import { z as z36 } from "zod";
+var TagCategoryV1Schema = z36.object({ uid: TagCategoryUidSchema }).merge(WithNameV1Schema);
 
 // src/models/variable.v2.schema.ts
-import { z as z28 } from "zod";
+import { z as z37 } from "zod";
 var DataTableRefVariableV2Schema = VariableBaseV1Schema.extend({
-  type: z28.literal("dataTableRef"),
+  type: z37.literal("dataTableRef"),
   dataTableUid: DataTableUidSchema.optional(),
   labelColumnUid: DataTableColumnUidSchema.optional(),
   valueColumnUid: DataTableColumnUidSchema.optional(),
   iconColumnUid: DataTableColumnUidSchema.optional(),
-  isMultiple: z28.boolean().optional(),
-  defaultRowUids: z28.array(DataTableRowUidSchema).optional()
+  isMultiple: z37.boolean().optional(),
+  defaultRowUids: z37.array(DataTableRowUidSchema).optional()
 });
 var DataTableLookupVariableV2Schema = VariableBaseV1Schema.extend({
-  type: z28.literal("dataTableLookup"),
+  type: z37.literal("dataTableLookup"),
   sourceVariableUid: VariableUidSchema.optional(),
   dataTableUid: DataTableUidSchema.optional(),
   columnUid: DataTableColumnUidSchema.optional(),
-  chainedLabelColumnUids: z28.array(DataTableColumnUidSchema).optional(),
-  multiAggregator: z28.enum(["concat", "sum", "avg", "min", "max"]).optional(),
-  multiSeparator: z28.string().optional()
+  chainedLabelColumnUids: z37.array(DataTableColumnUidSchema).optional(),
+  multiAggregator: z37.enum(["concat", "sum", "avg", "min", "max"]).optional(),
+  multiSeparator: z37.string().optional()
 });
-var VariableV2Schema = z28.discriminatedUnion("type", [
+var VariableV2Schema = z37.discriminatedUnion("type", [
   NumberVariableV1Schema,
   TextVariableV1Schema,
   BooleanVariableV1Schema,
@@ -616,102 +797,102 @@ var VariableV2Schema = z28.discriminatedUnion("type", [
 ]);
 
 // src/models/widget.v1.schema.ts
-import { z as z32 } from "zod";
+import { z as z41 } from "zod";
 
 // src/mixins/with-area.v1.schema.ts
-import { z as z29 } from "zod";
-var WithAreaV1Schema = z29.object({
-  area: z29.object({
-    width: z29.number(),
-    height: z29.number()
+import { z as z38 } from "zod";
+var WithAreaV1Schema = z38.object({
+  area: z38.object({
+    width: z38.number(),
+    height: z38.number()
   }).nullable().optional()
 });
 
 // src/mixins/with-position.v1.schema.ts
-import { z as z30 } from "zod";
-var WithPositionV1Schema = z30.object({
-  position: z30.object({
-    left: z30.number(),
-    top: z30.number()
+import { z as z39 } from "zod";
+var WithPositionV1Schema = z39.object({
+  position: z39.object({
+    left: z39.number(),
+    top: z39.number()
   }).nullable().optional()
 });
 
 // src/mixins/with-style.v1.schema.ts
-import { z as z31 } from "zod";
-var StyleV1Schema = z31.object({
-  justifyContent: z31.string().optional(),
-  alignItems: z31.string().optional(),
-  flexDirection: z31.string().optional(),
-  lineHeight: z31.number().optional(),
-  fontFamilyId: z31.string().optional(),
-  fontScale: z31.number().optional(),
-  color: z31.string().optional(),
-  paddingTop: z31.number().optional(),
-  paddingRight: z31.number().optional(),
-  paddingBottom: z31.number().optional(),
-  paddingLeft: z31.number().optional()
+import { z as z40 } from "zod";
+var StyleV1Schema = z40.object({
+  justifyContent: z40.string().optional(),
+  alignItems: z40.string().optional(),
+  flexDirection: z40.string().optional(),
+  lineHeight: z40.number().optional(),
+  fontFamilyId: z40.string().optional(),
+  fontScale: z40.number().optional(),
+  color: z40.string().optional(),
+  paddingTop: z40.number().optional(),
+  paddingRight: z40.number().optional(),
+  paddingBottom: z40.number().optional(),
+  paddingLeft: z40.number().optional()
 }).nullable().optional();
-var WithStyleV1Schema = z31.object({
+var WithStyleV1Schema = z40.object({
   style: StyleV1Schema
 });
 
 // src/models/widget.v1.schema.ts
-var WidgetBaseV1Schema = z32.object({ uid: WidgetUidSchema }).merge(WithNameV1Schema).merge(WithAreaV1Schema).merge(WithPositionV1Schema).merge(WithStyleV1Schema).extend({
+var WidgetBaseV1Schema = z41.object({ uid: WidgetUidSchema }).merge(WithNameV1Schema).merge(WithAreaV1Schema).merge(WithPositionV1Schema).merge(WithStyleV1Schema).extend({
   variableUid: VariableUidSchema.optional()
 });
 var WidgetEmptyV1Schema = WidgetBaseV1Schema.extend({
-  type: z32.literal("empty")
+  type: z41.literal("empty")
 });
 var WidgetBigNumberV1Schema = WidgetBaseV1Schema.extend({
-  type: z32.literal("bigNumber"),
-  min: z32.number().optional(),
-  max: z32.number().optional(),
+  type: z41.literal("bigNumber"),
+  min: z41.number().optional(),
+  max: z41.number().optional(),
   maxVariable: VariableUidSchema.nullable().optional(),
-  unit: z32.string().optional()
+  unit: z41.string().optional()
 });
 var WidgetPlainTextV1Schema = WidgetBaseV1Schema.extend({
-  type: z32.literal("plainText")
+  type: z41.literal("plainText")
 });
 var WidgetToggleV1Schema = WidgetBaseV1Schema.extend({
-  type: z32.literal("toggle"),
-  toggleIconType: z32.string().optional()
+  type: z41.literal("toggle"),
+  toggleIconType: z41.string().optional()
 });
 var WidgetBulletListV1Schema = WidgetBaseV1Schema.extend({
-  type: z32.literal("bulletList"),
-  listVisibility: z32.string().optional(),
-  listStyleBulletBreakline: z32.boolean().optional(),
-  listStyleBulletType: z32.string().optional(),
-  listStyleBulletGap: z32.number().optional(),
-  listStyleBulletIconGap: z32.number().optional(),
-  listOptionStyle: z32.string().optional()
+  type: z41.literal("bulletList"),
+  listVisibility: z41.string().optional(),
+  listStyleBulletBreakline: z41.boolean().optional(),
+  listStyleBulletType: z41.string().optional(),
+  listStyleBulletGap: z41.number().optional(),
+  listStyleBulletIconGap: z41.number().optional(),
+  listOptionStyle: z41.string().optional()
 });
 var WidgetInlineListV1Schema = WidgetBaseV1Schema.extend({
-  type: z32.literal("inlineList"),
-  listStyleTextSeparator: z32.string().optional(),
-  listVisibility: z32.string().optional(),
-  listOptionStyle: z32.string().optional()
+  type: z41.literal("inlineList"),
+  listStyleTextSeparator: z41.string().optional(),
+  listVisibility: z41.string().optional(),
+  listOptionStyle: z41.string().optional()
 });
 var WidgetPipsV1Schema = WidgetBaseV1Schema.extend({
-  type: z32.literal("pips"),
-  icon: z32.string().optional(),
-  gapX: z32.number().optional(),
-  gapY: z32.number().optional(),
-  max: z32.number().optional(),
+  type: z41.literal("pips"),
+  icon: z41.string().optional(),
+  gapX: z41.number().optional(),
+  gapY: z41.number().optional(),
+  max: z41.number().optional(),
   maxVariable: VariableUidSchema.nullable().optional()
 });
-var BarOrientationV1Schema = z32.enum(["ltr", "rtl", "ttb", "btt"]);
+var BarOrientationV1Schema = z41.enum(["ltr", "rtl", "ttb", "btt"]);
 var WidgetBarV1Schema = WidgetBaseV1Schema.extend({
-  type: z32.literal("bar"),
-  min: z32.number().optional(),
-  max: z32.number().optional(),
+  type: z41.literal("bar"),
+  min: z41.number().optional(),
+  max: z41.number().optional(),
   maxVariable: VariableUidSchema.nullable().optional(),
-  unit: z32.string().optional(),
+  unit: z41.string().optional(),
   orientation: BarOrientationV1Schema.optional(),
-  barColor: z32.string().optional(),
-  bgColor: z32.string().optional(),
-  showValue: z32.boolean().optional()
+  barColor: z41.string().optional(),
+  bgColor: z41.string().optional(),
+  showValue: z41.boolean().optional()
 });
-var WidgetV1Schema = z32.discriminatedUnion("type", [
+var WidgetV1Schema = z41.discriminatedUnion("type", [
   WidgetEmptyV1Schema,
   WidgetBigNumberV1Schema,
   WidgetPlainTextV1Schema,
@@ -723,7 +904,147 @@ var WidgetV1Schema = z32.discriminatedUnion("type", [
 ]);
 
 // src/schemas/bypp.v3.schema.ts
-var CcLicenseV3Schema = z33.enum([
+import { z as z51 } from "zod";
+
+// src/models/asset.v1.schema.ts
+import { z as z43 } from "zod";
+
+// src/mixins/with-audio-urls.v1.schema.ts
+import { z as z42 } from "zod";
+var WithAudioUrlsV1Schema = z42.object({
+  audioUrl: z42.string().optional(),
+  audioDurationSeconds: z42.number().optional(),
+  audioExt: z42.enum(["mp3", "ogg"]).optional()
+});
+
+// src/models/asset.v1.schema.ts
+var AssetBaseV1Schema = z43.object({ uid: AssetUidSchema }).merge(WithNameV1Schema);
+var ImageAssetV1Schema = AssetBaseV1Schema.merge(
+  WithImagesUrlsV1Schema
+).extend({
+  type: z43.literal("image"),
+  dimensions: ImageDimensionsV1Schema
+});
+var VideoAssetV1Schema = AssetBaseV1Schema.merge(
+  WithVideoUrlsV1Schema
+).extend({
+  type: z43.literal("video"),
+  dimensions: ImageDimensionsV1Schema
+});
+var AudioAssetV1Schema = AssetBaseV1Schema.merge(
+  WithAudioUrlsV1Schema
+).extend({
+  type: z43.literal("audio")
+});
+var AudioExternalAssetV1Schema = AssetBaseV1Schema.extend({
+  type: z43.literal("audio-external"),
+  youtubeVideoId: z43.string(),
+  thumbnailUrl: z43.string(),
+  durationSeconds: z43.number()
+});
+var EntityAssetV1Schema = AssetBaseV1Schema.extend({
+  type: z43.literal("entity"),
+  entityUid: EntityUidSchema
+});
+var AssetV1Schema = z43.discriminatedUnion("type", [
+  ImageAssetV1Schema,
+  VideoAssetV1Schema,
+  AudioAssetV1Schema,
+  AudioExternalAssetV1Schema,
+  EntityAssetV1Schema
+]);
+
+// src/models/dataset.v1.schema.ts
+import { z as z44 } from "zod";
+var DatasetTargetV1Schema = z44.union([
+  EntityTypeV1Schema,
+  TagUidSchema
+]);
+var DatasetV1Schema = z44.object({ uid: DatasetUidSchema }).merge(WithNameV1Schema).extend({
+  weight: z44.number().optional(),
+  targets: z44.array(DatasetTargetV1Schema),
+  targetTagsGroup: z44.enum(["every", "some"]).optional(),
+  sheetUid: SheetUidSchema.optional()
+});
+
+// src/models/dialect.v1.schema.ts
+import { z as z45 } from "zod";
+var DialectFontV1Schema = z45.object({
+  fontFamily: z45.string(),
+  fontUrl: z45.string()
+});
+var DialectV1Schema = z45.object({
+  uid: DialectUidSchema,
+  name: z45.string(),
+  font: DialectFontV1Schema,
+  order: z45.number().optional(),
+  spokenByEntitiesUids: z45.array(EntityUidSchema)
+});
+
+// src/models/random-table.v1.schema.ts
+import { z as z46 } from "zod";
+var RandomTableRowV1Schema = z46.object({
+  uid: RandomTableRowUidSchema,
+  range: z46.number(),
+  content: z46.string(),
+  randomTableUid: RandomTableUidSchema.optional()
+});
+var RandomTableV1Schema = z46.object({
+  uid: RandomTableUidSchema,
+  title: z46.string(),
+  rows: z46.array(RandomTableRowV1Schema)
+});
+
+// src/models/scene.v1.schema.ts
+import { z as z47 } from "zod";
+var SceneGameModeV1Schema = z47.enum(["2d_vtt", "3d_vtt", "totm"]);
+var SceneV1Schema = z47.object({ uid: SceneUidSchema }).merge(WithNameV1Schema).extend({
+  mapUid: SceneMapUidSchema.nullable().optional(),
+  backgroundUid: SceneBackgroundUidSchema.nullable().optional(),
+  lightPositionX: z47.number().optional(),
+  lightPositionY: z47.number().optional(),
+  lightPositionZ: z47.number().optional(),
+  lightIntensity: z47.number().optional(),
+  lightColor: z47.string().optional(),
+  useCustomLightPosition: z47.boolean().optional(),
+  indoorLight: z47.boolean().optional(),
+  weather: z47.enum(["none", "fog", "dark"]).nullable().optional(),
+  gameMode: SceneGameModeV1Schema.optional()
+});
+
+// src/models/scene-background.v1.schema.ts
+import { z as z48 } from "zod";
+var SceneBackgroundBaseV1Schema = z48.object({ uid: SceneBackgroundUidSchema }).merge(WithNameV1Schema).extend({
+  opacity: z48.number().optional()
+});
+var CustomImageSceneBackgroundV1Schema = SceneBackgroundBaseV1Schema.merge(WithImagesUrlsV1Schema).extend({
+  type: z48.literal("customImage")
+});
+var CustomVideoSceneBackgroundV1Schema = SceneBackgroundBaseV1Schema.merge(WithVideoUrlsV1Schema).extend({
+  type: z48.literal("customVideo")
+});
+var SceneBackgroundV1Schema = z48.discriminatedUnion("type", [
+  CustomImageSceneBackgroundV1Schema,
+  CustomVideoSceneBackgroundV1Schema
+]);
+
+// src/models/sheet.v2.schema.ts
+import { z as z49 } from "zod";
+var SheetV2Schema = z49.object({ uid: SheetUidSchema }).merge(WithImagesUrlsV1Schema).extend({
+  name: z49.string().nullable().optional(),
+  widgetUids: z49.array(WidgetUidSchema),
+  compatibleDatasetUid: DatasetUidSchema.optional()
+});
+
+// src/models/tag.v1.schema.ts
+import { z as z50 } from "zod";
+var TagV1Schema = z50.object({ uid: TagUidSchema }).merge(WithNameV1Schema).extend({
+  categoryUid: TagCategoryUidSchema.nullable(),
+  useAsFolder: z50.boolean()
+});
+
+// src/schemas/bypp.v3.schema.ts
+var CcLicenseV3Schema = z51.enum([
   "CC0",
   "CC-BY",
   "CC-BY-SA",
@@ -733,104 +1054,145 @@ var CcLicenseV3Schema = z33.enum([
   "CC-BY-NC-ND",
   "ARR"
 ]);
-var AttributionV3Schema = z33.object({
-  authorName: z33.string().min(1),
-  authorUrl: z33.string().url().optional(),
-  sourceUrl: z33.string().url().optional()
+var AttributionV3Schema = z51.object({
+  authorName: z51.string().min(1),
+  authorUrl: z51.string().url().optional(),
+  sourceUrl: z51.string().url().optional()
 });
-var ParentAttributionV3Schema = z33.object({
-  artifactName: z33.string().min(1),
-  authorName: z33.string().min(1),
+var ParentAttributionV3Schema = z51.object({
+  artifactName: z51.string().min(1),
+  authorName: z51.string().min(1),
   license: CcLicenseV3Schema,
-  sourceUrl: z33.string().url().optional()
+  sourceUrl: z51.string().url().optional()
 });
-var BeyondPaperV3Schema = z33.object({
+var BeyondPaperV3Schema = z51.object({
   // Format metadata
-  version: z33.literal(3),
-  format: z33.literal("bypp"),
+  version: z51.literal(3),
+  format: z51.literal("bypp"),
   // Bundle metadata
-  name: z33.string(),
-  exportedAt: z33.string(),
-  bundleVersion: z33.string(),
+  name: z51.string(),
+  exportedAt: z51.string(),
+  bundleVersion: z51.string(),
   // Licensing & attribution (new in v3)
   license: CcLicenseV3Schema,
-  licenseVersion: z33.literal("4.0"),
+  licenseVersion: z51.literal("4.0"),
   attribution: AttributionV3Schema,
   parentAttribution: ParentAttributionV3Schema.optional(),
-  creatorLinks: z33.array(z33.string().url()).optional(),
+  creatorLinks: z51.array(z51.string().url()).optional(),
   // Content
-  dialects: z33.array(DialectV1Schema),
-  entities: z33.array(EntityV1Schema),
-  pages: z33.array(PageV1Schema),
-  chunks: z33.array(ChunkV1Schema),
-  datasets: z33.array(DatasetV1Schema),
-  variables: z33.array(VariableV2Schema),
-  widgets: z33.array(WidgetV1Schema),
-  sheets: z33.array(SheetV2Schema),
-  dataTables: z33.array(DataTableV2Schema),
-  randomTables: z33.array(RandomTableV1Schema),
-  tags: z33.array(TagV1Schema),
-  tagCategories: z33.array(TagCategoryV1Schema),
-  scenes: z33.array(SceneV1Schema),
-  sceneMaps: z33.array(SceneMapV1Schema),
-  sceneBackgrounds: z33.array(SceneBackgroundV1Schema),
-  assets: z33.array(AssetV1Schema)
+  dialects: z51.array(DialectV1Schema),
+  entities: z51.array(EntityV1Schema),
+  pages: z51.array(PageV1Schema),
+  chunks: z51.array(ChunkV1Schema),
+  datasets: z51.array(DatasetV1Schema),
+  variables: z51.array(VariableV2Schema),
+  widgets: z51.array(WidgetV1Schema),
+  sheets: z51.array(SheetV2Schema),
+  dataTables: z51.array(DataTableV2Schema),
+  randomTables: z51.array(RandomTableV1Schema),
+  tags: z51.array(TagV1Schema),
+  tagCategories: z51.array(TagCategoryV1Schema),
+  scenes: z51.array(SceneV1Schema),
+  sceneMaps: z51.array(SceneMapV1Schema),
+  sceneBackgrounds: z51.array(SceneBackgroundV1Schema),
+  assets: z51.array(AssetV1Schema)
+});
+
+// src/schemas/bypp.v4.schema.ts
+var ParentAttributionV4Schema = z52.object({
+  bundleName: z52.string().min(1),
+  authorName: z52.string().min(1),
+  license: CcLicenseV3Schema,
+  sourceUrl: z52.string().url().optional()
+});
+var BeyondPaperV4Schema = z52.object({
+  // Format metadata
+  version: z52.literal(4),
+  format: z52.literal("bypp"),
+  // Bundle metadata
+  name: z52.string(),
+  exportedAt: z52.string(),
+  bundleVersion: z52.string(),
+  // Licensing & attribution
+  license: CcLicenseV3Schema,
+  licenseVersion: z52.literal("4.0"),
+  attribution: AttributionV3Schema,
+  parentAttribution: ParentAttributionV4Schema.optional(),
+  creatorLinks: z52.array(z52.string().url()).optional(),
+  // Content — every category defaults to `[]`. Producers may omit any
+  // unused category to cut file size; readers always see a concrete array.
+  dialects: z52.array(DialectV2Schema).default([]),
+  entities: z52.array(EntityV2Schema).default([]),
+  pages: z52.array(PageV1Schema).default([]),
+  chunks: z52.array(ChunkV2Schema).default([]),
+  datasets: z52.array(DatasetV2Schema).default([]),
+  variables: z52.array(VariableV2Schema).default([]),
+  widgets: z52.array(WidgetV1Schema).default([]),
+  sheets: z52.array(SheetV3Schema).default([]),
+  dataTables: z52.array(DataTableV3Schema).default([]),
+  randomTables: z52.array(RandomTableV2Schema).default([]),
+  tags: z52.array(TagV2Schema).default([]),
+  tagCategories: z52.array(TagCategoryV1Schema).default([]),
+  scenes: z52.array(SceneV2Schema).default([]),
+  sceneMaps: z52.array(SceneMapV2Schema).default([]),
+  sceneBackgrounds: z52.array(SceneBackgroundV2Schema).default([]),
+  assets: z52.array(AssetV2Schema).default([])
 });
 
 // src/schemas/bypp.v1.schema.ts
-import { z as z34 } from "zod";
-var BeyondPaperV1Schema = z34.object({
+import { z as z53 } from "zod";
+var BeyondPaperV1Schema = z53.object({
   // Format metadata
-  version: z34.literal(1),
-  format: z34.literal("bypp"),
+  version: z53.literal(1),
+  format: z53.literal("bypp"),
   // Bundle metadata
-  name: z34.string(),
-  exportedAt: z34.string(),
-  bundleVersion: z34.string(),
+  name: z53.string(),
+  exportedAt: z53.string(),
+  bundleVersion: z53.string(),
   // Content
-  dialects: z34.array(DialectV1Schema),
-  entities: z34.array(EntityV1Schema),
-  pages: z34.array(PageV1Schema),
-  chunks: z34.array(ChunkV1Schema),
-  datasets: z34.array(DatasetV1Schema),
-  variables: z34.array(VariableV1Schema),
-  widgets: z34.array(WidgetV1Schema),
-  randomTables: z34.array(RandomTableV1Schema),
-  tags: z34.array(TagV1Schema),
-  tagCategories: z34.array(TagCategoryV1Schema),
-  scenes: z34.array(SceneV1Schema),
-  sceneMaps: z34.array(SceneMapV1Schema),
-  sceneBackgrounds: z34.array(SceneBackgroundV1Schema),
-  assets: z34.array(AssetV1Schema)
+  dialects: z53.array(DialectV1Schema),
+  entities: z53.array(EntityV1Schema),
+  pages: z53.array(PageV1Schema),
+  chunks: z53.array(ChunkV1Schema),
+  datasets: z53.array(DatasetV1Schema),
+  variables: z53.array(VariableV1Schema),
+  widgets: z53.array(WidgetV1Schema),
+  randomTables: z53.array(RandomTableV1Schema),
+  tags: z53.array(TagV1Schema),
+  tagCategories: z53.array(TagCategoryV1Schema),
+  scenes: z53.array(SceneV1Schema),
+  sceneMaps: z53.array(SceneMapV1Schema),
+  sceneBackgrounds: z53.array(SceneBackgroundV1Schema),
+  assets: z53.array(AssetV1Schema)
 });
 
 // src/schemas/bypp.v2.schema.ts
-import { z as z35 } from "zod";
-var BeyondPaperV2Schema = z35.object({
+import { z as z54 } from "zod";
+var BeyondPaperV2Schema = z54.object({
   // Format metadata
-  version: z35.literal(2),
-  format: z35.literal("bypp"),
+  version: z54.literal(2),
+  format: z54.literal("bypp"),
   // Bundle metadata
-  name: z35.string(),
-  exportedAt: z35.string(),
-  bundleVersion: z35.string(),
+  name: z54.string(),
+  exportedAt: z54.string(),
+  bundleVersion: z54.string(),
   // Content
-  dialects: z35.array(DialectV1Schema),
-  entities: z35.array(EntityV1Schema),
-  pages: z35.array(PageV1Schema),
-  chunks: z35.array(ChunkV1Schema),
-  datasets: z35.array(DatasetV1Schema),
-  variables: z35.array(VariableV2Schema),
-  widgets: z35.array(WidgetV1Schema),
-  sheets: z35.array(SheetV2Schema),
-  dataTables: z35.array(DataTableV2Schema),
-  randomTables: z35.array(RandomTableV1Schema),
-  tags: z35.array(TagV1Schema),
-  tagCategories: z35.array(TagCategoryV1Schema),
-  scenes: z35.array(SceneV1Schema),
-  sceneMaps: z35.array(SceneMapV1Schema),
-  sceneBackgrounds: z35.array(SceneBackgroundV1Schema),
-  assets: z35.array(AssetV1Schema)
+  dialects: z54.array(DialectV1Schema),
+  entities: z54.array(EntityV1Schema),
+  pages: z54.array(PageV1Schema),
+  chunks: z54.array(ChunkV1Schema),
+  datasets: z54.array(DatasetV1Schema),
+  variables: z54.array(VariableV2Schema),
+  widgets: z54.array(WidgetV1Schema),
+  sheets: z54.array(SheetV2Schema),
+  dataTables: z54.array(DataTableV2Schema),
+  randomTables: z54.array(RandomTableV1Schema),
+  tags: z54.array(TagV1Schema),
+  tagCategories: z54.array(TagCategoryV1Schema),
+  scenes: z54.array(SceneV1Schema),
+  sceneMaps: z54.array(SceneMapV1Schema),
+  sceneBackgrounds: z54.array(SceneBackgroundV1Schema),
+  assets: z54.array(AssetV1Schema)
 });
 
 // src/migrations/v1-to-v2.ts
@@ -882,19 +1244,88 @@ var v3ToV2 = (v3) => {
   return { ...rest, version: 2 };
 };
 
+// src/migrations/v3-to-v4.ts
+var v3ToV4 = (v3) => {
+  const {
+    parentAttribution,
+    sceneMaps,
+    scenes,
+    ...rest
+  } = v3;
+  const v4ParentAttribution = parentAttribution ? {
+    bundleName: parentAttribution.artifactName,
+    authorName: parentAttribution.authorName,
+    license: parentAttribution.license,
+    ...parentAttribution.sourceUrl !== void 0 ? { sourceUrl: parentAttribution.sourceUrl } : {}
+  } : void 0;
+  const v4SceneMaps = sceneMaps.map((sm) => {
+    if (sm.type === "dd2vtt") {
+      const { type: _type, ...withoutType } = sm;
+      void _type;
+      return { ...withoutType, type: "customImage", sourceFormat: "dd2vtt" };
+    }
+    return sm;
+  });
+  const v4Scenes = scenes.map((s) => {
+    const { weather: _w, gameMode: _g, ...sceneRest } = s;
+    void _w;
+    void _g;
+    return sceneRest;
+  });
+  return {
+    ...rest,
+    version: 4,
+    ...v4ParentAttribution ? { parentAttribution: v4ParentAttribution } : {},
+    sceneMaps: v4SceneMaps,
+    scenes: v4Scenes
+  };
+};
+
+// src/migrations/v4-to-v3.ts
+var v4ToV3 = (v4) => {
+  const { parentAttribution, sceneMaps, scenes, ...rest } = v4;
+  const v3ParentAttribution = parentAttribution ? {
+    artifactName: parentAttribution.bundleName,
+    authorName: parentAttribution.authorName,
+    license: parentAttribution.license,
+    ...parentAttribution.sourceUrl !== void 0 ? { sourceUrl: parentAttribution.sourceUrl } : {}
+  } : void 0;
+  const v3SceneMaps = sceneMaps.map((sm) => {
+    if (sm.type === "customImage" && sm.sourceFormat === "dd2vtt") {
+      const { sourceFormat: _sf2, type: _t, ...withoutAnnotations } = sm;
+      void _sf2;
+      void _t;
+      return { ...withoutAnnotations, type: "dd2vtt" };
+    }
+    const { sourceFormat: _sf, ...withoutAnnotation } = sm;
+    void _sf;
+    return withoutAnnotation;
+  });
+  return {
+    ...rest,
+    version: 3,
+    ...v3ParentAttribution ? { parentAttribution: v3ParentAttribution } : {},
+    sceneMaps: v3SceneMaps,
+    scenes
+  };
+};
+
 // src/migrations/index.ts
 var MIGRATIONS = {
   1: v1ToV2,
-  2: v2ToV3
+  2: v2ToV3,
+  3: v3ToV4
 };
 var DOWN_MIGRATIONS = {
   2: v2ToV1,
-  3: v3ToV2
+  3: v3ToV2,
+  4: v4ToV3
 };
 var SCHEMA_BY_VERSION = {
   1: BeyondPaperV1Schema,
   2: BeyondPaperV2Schema,
-  3: BeyondPaperV3Schema
+  3: BeyondPaperV3Schema,
+  4: BeyondPaperV4Schema
 };
 var migrate = (raw, targetVersion = BYPP_FORMAT_VERSION) => {
   if (typeof raw !== "object" || raw === null) {
@@ -961,69 +1392,87 @@ var validateStep = (current, version) => {
   return parseOrThrow(schema, current, version, "step output");
 };
 export {
-  AbilityEntityV1Schema as AbilityEntitySchema,
+  AbilityEntityV2Schema as AbilityEntitySchema,
   AbilityEntityV1Schema,
+  AbilityEntityV2Schema,
   IconCompoSlotConfigV1Schema as ActionVisualIconCompoSlotConfigSchema,
   ActionVisualV1Schema as ActionVisualSchema,
   ActionVisualV1Schema,
-  AssetBaseV1Schema as AssetBaseSchema,
+  AssetBaseV2Schema as AssetBaseSchema,
   AssetBaseV1Schema,
-  AssetV1Schema as AssetSchema,
+  AssetBaseV2Schema,
+  AssetV2Schema as AssetSchema,
   AssetUidSchema,
   AssetV1Schema,
+  AssetV2Schema,
   AttributionV3Schema as AttributionSchema,
   AttributionV3Schema,
-  AudioAssetV1Schema as AudioAssetSchema,
+  AudioAssetV2Schema as AudioAssetSchema,
   AudioAssetV1Schema,
-  AudioExternalAssetV1Schema as AudioExternalAssetSchema,
+  AudioAssetV2Schema,
+  AudioExternalAssetV2Schema as AudioExternalAssetSchema,
   AudioExternalAssetV1Schema,
+  AudioExternalAssetV2Schema,
   BYPP_FORMAT_EXT,
   BYPP_FORMAT_VERSION,
   BarOrientationV1Schema as BarOrientationSchema,
   BarOrientationV1Schema,
-  BeyondPaperV3Schema as BeyondPaperSchema,
+  BeyondPaperV4Schema as BeyondPaperSchema,
   BeyondPaperV1Schema,
   BeyondPaperV2Schema,
   BeyondPaperV3Schema,
+  BeyondPaperV4Schema,
   BooleanVariableV1Schema as BooleanVariableSchema,
   BooleanVariableV1Schema,
   CcLicenseV3Schema as CcLicenseSchema,
   CcLicenseV3Schema,
-  CharacterEntityV1Schema as CharacterEntitySchema,
+  CharacterEntityV2Schema as CharacterEntitySchema,
   CharacterEntityV1Schema,
+  CharacterEntityV2Schema,
   ChoiceOptionV1Schema as ChoiceOptionSchema,
   ChoiceOptionV1Schema,
   ChoiceVariableV1Schema as ChoiceVariableSchema,
   ChoiceVariableV1Schema,
-  ChunkBaseV1Schema as ChunkBaseSchema,
+  ChunkBaseV2Schema as ChunkBaseSchema,
   ChunkBaseV1Schema,
+  ChunkBaseV2Schema,
   ChunkBlockStyleV1Schema as ChunkBlockStyleSchema,
   ChunkBlockStyleV1Schema,
-  ChunkGalleryV1Schema as ChunkGallerySchema,
+  ChunkGalleryV2Schema as ChunkGallerySchema,
   ChunkGalleryV1Schema,
+  ChunkGalleryV2Schema,
   ChunkHeadingLevelV1Schema as ChunkHeadingLevelSchema,
   ChunkHeadingLevelV1Schema,
   ChunkHeadingModeV1Schema as ChunkHeadingModeSchema,
   ChunkHeadingModeV1Schema,
-  ChunkRandomV1Schema as ChunkRandomSchema,
+  ChunkRandomV2Schema as ChunkRandomSchema,
   ChunkRandomV1Schema,
-  ChunkV1Schema as ChunkSchema,
-  ChunkTextProxyV1Schema as ChunkTextProxySchema,
+  ChunkRandomV2Schema,
+  ChunkV2Schema as ChunkSchema,
+  ChunkTextProxyV2Schema as ChunkTextProxySchema,
   ChunkTextProxyV1Schema,
-  ChunkTextV1Schema as ChunkTextSchema,
+  ChunkTextProxyV2Schema,
+  ChunkTextV2Schema as ChunkTextSchema,
   ChunkTextV1Schema,
+  ChunkTextV2Schema,
   ChunkUidSchema,
   ChunkV1Schema,
-  CreatureEntityV1Schema as CreatureEntitySchema,
+  ChunkV2Schema,
+  CreatureEntityV2Schema as CreatureEntitySchema,
   CreatureEntityV1Schema,
-  CustomImageSceneBackgroundV1Schema as CustomImageSceneBackgroundSchema,
+  CreatureEntityV2Schema,
+  CustomImageSceneBackgroundV2Schema as CustomImageSceneBackgroundSchema,
   CustomImageSceneBackgroundV1Schema,
-  CustomImageSceneMapV1Schema as CustomImageSceneMapSchema,
+  CustomImageSceneBackgroundV2Schema,
+  CustomImageSceneMapV2Schema as CustomImageSceneMapSchema,
   CustomImageSceneMapV1Schema,
-  CustomVideoSceneBackgroundV1Schema as CustomVideoSceneBackgroundSchema,
+  CustomImageSceneMapV2Schema,
+  CustomVideoSceneBackgroundV2Schema as CustomVideoSceneBackgroundSchema,
   CustomVideoSceneBackgroundV1Schema,
-  CustomVideoSceneMapV1Schema as CustomVideoSceneMapSchema,
+  CustomVideoSceneBackgroundV2Schema,
+  CustomVideoSceneMapV2Schema as CustomVideoSceneMapSchema,
   CustomVideoSceneMapV1Schema,
+  CustomVideoSceneMapV2Schema,
   DOWN_MIGRATIONS,
   DataTableCellValueV2Schema as DataTableCellValueSchema,
   DataTableCellValueV2Schema,
@@ -1050,41 +1499,52 @@ export {
   DataTableLookupVariableV2Schema,
   DataTableRefVariableV2Schema as DataTableRefVariableSchema,
   DataTableRefVariableV2Schema,
-  DataTableRowV2Schema as DataTableRowSchema,
+  DataTableRowV3Schema as DataTableRowSchema,
   DataTableRowUidSchema,
   DataTableRowV2Schema,
-  DataTableV2Schema as DataTableSchema,
+  DataTableRowV3Schema,
+  DataTableV3Schema as DataTableSchema,
   DataTableUidSchema,
   DataTableV2Schema,
-  DatasetV1Schema as DatasetSchema,
-  DatasetTargetV1Schema as DatasetTargetSchema,
+  DataTableV3Schema,
+  DatasetV2Schema as DatasetSchema,
+  DatasetTargetV2Schema as DatasetTargetSchema,
   DatasetTargetV1Schema,
+  DatasetTargetV2Schema,
   DatasetUidSchema,
   DatasetV1Schema,
-  Dd2VttSceneMapV1Schema as Dd2VttSceneMapSchema,
+  DatasetV2Schema,
   Dd2VttSceneMapV1Schema,
-  DialectFontV1Schema as DialectFontSchema,
+  DialectFontV2Schema as DialectFontSchema,
   DialectFontV1Schema,
-  DialectV1Schema as DialectSchema,
+  DialectFontV2Schema,
+  DialectV2Schema as DialectSchema,
   DialectUidSchema,
   DialectV1Schema,
-  EntityAssetV1Schema as EntityAssetSchema,
+  DialectV2Schema,
+  EntityAssetV2Schema as EntityAssetSchema,
   EntityAssetV1Schema,
-  EntityBaseV1Schema as EntityBaseSchema,
+  EntityAssetV2Schema,
+  EntityBaseV2Schema as EntityBaseSchema,
   EntityBaseV1Schema,
-  EntityV1Schema as EntitySchema,
+  EntityBaseV2Schema,
+  EntityV2Schema as EntitySchema,
   EntityTypeV1Schema as EntityTypeSchema,
   EntityTypeV1Schema,
+  EntityTypeV1Schema as EntityTypeV2Schema,
   EntityUidSchema,
   EntityV1Schema,
-  EventEntityV1Schema as EventEntitySchema,
+  EntityV2Schema,
+  EventEntityV2Schema as EventEntitySchema,
   EventEntityV1Schema,
+  EventEntityV2Schema,
   FormulaVariableV1Schema as FormulaVariableSchema,
   FormulaVariableV1Schema,
   GridDataV1Schema as GridDataSchema,
   GridDataV1Schema,
-  GroupEntityV1Schema as GroupEntitySchema,
+  GroupEntityV2Schema as GroupEntitySchema,
   GroupEntityV1Schema,
+  GroupEntityV2Schema,
   GroupRankCharacterV1Schema as GroupRankCharacterSchema,
   GroupRankCharacterV1Schema,
   GroupRankV1Schema as GroupRankSchema,
@@ -1093,15 +1553,21 @@ export {
   IconCompoSlotConfigV1Schema as IconCompoSlotConfigSchema,
   IconCompoSlotConfigV1Schema,
   IconCompoV1Schema,
-  ImageAssetV1Schema as ImageAssetSchema,
+  ImageAssetV2Schema as ImageAssetSchema,
   ImageAssetV1Schema,
+  ImageAssetV2Schema,
   ImageDimensionsV1Schema as ImageDimensionsSchema,
   ImageDimensionsV1Schema,
-  ItemEntityV1Schema as ItemEntitySchema,
+  ItemEntityV2Schema as ItemEntitySchema,
   ItemEntityV1Schema,
+  ItemEntityV2Schema,
+  KNOWN_AUDIO_EXTS,
+  KNOWN_EXTERNAL_AUDIO_PROVIDERS,
+  KNOWN_VTT_SOURCE_FORMATS,
   MIGRATIONS,
-  NoteEntityV1Schema as NoteEntitySchema,
+  NoteEntityV2Schema as NoteEntitySchema,
   NoteEntityV1Schema,
+  NoteEntityV2Schema,
   NumberVariableV1Schema as NumberVariableSchema,
   NumberVariableV1Schema,
   PageEntityV1Schema as PageEntitySchema,
@@ -1111,47 +1577,58 @@ export {
   PageStandardV1Schema,
   PageUidSchema,
   PageV1Schema,
-  ParentAttributionV3Schema as ParentAttributionSchema,
+  ParentAttributionV4Schema as ParentAttributionSchema,
   ParentAttributionV3Schema,
-  PlaceEntityV1Schema as PlaceEntitySchema,
+  ParentAttributionV4Schema,
+  PlaceEntityV2Schema as PlaceEntitySchema,
   PlaceEntityV1Schema,
-  RandomTableRowV1Schema as RandomTableRowSchema,
+  PlaceEntityV2Schema,
+  RandomTableRowV2Schema as RandomTableRowSchema,
   RandomTableRowUidSchema,
   RandomTableRowV1Schema,
-  RandomTableV1Schema as RandomTableSchema,
+  RandomTableRowV2Schema,
+  RandomTableV2Schema as RandomTableSchema,
   RandomTableUidSchema,
   RandomTableV1Schema,
+  RandomTableV2Schema,
   RollVariableV1Schema as RollVariableSchema,
   RollVariableV1Schema,
   SCHEMA_BY_VERSION,
-  SceneBackgroundBaseV1Schema as SceneBackgroundBaseSchema,
+  SceneBackgroundBaseV2Schema as SceneBackgroundBaseSchema,
   SceneBackgroundBaseV1Schema,
-  SceneBackgroundV1Schema as SceneBackgroundSchema,
+  SceneBackgroundBaseV2Schema,
+  SceneBackgroundV2Schema as SceneBackgroundSchema,
   SceneBackgroundUidSchema,
   SceneBackgroundV1Schema,
-  SceneGameModeV1Schema as SceneGameModeSchema,
+  SceneBackgroundV2Schema,
   SceneGameModeV1Schema,
-  SceneMapBaseV1Schema as SceneMapBaseSchema,
+  SceneMapBaseV2Schema as SceneMapBaseSchema,
   SceneMapBaseV1Schema,
-  SceneMapV1Schema as SceneMapSchema,
+  SceneMapBaseV2Schema,
+  SceneMapV2Schema as SceneMapSchema,
   SceneMapUidSchema,
   SceneMapV1Schema,
-  SceneV1Schema as SceneSchema,
+  SceneMapV2Schema,
+  SceneV2Schema as SceneSchema,
   SceneUidSchema,
   SceneV1Schema,
-  SheetV2Schema as SheetSchema,
+  SceneV2Schema,
+  SheetV3Schema as SheetSchema,
   SheetUidSchema,
   SheetV2Schema,
-  StoryEntityV1Schema as StoryEntitySchema,
+  SheetV3Schema,
+  StoryEntityV2Schema as StoryEntitySchema,
   StoryEntityV1Schema,
+  StoryEntityV2Schema,
   StyleV1Schema as StyleSchema,
   StyleV1Schema,
   TagCategoryV1Schema as TagCategorySchema,
   TagCategoryUidSchema,
   TagCategoryV1Schema,
-  TagV1Schema as TagSchema,
+  TagV2Schema as TagSchema,
   TagUidSchema,
   TagV1Schema,
+  TagV2Schema,
   TextVariableV1Schema as TextVariableSchema,
   TextVariableV1Schema,
   TranslatableTextV2Schema as TranslatableTextSchema,
@@ -1167,8 +1644,9 @@ export {
   VariableV2Schema,
   VariablesDataRecordV1Schema as VariablesDataRecordSchema,
   VariablesDataRecordV1Schema,
-  VideoAssetV1Schema as VideoAssetSchema,
+  VideoAssetV2Schema as VideoAssetSchema,
   VideoAssetV1Schema,
+  VideoAssetV2Schema,
   WidgetBarV1Schema as WidgetBarSchema,
   WidgetBarV1Schema,
   WidgetBaseV1Schema as WidgetBaseSchema,
@@ -1190,32 +1668,38 @@ export {
   WidgetToggleV1Schema,
   WidgetUidSchema,
   WidgetV1Schema,
-  WithArchiveV1Schema as WithArchiveSchema,
+  WithArchiveV2Schema as WithArchiveSchema,
   WithArchiveV1Schema,
+  WithArchiveV2Schema,
   WithAreaV1Schema as WithAreaSchema,
   WithAreaV1Schema,
   WithAssetsV1Schema as WithAssetsSchema,
   WithAssetsV1Schema,
-  WithAudioUrlsV1Schema as WithAudioUrlsSchema,
+  WithAudioUrlsV2Schema as WithAudioUrlsSchema,
   WithAudioUrlsV1Schema,
+  WithAudioUrlsV2Schema,
   WithDataV1Schema as WithDataSchema,
   WithDataV1Schema,
-  WithImagesUrlsV1Schema as WithImagesUrlsSchema,
+  WithImagesUrlsV2Schema as WithImagesUrlsSchema,
   WithImagesUrlsV1Schema,
+  WithImagesUrlsV2Schema,
   WithLocalizedNameV2Schema as WithLocalizedNameSchema,
   WithLocalizedNameV2Schema,
   WithNameV1Schema as WithNameSchema,
   WithNameV1Schema,
-  WithPagesV1Schema as WithPagesSchema,
+  WithPagesV2Schema as WithPagesSchema,
   WithPagesV1Schema,
+  WithPagesV2Schema,
   WithPositionV1Schema as WithPositionSchema,
   WithPositionV1Schema,
-  WithScenesV1Schema as WithScenesSchema,
+  WithScenesV2Schema as WithScenesSchema,
   WithScenesV1Schema,
+  WithScenesV2Schema,
   WithStyleV1Schema as WithStyleSchema,
   WithStyleV1Schema,
-  WithVideoUrlsV1Schema as WithVideoUrlsSchema,
+  WithVideoUrlsV2Schema as WithVideoUrlsSchema,
   WithVideoUrlsV1Schema,
+  WithVideoUrlsV2Schema,
   migrate
 };
 //# sourceMappingURL=index.js.map

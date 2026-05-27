@@ -9,6 +9,79 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v4 — 2026-05
+
+First "tightening pass" version. No new content categories — instead, the
+schema becomes more compact and producers can emit smaller bundles by
+omitting empty / default values. Also strips a few producer-specific
+fields that were locking the format against alternative readers.
+
+### Added
+- `WithArchiveV2Schema`, `WithPagesV2Schema`, `WithScenesV2Schema`,
+  `WithImagesUrlsV2Schema`, `WithVideoUrlsV2Schema`,
+  `WithAudioUrlsV2Schema` — v2 mixins with the new defaults and URL
+  validation.
+- `EntityV2Schema`, `ChunkV2Schema`, `TagV2Schema`, `DatasetV2Schema`,
+  `DialectV2Schema`, `RandomTableV2Schema`, `SceneV2Schema`,
+  `SceneMapV2Schema`, `SceneBackgroundV2Schema`, `AssetV2Schema` — v2
+  models reflecting the tightening.
+- `SheetV3Schema`, `DataTableV3Schema` — v3 of these two models (they
+  were already at v2 for unrelated reasons).
+- `KNOWN_AUDIO_EXTS`, `KNOWN_VTT_SOURCE_FORMATS`,
+  `KNOWN_EXTERNAL_AUDIO_PROVIDERS` — exported `as const` tuples that
+  document the conventional values for the now-open string fields.
+- `ParentAttributionV4Schema` — renames `artifactName` to `bundleName`.
+
+### Changed
+- **All 16 top-level content arrays default to `[]`.** Producers may
+  omit any unused category; readers always see a concrete array
+  post-parse. Reduces the size of a minimal export by several hundred
+  bytes.
+- **Entity** `displayName` / `description` are `.optional()` instead of
+  `.nullable()` — omit the field rather than emitting `null`. Same on
+  `Chunk`'s `name`, `blockStyle`, `headingLevel`, `headingMode`, and
+  `Sheet`'s `name`.
+- **Entity** `tagsUid` and group entity `ranks` / `charactersUids`
+  default to `[]`.
+- **`isArchived`** (via `WithArchiveV2`) defaults to `false`.
+- **`pagesOrder`** (via `WithPagesV2`), **`scenesUids`** (via
+  `WithScenesV2`), **`assetUids`** on gallery chunks default to `[]`.
+- **`Sheet.widgetUids`**, **`DataTable.columns` / `rows`**,
+  **`RandomTable.rows`**, **`Dialect.spokenByEntitiesUids`**,
+  **`Dataset.targets`** default to `[]`.
+- **`RandomTableRow.range`** defaults to `1` (uniform weight).
+- **`Tag.categoryUid`** is `.optional()` (was `.nullable()`).
+  **`Tag.useAsFolder`** defaults to `false`.
+- **`Dialect.fontUrl`**, all image / video / audio URL fields, and
+  attribution URLs are now `.url()`-validated.
+- **`audio-external` asset** generalized: `youtubeVideoId` →
+  `{ provider, externalId }`. Carriers other than YouTube (Soundcloud,
+  Vimeo, Bandcamp, …) can land without a schema bump.
+- **`WithAudioUrlsV2.audioExt`** widened from `"mp3" | "ogg"` to any
+  string. The conventional set lives in `KNOWN_AUDIO_EXTS`.
+- **`SceneMap`** lost the `dd2vtt` discriminator variant. DD2VTT
+  imports collapse into `customImage` (or `customVideo`) with the new
+  orthogonal `sourceFormat?: string` annotation. Other VTT exchange
+  formats (Universal VTT, Foundry VTT, …) can be tagged the same way.
+- **`parentAttribution.artifactName`** → **`bundleName`**. The format
+  consistently says "bundle" now; the residual "artifact" naming was a
+  leak of one producer's internal vocabulary.
+
+### Removed
+- **`scene.weather`** (`"none" | "fog" | "dark"`) — too restrictive for
+  a portable format; was tied to one producer's atmospheric system.
+- **`scene.gameMode`** (`"2d_vtt" | "3d_vtt" | "totm"`) — same reason;
+  was tied to one producer's renderer. Readers with different scene
+  models couldn't honor the field.
+
+### Migrations
+- `v3-to-v4`: rename `artifactName` → `bundleName`, collapse `dd2vtt`
+  scene maps into `customImage` + `sourceFormat: "dd2vtt"`, strip
+  removed scene fields. Non-lossy except for `weather` / `gameMode`
+  values, which are dropped.
+- `v4-to-v3`: symmetric reverse. Lossy: non-`"dd2vtt"` `sourceFormat`
+  values get dropped (no v3 slot for them).
+
 ## Format v3 — 2026-05
 
 ### Added

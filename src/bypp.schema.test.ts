@@ -3,7 +3,7 @@ import { BeyondPaperSchema, type BeyondPaper } from "./bypp.schema";
 
 describe("BeyondPaperSchema", () => {
   const validMinimal: BeyondPaper = {
-    version: 3,
+    version: 4,
     format: "bypp",
     name: "Test Bundle",
     exportedAt: "2026-03-22T12:00:00.000Z",
@@ -29,12 +29,31 @@ describe("BeyondPaperSchema", () => {
     assets: [],
   };
 
-  it("should parse a valid minimal bundle", () => {
+  it("parses a valid minimal bundle", () => {
     const result = BeyondPaperSchema.safeParse(validMinimal);
     expect(result.success).toBe(true);
   });
 
-  it("should reject invalid version", () => {
+  it("parses a bundle that omits every content array", () => {
+    const result = BeyondPaperSchema.safeParse({
+      version: 4,
+      format: "bypp",
+      name: "Empty Bundle",
+      exportedAt: "2026-03-22T12:00:00.000Z",
+      bundleVersion: "1.0.0",
+      license: "CC-BY",
+      licenseVersion: "4.0",
+      attribution: { authorName: "Alice" },
+    });
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.entities).toEqual([]);
+      expect(result.data.assets).toEqual([]);
+      expect(result.data.sceneMaps).toEqual([]);
+    }
+  });
+
+  it("rejects invalid version", () => {
     const result = BeyondPaperSchema.safeParse({
       ...validMinimal,
       version: 99,
@@ -42,7 +61,7 @@ describe("BeyondPaperSchema", () => {
     expect(result.success).toBe(false);
   });
 
-  it("should reject invalid format", () => {
+  it("rejects invalid format", () => {
     const result = BeyondPaperSchema.safeParse({
       ...validMinimal,
       format: "pdf",
@@ -50,7 +69,7 @@ describe("BeyondPaperSchema", () => {
     expect(result.success).toBe(false);
   });
 
-  it("should parse a bundle with entities", () => {
+  it("parses a bundle with entities of various types", () => {
     const result = BeyondPaperSchema.safeParse({
       ...validMinimal,
       entities: [
@@ -62,25 +81,7 @@ describe("BeyondPaperSchema", () => {
           description: "A wizard",
           tagsUid: ["tag-1"],
           pagesOrder: ["page-1"],
-          isArchived: false,
           sheetOverrides: { "ds-1": "sheet-1" },
-        },
-        {
-          uid: "entity-2",
-          type: "group",
-          name: "The Fellowship",
-          displayName: null,
-          description: null,
-          tagsUid: [],
-          pagesOrder: [],
-          isArchived: false,
-          ranks: [
-            {
-              label: "Leader",
-              characters: [{ entityUid: "entity-1", label: "Gandalf" }],
-            },
-          ],
-          charactersUids: ["entity-1"],
         },
         {
           uid: "entity-3",
@@ -88,9 +89,7 @@ describe("BeyondPaperSchema", () => {
           name: "Rivendell",
           displayName: "Imladris",
           description: "The Last Homely House",
-          tagsUid: [],
           pagesOrder: ["page-2"],
-          isArchived: false,
           scenesUids: ["scene-1"],
         },
       ],
@@ -98,7 +97,78 @@ describe("BeyondPaperSchema", () => {
     expect(result.success).toBe(true);
   });
 
-  it("should parse chunks of all types", () => {
+  it("parses a group entity with populated ranks + charactersUids", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      entities: [
+        {
+          uid: "entity-2",
+          type: "group",
+          name: "The Fellowship",
+          ranks: [
+            {
+              label: "Leader",
+              characters: [{ entityUid: "entity-1", label: "Gandalf" }],
+            },
+            {
+              label: "Members",
+              characters: [
+                { entityUid: "entity-3", label: "Frodo" },
+                { entityUid: "entity-4", label: "Sam" },
+              ],
+            },
+          ],
+          charactersUids: ["entity-1", "entity-3", "entity-4"],
+        },
+      ],
+    });
+    expect(result.success).toBe(true);
+    if (result.success) {
+      const group = result.data.entities[0];
+      expect(group.type).toBe("group");
+      if (group.type === "group") {
+        expect(group.ranks).toHaveLength(2);
+        expect(group.charactersUids).toEqual([
+          "entity-1",
+          "entity-3",
+          "entity-4",
+        ]);
+      }
+    }
+  });
+
+  it("parses an entity that omits every optional / defaulted field", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      entities: [
+        // displayName, description, tagsUid, pagesOrder, isArchived,
+        // sheetOverrides, scenesUids, ranks, charactersUids all omitted.
+        { uid: "entity-1", type: "character", name: "Bare" },
+        { uid: "entity-2", type: "group", name: "Empty group" },
+        { uid: "entity-3", type: "place", name: "Empty place" },
+      ],
+    });
+    expect(result.success).toBe(true);
+    if (result.success) {
+      const character = result.data.entities[0];
+      expect(character.isArchived).toBe(false);
+      expect(character.tagsUid).toEqual([]);
+      expect(character.pagesOrder).toEqual([]);
+
+      const group = result.data.entities[1];
+      if (group.type === "group") {
+        expect(group.ranks).toEqual([]);
+        expect(group.charactersUids).toEqual([]);
+      }
+
+      const place = result.data.entities[2];
+      if (place.type === "place") {
+        expect(place.scenesUids).toEqual([]);
+      }
+    }
+  });
+
+  it("parses chunks of all types", () => {
     const result = BeyondPaperSchema.safeParse({
       ...validMinimal,
       chunks: [
@@ -130,7 +200,7 @@ describe("BeyondPaperSchema", () => {
     expect(result.success).toBe(true);
   });
 
-  it("should parse variables of all types", () => {
+  it("parses variables of all types", () => {
     const result = BeyondPaperSchema.safeParse({
       ...validMinimal,
       variables: [
@@ -176,7 +246,7 @@ describe("BeyondPaperSchema", () => {
     expect(result.success).toBe(true);
   });
 
-  it("should parse assets of all types", () => {
+  it("parses assets of all types", () => {
     const result = BeyondPaperSchema.safeParse({
       ...validMinimal,
       assets: [
@@ -204,9 +274,10 @@ describe("BeyondPaperSchema", () => {
         },
         {
           uid: "a-4",
-          name: "Spotify Track",
+          name: "YouTube Track",
           type: "audio-external",
-          youtubeVideoId: "abc123",
+          provider: "youtube",
+          externalId: "abc123",
           thumbnailUrl: "https://example.com/thumb.jpg",
           durationSeconds: 240,
         },
@@ -221,7 +292,7 @@ describe("BeyondPaperSchema", () => {
     expect(result.success).toBe(true);
   });
 
-  it("should parse scene maps with grid data", () => {
+  it("parses scene maps with grid data and the sourceFormat annotation", () => {
     const result = BeyondPaperSchema.safeParse({
       ...validMinimal,
       sceneMaps: [
@@ -239,9 +310,40 @@ describe("BeyondPaperSchema", () => {
             offset: { x: 0, z: 0 },
           },
           originalUrl: "https://example.com/dungeon.jpg",
+          sourceFormat: "dd2vtt",
         },
       ],
     });
     expect(result.success).toBe(true);
+  });
+
+  it("rejects an entity with a non-url image URL", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      entities: [
+        {
+          uid: "e-1",
+          type: "character",
+          name: "BadUrl",
+          originalUrl: "not a url",
+        },
+      ],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it("rejects an audio-external asset that uses the legacy youtubeVideoId field", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      assets: [
+        {
+          uid: "a-1",
+          name: "Old shape",
+          type: "audio-external",
+          youtubeVideoId: "abc",
+        },
+      ],
+    });
+    expect(result.success).toBe(false);
   });
 });

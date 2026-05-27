@@ -1,6 +1,6 @@
 {
   "name": "bypp-format",
-  "version": "0.1.0",
+  "version": "4.0.0",
   "description": "Beyond Paper format — open schema for tabletop RPG content",
   "type": "module",
   "main": "dist/index.cjs",
