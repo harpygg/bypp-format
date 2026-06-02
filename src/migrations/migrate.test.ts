@@ -231,6 +231,82 @@ describe("migrate", () => {
       expect(typeof DOWN_MIGRATIONS[2]).toBe("function");
       expect(typeof DOWN_MIGRATIONS[3]).toBe("function");
       expect(typeof DOWN_MIGRATIONS[4]).toBe("function");
+      expect(typeof DOWN_MIGRATIONS[5]).toBe("function");
+    });
+  });
+
+  // ─── v4 → v5 specifics ──────────────────────────────────────────────
+
+  describe("v4 → v5", () => {
+    const v4Minimal = {
+      version: 4 as const,
+      format: "bypp",
+      name: "v4 bundle",
+      exportedAt: "2026-03-22T12:00:00.000Z",
+      bundleVersion: "1.0.0",
+      license: "CC-BY",
+      licenseVersion: "4.0",
+      attribution: { authorName: "Alice" },
+      dialects: [],
+      entities: [],
+      pages: [],
+      chunks: [],
+      datasets: [],
+      variables: [],
+      widgets: [],
+      sheets: [],
+      dataTables: [],
+      randomTables: [],
+      tags: [],
+      tagCategories: [],
+      scenes: [],
+      sceneMaps: [],
+      sceneBackgrounds: [],
+      assets: [],
+    };
+
+    it("upgrades a minimal v4 bundle to v5 (pure version bump)", () => {
+      const v5 = migrate(v4Minimal, 5) as { version: number };
+      expect(v5.version).toBe(5);
+    });
+
+    it("drops entityImage widgets when downgrading v5 → v4", () => {
+      const v5 = {
+        ...v4Minimal,
+        version: 5 as const,
+        widgets: [
+          { uid: "w-1", name: "w-1", type: "empty" },
+          {
+            uid: "w-2",
+            name: "w-2",
+            type: "entityImage",
+            formatSlug: "closeup",
+          },
+        ],
+        sheets: [{ uid: "s-1", widgetUids: ["w-1", "w-2"] }],
+      };
+      const v4 = migrate(v5, 4) as {
+        widgets: Array<{ uid: string; type: string }>;
+        sheets: Array<{ widgetUids: string[] }>;
+      };
+      expect(v4.widgets.map((w) => w.uid)).toEqual(["w-1"]);
+      // The dropped widget's uid is pruned from the sheet too — no orphan ref.
+      expect(v4.sheets[0].widgetUids).toEqual(["w-1"]);
+    });
+
+    it("drops image variables when downgrading v5 → v4", () => {
+      const v5 = {
+        ...v4Minimal,
+        version: 5 as const,
+        variables: [
+          { uid: "v-1", name: "HP", type: "number", datasetsUids: [] },
+          { uid: "v-2", name: "Portrait", type: "image", datasetsUids: [] },
+        ],
+      };
+      const v4 = migrate(v5, 4) as {
+        variables: Array<{ uid: string; type: string }>;
+      };
+      expect(v4.variables.map((v) => v.uid)).toEqual(["v-1"]);
     });
   });
 

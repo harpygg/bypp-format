@@ -3,7 +3,7 @@ import { BeyondPaperSchema, type BeyondPaper } from "./bypp.schema";
 
 describe("BeyondPaperSchema", () => {
   const validMinimal: BeyondPaper = {
-    version: 4,
+    version: 5,
     format: "bypp",
     name: "Test Bundle",
     exportedAt: "2026-03-22T12:00:00.000Z",
@@ -36,7 +36,7 @@ describe("BeyondPaperSchema", () => {
 
   it("parses a bundle that omits every content array", () => {
     const result = BeyondPaperSchema.safeParse({
-      version: 4,
+      version: 5,
       format: "bypp",
       name: "Empty Bundle",
       exportedAt: "2026-03-22T12:00:00.000Z",
@@ -241,6 +241,12 @@ describe("BeyondPaperSchema", () => {
           datasetsUids: ["ds-1"],
           diceFormula: "1d20+5",
         },
+        {
+          uid: "v-7",
+          name: "Portrait",
+          type: "image",
+          datasetsUids: ["ds-1"],
+        },
       ],
     });
     expect(result.success).toBe(true);
@@ -315,6 +321,80 @@ describe("BeyondPaperSchema", () => {
       ],
     });
     expect(result.success).toBe(true);
+  });
+
+  it("parses widgets of all types, including entityImage (v5)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      widgets: [
+        { uid: "w-1", name: "w-1", type: "empty" },
+        {
+          uid: "w-2",
+          name: "w-2",
+          type: "bigNumber",
+          variableUid: "v-1",
+          unit: "hp",
+        },
+        { uid: "w-3", name: "w-3", type: "plainText", variableUid: "v-2" },
+        { uid: "w-4", name: "w-4", type: "toggle", variableUid: "v-3" },
+        { uid: "w-5", name: "w-5", type: "bulletList", variableUid: "v-4" },
+        { uid: "w-6", name: "w-6", type: "inlineList", variableUid: "v-4" },
+        { uid: "w-7", name: "w-7", type: "pips", variableUid: "v-1", max: 3 },
+        {
+          uid: "w-8",
+          name: "w-8",
+          type: "bar",
+          variableUid: "v-1",
+          orientation: "ltr",
+        },
+        {
+          uid: "w-9",
+          name: "w-9",
+          type: "entityImage",
+          formatSlug: "closeup",
+          objectFit: "cover",
+        },
+        // thumbnail rendition + a different object-fit.
+        {
+          uid: "w-9b",
+          name: "w-9b",
+          type: "entityImage",
+          formatSlug: "thumbnail",
+          objectFit: "contain",
+        },
+        // entityImage with no rendering hints — reader picks defaults.
+        { uid: "w-10", name: "w-10", type: "entityImage" },
+      ],
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects a widget with an unknown type", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      widgets: [{ uid: "w-1", name: "w-1", type: "hologram" }],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it("rejects an entityImage widget with an out-of-set formatSlug", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      widgets: [
+        { uid: "w-1", name: "w-1", type: "entityImage", formatSlug: "thumb" },
+      ],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it("rejects an entityImage widget with an invalid objectFit", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      widgets: [
+        { uid: "w-1", name: "w-1", type: "entityImage", objectFit: "stretch" },
+      ],
+    });
+    expect(result.success).toBe(false);
   });
 
   it("rejects an entity with a non-url image URL", () => {

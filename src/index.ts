@@ -29,6 +29,10 @@ export {
   type BeyondPaperV4,
   type ParentAttributionV4,
 } from "./schemas/bypp.v4.schema";
+export {
+  BeyondPaperV5Schema,
+  type BeyondPaperV5,
+} from "./schemas/bypp.v5.schema";
 
 // Current aliases for license / attribution types. License and base
 // attribution shapes haven't changed in v4 — they stay rooted in v3.
@@ -337,6 +341,24 @@ export {
   type BarOrientationV1,
 } from "./models/widget.v1.schema";
 
+// Models (v5) — entity image renditions (single source of truth for the
+// `entityImage` widget's `formatSlug`).
+export {
+  ENTITY_IMAGE_RENDITIONS,
+  EntityImageFormatV5Schema,
+  type EntityImageFormatV5,
+} from "./models/entity-image-format.v5.schema";
+
+// Models (v5) — widget union extended with the `entityImage` variant.
+export {
+  WidgetV5Schema,
+  WidgetEntityImageV5Schema,
+  EntityImageObjectFitV5Schema,
+  type WidgetV5,
+  type WidgetEntityImageV5,
+  type EntityImageObjectFitV5,
+} from "./models/widget.v5.schema";
+
 // Models (v2)
 export {
   VariableV2Schema,
@@ -346,6 +368,14 @@ export {
   type DataTableRefVariableV2,
   type DataTableLookupVariableV2,
 } from "./models/variable.v2.schema";
+
+// Models (v5) — variable union extended with the `image` variant.
+export {
+  VariableV5Schema,
+  ImageVariableV5Schema,
+  type VariableV5,
+  type ImageVariableV5,
+} from "./models/variable.v5.schema";
 
 export {
   SheetV2Schema,
@@ -643,13 +673,20 @@ export {
 } from "./models/tag-category.v1.schema";
 
 export {
-  VariableV2Schema as VariableSchema,
   DataTableRefVariableV2Schema as DataTableRefVariableSchema,
   DataTableLookupVariableV2Schema as DataTableLookupVariableSchema,
-  type VariableV2 as Variable,
   type DataTableRefVariableV2 as DataTableRefVariable,
   type DataTableLookupVariableV2 as DataTableLookupVariable,
 } from "./models/variable.v2.schema";
+
+// Current variable aliases point at v5 — the union (and the `image`
+// variant it added) is the only variable shape that changed in v5.
+export {
+  VariableV5Schema as VariableSchema,
+  ImageVariableV5Schema as ImageVariableSchema,
+  type VariableV5 as Variable,
+  type ImageVariableV5 as ImageVariable,
+} from "./models/variable.v5.schema";
 
 export {
   VariableBaseV1Schema as VariableBaseSchema,
@@ -677,7 +714,6 @@ export {
 } from "./models/variable.v1.schema";
 
 export {
-  WidgetV1Schema as WidgetSchema,
   WidgetBaseV1Schema as WidgetBaseSchema,
   WidgetEmptyV1Schema as WidgetEmptySchema,
   WidgetBigNumberV1Schema as WidgetBigNumberSchema,
@@ -688,7 +724,6 @@ export {
   WidgetPipsV1Schema as WidgetPipsSchema,
   WidgetBarV1Schema as WidgetBarSchema,
   BarOrientationV1Schema as BarOrientationSchema,
-  type WidgetV1 as Widget,
   type WidgetBaseV1 as WidgetBase,
   type WidgetEmptyV1 as WidgetEmpty,
   type WidgetBigNumberV1 as WidgetBigNumber,
@@ -700,6 +735,23 @@ export {
   type WidgetBarV1 as WidgetBar,
   type BarOrientationV1 as BarOrientation,
 } from "./models/widget.v1.schema";
+
+// Current widget aliases point at v5 — the union (and the entityImage
+// variant it added) is the only widget shape that changed in v5.
+export {
+  WidgetV5Schema as WidgetSchema,
+  WidgetEntityImageV5Schema as WidgetEntityImageSchema,
+  EntityImageObjectFitV5Schema as EntityImageObjectFitSchema,
+  type WidgetV5 as Widget,
+  type WidgetEntityImageV5 as WidgetEntityImage,
+  type EntityImageObjectFitV5 as EntityImageObjectFit,
+} from "./models/widget.v5.schema";
+
+// Current alias for the entity image rendition enum.
+export {
+  EntityImageFormatV5Schema as EntityImageFormatSchema,
+  type EntityImageFormatV5 as EntityImageFormat,
+} from "./models/entity-image-format.v5.schema";
 
 export {
   SheetV3Schema as SheetSchema,
@@ -806,9 +858,9 @@ export type { ChunkTextProxyV2 as ByppChunkTextProxy } from "./models/chunk.v2.s
 export type { ChunkGalleryV2 as ByppChunkGallery } from "./models/chunk.v2.schema";
 export type { ChunkRandomV2 as ByppChunkRandom } from "./models/chunk.v2.schema";
 export type { DatasetV2 as ByppDataset } from "./models/dataset.v2.schema";
-export type { VariableV2 as ByppVariable } from "./models/variable.v2.schema";
+export type { VariableV5 as ByppVariable } from "./models/variable.v5.schema";
 export type { VariableBaseV1 as ByppVariableBase } from "./models/variable.v1.schema";
-export type { WidgetV1 as ByppWidget } from "./models/widget.v1.schema";
+export type { WidgetV5 as ByppWidget } from "./models/widget.v5.schema";
 export type { WidgetBaseV1 as ByppWidgetBase } from "./models/widget.v1.schema";
 export type { RandomTableV2 as ByppRandomTable } from "./models/random-table.v2.schema";
 export type { RandomTableRowV2 as ByppRandomTableRow } from "./models/random-table.v2.schema";
