@@ -9,6 +9,29 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v6 — 2026-06
+
+Adds one variable variant: `dataTableDirectLookup`. It reads a column from
+explicitly chosen row(s) of a data-table — the source-less sibling of
+`dataTableLookup` (which gets its rows from an upstream `dataTableRef`).
+The chosen `rowUids` live on the variable config; multiple rows are combined
+via `multiAggregator` (`concat` / `sum` / `avg` / `min` / `max`).
+
+### Added
+- `VariableV6Schema`, `DataTableDirectLookupVariableV6Schema` — v6 variable
+  union extended with the `dataTableDirectLookup` variant
+  (`src/models/variable.v6.schema.ts`).
+- `BeyondPaperV6Schema` — v6 manifest; identical to v5 except
+  `variables[]` accepts the new variant
+  (`src/schemas/bypp.v6.schema.ts`).
+- `v5ToV6` (pure version bump, non-lossy) + `v6ToV5` (drops
+  `dataTableDirectLookup` variables, lossy) migrations.
+
+### Changed
+- Current `VariableSchema` / `Variable` aliases and `ByppVariable` now point
+  at v6. `ImageVariable` stays rooted in v5 (unchanged).
+- `BYPP_FORMAT_VERSION` bumped to `6`; `BeyondPaperSchema` points to v6.
+
 ## Format v4 — 2026-05
 
 First "tightening pass" version. No new content categories — instead, the

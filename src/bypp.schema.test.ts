@@ -3,7 +3,7 @@ import { BeyondPaperSchema, type BeyondPaper } from "./bypp.schema";
 
 describe("BeyondPaperSchema", () => {
   const validMinimal: BeyondPaper = {
-    version: 5,
+    version: 6,
     format: "bypp",
     name: "Test Bundle",
     exportedAt: "2026-03-22T12:00:00.000Z",
@@ -36,7 +36,7 @@ describe("BeyondPaperSchema", () => {
 
   it("parses a bundle that omits every content array", () => {
     const result = BeyondPaperSchema.safeParse({
-      version: 5,
+      version: 6,
       format: "bypp",
       name: "Empty Bundle",
       exportedAt: "2026-03-22T12:00:00.000Z",
@@ -246,6 +246,16 @@ describe("BeyondPaperSchema", () => {
           name: "Portrait",
           type: "image",
           datasetsUids: ["ds-1"],
+        },
+        {
+          uid: "v-8",
+          name: "Race speed",
+          type: "dataTableDirectLookup",
+          datasetsUids: ["ds-1"],
+          dataTableUid: "dt-1",
+          columnUid: "col-1",
+          rowUids: ["row-1", "row-2"],
+          multiAggregator: "sum",
         },
       ],
     });

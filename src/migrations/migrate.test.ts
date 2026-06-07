@@ -232,6 +232,7 @@ describe("migrate", () => {
       expect(typeof DOWN_MIGRATIONS[3]).toBe("function");
       expect(typeof DOWN_MIGRATIONS[4]).toBe("function");
       expect(typeof DOWN_MIGRATIONS[5]).toBe("function");
+      expect(typeof DOWN_MIGRATIONS[6]).toBe("function");
     });
   });
 
@@ -307,6 +308,65 @@ describe("migrate", () => {
         variables: Array<{ uid: string; type: string }>;
       };
       expect(v4.variables.map((v) => v.uid)).toEqual(["v-1"]);
+    });
+  });
+
+  // ─── v5 → v6 specifics ──────────────────────────────────────────────
+
+  describe("v5 → v6", () => {
+    const v5Minimal = {
+      version: 5 as const,
+      format: "bypp",
+      name: "v5 bundle",
+      exportedAt: "2026-03-22T12:00:00.000Z",
+      bundleVersion: "1.0.0",
+      license: "CC-BY",
+      licenseVersion: "4.0",
+      attribution: { authorName: "Alice" },
+      dialects: [],
+      entities: [],
+      pages: [],
+      chunks: [],
+      datasets: [],
+      variables: [],
+      widgets: [],
+      sheets: [],
+      dataTables: [],
+      randomTables: [],
+      tags: [],
+      tagCategories: [],
+      scenes: [],
+      sceneMaps: [],
+      sceneBackgrounds: [],
+      assets: [],
+    };
+
+    it("upgrades a minimal v5 bundle to v6 (pure version bump)", () => {
+      const v6 = migrate(v5Minimal, 6) as { version: number };
+      expect(v6.version).toBe(6);
+    });
+
+    it("drops dataTableDirectLookup variables when downgrading v6 → v5", () => {
+      const v6 = {
+        ...v5Minimal,
+        version: 6 as const,
+        variables: [
+          { uid: "v-1", name: "HP", type: "number", datasetsUids: [] },
+          {
+            uid: "v-2",
+            name: "Race speed",
+            type: "dataTableDirectLookup",
+            datasetsUids: [],
+            dataTableUid: "dt-1",
+            columnUid: "col-1",
+            rowUids: ["row-1"],
+          },
+        ],
+      };
+      const v5 = migrate(v6, 5) as {
+        variables: Array<{ uid: string; type: string }>;
+      };
+      expect(v5.variables.map((v) => v.uid)).toEqual(["v-1"]);
     });
   });
 

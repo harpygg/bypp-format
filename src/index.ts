@@ -33,6 +33,10 @@ export {
   BeyondPaperV5Schema,
   type BeyondPaperV5,
 } from "./schemas/bypp.v5.schema";
+export {
+  BeyondPaperV6Schema,
+  type BeyondPaperV6,
+} from "./schemas/bypp.v6.schema";
 
 // Current aliases for license / attribution types. License and base
 // attribution shapes haven't changed in v4 — they stay rooted in v3.
@@ -377,6 +381,14 @@ export {
   type ImageVariableV5,
 } from "./models/variable.v5.schema";
 
+// Models (v6) — variable union extended with `dataTableDirectLookup`.
+export {
+  VariableV6Schema,
+  DataTableDirectLookupVariableV6Schema,
+  type VariableV6,
+  type DataTableDirectLookupVariableV6,
+} from "./models/variable.v6.schema";
+
 export {
   SheetV2Schema,
   type SheetV2,
@@ -679,12 +691,20 @@ export {
   type DataTableLookupVariableV2 as DataTableLookupVariable,
 } from "./models/variable.v2.schema";
 
-// Current variable aliases point at v5 — the union (and the `image`
-// variant it added) is the only variable shape that changed in v5.
+// Current variable aliases point at v6 — the union (and the
+// `dataTableDirectLookup` variant it added) is the only variable shape that
+// changed in v6.
 export {
-  VariableV5Schema as VariableSchema,
+  VariableV6Schema as VariableSchema,
+  DataTableDirectLookupVariableV6Schema as DataTableDirectLookupVariableSchema,
+  type VariableV6 as Variable,
+  type DataTableDirectLookupVariableV6 as DataTableDirectLookupVariable,
+} from "./models/variable.v6.schema";
+
+// The `image` variant was introduced in v5 and is unchanged in v6 — its
+// current alias stays rooted in v5.
+export {
   ImageVariableV5Schema as ImageVariableSchema,
-  type VariableV5 as Variable,
   type ImageVariableV5 as ImageVariable,
 } from "./models/variable.v5.schema";
 
@@ -858,7 +878,7 @@ export type { ChunkTextProxyV2 as ByppChunkTextProxy } from "./models/chunk.v2.s
 export type { ChunkGalleryV2 as ByppChunkGallery } from "./models/chunk.v2.schema";
 export type { ChunkRandomV2 as ByppChunkRandom } from "./models/chunk.v2.schema";
 export type { DatasetV2 as ByppDataset } from "./models/dataset.v2.schema";
-export type { VariableV5 as ByppVariable } from "./models/variable.v5.schema";
+export type { VariableV6 as ByppVariable } from "./models/variable.v6.schema";
 export type { VariableBaseV1 as ByppVariableBase } from "./models/variable.v1.schema";
 export type { WidgetV5 as ByppWidget } from "./models/widget.v5.schema";
 export type { WidgetBaseV1 as ByppWidgetBase } from "./models/widget.v1.schema";
