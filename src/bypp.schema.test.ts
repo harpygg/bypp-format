@@ -3,7 +3,7 @@ import { BeyondPaperSchema, type BeyondPaper } from "./bypp.schema";
 
 describe("BeyondPaperSchema", () => {
   const validMinimal: BeyondPaper = {
-    version: 6,
+    version: 7,
     format: "bypp",
     name: "Test Bundle",
     exportedAt: "2026-03-22T12:00:00.000Z",
@@ -36,7 +36,7 @@ describe("BeyondPaperSchema", () => {
 
   it("parses a bundle that omits every content array", () => {
     const result = BeyondPaperSchema.safeParse({
-      version: 6,
+      version: 7,
       format: "bypp",
       name: "Empty Bundle",
       exportedAt: "2026-03-22T12:00:00.000Z",
@@ -198,6 +198,40 @@ describe("BeyondPaperSchema", () => {
       ],
     });
     expect(result.success).toBe(true);
+  });
+
+  it("parses random tables with placeholder-mapped nested refs and a dice formula override (v7)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      randomTables: [
+        {
+          uid: "rt-1",
+          title: "Encounter",
+          diceFormula: "2d6",
+          rows: [
+            { uid: "row-1", range: 2, content: "Goblins" },
+            {
+              uid: "row-2",
+              range: 1,
+              content: "You find $weapon next to $loot",
+              randomTableRefs: { $weapon: "rt-2", $loot: "rt-3" },
+            },
+          ],
+        },
+        // diceFormula omitted -> reader derives it.
+        { uid: "rt-2", title: "Weapons", rows: [] },
+        { uid: "rt-3", title: "Loot", rows: [] },
+      ],
+    });
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.randomTables[0].diceFormula).toBe("2d6");
+      expect(result.data.randomTables[0].rows[1].randomTableRefs).toEqual({
+        $weapon: "rt-2",
+        $loot: "rt-3",
+      });
+      expect(result.data.randomTables[1].diceFormula).toBeUndefined();
+    }
   });
 
   it("parses variables of all types", () => {

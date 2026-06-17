@@ -233,6 +233,7 @@ describe("migrate", () => {
       expect(typeof DOWN_MIGRATIONS[4]).toBe("function");
       expect(typeof DOWN_MIGRATIONS[5]).toBe("function");
       expect(typeof DOWN_MIGRATIONS[6]).toBe("function");
+      expect(typeof DOWN_MIGRATIONS[7]).toBe("function");
     });
   });
 
@@ -367,6 +368,111 @@ describe("migrate", () => {
         variables: Array<{ uid: string; type: string }>;
       };
       expect(v5.variables.map((v) => v.uid)).toEqual(["v-1"]);
+    });
+  });
+
+  // ─── v6 → v7 specifics ──────────────────────────────────────────────
+
+  describe("v6 → v7", () => {
+    const v6Minimal = {
+      version: 6 as const,
+      format: "bypp",
+      name: "v6 bundle",
+      exportedAt: "2026-03-22T12:00:00.000Z",
+      bundleVersion: "1.0.0",
+      license: "CC-BY",
+      licenseVersion: "4.0",
+      attribution: { authorName: "Alice" },
+      dialects: [],
+      entities: [],
+      pages: [],
+      chunks: [],
+      datasets: [],
+      variables: [],
+      widgets: [],
+      sheets: [],
+      dataTables: [],
+      randomTables: [],
+      tags: [],
+      tagCategories: [],
+      scenes: [],
+      sceneMaps: [],
+      sceneBackgrounds: [],
+      assets: [],
+    };
+
+    it("upgrades a minimal v6 bundle to v7 (version bump)", () => {
+      const v7 = migrate(v6Minimal, 7) as { version: number };
+      expect(v7.version).toBe(7);
+    });
+
+    it("converts a row's single randomTableUid into a $1 randomTableRefs entry on upgrade", () => {
+      const v6 = {
+        ...v6Minimal,
+        randomTables: [
+          {
+            uid: "rt-1",
+            title: "Encounter",
+            rows: [
+              { uid: "row-1", range: 1, content: "Goblins" },
+              {
+                uid: "row-2",
+                range: 1,
+                content: "Nested",
+                randomTableUid: "rt-2",
+              },
+            ],
+          },
+        ],
+      };
+      const v7 = migrate(v6, 7) as {
+        randomTables: Array<{
+          rows: Array<{
+            randomTableUid?: string;
+            randomTableRefs?: Record<string, string>;
+          }>;
+        }>;
+      };
+      const rows = v7.randomTables[0].rows;
+      expect(rows[0].randomTableRefs).toBeUndefined();
+      expect(rows[1].randomTableRefs).toEqual({ $1: "rt-2" });
+      expect(rows[1].randomTableUid).toBeUndefined();
+    });
+
+    it("collapses randomTableRefs to its first entry and drops diceFormula when downgrading v7 → v6", () => {
+      const v7 = {
+        ...v6Minimal,
+        version: 7 as const,
+        randomTables: [
+          {
+            uid: "rt-1",
+            title: "Encounter",
+            diceFormula: "2d6",
+            rows: [
+              {
+                uid: "row-1",
+                range: 1,
+                content: "Find $weapon and $loot",
+                randomTableRefs: { $weapon: "rt-2", $loot: "rt-3" },
+              },
+            ],
+          },
+        ],
+      };
+      const v6 = migrate(v7, 6) as {
+        randomTables: Array<{
+          diceFormula?: string;
+          rows: Array<{
+            randomTableUid?: string;
+            randomTableRefs?: Record<string, string>;
+          }>;
+        }>;
+      };
+      const table = v6.randomTables[0];
+      // diceFormula is dropped; the first nested ref is kept, extras dropped.
+      expect(table.diceFormula).toBeUndefined();
+      expect(table.rows[0].randomTableUid).toBe("rt-2");
+      expect(table.rows[0].randomTableRefs).toBeUndefined();
     });
   });
 

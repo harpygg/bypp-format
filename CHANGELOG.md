@@ -9,6 +9,33 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v7 — 2026-06
+
+Reshapes random tables. A row's nested-table reference becomes a `randomTableRefs`
+map keyed by the **placeholder token** used in `content` (e.g. `"$1"` or
+`"$weapon"`) — a row can roll several nested tables and a reader substitutes each
+result by token, with no positional `$N` convention baked into the format. A
+table can also carry an optional `diceFormula` override (`XdY`); when unset,
+readers derive it from the rows (`1d<sum of (range + 1)>`).
+
+### Added
+- `RandomTableV7Schema`, `RandomTableRowV7Schema` — row `randomTableUid`
+  (single, optional) replaced by `randomTableRefs` (`Record<placeholder,
+  RandomTableUid>`, optional); table gains an optional `diceFormula` (loose
+  string, reader-hint) (`src/models/random-table.v7.schema.ts`).
+- `BeyondPaperV7Schema` — v7 manifest; identical to v6 except
+  `randomTables[]` uses the v7 random-table schema
+  (`src/schemas/bypp.v7.schema.ts`).
+- `v6ToV7` (maps `randomTableUid` → a single `"$1"` `randomTableRefs` entry,
+  non-lossy) + `v7ToV6` (collapses `randomTableRefs` to its first entry and
+  drops `diceFormula`, lossy) migrations.
+
+### Changed
+- Current `RandomTableSchema` / `RandomTableRowSchema` / `RandomTable` /
+  `RandomTableRow` aliases and `ByppRandomTable` / `ByppRandomTableRow` now
+  point at v7.
+- `BYPP_FORMAT_VERSION` bumped to `7`; `BeyondPaperSchema` points to v7.
+
 ## Format v6 — 2026-06
 
 Adds one variable variant: `dataTableDirectLookup`. It reads a column from

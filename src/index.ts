@@ -37,6 +37,10 @@ export {
   BeyondPaperV6Schema,
   type BeyondPaperV6,
 } from "./schemas/bypp.v6.schema";
+export {
+  BeyondPaperV7Schema,
+  type BeyondPaperV7,
+} from "./schemas/bypp.v7.schema";
 
 // Current aliases for license / attribution types. License and base
 // attribution shapes haven't changed in v4 — they stay rooted in v3.
@@ -478,6 +482,13 @@ export {
   type RandomTableRowV2,
 } from "./models/random-table.v2.schema";
 
+export {
+  RandomTableV7Schema,
+  RandomTableRowV7Schema,
+  type RandomTableV7,
+  type RandomTableRowV7,
+} from "./models/random-table.v7.schema";
+
 export { TagV2Schema, type TagV2 } from "./models/tag.v2.schema";
 
 export {
@@ -638,11 +649,11 @@ export {
 } from "./models/page.v1.schema";
 
 export {
-  RandomTableV2Schema as RandomTableSchema,
-  RandomTableRowV2Schema as RandomTableRowSchema,
-  type RandomTableV2 as RandomTable,
-  type RandomTableRowV2 as RandomTableRow,
-} from "./models/random-table.v2.schema";
+  RandomTableV7Schema as RandomTableSchema,
+  RandomTableRowV7Schema as RandomTableRowSchema,
+  type RandomTableV7 as RandomTable,
+  type RandomTableRowV7 as RandomTableRow,
+} from "./models/random-table.v7.schema";
 
 export {
   SceneV2Schema as SceneSchema,
@@ -882,8 +893,8 @@ export type { VariableV6 as ByppVariable } from "./models/variable.v6.schema";
 export type { VariableBaseV1 as ByppVariableBase } from "./models/variable.v1.schema";
 export type { WidgetV5 as ByppWidget } from "./models/widget.v5.schema";
 export type { WidgetBaseV1 as ByppWidgetBase } from "./models/widget.v1.schema";
-export type { RandomTableV2 as ByppRandomTable } from "./models/random-table.v2.schema";
-export type { RandomTableRowV2 as ByppRandomTableRow } from "./models/random-table.v2.schema";
+export type { RandomTableV7 as ByppRandomTable } from "./models/random-table.v7.schema";
+export type { RandomTableRowV7 as ByppRandomTableRow } from "./models/random-table.v7.schema";
 export type { TagV2 as ByppTag } from "./models/tag.v2.schema";
 export type { TagCategoryV1 as ByppTagCategory } from "./models/tag-category.v1.schema";
 export type { SceneV2 as ByppScene } from "./models/scene.v2.schema";
