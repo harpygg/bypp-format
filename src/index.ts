@@ -41,6 +41,10 @@ export {
   BeyondPaperV7Schema,
   type BeyondPaperV7,
 } from "./schemas/bypp.v7.schema";
+export {
+  BeyondPaperV8Schema,
+  type BeyondPaperV8,
+} from "./schemas/bypp.v8.schema";
 
 // Current aliases for license / attribution types. License and base
 // attribution shapes haven't changed in v4 — they stay rooted in v3.
@@ -135,6 +139,15 @@ export { WithPagesV1Schema } from "./mixins/with-pages.v1.schema";
 export { WithPositionV1Schema } from "./mixins/with-position.v1.schema";
 export { WithScenesV1Schema } from "./mixins/with-scenes.v1.schema";
 export { WithStyleV1Schema, StyleV1Schema } from "./mixins/with-style.v1.schema";
+export {
+  WithStyleV2Schema,
+  StyleV2Schema,
+  WidgetBackgroundV6Schema,
+  ObjectFitV6Schema,
+  type StyleV2,
+  type WidgetBackgroundV6,
+  type ObjectFitV6,
+} from "./mixins/with-style.v2.schema";
 export {
   WithVideoUrlsV1Schema,
   ImageDimensionsV1Schema,
@@ -767,14 +780,18 @@ export {
   type BarOrientationV1 as BarOrientation,
 } from "./models/widget.v1.schema";
 
-// Current widget aliases point at v5 — the union (and the entityImage
-// variant it added) is the only widget shape that changed in v5.
+// Current widget aliases point at v6 — v6 upgrades the shared style to v2
+// (adds border + background) on every variant.
 export {
-  WidgetV5Schema as WidgetSchema,
-  WidgetEntityImageV5Schema as WidgetEntityImageSchema,
+  WidgetV6Schema as WidgetSchema,
+  WidgetEntityImageV6Schema as WidgetEntityImageSchema,
+  type WidgetV6 as Widget,
+  type WidgetEntityImageV6 as WidgetEntityImage,
+} from "./models/widget.v6.schema";
+
+// The entity-image `objectFit` enum is unchanged since v5 — kept on v5.
+export {
   EntityImageObjectFitV5Schema as EntityImageObjectFitSchema,
-  type WidgetV5 as Widget,
-  type WidgetEntityImageV5 as WidgetEntityImage,
   type EntityImageObjectFitV5 as EntityImageObjectFit,
 } from "./models/widget.v5.schema";
 
@@ -785,9 +802,9 @@ export {
 } from "./models/entity-image-format.v5.schema";
 
 export {
-  SheetV3Schema as SheetSchema,
-  type SheetV3 as Sheet,
-} from "./models/sheet.v3.schema";
+  SheetV4Schema as SheetSchema,
+  type SheetV4 as Sheet,
+} from "./models/sheet.v4.schema";
 
 export {
   DataTableV3Schema as DataTableSchema,
@@ -859,9 +876,14 @@ export { WithAssetsV1Schema as WithAssetsSchema } from "./mixins/with-assets.v1.
 export { WithAreaV1Schema as WithAreaSchema } from "./mixins/with-area.v1.schema";
 export { WithPositionV1Schema as WithPositionSchema } from "./mixins/with-position.v1.schema";
 export {
-  WithStyleV1Schema as WithStyleSchema,
-  StyleV1Schema as StyleSchema,
-} from "./mixins/with-style.v1.schema";
+  WithStyleV2Schema as WithStyleSchema,
+  StyleV2Schema as StyleSchema,
+  WidgetBackgroundV6Schema as WidgetBackgroundSchema,
+  ObjectFitV6Schema as ObjectFitSchema,
+  type StyleV2 as Style,
+  type WidgetBackgroundV6 as WidgetBackground,
+  type ObjectFitV6 as ObjectFit,
+} from "./mixins/with-style.v2.schema";
 export { WithNameV1Schema as WithNameSchema } from "./mixins/with-name.v1.schema";
 export {
   WithLocalizedNameV2Schema as WithLocalizedNameSchema,
@@ -891,7 +913,7 @@ export type { ChunkRandomV2 as ByppChunkRandom } from "./models/chunk.v2.schema"
 export type { DatasetV2 as ByppDataset } from "./models/dataset.v2.schema";
 export type { VariableV6 as ByppVariable } from "./models/variable.v6.schema";
 export type { VariableBaseV1 as ByppVariableBase } from "./models/variable.v1.schema";
-export type { WidgetV5 as ByppWidget } from "./models/widget.v5.schema";
+export type { WidgetV6 as ByppWidget } from "./models/widget.v6.schema";
 export type { WidgetBaseV1 as ByppWidgetBase } from "./models/widget.v1.schema";
 export type { RandomTableV7 as ByppRandomTable } from "./models/random-table.v7.schema";
 export type { RandomTableRowV7 as ByppRandomTableRow } from "./models/random-table.v7.schema";
@@ -906,7 +928,7 @@ export type { AssetV2 as ByppAsset } from "./models/asset.v2.schema";
 export type { AssetBaseV2 as ByppAssetBase } from "./models/asset.v2.schema";
 export type { DialectV2 as ByppDialect } from "./models/dialect.v2.schema";
 export type { DialectFontV2 as ByppDialectFont } from "./models/dialect.v2.schema";
-export type { SheetV3 as ByppSheet } from "./models/sheet.v3.schema";
+export type { SheetV4 as ByppSheet } from "./models/sheet.v4.schema";
 export type { DataTableV3 as ByppDataTable } from "./models/data-table.v3.schema";
 export type { DataTableColumnV2 as ByppDataTableColumn } from "./models/data-table.v2.schema";
 export type { DataTableRowV2 as ByppDataTableRow } from "./models/data-table.v2.schema";

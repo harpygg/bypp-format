@@ -3,7 +3,7 @@ import { BeyondPaperSchema, type BeyondPaper } from "./bypp.schema";
 
 describe("BeyondPaperSchema", () => {
   const validMinimal: BeyondPaper = {
-    version: 7,
+    version: 8,
     format: "bypp",
     name: "Test Bundle",
     exportedAt: "2026-03-22T12:00:00.000Z",
@@ -36,7 +36,7 @@ describe("BeyondPaperSchema", () => {
 
   it("parses a bundle that omits every content array", () => {
     const result = BeyondPaperSchema.safeParse({
-      version: 7,
+      version: 8,
       format: "bypp",
       name: "Empty Bundle",
       exportedAt: "2026-03-22T12:00:00.000Z",
@@ -469,5 +469,69 @@ describe("BeyondPaperSchema", () => {
       ],
     });
     expect(result.success).toBe(false);
+  });
+
+  // ─── v8 style additions (border + background + sheet cascade) ──────────
+
+  it("parses a widget whose style carries border + a background image (v8)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      widgets: [
+        {
+          uid: "w-1",
+          name: "w-1",
+          type: "empty",
+          style: {
+            color: "black",
+            borderWidth: 2,
+            borderStyle: "solid",
+            borderColor: "#fff",
+            borderRadius: "8px",
+            background: { assetUid: "a-bg", objectFit: "contain" },
+          },
+        },
+      ],
+      assets: [
+        {
+          uid: "a-bg",
+          name: "bg",
+          type: "image",
+          dimensions: { width: 100, height: 100 },
+        },
+      ],
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects a background with an invalid objectFit (v8)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      widgets: [
+        {
+          uid: "w-1",
+          name: "w-1",
+          type: "empty",
+          style: { background: { assetUid: "a", objectFit: "stretch" } },
+        },
+      ],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it("parses a sheet carrying a style cascade (v8)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      sheets: [
+        {
+          uid: "s-1",
+          widgetUids: [],
+          styles: {
+            global: { color: "black" },
+            bigNumber: { fontScale: 2 },
+          },
+        },
+      ],
+    });
+    expect(result.success).toBe(true);
   });
 });

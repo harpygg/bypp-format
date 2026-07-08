@@ -615,4 +615,83 @@ describe("migrate", () => {
       expect(v3.sceneMaps[0].type).toBe("dd2vtt");
     });
   });
+
+  // ─── v7 → v8 specifics ──────────────────────────────────────────────
+
+  describe("v7 → v8", () => {
+    const v7Minimal = {
+      version: 7 as const,
+      format: "bypp",
+      name: "v7 bundle",
+      exportedAt: "2026-03-22T12:00:00.000Z",
+      bundleVersion: "1.0.0",
+      license: "CC-BY",
+      licenseVersion: "4.0",
+      attribution: { authorName: "Alice" },
+      dialects: [],
+      entities: [],
+      pages: [],
+      chunks: [],
+      datasets: [],
+      variables: [],
+      widgets: [],
+      sheets: [],
+      dataTables: [],
+      randomTables: [],
+      tags: [],
+      tagCategories: [],
+      scenes: [],
+      sceneMaps: [],
+      sceneBackgrounds: [],
+      assets: [],
+    };
+
+    it("upgrades a minimal v7 bundle to v8 (pure version bump)", () => {
+      const v8 = migrate(v7Minimal, 8) as { version: number };
+      expect(v8.version).toBe(8);
+    });
+
+    it("strips widget style border/background and sheet styles on downgrade v8 → v7", () => {
+      const v8 = {
+        ...v7Minimal,
+        version: 8 as const,
+        widgets: [
+          {
+            uid: "w-1",
+            name: "w-1",
+            type: "empty",
+            style: {
+              color: "black",
+              borderWidth: 2,
+              background: { assetUid: "a-bg", objectFit: "cover" },
+            },
+          },
+        ],
+        sheets: [
+          { uid: "s-1", widgetUids: [], styles: { global: { color: "red" } } },
+        ],
+        assets: [
+          {
+            uid: "a-bg",
+            name: "bg",
+            type: "image",
+            dimensions: { width: 10, height: 10 },
+          },
+        ],
+      };
+
+      const v7 = migrate(v8, 7) as {
+        version: number;
+        widgets: Array<{ style?: Record<string, unknown> }>;
+        sheets: Array<Record<string, unknown>>;
+      };
+
+      expect(v7.version).toBe(7);
+      // The v1 style keeps `color` but drops the v2-only additions.
+      expect(v7.widgets[0].style?.color).toBe("black");
+      expect(v7.widgets[0].style?.borderWidth).toBeUndefined();
+      expect(v7.widgets[0].style?.background).toBeUndefined();
+      expect(v7.sheets[0].styles).toBeUndefined();
+    });
+  });
 });
