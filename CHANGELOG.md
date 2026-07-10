@@ -9,6 +9,62 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v9 — 2026-07
+
+Adds one widget variant: `wheel` — a rotary value picker. The reader lays the
+possible values out as evenly-spaced square zones around a circle; a
+"reading point" (one of eight edge positions) marks the active zone, and the
+user rotates the wheel to change the value. v9 also gives **every** widget an
+optional per-widget `rotation` (degrees) — a static visual tilt of the whole
+widget.
+
+### Added
+- `WidgetWheelV7Schema` — the `wheel` variant (base + v3 style +
+  `readingPosition` / `labelOrientation` loose reader-hints + `radius`), and
+  `WidgetV7Schema`, the widget union extending v6 with it
+  (`src/models/widget.v7.schema.ts`). The ring of values is derived by the
+  reader from the **bound variable** (its `number` min..max, its `choice`
+  options, or its `dataTableRef` rows) — the widget carries no value source.
+- `NumberVariableV2Schema` (`number` variant + `min` / `max` / `step` value-
+  domain constraints) and `VariableV7Schema`, the variable union upgrading v6's
+  `number` to v2 (`src/models/variable.v7.schema.ts`). Manifest v9
+  `variables[]` → `VariableV7`.
+- `StyleV3Schema` / `WithStyleV3Schema` — `StyleV2` plus an optional
+  `rotation` (degrees): a visual tilt that cascades like any other style
+  property (`src/mixins/with-style.v3.schema.ts`). Every v7 widget variant's
+  `style` is upgraded to `StyleV3`.
+- `SheetV5Schema` — `SheetV4` with the `styles` cascade upgraded to `StyleV3`
+  (so `rotation` cascades at the `"global"` / widget-type levels too)
+  (`src/models/sheet.v5.schema.ts`).
+- `BeyondPaperV9Schema` — v9 manifest; v8 with `widgets[]` → `WidgetV7`
+  (StyleV3) and `sheets[]` → `SheetV5` (`src/schemas/bypp.v9.schema.ts`).
+- `v8ToV9` (pure version bump, non-lossy) + `v9ToV8` (drops `wheel` widgets,
+  prunes their uids from `sheet.widgetUids`, strips `rotation` from every
+  widget `style` and sheet `styles` entry, and strips `min`/`max`/`step` from
+  every `number` variable, lossy) migrations.
+
+### Changed
+- Current `WidgetSchema` / `Widget` aliases and `ByppWidget` now point at v7.
+- `BYPP_FORMAT_VERSION` bumped to `9`; `BeyondPaperSchema` points to v9.
+
+## Format v8 — 2026-07
+
+Enriches sheet/widget styling. Widget `style` is upgraded v1 → v2
+(`widget.v6.schema.ts`): the `border*` group and a `background` image (asset
+ref + object-fit) are now preserved instead of dropped. Sheets gain a
+`styles` cascade (`sheet.v4.schema.ts`) with a `"global"` target and
+per-widget-type targets.
+
+### Added
+- `WidgetV6Schema` (v2 style merged into every variant) and `SheetV4Schema`
+  (adds `styles`).
+- `v7ToV8` (pure version bump, non-lossy) + `v8ToV7` (strips widget
+  `border*` / `background` and sheet `styles`, lossy) migrations.
+
+### Changed
+- Current `WidgetSchema` / `SheetSchema` aliases point at v6 / v4.
+- `BYPP_FORMAT_VERSION` bumped to `8`; `BeyondPaperSchema` points to v8.
+
 ## Format v7 — 2026-06
 
 Reshapes random tables. A row's nested-table reference becomes a `randomTableRefs`

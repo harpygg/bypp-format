@@ -3,7 +3,7 @@ import { BeyondPaperSchema, type BeyondPaper } from "./bypp.schema";
 
 describe("BeyondPaperSchema", () => {
   const validMinimal: BeyondPaper = {
-    version: 8,
+    version: 9,
     format: "bypp",
     name: "Test Bundle",
     exportedAt: "2026-03-22T12:00:00.000Z",
@@ -36,7 +36,7 @@ describe("BeyondPaperSchema", () => {
 
   it("parses a bundle that omits every content array", () => {
     const result = BeyondPaperSchema.safeParse({
-      version: 8,
+      version: 9,
       format: "bypp",
       name: "Empty Bundle",
       exportedAt: "2026-03-22T12:00:00.000Z",
@@ -533,5 +533,89 @@ describe("BeyondPaperSchema", () => {
       ],
     });
     expect(result.success).toBe(true);
+  });
+
+  // ─── v9 wheel widget ──────────────────────────────────────────────────
+
+  it("parses a wheel widget (values are derived from the bound variable) (v9)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      widgets: [
+        {
+          uid: "w-1",
+          name: "w-1",
+          type: "wheel",
+          variableUid: "v-1",
+          readingPosition: "right",
+          labelOrientation: "radial",
+          radius: 0.8,
+        },
+        // Rendering hints all optional.
+        { uid: "w-2", name: "w-2", type: "wheel", variableUid: "v-2" },
+      ],
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it("parses number variables with min/max/step (v9)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      variables: [
+        {
+          uid: "v-1",
+          name: "HP",
+          type: "number",
+          datasetsUids: [],
+          min: 1,
+          max: 20,
+          step: 1,
+        },
+        {
+          uid: "v-2",
+          name: "AC",
+          type: "number",
+          datasetsUids: [],
+          defaultValue: 10,
+        },
+      ],
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects a number variable whose max is not numeric (v9)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      variables: [
+        { uid: "v-1", name: "HP", type: "number", datasetsUids: [], max: "20" },
+      ],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it("parses a cascading style rotation on a widget and a sheet target (v9)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      widgets: [
+        { uid: "w-1", name: "w-1", type: "empty", style: { rotation: 45 } },
+      ],
+      sheets: [
+        {
+          uid: "s-1",
+          widgetUids: [],
+          styles: { global: { rotation: -90 }, bigNumber: { color: "red" } },
+        },
+      ],
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects a non-numeric style rotation (v9)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      widgets: [
+        { uid: "w-1", name: "w-1", type: "empty", style: { rotation: "45deg" } },
+      ],
+    });
+    expect(result.success).toBe(false);
   });
 });

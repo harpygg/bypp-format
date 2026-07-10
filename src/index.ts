@@ -45,6 +45,10 @@ export {
   BeyondPaperV8Schema,
   type BeyondPaperV8,
 } from "./schemas/bypp.v8.schema";
+export {
+  BeyondPaperV9Schema,
+  type BeyondPaperV9,
+} from "./schemas/bypp.v9.schema";
 
 // Current aliases for license / attribution types. License and base
 // attribution shapes haven't changed in v4 — they stay rooted in v3.
@@ -148,6 +152,11 @@ export {
   type WidgetBackgroundV6,
   type ObjectFitV6,
 } from "./mixins/with-style.v2.schema";
+export {
+  WithStyleV3Schema,
+  StyleV3Schema,
+  type StyleV3,
+} from "./mixins/with-style.v3.schema";
 export {
   WithVideoUrlsV1Schema,
   ImageDimensionsV1Schema,
@@ -719,11 +728,19 @@ export {
 // `dataTableDirectLookup` variant it added) is the only variable shape that
 // changed in v6.
 export {
-  VariableV6Schema as VariableSchema,
   DataTableDirectLookupVariableV6Schema as DataTableDirectLookupVariableSchema,
-  type VariableV6 as Variable,
   type DataTableDirectLookupVariableV6 as DataTableDirectLookupVariable,
 } from "./models/variable.v6.schema";
+// Current variable aliases point at v7 — v7 adds `min`/`max`/`step` on the
+// `number` variant.
+export {
+  VariableV7Schema,
+  type VariableV7,
+  NumberVariableV2Schema,
+  type NumberVariableV2,
+  VariableV7Schema as VariableSchema,
+  type VariableV7 as Variable,
+} from "./models/variable.v7.schema";
 
 // The `image` variant was introduced in v5 and is unchanged in v6 — its
 // current alias stays rooted in v5.
@@ -780,12 +797,18 @@ export {
   type BarOrientationV1 as BarOrientation,
 } from "./models/widget.v1.schema";
 
-// Current widget aliases point at v6 — v6 upgrades the shared style to v2
-// (adds border + background) on every variant.
+// Current widget aliases point at v7 — v7 adds the `wheel` variant. The
+// entity-image variant is unchanged since v6, so its alias stays on v6.
 export {
-  WidgetV6Schema as WidgetSchema,
+  WidgetV7Schema,
+  type WidgetV7,
+  WidgetV7Schema as WidgetSchema,
+  WidgetWheelV7Schema as WidgetWheelSchema,
+  type WidgetV7 as Widget,
+  type WidgetWheelV7 as WidgetWheel,
+} from "./models/widget.v7.schema";
+export {
   WidgetEntityImageV6Schema as WidgetEntityImageSchema,
-  type WidgetV6 as Widget,
   type WidgetEntityImageV6 as WidgetEntityImage,
 } from "./models/widget.v6.schema";
 
@@ -801,10 +824,14 @@ export {
   type EntityImageFormatV5 as EntityImageFormat,
 } from "./models/entity-image-format.v5.schema";
 
+// Current sheet aliases point at v5 — v5 upgrades the `styles` cascade to
+// StyleV3 (adds rotation).
 export {
-  SheetV4Schema as SheetSchema,
-  type SheetV4 as Sheet,
-} from "./models/sheet.v4.schema";
+  SheetV5Schema,
+  type SheetV5,
+  SheetV5Schema as SheetSchema,
+  type SheetV5 as Sheet,
+} from "./models/sheet.v5.schema";
 
 export {
   DataTableV3Schema as DataTableSchema,
@@ -876,14 +903,17 @@ export { WithAssetsV1Schema as WithAssetsSchema } from "./mixins/with-assets.v1.
 export { WithAreaV1Schema as WithAreaSchema } from "./mixins/with-area.v1.schema";
 export { WithPositionV1Schema as WithPositionSchema } from "./mixins/with-position.v1.schema";
 export {
-  WithStyleV2Schema as WithStyleSchema,
-  StyleV2Schema as StyleSchema,
   WidgetBackgroundV6Schema as WidgetBackgroundSchema,
   ObjectFitV6Schema as ObjectFitSchema,
-  type StyleV2 as Style,
   type WidgetBackgroundV6 as WidgetBackground,
   type ObjectFitV6 as ObjectFit,
 } from "./mixins/with-style.v2.schema";
+// Current style aliases point at v3 — v3 adds a cascading `rotation`.
+export {
+  WithStyleV3Schema as WithStyleSchema,
+  StyleV3Schema as StyleSchema,
+  type StyleV3 as Style,
+} from "./mixins/with-style.v3.schema";
 export { WithNameV1Schema as WithNameSchema } from "./mixins/with-name.v1.schema";
 export {
   WithLocalizedNameV2Schema as WithLocalizedNameSchema,
@@ -911,9 +941,9 @@ export type { ChunkTextProxyV2 as ByppChunkTextProxy } from "./models/chunk.v2.s
 export type { ChunkGalleryV2 as ByppChunkGallery } from "./models/chunk.v2.schema";
 export type { ChunkRandomV2 as ByppChunkRandom } from "./models/chunk.v2.schema";
 export type { DatasetV2 as ByppDataset } from "./models/dataset.v2.schema";
-export type { VariableV6 as ByppVariable } from "./models/variable.v6.schema";
+export type { VariableV7 as ByppVariable } from "./models/variable.v7.schema";
 export type { VariableBaseV1 as ByppVariableBase } from "./models/variable.v1.schema";
-export type { WidgetV6 as ByppWidget } from "./models/widget.v6.schema";
+export type { WidgetV7 as ByppWidget } from "./models/widget.v7.schema";
 export type { WidgetBaseV1 as ByppWidgetBase } from "./models/widget.v1.schema";
 export type { RandomTableV7 as ByppRandomTable } from "./models/random-table.v7.schema";
 export type { RandomTableRowV7 as ByppRandomTableRow } from "./models/random-table.v7.schema";
@@ -928,7 +958,7 @@ export type { AssetV2 as ByppAsset } from "./models/asset.v2.schema";
 export type { AssetBaseV2 as ByppAssetBase } from "./models/asset.v2.schema";
 export type { DialectV2 as ByppDialect } from "./models/dialect.v2.schema";
 export type { DialectFontV2 as ByppDialectFont } from "./models/dialect.v2.schema";
-export type { SheetV4 as ByppSheet } from "./models/sheet.v4.schema";
+export type { SheetV5 as ByppSheet } from "./models/sheet.v5.schema";
 export type { DataTableV3 as ByppDataTable } from "./models/data-table.v3.schema";
 export type { DataTableColumnV2 as ByppDataTableColumn } from "./models/data-table.v2.schema";
 export type { DataTableRowV2 as ByppDataTableRow } from "./models/data-table.v2.schema";

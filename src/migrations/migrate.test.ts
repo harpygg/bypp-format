@@ -694,4 +694,134 @@ describe("migrate", () => {
       expect(v7.sheets[0].styles).toBeUndefined();
     });
   });
+
+  // ─── v8 → v9 specifics ──────────────────────────────────────────────
+
+  describe("v8 → v9", () => {
+    const v8Minimal = {
+      version: 8 as const,
+      format: "bypp",
+      name: "v8 bundle",
+      exportedAt: "2026-03-22T12:00:00.000Z",
+      bundleVersion: "1.0.0",
+      license: "CC-BY",
+      licenseVersion: "4.0",
+      attribution: { authorName: "Alice" },
+      dialects: [],
+      entities: [],
+      pages: [],
+      chunks: [],
+      datasets: [],
+      variables: [],
+      widgets: [],
+      sheets: [],
+      dataTables: [],
+      randomTables: [],
+      tags: [],
+      tagCategories: [],
+      scenes: [],
+      sceneMaps: [],
+      sceneBackgrounds: [],
+      assets: [],
+    };
+
+    it("upgrades a minimal v8 bundle to v9 (pure version bump)", () => {
+      const v9 = migrate(v8Minimal, 9) as { version: number };
+      expect(v9.version).toBe(9);
+    });
+
+    it("preserves a wheel widget + a number variable's min/max round-tripping v9 (via schema)", () => {
+      const v9 = {
+        ...v8Minimal,
+        version: 9 as const,
+        widgets: [
+          {
+            uid: "w-wheel",
+            name: "w-wheel",
+            type: "wheel",
+            readingPosition: "top",
+            labelOrientation: "radial",
+            radius: 0.8,
+          },
+        ],
+        variables: [
+          {
+            uid: "v-1",
+            name: "HP",
+            type: "number",
+            datasetsUids: [],
+            min: 1,
+            max: 20,
+            step: 1,
+          },
+        ],
+        sheets: [{ uid: "s-1", widgetUids: ["w-wheel"] }],
+      };
+
+      // No-op migrate to the same version still validates against v9.
+      const same = migrate(v9, 9) as {
+        widgets: Array<{ type: string }>;
+        variables: Array<{ type: string; max?: number }>;
+      };
+      expect(same.widgets[0].type).toBe("wheel");
+      expect(same.variables[0].max).toBe(20);
+    });
+
+    it("drops wheel widgets, prunes their uids, and strips style rotation on downgrade v9 → v8", () => {
+      const v9 = {
+        ...v8Minimal,
+        version: 9 as const,
+        widgets: [
+          {
+            uid: "w-keep",
+            name: "w-keep",
+            type: "empty",
+            style: { color: "black", rotation: 45 },
+          },
+          { uid: "w-wheel", name: "w-wheel", type: "wheel" },
+        ],
+        variables: [
+          {
+            uid: "v-1",
+            name: "HP",
+            type: "number",
+            datasetsUids: [],
+            min: 1,
+            max: 20,
+            step: 1,
+          },
+        ],
+        sheets: [
+          {
+            uid: "s-1",
+            widgetUids: ["w-keep", "w-wheel"],
+            styles: { global: { rotation: 90, color: "red" } },
+          },
+        ],
+      };
+
+      const v8 = migrate(v9, 8) as {
+        version: number;
+        widgets: Array<{ uid: string; style?: Record<string, unknown> }>;
+        variables: Array<{ type: string; min?: number; max?: number }>;
+        sheets: Array<{
+          widgetUids: string[];
+          styles?: Record<string, Record<string, unknown>>;
+        }>;
+      };
+
+      expect(v8.version).toBe(8);
+      expect(v8.widgets.map((w) => w.uid)).toEqual(["w-keep"]);
+      expect(v8.sheets[0].widgetUids).toEqual(["w-keep"]);
+      // v8's StyleV2 has no rotation — stripped from widget + sheet cascade,
+      // but the other style props survive.
+      expect(v8.widgets[0].style?.rotation).toBeUndefined();
+      expect(v8.widgets[0].style?.color).toBe("black");
+      expect(v8.sheets[0].styles?.global.rotation).toBeUndefined();
+      expect(v8.sheets[0].styles?.global.color).toBe("red");
+      // v8's NumberVariableV1 has no min/max/step — stripped.
+      expect(v8.variables[0].min).toBeUndefined();
+      expect(v8.variables[0].max).toBeUndefined();
+    });
+  });
 });
