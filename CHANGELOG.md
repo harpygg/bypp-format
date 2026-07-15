@@ -9,6 +9,45 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v10 — 2026-07
+
+Carries the original image's pixel `dimensions` (width/height) on every
+image-bearing model, so a reader can reserve the correct aspect-ratio before
+the image loads. This matters most for sheets: a sheet's background is its own
+image and its widgets are positioned inside that box — without the dimensions
+the reader can't size the canvas until the image arrives. Image **assets**
+already carried `dimensions`; v10 extends it to sheets, entities, scene maps
+and scene backgrounds. The field is optional: producers that no longer have
+the dimensions omit it, and readers fall back to measuring the loaded image.
+
+### Added
+- `WithImagesUrlsV3Schema` — `WithImagesUrlsV2` plus an optional `dimensions`
+  (`ImageDimensionsV1Schema`, width/height of the original)
+  (`src/mixins/with-images-urls.v3.schema.ts`).
+- `SheetV6Schema` — `SheetV5` merged with the v3 image mixin
+  (`src/models/sheet.v6.schema.ts`).
+- `EntityV3Schema` — `EntityV2` with its base upgraded to the v3 image mixin
+  (base + all nine variants + union re-declared)
+  (`src/models/entity.v3.schema.ts`).
+- `SceneMapV3Schema` / `SceneBackgroundV3Schema` — the `customImage` variant
+  merges the v3 image mixin; the `customVideo` variant is unchanged (it keeps
+  its own `videoDimensions`) (`src/models/scene-map.v3.schema.ts`,
+  `src/models/scene-background.v3.schema.ts`).
+- `BeyondPaperV10Schema` — v10 manifest; v9 with `sheets[]` → `SheetV6`,
+  `entities[]` → `EntityV3`, `sceneMaps[]` → `SceneMapV3` and
+  `sceneBackgrounds[]` → `SceneBackgroundV3` (`src/schemas/bypp.v10.schema.ts`).
+- `v9ToV10` (pure version bump, non-lossy) + `v10ToV9` (strips `dimensions`
+  from every sheet, entity, scene map and scene background, lossy) migrations.
+- Frozen per-version entry point `bypp-format/v10` (`src/v10.ts`) + the
+  `./v10` package export.
+
+### Changed
+- Current `SheetSchema` / `Sheet` / `ByppSheet`, `EntitySchema` / `Entity` /
+  `ByppEntity`, `SceneMapSchema` / `SceneMap` / `ByppSceneMap` and
+  `SceneBackgroundSchema` / `SceneBackground` / `ByppSceneBackground` aliases
+  now point at the v10 versions.
+- `BYPP_FORMAT_VERSION` bumped to `10`; `BeyondPaperSchema` points to v10.
+
 ## Format v9 — 2026-07
 
 Adds one widget variant: `wheel` — a rotary value picker. The reader lays the

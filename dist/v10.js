@@ -1714,27 +1714,27 @@ var BeyondPaperV9Schema = z75.object({
   assets: z75.array(AssetV2Schema).default([])
 });
 
-// src/v9.ts
-var BYPP_FORMAT_VERSION2 = 9;
+// src/v10.ts
+var BYPP_FORMAT_VERSION2 = 10;
 export {
   AssetV2Schema as AssetSchema,
   BYPP_FORMAT_VERSION2 as BYPP_FORMAT_VERSION,
-  BeyondPaperV9Schema as BeyondPaperSchema,
+  BeyondPaperV10Schema as BeyondPaperSchema,
   ChunkV2Schema as ChunkSchema,
   DataTableV3Schema as DataTableSchema,
   DatasetV2Schema as DatasetSchema,
   DialectV2Schema as DialectSchema,
-  EntityV2Schema as EntitySchema,
+  EntityV3Schema as EntitySchema,
   PageV1Schema as PageSchema,
   RandomTableV7Schema as RandomTableSchema,
-  SceneBackgroundV2Schema as SceneBackgroundSchema,
-  SceneMapV2Schema as SceneMapSchema,
+  SceneBackgroundV3Schema as SceneBackgroundSchema,
+  SceneMapV3Schema as SceneMapSchema,
   SceneV2Schema as SceneSchema,
-  SheetV5Schema as SheetSchema,
+  SheetV6Schema as SheetSchema,
   StyleV3Schema as StyleSchema,
   TagCategoryV1Schema as TagCategorySchema,
   TagV2Schema as TagSchema,
   VariableV7Schema as VariableSchema,
   WidgetV7Schema as WidgetSchema
 };
-//# sourceMappingURL=v9.js.map
+//# sourceMappingURL=v10.js.map

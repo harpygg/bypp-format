@@ -49,6 +49,10 @@ export {
   BeyondPaperV9Schema,
   type BeyondPaperV9,
 } from "./schemas/bypp.v9.schema";
+export {
+  BeyondPaperV10Schema,
+  type BeyondPaperV10,
+} from "./schemas/bypp.v10.schema";
 
 // Current aliases for license / attribution types. License and base
 // attribution shapes haven't changed in v4 — they stay rooted in v3.
@@ -176,6 +180,9 @@ export { WithPagesV2Schema } from "./mixins/with-pages.v2.schema";
 export { WithScenesV2Schema } from "./mixins/with-scenes.v2.schema";
 export { WithImagesUrlsV2Schema } from "./mixins/with-images-urls.v2.schema";
 export { WithVideoUrlsV2Schema } from "./mixins/with-video-urls.v2.schema";
+
+// Mixins (v3)
+export { WithImagesUrlsV3Schema } from "./mixins/with-images-urls.v3.schema";
 export {
   WithAudioUrlsV2Schema,
   KNOWN_AUDIO_EXTS,
@@ -571,6 +578,50 @@ export {
   type DataTableRowV3,
 } from "./models/data-table.v3.schema";
 
+// Models (v10 image `dimensions`) — image-bearing models forked to carry the
+// original image's pixel dimensions (see `with-images-urls.v3.schema`).
+export { SheetV6Schema, type SheetV6 } from "./models/sheet.v6.schema";
+
+export {
+  EntityV3Schema,
+  EntityBaseV3Schema,
+  CharacterEntityV3Schema,
+  CreatureEntityV3Schema,
+  GroupEntityV3Schema,
+  PlaceEntityV3Schema,
+  ItemEntityV3Schema,
+  NoteEntityV3Schema,
+  AbilityEntityV3Schema,
+  StoryEntityV3Schema,
+  EventEntityV3Schema,
+  EntityTypeV3Schema,
+  type EntityV3,
+  type EntityBaseV3,
+  type CharacterEntityV3,
+  type CreatureEntityV3,
+  type GroupEntityV3,
+  type PlaceEntityV3,
+  type EntityTypeV3,
+} from "./models/entity.v3.schema";
+
+export {
+  SceneMapV3Schema,
+  CustomImageSceneMapV3Schema,
+  CustomVideoSceneMapV3Schema,
+  type SceneMapV3,
+  type CustomImageSceneMapV3,
+  type CustomVideoSceneMapV3,
+} from "./models/scene-map.v3.schema";
+
+export {
+  SceneBackgroundV3Schema,
+  CustomImageSceneBackgroundV3Schema,
+  CustomVideoSceneBackgroundV3Schema,
+  type SceneBackgroundV3,
+  type CustomImageSceneBackgroundV3,
+  type CustomVideoSceneBackgroundV3,
+} from "./models/scene-background.v3.schema";
+
 // ─── Current aliases ────────────────────────────────────────────────
 // These re-export the latest version of each sub-schema as the plain
 // `XSchema` / `type X` consumers expect when they don't care about a
@@ -632,26 +683,26 @@ export {
 } from "./models/dialect.v2.schema";
 
 export {
-  EntityV2Schema as EntitySchema,
-  EntityBaseV2Schema as EntityBaseSchema,
-  CharacterEntityV2Schema as CharacterEntitySchema,
-  CreatureEntityV2Schema as CreatureEntitySchema,
-  GroupEntityV2Schema as GroupEntitySchema,
-  PlaceEntityV2Schema as PlaceEntitySchema,
-  ItemEntityV2Schema as ItemEntitySchema,
-  NoteEntityV2Schema as NoteEntitySchema,
-  AbilityEntityV2Schema as AbilityEntitySchema,
-  StoryEntityV2Schema as StoryEntitySchema,
-  EventEntityV2Schema as EventEntitySchema,
-  EntityTypeV2Schema as EntityTypeSchema,
-  type EntityV2 as Entity,
-  type EntityTypeV2 as EntityType,
-  type EntityBaseV2 as EntityBase,
-  type CharacterEntityV2 as CharacterEntity,
-  type CreatureEntityV2 as CreatureEntity,
-  type GroupEntityV2 as GroupEntity,
-  type PlaceEntityV2 as PlaceEntity,
-} from "./models/entity.v2.schema";
+  EntityV3Schema as EntitySchema,
+  EntityBaseV3Schema as EntityBaseSchema,
+  CharacterEntityV3Schema as CharacterEntitySchema,
+  CreatureEntityV3Schema as CreatureEntitySchema,
+  GroupEntityV3Schema as GroupEntitySchema,
+  PlaceEntityV3Schema as PlaceEntitySchema,
+  ItemEntityV3Schema as ItemEntitySchema,
+  NoteEntityV3Schema as NoteEntitySchema,
+  AbilityEntityV3Schema as AbilityEntitySchema,
+  StoryEntityV3Schema as StoryEntitySchema,
+  EventEntityV3Schema as EventEntitySchema,
+  EntityTypeV3Schema as EntityTypeSchema,
+  type EntityV3 as Entity,
+  type EntityTypeV3 as EntityType,
+  type EntityBaseV3 as EntityBase,
+  type CharacterEntityV3 as CharacterEntity,
+  type CreatureEntityV3 as CreatureEntity,
+  type GroupEntityV3 as GroupEntity,
+  type PlaceEntityV3 as PlaceEntity,
+} from "./models/entity.v3.schema";
 
 // Group rank shapes unchanged in v2 — alias still points at v1.
 export {
@@ -683,25 +734,35 @@ export {
 } from "./models/scene.v2.schema";
 
 export {
-  SceneBackgroundV2Schema as SceneBackgroundSchema,
+  SceneBackgroundV3Schema as SceneBackgroundSchema,
+  CustomImageSceneBackgroundV3Schema as CustomImageSceneBackgroundSchema,
+  CustomVideoSceneBackgroundV3Schema as CustomVideoSceneBackgroundSchema,
+  type SceneBackgroundV3 as SceneBackground,
+  type CustomImageSceneBackgroundV3 as CustomImageSceneBackground,
+  type CustomVideoSceneBackgroundV3 as CustomVideoSceneBackground,
+} from "./models/scene-background.v3.schema";
+
+// SceneBackground base is unchanged in v3 (the image mixin lives on the
+// `customImage` variant, not the base) — alias stays on v2.
+export {
   SceneBackgroundBaseV2Schema as SceneBackgroundBaseSchema,
-  CustomImageSceneBackgroundV2Schema as CustomImageSceneBackgroundSchema,
-  CustomVideoSceneBackgroundV2Schema as CustomVideoSceneBackgroundSchema,
-  type SceneBackgroundV2 as SceneBackground,
   type SceneBackgroundBaseV2 as SceneBackgroundBase,
-  type CustomImageSceneBackgroundV2 as CustomImageSceneBackground,
-  type CustomVideoSceneBackgroundV2 as CustomVideoSceneBackground,
 } from "./models/scene-background.v2.schema";
 
 export {
-  SceneMapV2Schema as SceneMapSchema,
+  SceneMapV3Schema as SceneMapSchema,
+  CustomImageSceneMapV3Schema as CustomImageSceneMapSchema,
+  CustomVideoSceneMapV3Schema as CustomVideoSceneMapSchema,
+  type SceneMapV3 as SceneMap,
+  type CustomImageSceneMapV3 as CustomImageSceneMap,
+  type CustomVideoSceneMapV3 as CustomVideoSceneMap,
+} from "./models/scene-map.v3.schema";
+
+// SceneMap base is unchanged in v3 (the image mixin lives on the
+// `customImage` variant, not the base) — alias stays on v2.
+export {
   SceneMapBaseV2Schema as SceneMapBaseSchema,
-  CustomImageSceneMapV2Schema as CustomImageSceneMapSchema,
-  CustomVideoSceneMapV2Schema as CustomVideoSceneMapSchema,
-  type SceneMapV2 as SceneMap,
   type SceneMapBaseV2 as SceneMapBase,
-  type CustomImageSceneMapV2 as CustomImageSceneMap,
-  type CustomVideoSceneMapV2 as CustomVideoSceneMap,
 } from "./models/scene-map.v2.schema";
 
 // Grid data shape unchanged in v2 — alias kept on v1.
@@ -824,14 +885,15 @@ export {
   type EntityImageFormatV5 as EntityImageFormat,
 } from "./models/entity-image-format.v5.schema";
 
-// Current sheet aliases point at v5 — v5 upgrades the `styles` cascade to
-// StyleV3 (adds rotation).
+// Raw v5 sheet re-export kept for migration authors.
+export { SheetV5Schema, type SheetV5 } from "./models/sheet.v5.schema";
+
+// Current sheet aliases point at v6 — v6 adds the original image's
+// `dimensions` (via WithImagesUrlsV3).
 export {
-  SheetV5Schema,
-  type SheetV5,
-  SheetV5Schema as SheetSchema,
-  type SheetV5 as Sheet,
-} from "./models/sheet.v5.schema";
+  SheetV6Schema as SheetSchema,
+  type SheetV6 as Sheet,
+} from "./models/sheet.v6.schema";
 
 export {
   DataTableV3Schema as DataTableSchema,
@@ -923,12 +985,12 @@ export {
 // For consumers (like Harpy) that have their own types with the same
 // names and want to avoid `import { Entity as ByppEntity }` aliasing.
 
-export type { EntityV2 as ByppEntity } from "./models/entity.v2.schema";
-export type { EntityBaseV2 as ByppEntityBase } from "./models/entity.v2.schema";
-export type { CharacterEntityV2 as ByppCharacterEntity } from "./models/entity.v2.schema";
-export type { CreatureEntityV2 as ByppCreatureEntity } from "./models/entity.v2.schema";
-export type { GroupEntityV2 as ByppGroupEntity } from "./models/entity.v2.schema";
-export type { PlaceEntityV2 as ByppPlaceEntity } from "./models/entity.v2.schema";
+export type { EntityV3 as ByppEntity } from "./models/entity.v3.schema";
+export type { EntityBaseV3 as ByppEntityBase } from "./models/entity.v3.schema";
+export type { CharacterEntityV3 as ByppCharacterEntity } from "./models/entity.v3.schema";
+export type { CreatureEntityV3 as ByppCreatureEntity } from "./models/entity.v3.schema";
+export type { GroupEntityV3 as ByppGroupEntity } from "./models/entity.v3.schema";
+export type { PlaceEntityV3 as ByppPlaceEntity } from "./models/entity.v3.schema";
 export type { GroupRankV1 as ByppGroupRank } from "./models/entity.v1.schema";
 export type { GroupRankCharacterV1 as ByppGroupRankCharacter } from "./models/entity.v1.schema";
 export type { PageV1 as ByppPage } from "./models/page.v1.schema";
@@ -950,15 +1012,15 @@ export type { RandomTableRowV7 as ByppRandomTableRow } from "./models/random-tab
 export type { TagV2 as ByppTag } from "./models/tag.v2.schema";
 export type { TagCategoryV1 as ByppTagCategory } from "./models/tag-category.v1.schema";
 export type { SceneV2 as ByppScene } from "./models/scene.v2.schema";
-export type { SceneMapV2 as ByppSceneMap } from "./models/scene-map.v2.schema";
+export type { SceneMapV3 as ByppSceneMap } from "./models/scene-map.v3.schema";
 export type { SceneMapBaseV2 as ByppSceneMapBase } from "./models/scene-map.v2.schema";
-export type { SceneBackgroundV2 as ByppSceneBackground } from "./models/scene-background.v2.schema";
+export type { SceneBackgroundV3 as ByppSceneBackground } from "./models/scene-background.v3.schema";
 export type { SceneBackgroundBaseV2 as ByppSceneBackgroundBase } from "./models/scene-background.v2.schema";
 export type { AssetV2 as ByppAsset } from "./models/asset.v2.schema";
 export type { AssetBaseV2 as ByppAssetBase } from "./models/asset.v2.schema";
 export type { DialectV2 as ByppDialect } from "./models/dialect.v2.schema";
 export type { DialectFontV2 as ByppDialectFont } from "./models/dialect.v2.schema";
-export type { SheetV5 as ByppSheet } from "./models/sheet.v5.schema";
+export type { SheetV6 as ByppSheet } from "./models/sheet.v6.schema";
 export type { DataTableV3 as ByppDataTable } from "./models/data-table.v3.schema";
 export type { DataTableColumnV2 as ByppDataTableColumn } from "./models/data-table.v2.schema";
 export type { DataTableRowV2 as ByppDataTableRow } from "./models/data-table.v2.schema";

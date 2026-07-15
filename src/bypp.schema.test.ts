@@ -3,7 +3,7 @@ import { BeyondPaperSchema, type BeyondPaper } from "./bypp.schema";
 
 describe("BeyondPaperSchema", () => {
   const validMinimal: BeyondPaper = {
-    version: 9,
+    version: 10,
     format: "bypp",
     name: "Test Bundle",
     exportedAt: "2026-03-22T12:00:00.000Z",
@@ -36,7 +36,7 @@ describe("BeyondPaperSchema", () => {
 
   it("parses a bundle that omits every content array", () => {
     const result = BeyondPaperSchema.safeParse({
-      version: 9,
+      version: 10,
       format: "bypp",
       name: "Empty Bundle",
       exportedAt: "2026-03-22T12:00:00.000Z",
