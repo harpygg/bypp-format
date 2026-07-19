@@ -53,6 +53,10 @@ export {
   BeyondPaperV10Schema,
   type BeyondPaperV10,
 } from "./schemas/bypp.v10.schema";
+export {
+  BeyondPaperV11Schema,
+  type BeyondPaperV11,
+} from "./schemas/bypp.v11.schema";
 
 // Current aliases for license / attribution types. License and base
 // attribution shapes haven't changed in v4 — they stay rooted in v3.
@@ -492,6 +496,13 @@ export {
 } from "./models/chunk.v2.schema";
 
 export {
+  ChunkV11Schema,
+  ChunkTextV11Schema,
+  type ChunkV11,
+  type ChunkTextV11,
+} from "./models/chunk.v11.schema";
+
+export {
   DatasetV2Schema,
   DatasetTargetV2Schema,
   type DatasetV2,
@@ -645,16 +656,17 @@ export {
 } from "./models/asset.v2.schema";
 
 export {
-  ChunkV2Schema as ChunkSchema,
+  ChunkV11Schema as ChunkSchema,
+  ChunkTextV11Schema as ChunkTextSchema,
+  type ChunkV11 as Chunk,
+  type ChunkTextV11 as ChunkText,
+} from "./models/chunk.v11.schema";
+
+export {
   ChunkBaseV2Schema as ChunkBaseSchema,
-  ChunkTextV2Schema as ChunkTextSchema,
-  ChunkTextProxyV2Schema as ChunkTextProxySchema,
   ChunkGalleryV2Schema as ChunkGallerySchema,
   ChunkRandomV2Schema as ChunkRandomSchema,
-  type ChunkV2 as Chunk,
   type ChunkBaseV2 as ChunkBase,
-  type ChunkTextV2 as ChunkText,
-  type ChunkTextProxyV2 as ChunkTextProxy,
   type ChunkGalleryV2 as ChunkGallery,
   type ChunkRandomV2 as ChunkRandom,
 } from "./models/chunk.v2.schema";
@@ -996,10 +1008,9 @@ export type { GroupRankCharacterV1 as ByppGroupRankCharacter } from "./models/en
 export type { PageV1 as ByppPage } from "./models/page.v1.schema";
 export type { PageStandardV1 as ByppPageStandard } from "./models/page.v1.schema";
 export type { PageEntityV1 as ByppPageEntity } from "./models/page.v1.schema";
-export type { ChunkV2 as ByppChunk } from "./models/chunk.v2.schema";
+export type { ChunkV11 as ByppChunk } from "./models/chunk.v11.schema";
 export type { ChunkBaseV2 as ByppChunkBase } from "./models/chunk.v2.schema";
-export type { ChunkTextV2 as ByppChunkText } from "./models/chunk.v2.schema";
-export type { ChunkTextProxyV2 as ByppChunkTextProxy } from "./models/chunk.v2.schema";
+export type { ChunkTextV11 as ByppChunkText } from "./models/chunk.v11.schema";
 export type { ChunkGalleryV2 as ByppChunkGallery } from "./models/chunk.v2.schema";
 export type { ChunkRandomV2 as ByppChunkRandom } from "./models/chunk.v2.schema";
 export type { DatasetV2 as ByppDataset } from "./models/dataset.v2.schema";

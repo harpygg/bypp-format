@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { D as DialectUid, E as EntityUid, T as TagUid, a as DatasetUid, S as SheetUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, A as AssetUid, c as SceneUid, C as ChunkUid, R as RandomTableUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid, W as WidgetUid, d as RandomTableRowUid, e as TagCategoryUid, f as SceneMapUid, g as SceneBackgroundUid } from './widget.v7.schema-DHvc06fi.cjs';
+import { D as DialectUid, E as EntityUid, T as TagUid, a as DatasetUid, S as SheetUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, A as AssetUid, c as SceneUid, C as ChunkUid, R as RandomTableUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid, W as WidgetUid, d as RandomTableRowUid, e as TagCategoryUid, f as SceneMapUid, g as SceneBackgroundUid } from './widget.v7.schema-lcLISYFx.cjs';
 
 declare const BeyondPaperV9Schema: z.ZodObject<{
     version: z.ZodLiteral<9>;

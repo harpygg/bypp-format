@@ -17,30 +17,30 @@ var __copyProps = (to, from, except, desc) => {
 };
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// src/v9.ts
-var v9_exports = {};
-__export(v9_exports, {
+// src/v11.ts
+var v11_exports = {};
+__export(v11_exports, {
   AssetSchema: () => AssetV2Schema,
   BYPP_FORMAT_VERSION: () => BYPP_FORMAT_VERSION2,
-  BeyondPaperSchema: () => BeyondPaperV9Schema,
-  ChunkSchema: () => ChunkV2Schema,
+  BeyondPaperSchema: () => BeyondPaperV11Schema,
+  ChunkSchema: () => ChunkV11Schema,
   DataTableSchema: () => DataTableV3Schema,
   DatasetSchema: () => DatasetV2Schema,
   DialectSchema: () => DialectV2Schema,
-  EntitySchema: () => EntityV2Schema,
+  EntitySchema: () => EntityV3Schema,
   PageSchema: () => PageV1Schema,
   RandomTableSchema: () => RandomTableV7Schema,
-  SceneBackgroundSchema: () => SceneBackgroundV2Schema,
-  SceneMapSchema: () => SceneMapV2Schema,
+  SceneBackgroundSchema: () => SceneBackgroundV3Schema,
+  SceneMapSchema: () => SceneMapV3Schema,
   SceneSchema: () => SceneV2Schema,
-  SheetSchema: () => SheetV5Schema,
+  SheetSchema: () => SheetV6Schema,
   StyleSchema: () => StyleV3Schema,
   TagCategorySchema: () => TagCategoryV1Schema,
   TagSchema: () => TagV2Schema,
   VariableSchema: () => VariableV7Schema,
   WidgetSchema: () => WidgetV7Schema
 });
-module.exports = __toCommonJS(v9_exports);
+module.exports = __toCommonJS(v11_exports);
 
 // src/schemas/bypp.v11.schema.ts
 var import_zod69 = require("zod");
@@ -1810,8 +1810,8 @@ var BeyondPaperV10Schema = import_zod77.z.object({
   assets: import_zod77.z.array(AssetV2Schema).default([])
 });
 
-// src/v9.ts
-var BYPP_FORMAT_VERSION2 = 9;
+// src/v11.ts
+var BYPP_FORMAT_VERSION2 = 11;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   AssetSchema,
@@ -1834,4 +1834,4 @@ var BYPP_FORMAT_VERSION2 = 9;
   VariableSchema,
   WidgetSchema
 });
-//# sourceMappingURL=v9.cjs.map
+//# sourceMappingURL=v11.cjs.map

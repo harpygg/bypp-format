@@ -824,4 +824,215 @@ describe("migrate", () => {
       expect(v8.variables[0].max).toBeUndefined();
     });
   });
+
+  describe("v10 → v11", () => {
+    const v10Minimal = {
+      version: 10 as const,
+      format: "bypp",
+      name: "v10 bundle",
+      exportedAt: "2026-07-19T12:00:00.000Z",
+      bundleVersion: "1.0.0",
+      license: "CC-BY",
+      licenseVersion: "4.0",
+      attribution: { authorName: "Alice" },
+      dialects: [],
+      entities: [],
+      pages: [],
+      chunks: [],
+      datasets: [],
+      variables: [],
+      widgets: [],
+      sheets: [],
+      dataTables: [],
+      randomTables: [],
+      tags: [],
+      tagCategories: [],
+      scenes: [],
+      sceneMaps: [],
+      sceneBackgrounds: [],
+      assets: [],
+    };
+
+    it("upgrades a minimal v10 bundle to v11 (pure version bump)", () => {
+      const v11 = migrate(v10Minimal, 11) as { version: number };
+      expect(v11.version).toBe(11);
+    });
+
+    it("folds a textProxy into its target and rewrites the page order", () => {
+      const v10 = {
+        ...v10Minimal,
+        chunks: [
+          { uid: "c-text", type: "text", content: "hello" },
+          {
+            uid: "c-proxy",
+            type: "textProxy",
+            chunkUid: "c-text",
+            entityUid: "e-1",
+          },
+        ],
+        pages: [
+          {
+            uid: "p-1",
+            name: "Page",
+            type: "standard",
+            chunksOrder: ["c-proxy"],
+          },
+        ],
+      };
+
+      const v11 = migrate(v10, 11) as {
+        version: number;
+        chunks: Array<{ uid: string; type: string; wrappedInEntityUid?: string }>;
+        pages: Array<{ chunksOrder: string[] }>;
+      };
+
+      expect(v11.version).toBe(11);
+      // The proxy is gone; its target carries the entity context.
+      expect(v11.chunks).toHaveLength(1);
+      expect(v11.chunks[0].uid).toBe("c-text");
+      expect(v11.chunks[0].wrappedInEntityUid).toBe("e-1");
+      // The page now names the target where it named the proxy.
+      expect(v11.pages[0].chunksOrder).toEqual(["c-text"]);
+    });
+
+    it("keeps one entry when a page listed both a proxy and its target", () => {
+      const v10 = {
+        ...v10Minimal,
+        chunks: [
+          { uid: "c-text", type: "text", content: "hello" },
+          {
+            uid: "c-proxy",
+            type: "textProxy",
+            chunkUid: "c-text",
+            entityUid: "e-1",
+          },
+        ],
+        pages: [
+          {
+            uid: "p-1",
+            name: "Page",
+            type: "standard",
+            chunksOrder: ["c-text", "c-proxy"],
+          },
+        ],
+      };
+
+      const v11 = migrate(v10, 11) as { pages: Array<{ chunksOrder: string[] }> };
+
+      expect(v11.pages[0].chunksOrder).toEqual(["c-text"]);
+    });
+
+    it("drops a proxy whose target is absent, and its page reference", () => {
+      const v10 = {
+        ...v10Minimal,
+        chunks: [
+          {
+            uid: "c-proxy",
+            type: "textProxy",
+            chunkUid: "c-missing",
+            entityUid: "e-1",
+          },
+        ],
+        pages: [
+          {
+            uid: "p-1",
+            name: "Page",
+            type: "standard",
+            chunksOrder: ["c-proxy"],
+          },
+        ],
+      };
+
+      const v11 = migrate(v10, 11) as {
+        chunks: unknown[];
+        pages: Array<{ chunksOrder: string[] }>;
+      };
+
+      // A v10 proxy holds no `content` of its own, so there is nothing to
+      // salvage — leaving an empty block a reader can neither fill nor
+      // understand would be worse than dropping it.
+      expect(v11.chunks).toHaveLength(0);
+      expect(v11.pages[0].chunksOrder).toEqual([]);
+    });
+
+    it("stamps the context ONLY on the proxy's target, never on other chunks", () => {
+      const v10 = {
+        ...v10Minimal,
+        chunks: [
+          { uid: "c-target", type: "text", content: "wrapped" },
+          { uid: "c-other-text", type: "text", content: "untouched" },
+          { uid: "c-gal", type: "gallery", assetUids: [] },
+          { uid: "c-rnd", type: "random", randomTableUid: "rt-1" },
+          {
+            uid: "c-proxy",
+            type: "textProxy",
+            chunkUid: "c-target",
+            entityUid: "e-1",
+          },
+        ],
+      };
+
+      const v11 = migrate(v10, 11) as {
+        chunks: Array<{ uid: string; wrappedInEntityUid?: string }>;
+      };
+
+      const byUid = Object.fromEntries(v11.chunks.map((c) => [c.uid, c]));
+
+      expect(byUid["c-target"].wrappedInEntityUid).toBe("e-1");
+      expect(byUid["c-other-text"].wrappedInEntityUid).toBeUndefined();
+      expect(byUid["c-gal"].wrappedInEntityUid).toBeUndefined();
+      expect(byUid["c-rnd"].wrappedInEntityUid).toBeUndefined();
+      expect(byUid["c-proxy"]).toBeUndefined();
+    });
+
+    it("first proxy wins when several claim the same target", () => {
+      const v10 = {
+        ...v10Minimal,
+        chunks: [
+          { uid: "c-text", type: "text", content: "hello" },
+          { uid: "p-a", type: "textProxy", chunkUid: "c-text", entityUid: "e-1" },
+          { uid: "p-b", type: "textProxy", chunkUid: "c-text", entityUid: "e-2" },
+        ],
+      };
+
+      const v11 = migrate(v10, 11) as {
+        chunks: Array<{ wrappedInEntityUid?: string }>;
+      };
+
+      expect(v11.chunks).toHaveLength(1);
+      expect(v11.chunks[0].wrappedInEntityUid).toBe("e-1");
+    });
+
+    it("strips wrappedInEntityUid on downgrade v11 → v10, keeping the text", () => {
+      const v11 = {
+        ...v10Minimal,
+        version: 11 as const,
+        chunks: [
+          {
+            uid: "c-wrapped",
+            type: "text",
+            content: "resolved against e-1",
+            wrappedInEntityUid: "e-1",
+          },
+          { uid: "c-plain", type: "text", content: "plain" },
+        ],
+      };
+
+      const v10 = migrate(v11, 10) as {
+        version: number;
+        chunks: Array<{
+          uid: string;
+          content: string;
+          wrappedInEntityUid?: string;
+        }>;
+      };
+
+      expect(v10.version).toBe(10);
+      // The entity context is lost (a v10 reader falls back to the page
+      // owner) but the block itself survives untouched.
+      expect(v10.chunks[0].wrappedInEntityUid).toBeUndefined();
+      expect(v10.chunks[0].content).toBe("resolved against e-1");
+      expect(v10.chunks[1].content).toBe("plain");
+    });
+  });
 });

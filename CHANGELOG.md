@@ -9,6 +9,46 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v11 — 2026-07
+
+### Added
+
+- **`wrappedInEntityUid` on the text chunk** — names the entity a text block's
+  variable references resolve against. Without it, a block resolves against
+  whichever entity owns the page it sits on; with it, against the named entity.
+  Readers are expected to surface which entity a wrapped block belongs to
+  (Harpy frames it with that entity's avatar).
+
+### Removed
+
+- **The `textProxy` chunk variant.** It expressed the same idea as a SECOND
+  chunk pointing at the one holding the text. The indirection carried no
+  information its target didn't already have, and let the two documents drift
+  apart — in particular their access lists, which producers apply to the
+  pointer while readers and storage enforce the target's. A v11 document can
+  never contain one: `v10 → v11` folds every proxy into its target. Readers
+  pinned to v10 or earlier still need to handle the variant.
+
+### Migrations
+
+- `v10 → v11`: folds each `textProxy` into the text chunk it points at — the
+  proxy's `entityUid` becomes the target's `wrappedInEntityUid`, the proxy
+  leaves `chunks[]`, and every `pages[].chunksOrder` entry naming it now names
+  the target. A page that listed both a proxy and its target keeps a single
+  entry. A proxy whose target is absent from the bundle is dropped along with
+  its page references — the common case, since a producer walking only its
+  pages' chunk lists never included the pointed-at chunk. The v10 shape held
+  no text of its own, so nothing is recoverable, and an empty block a reader
+  can neither fill nor understand is worse than none. **Lossy in one
+  degenerate case**: several proxies
+  pointing at the same chunk with different `entityUid`s collapse to the first
+  context encountered, since v11 makes that shape unrepresentable.
+- `v11 → v10` (lossy): strips `wrappedInEntityUid` from every text chunk. The
+  block keeps its text and its position; it loses the entity its variables
+  were meant to resolve against, and a v10 reader falls back to the page owner.
+  Wrapped blocks are NOT re-expanded into proxy pairs — that would mint chunk
+  uids the producer never issued.
+
 ## Format v10 — 2026-07
 
 Carries the original image's pixel `dimensions` (width/height) on every
