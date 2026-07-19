@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { S as SheetUid, W as WidgetUid, a as DatasetUid, A as AssetUid, E as EntityUid, T as TagUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, c as SceneUid, f as SceneMapUid, g as SceneBackgroundUid } from './widget.v7.schema-lcLISYFx.cjs';
+import { S as SheetUid, W as WidgetUid, a as DatasetUid, A as AssetUid, E as EntityUid, T as TagUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, c as SceneUid, f as SceneMapUid, g as SceneBackgroundUid } from './variable.v7.schema-ClZin-IT.js';
 
 declare const SheetV6Schema: z.ZodObject<{
     uid: z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>;

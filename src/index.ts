@@ -57,6 +57,10 @@ export {
   BeyondPaperV11Schema,
   type BeyondPaperV11,
 } from "./schemas/bypp.v11.schema";
+export {
+  BeyondPaperV12Schema,
+  type BeyondPaperV12,
+} from "./schemas/bypp.v12.schema";
 
 // Current aliases for license / attribution types. License and base
 // attribution shapes haven't changed in v4 — they stay rooted in v3.
@@ -870,16 +874,31 @@ export {
   type BarOrientationV1 as BarOrientation,
 } from "./models/widget.v1.schema";
 
-// Current widget aliases point at v7 — v7 adds the `wheel` variant. The
-// entity-image variant is unchanged since v6, so its alias stays on v6.
+// The `wheel` variant is unchanged since v7 — its alias stays on v7.
 export {
   WidgetV7Schema,
   type WidgetV7,
-  WidgetV7Schema as WidgetSchema,
   WidgetWheelV7Schema as WidgetWheelSchema,
-  type WidgetV7 as Widget,
   type WidgetWheelV7 as WidgetWheel,
 } from "./models/widget.v7.schema";
+
+// Current widget aliases point at v8 — v8 adds the `actionRoll` variant and
+// `actionsVariablesUids` on every variant. The entity-image variant is
+// unchanged since v6, so its alias stays on v6.
+export {
+  WidgetV8Schema,
+  type WidgetV8,
+  WidgetActionRollV8Schema,
+  type WidgetActionRollV8,
+  WithWidgetActionsV8Schema,
+  type WithWidgetActionsV8,
+  WidgetV8Schema as WidgetSchema,
+  WidgetActionRollV8Schema as WidgetActionRollSchema,
+  WithWidgetActionsV8Schema as WithWidgetActionsSchema,
+  type WidgetV8 as Widget,
+  type WidgetActionRollV8 as WidgetActionRoll,
+  type WithWidgetActionsV8 as WithWidgetActions,
+} from "./models/widget.v8.schema";
 export {
   WidgetEntityImageV6Schema as WidgetEntityImageSchema,
   type WidgetEntityImageV6 as WidgetEntityImage,
@@ -1016,7 +1035,7 @@ export type { ChunkRandomV2 as ByppChunkRandom } from "./models/chunk.v2.schema"
 export type { DatasetV2 as ByppDataset } from "./models/dataset.v2.schema";
 export type { VariableV7 as ByppVariable } from "./models/variable.v7.schema";
 export type { VariableBaseV1 as ByppVariableBase } from "./models/variable.v1.schema";
-export type { WidgetV7 as ByppWidget } from "./models/widget.v7.schema";
+export type { WidgetV8 as ByppWidget } from "./models/widget.v8.schema";
 export type { WidgetBaseV1 as ByppWidgetBase } from "./models/widget.v1.schema";
 export type { RandomTableV7 as ByppRandomTable } from "./models/random-table.v7.schema";
 export type { RandomTableRowV7 as ByppRandomTableRow } from "./models/random-table.v7.schema";

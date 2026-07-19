@@ -1,8 +1,8 @@
 import { z } from 'zod';
-import { D as DialectUid, E as EntityUid, T as TagUid, a as DatasetUid, S as SheetUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, A as AssetUid, c as SceneUid, C as ChunkUid, R as RandomTableUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid, W as WidgetUid, d as RandomTableRowUid, e as TagCategoryUid, f as SceneMapUid, g as SceneBackgroundUid } from './widget.v7.schema-lcLISYFx.js';
+import { D as DialectUid, E as EntityUid, T as TagUid, a as DatasetUid, S as SheetUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, A as AssetUid, c as SceneUid, C as ChunkUid, R as RandomTableUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid, W as WidgetUid, d as RandomTableRowUid, e as TagCategoryUid, f as SceneMapUid, g as SceneBackgroundUid } from './variable.v7.schema-ClZin-IT.cjs';
 
-declare const BeyondPaperV11Schema: z.ZodObject<{
-    version: z.ZodLiteral<11>;
+declare const BeyondPaperV10Schema: z.ZodObject<{
+    version: z.ZodLiteral<10>;
     format: z.ZodLiteral<"bypp">;
     name: z.ZodString;
     exportedAt: z.ZodString;
@@ -890,7 +890,6 @@ declare const BeyondPaperV11Schema: z.ZodObject<{
         type: z.ZodLiteral<"text">;
         content: z.ZodString;
         mentionedEntitiesUids: z.ZodOptional<z.ZodArray<z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>, "many">>;
-        wrappedInEntityUid: z.ZodOptional<z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>>;
     }, "strip", z.ZodTypeAny, {
         type: "text";
         uid: string & {
@@ -902,7 +901,6 @@ declare const BeyondPaperV11Schema: z.ZodObject<{
         headingLevel?: 1 | 2 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
-        wrappedInEntityUid?: EntityUid | undefined;
     }, {
         type: "text";
         uid: string & {
@@ -914,7 +912,46 @@ declare const BeyondPaperV11Schema: z.ZodObject<{
         headingLevel?: 1 | 2 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
-        wrappedInEntityUid?: EntityUid | undefined;
+    }>, z.ZodObject<{
+        uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
+        name: z.ZodOptional<z.ZodString>;
+        blockStyle: z.ZodOptional<z.ZodEnum<["gm-tips", "more-info", "warning", "quote", "note", "tip", "info", "rule"]>>;
+        headingLevel: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<1>, z.ZodLiteral<2>, z.ZodLiteral<3>, z.ZodLiteral<4>]>>;
+        headingMode: z.ZodOptional<z.ZodEnum<["inside", "outside"]>>;
+    } & {
+        type: z.ZodLiteral<"textProxy">;
+        chunkUid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
+        entityUid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    }, "strip", z.ZodTypeAny, {
+        type: "textProxy";
+        uid: string & {
+            readonly __bypp_flavor?: "ChunkUid" | undefined;
+        };
+        entityUid: string & {
+            readonly __bypp_flavor?: "EntityUid" | undefined;
+        };
+        chunkUid: string & {
+            readonly __bypp_flavor?: "ChunkUid" | undefined;
+        };
+        name?: string | undefined;
+        blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
+        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingMode?: "inside" | "outside" | undefined;
+    }, {
+        type: "textProxy";
+        uid: string & {
+            readonly __bypp_flavor?: "ChunkUid" | undefined;
+        };
+        entityUid: string & {
+            readonly __bypp_flavor?: "EntityUid" | undefined;
+        };
+        chunkUid: string & {
+            readonly __bypp_flavor?: "ChunkUid" | undefined;
+        };
+        name?: string | undefined;
+        blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
+        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingMode?: "inside" | "outside" | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
         name: z.ZodOptional<z.ZodString>;
@@ -4812,7 +4849,7 @@ declare const BeyondPaperV11Schema: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     name: string;
     license: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR";
-    version: 11;
+    version: 10;
     format: "bypp";
     exportedAt: string;
     bundleVersion: string;
@@ -5061,6 +5098,32 @@ declare const BeyondPaperV11Schema: z.ZodObject<{
         };
     })[];
     chunks: ({
+        type: "text";
+        uid: string & {
+            readonly __bypp_flavor?: "ChunkUid" | undefined;
+        };
+        content: string;
+        name?: string | undefined;
+        blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
+        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingMode?: "inside" | "outside" | undefined;
+        mentionedEntitiesUids?: EntityUid[] | undefined;
+    } | {
+        type: "textProxy";
+        uid: string & {
+            readonly __bypp_flavor?: "ChunkUid" | undefined;
+        };
+        entityUid: string & {
+            readonly __bypp_flavor?: "EntityUid" | undefined;
+        };
+        chunkUid: string & {
+            readonly __bypp_flavor?: "ChunkUid" | undefined;
+        };
+        name?: string | undefined;
+        blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
+        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingMode?: "inside" | "outside" | undefined;
+    } | {
         type: "gallery";
         uid: string & {
             readonly __bypp_flavor?: "ChunkUid" | undefined;
@@ -5083,18 +5146,6 @@ declare const BeyondPaperV11Schema: z.ZodObject<{
         headingLevel?: 1 | 2 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
-    } | {
-        type: "text";
-        uid: string & {
-            readonly __bypp_flavor?: "ChunkUid" | undefined;
-        };
-        content: string;
-        name?: string | undefined;
-        blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
-        headingMode?: "inside" | "outside" | undefined;
-        mentionedEntitiesUids?: EntityUid[] | undefined;
-        wrappedInEntityUid?: EntityUid | undefined;
     })[];
     datasets: {
         name: string;
@@ -6026,7 +6077,7 @@ declare const BeyondPaperV11Schema: z.ZodObject<{
 }, {
     name: string;
     license: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR";
-    version: 11;
+    version: 10;
     format: "bypp";
     exportedAt: string;
     bundleVersion: string;
@@ -6282,6 +6333,32 @@ declare const BeyondPaperV11Schema: z.ZodObject<{
         };
     })[] | undefined;
     chunks?: ({
+        type: "text";
+        uid: string & {
+            readonly __bypp_flavor?: "ChunkUid" | undefined;
+        };
+        content: string;
+        name?: string | undefined;
+        blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
+        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingMode?: "inside" | "outside" | undefined;
+        mentionedEntitiesUids?: EntityUid[] | undefined;
+    } | {
+        type: "textProxy";
+        uid: string & {
+            readonly __bypp_flavor?: "ChunkUid" | undefined;
+        };
+        entityUid: string & {
+            readonly __bypp_flavor?: "EntityUid" | undefined;
+        };
+        chunkUid: string & {
+            readonly __bypp_flavor?: "ChunkUid" | undefined;
+        };
+        name?: string | undefined;
+        blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
+        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingMode?: "inside" | "outside" | undefined;
+    } | {
         type: "gallery";
         uid: string & {
             readonly __bypp_flavor?: "ChunkUid" | undefined;
@@ -6304,18 +6381,6 @@ declare const BeyondPaperV11Schema: z.ZodObject<{
         headingLevel?: 1 | 2 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
-    } | {
-        type: "text";
-        uid: string & {
-            readonly __bypp_flavor?: "ChunkUid" | undefined;
-        };
-        content: string;
-        name?: string | undefined;
-        blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
-        headingMode?: "inside" | "outside" | undefined;
-        mentionedEntitiesUids?: EntityUid[] | undefined;
-        wrappedInEntityUid?: EntityUid | undefined;
     })[] | undefined;
     datasets?: {
         name: string;
@@ -7238,165 +7303,6 @@ declare const BeyondPaperV11Schema: z.ZodObject<{
         };
     })[] | undefined;
 }>;
-type BeyondPaperV11 = z.infer<typeof BeyondPaperV11Schema>;
+type BeyondPaperV10 = z.infer<typeof BeyondPaperV10Schema>;
 
-/**
- * Chunk — v11 changes: a text chunk may carry `wrappedInEntityUid`, the
- * entity whose data a reader should resolve the block against.
- *
- * A text block can embed variable references (see the `variables` category).
- * By default those resolve against whichever entity owns the page the block
- * sits on. `wrappedInEntityUid` overrides that: the block resolves against the
- * named entity instead, and a reader is expected to surface which entity the
- * block belongs to (Harpy frames it with the entity's avatar).
- *
- * This REPLACES the `textProxy` variant, which modelled the same idea as a
- * SECOND chunk pointing at the one holding the text. That indirection carried
- * no information the pointer target didn't already have, and let the two
- * documents drift apart. The variant is gone from v11: `v10-to-v11` folds
- * every proxy into its target, so a v11 document can never contain one.
- * Readers pinned to v10 or earlier still need to handle it.
- *
- * Every other variant is re-imported unchanged from v2.
- */
-declare const ChunkTextV11Schema: z.ZodObject<{
-    uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
-    name: z.ZodOptional<z.ZodString>;
-    blockStyle: z.ZodOptional<z.ZodEnum<["gm-tips", "more-info", "warning", "quote", "note", "tip", "info", "rule"]>>;
-    headingLevel: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<1>, z.ZodLiteral<2>, z.ZodLiteral<3>, z.ZodLiteral<4>]>>;
-    headingMode: z.ZodOptional<z.ZodEnum<["inside", "outside"]>>;
-} & {
-    type: z.ZodLiteral<"text">;
-    content: z.ZodString;
-    mentionedEntitiesUids: z.ZodOptional<z.ZodArray<z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>, "many">>;
-    wrappedInEntityUid: z.ZodOptional<z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>>;
-}, "strip", z.ZodTypeAny, {
-    type: "text";
-    uid: string & {
-        readonly __bypp_flavor?: "ChunkUid" | undefined;
-    };
-    content: string;
-    name?: string | undefined;
-    blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
-    headingMode?: "inside" | "outside" | undefined;
-    mentionedEntitiesUids?: EntityUid[] | undefined;
-    wrappedInEntityUid?: EntityUid | undefined;
-}, {
-    type: "text";
-    uid: string & {
-        readonly __bypp_flavor?: "ChunkUid" | undefined;
-    };
-    content: string;
-    name?: string | undefined;
-    blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
-    headingMode?: "inside" | "outside" | undefined;
-    mentionedEntitiesUids?: EntityUid[] | undefined;
-    wrappedInEntityUid?: EntityUid | undefined;
-}>;
-type ChunkTextV11 = z.infer<typeof ChunkTextV11Schema>;
-declare const ChunkV11Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
-    uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
-    name: z.ZodOptional<z.ZodString>;
-    blockStyle: z.ZodOptional<z.ZodEnum<["gm-tips", "more-info", "warning", "quote", "note", "tip", "info", "rule"]>>;
-    headingLevel: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<1>, z.ZodLiteral<2>, z.ZodLiteral<3>, z.ZodLiteral<4>]>>;
-    headingMode: z.ZodOptional<z.ZodEnum<["inside", "outside"]>>;
-} & {
-    type: z.ZodLiteral<"text">;
-    content: z.ZodString;
-    mentionedEntitiesUids: z.ZodOptional<z.ZodArray<z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>, "many">>;
-    wrappedInEntityUid: z.ZodOptional<z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>>;
-}, "strip", z.ZodTypeAny, {
-    type: "text";
-    uid: string & {
-        readonly __bypp_flavor?: "ChunkUid" | undefined;
-    };
-    content: string;
-    name?: string | undefined;
-    blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
-    headingMode?: "inside" | "outside" | undefined;
-    mentionedEntitiesUids?: EntityUid[] | undefined;
-    wrappedInEntityUid?: EntityUid | undefined;
-}, {
-    type: "text";
-    uid: string & {
-        readonly __bypp_flavor?: "ChunkUid" | undefined;
-    };
-    content: string;
-    name?: string | undefined;
-    blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
-    headingMode?: "inside" | "outside" | undefined;
-    mentionedEntitiesUids?: EntityUid[] | undefined;
-    wrappedInEntityUid?: EntityUid | undefined;
-}>, z.ZodObject<{
-    uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
-    name: z.ZodOptional<z.ZodString>;
-    blockStyle: z.ZodOptional<z.ZodEnum<["gm-tips", "more-info", "warning", "quote", "note", "tip", "info", "rule"]>>;
-    headingLevel: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<1>, z.ZodLiteral<2>, z.ZodLiteral<3>, z.ZodLiteral<4>]>>;
-    headingMode: z.ZodOptional<z.ZodEnum<["inside", "outside"]>>;
-} & {
-    type: z.ZodLiteral<"gallery">;
-    assetUids: z.ZodDefault<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-}, "strip", z.ZodTypeAny, {
-    type: "gallery";
-    uid: string & {
-        readonly __bypp_flavor?: "ChunkUid" | undefined;
-    };
-    assetUids: AssetUid[];
-    name?: string | undefined;
-    blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
-    headingMode?: "inside" | "outside" | undefined;
-}, {
-    type: "gallery";
-    uid: string & {
-        readonly __bypp_flavor?: "ChunkUid" | undefined;
-    };
-    name?: string | undefined;
-    blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
-    headingMode?: "inside" | "outside" | undefined;
-    assetUids?: AssetUid[] | undefined;
-}>, z.ZodObject<{
-    uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
-    name: z.ZodOptional<z.ZodString>;
-    blockStyle: z.ZodOptional<z.ZodEnum<["gm-tips", "more-info", "warning", "quote", "note", "tip", "info", "rule"]>>;
-    headingLevel: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<1>, z.ZodLiteral<2>, z.ZodLiteral<3>, z.ZodLiteral<4>]>>;
-    headingMode: z.ZodOptional<z.ZodEnum<["inside", "outside"]>>;
-} & {
-    type: z.ZodLiteral<"random">;
-    randomTableUid: z.ZodType<RandomTableUid, z.ZodTypeDef, RandomTableUid>;
-    folded: z.ZodOptional<z.ZodBoolean>;
-}, "strip", z.ZodTypeAny, {
-    type: "random";
-    uid: string & {
-        readonly __bypp_flavor?: "ChunkUid" | undefined;
-    };
-    randomTableUid: string & {
-        readonly __bypp_flavor?: "RandomTableUid" | undefined;
-    };
-    name?: string | undefined;
-    blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
-    headingMode?: "inside" | "outside" | undefined;
-    folded?: boolean | undefined;
-}, {
-    type: "random";
-    uid: string & {
-        readonly __bypp_flavor?: "ChunkUid" | undefined;
-    };
-    randomTableUid: string & {
-        readonly __bypp_flavor?: "RandomTableUid" | undefined;
-    };
-    name?: string | undefined;
-    blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
-    headingMode?: "inside" | "outside" | undefined;
-    folded?: boolean | undefined;
-}>]>;
-type ChunkV11 = z.infer<typeof ChunkV11Schema>;
-
-export { type BeyondPaperV11 as B, type ChunkV11 as C, BeyondPaperV11Schema as a, type ChunkTextV11 as b, ChunkV11Schema as c, ChunkTextV11Schema as d };
+export { type BeyondPaperV10 as B, BeyondPaperV10Schema as a };

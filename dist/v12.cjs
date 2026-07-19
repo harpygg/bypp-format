@@ -17,12 +17,12 @@ var __copyProps = (to, from, except, desc) => {
 };
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// src/v11.ts
-var v11_exports = {};
-__export(v11_exports, {
+// src/v12.ts
+var v12_exports = {};
+__export(v12_exports, {
   AssetSchema: () => AssetV2Schema,
   BYPP_FORMAT_VERSION: () => BYPP_FORMAT_VERSION2,
-  BeyondPaperSchema: () => BeyondPaperV11Schema,
+  BeyondPaperSchema: () => BeyondPaperV12Schema,
   ChunkSchema: () => ChunkV11Schema,
   DataTableSchema: () => DataTableV3Schema,
   DatasetSchema: () => DatasetV2Schema,
@@ -38,9 +38,9 @@ __export(v11_exports, {
   TagCategorySchema: () => TagCategoryV1Schema,
   TagSchema: () => TagV2Schema,
   VariableSchema: () => VariableV7Schema,
-  WidgetSchema: () => WidgetV7Schema
+  WidgetSchema: () => WidgetV8Schema
 });
-module.exports = __toCommonJS(v11_exports);
+module.exports = __toCommonJS(v12_exports);
 
 // src/schemas/bypp.v12.schema.ts
 var import_zod70 = require("zod");
@@ -1882,8 +1882,8 @@ var BeyondPaperV11Schema = import_zod79.z.object({
   assets: import_zod79.z.array(AssetV2Schema).default([])
 });
 
-// src/v11.ts
-var BYPP_FORMAT_VERSION2 = 11;
+// src/v12.ts
+var BYPP_FORMAT_VERSION2 = 12;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   AssetSchema,
@@ -1906,4 +1906,4 @@ var BYPP_FORMAT_VERSION2 = 11;
   VariableSchema,
   WidgetSchema
 });
-//# sourceMappingURL=v11.cjs.map
+//# sourceMappingURL=v12.cjs.map

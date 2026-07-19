@@ -1035,4 +1035,103 @@ describe("migrate", () => {
       expect(v10.chunks[1].content).toBe("plain");
     });
   });
+
+  describe("v11 → v12", () => {
+    const v11Minimal = {
+      version: 11 as const,
+      format: "bypp",
+      name: "v11 bundle",
+      exportedAt: "2026-07-19T12:00:00.000Z",
+      bundleVersion: "1.0.0",
+      license: "CC-BY",
+      licenseVersion: "4.0",
+      attribution: { authorName: "Alice" },
+      dialects: [],
+      entities: [],
+      pages: [],
+      chunks: [],
+      datasets: [],
+      variables: [],
+      widgets: [],
+      sheets: [],
+      dataTables: [],
+      randomTables: [],
+      tags: [],
+      tagCategories: [],
+      scenes: [],
+      sceneMaps: [],
+      sceneBackgrounds: [],
+      assets: [],
+    };
+
+    it("upgrades a minimal v11 bundle to v12 (pure version bump)", () => {
+      const v12 = migrate(v11Minimal, 12) as { version: number };
+      expect(v12.version).toBe(12);
+    });
+
+    it("preserves an actionRoll widget + actions round-tripping v12 (via schema)", () => {
+      const v12 = {
+        ...v11Minimal,
+        version: 12 as const,
+        widgets: [
+          {
+            uid: "w-roll",
+            name: "w-roll",
+            type: "actionRoll",
+            variableUid: "v-attack",
+          },
+          {
+            uid: "w-str",
+            name: "w-str",
+            type: "bigNumber",
+            actionsVariablesUids: ["v-attack", "v-save"],
+          },
+        ],
+        sheets: [{ uid: "s-1", widgetUids: ["w-roll", "w-str"] }],
+      };
+
+      const roundTripped = migrate(migrate(v12, 11), 12) as {
+        version: number;
+        widgets: Array<{ uid: string; actionsVariablesUids?: string[] }>;
+        sheets: Array<{ widgetUids: string[] }>;
+      };
+
+      // The actionRoll widget can't survive a trip through v11 — it has no
+      // representation there — but the round trip must still be valid v12.
+      expect(roundTripped.version).toBe(12);
+      expect(roundTripped.widgets.map((w) => w.uid)).toEqual(["w-str"]);
+      expect(roundTripped.widgets[0].actionsVariablesUids).toBeUndefined();
+      expect(roundTripped.sheets[0].widgetUids).toEqual(["w-str"]);
+    });
+
+    it("drops actionRoll widgets and strips actions on downgrade v12 → v11", () => {
+      const v12 = {
+        ...v11Minimal,
+        version: 12 as const,
+        widgets: [
+          {
+            uid: "w-keep",
+            name: "w-keep",
+            type: "empty",
+            actionsVariablesUids: ["v-attack"],
+          },
+          { uid: "w-roll", name: "w-roll", type: "actionRoll" },
+        ],
+        sheets: [{ uid: "s-1", widgetUids: ["w-keep", "w-roll"] }],
+      };
+
+      const v11 = migrate(v12, 11) as {
+        version: number;
+        widgets: Array<{ uid: string; actionsVariablesUids?: string[] }>;
+        sheets: Array<{ widgetUids: string[] }>;
+      };
+
+      expect(v11.version).toBe(11);
+      expect(v11.widgets).toHaveLength(1);
+      expect(v11.widgets[0].uid).toBe("w-keep");
+      expect(v11.widgets[0].actionsVariablesUids).toBeUndefined();
+      // The dropped widget's uid must not linger as a dangling reference.
+      expect(v11.sheets[0].widgetUids).toEqual(["w-keep"]);
+    });
+  });
 });

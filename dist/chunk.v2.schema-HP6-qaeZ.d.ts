@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { C as ChunkUid, A as AssetUid, R as RandomTableUid, E as EntityUid } from './widget.v7.schema-lcLISYFx.js';
+import { C as ChunkUid, A as AssetUid, R as RandomTableUid, E as EntityUid } from './variable.v7.schema-ClZin-IT.js';
 
 /**
  * Chunk — v2 changes: optional fields previously typed

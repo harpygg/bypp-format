@@ -1,8 +1,8 @@
 import { z } from 'zod';
-import { D as DialectUid, E as EntityUid, T as TagUid, a as DatasetUid, S as SheetUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, A as AssetUid, c as SceneUid, C as ChunkUid, R as RandomTableUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid, W as WidgetUid, d as RandomTableRowUid, e as TagCategoryUid, f as SceneMapUid, g as SceneBackgroundUid } from './widget.v7.schema-lcLISYFx.cjs';
+import { D as DialectUid, E as EntityUid, T as TagUid, a as DatasetUid, S as SheetUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, A as AssetUid, c as SceneUid, C as ChunkUid, R as RandomTableUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid, W as WidgetUid, d as RandomTableRowUid, e as TagCategoryUid, f as SceneMapUid, g as SceneBackgroundUid } from './variable.v7.schema-ClZin-IT.js';
 
-declare const BeyondPaperV10Schema: z.ZodObject<{
-    version: z.ZodLiteral<10>;
+declare const BeyondPaperV9Schema: z.ZodObject<{
+    version: z.ZodLiteral<9>;
     format: z.ZodLiteral<"bypp">;
     name: z.ZodString;
     exportedAt: z.ZodString;
@@ -91,17 +91,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         squareUrl: z.ZodOptional<z.ZodString>;
         closeupUrl: z.ZodOptional<z.ZodString>;
     } & {
-        dimensions: z.ZodOptional<z.ZodObject<{
-            width: z.ZodNumber;
-            height: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
-            width: number;
-            height: number;
-        }, {
-            width: number;
-            height: number;
-        }>>;
-    } & {
         isArchived: z.ZodDefault<z.ZodBoolean>;
     } & {
         pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
@@ -124,10 +113,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -143,10 +128,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -168,17 +149,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl: z.ZodOptional<z.ZodString>;
         squareUrl: z.ZodOptional<z.ZodString>;
         closeupUrl: z.ZodOptional<z.ZodString>;
-    } & {
-        dimensions: z.ZodOptional<z.ZodObject<{
-            width: z.ZodNumber;
-            height: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
-            width: number;
-            height: number;
-        }, {
-            width: number;
-            height: number;
-        }>>;
     } & {
         isArchived: z.ZodDefault<z.ZodBoolean>;
     } & {
@@ -202,10 +172,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -221,10 +187,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -246,17 +208,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl: z.ZodOptional<z.ZodString>;
         squareUrl: z.ZodOptional<z.ZodString>;
         closeupUrl: z.ZodOptional<z.ZodString>;
-    } & {
-        dimensions: z.ZodOptional<z.ZodObject<{
-            width: z.ZodNumber;
-            height: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
-            width: number;
-            height: number;
-        }, {
-            width: number;
-            height: number;
-        }>>;
     } & {
         isArchived: z.ZodDefault<z.ZodBoolean>;
     } & {
@@ -324,10 +275,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -343,10 +290,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -379,17 +322,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         squareUrl: z.ZodOptional<z.ZodString>;
         closeupUrl: z.ZodOptional<z.ZodString>;
     } & {
-        dimensions: z.ZodOptional<z.ZodObject<{
-            width: z.ZodNumber;
-            height: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
-            width: number;
-            height: number;
-        }, {
-            width: number;
-            height: number;
-        }>>;
-    } & {
         isArchived: z.ZodDefault<z.ZodBoolean>;
     } & {
         pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
@@ -415,10 +347,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -434,10 +362,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -461,17 +385,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         squareUrl: z.ZodOptional<z.ZodString>;
         closeupUrl: z.ZodOptional<z.ZodString>;
     } & {
-        dimensions: z.ZodOptional<z.ZodObject<{
-            width: z.ZodNumber;
-            height: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
-            width: number;
-            height: number;
-        }, {
-            width: number;
-            height: number;
-        }>>;
-    } & {
         isArchived: z.ZodDefault<z.ZodBoolean>;
     } & {
         pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
@@ -494,10 +407,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -513,10 +422,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -538,17 +443,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl: z.ZodOptional<z.ZodString>;
         squareUrl: z.ZodOptional<z.ZodString>;
         closeupUrl: z.ZodOptional<z.ZodString>;
-    } & {
-        dimensions: z.ZodOptional<z.ZodObject<{
-            width: z.ZodNumber;
-            height: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
-            width: number;
-            height: number;
-        }, {
-            width: number;
-            height: number;
-        }>>;
     } & {
         isArchived: z.ZodDefault<z.ZodBoolean>;
     } & {
@@ -572,10 +466,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -591,10 +481,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -616,17 +502,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl: z.ZodOptional<z.ZodString>;
         squareUrl: z.ZodOptional<z.ZodString>;
         closeupUrl: z.ZodOptional<z.ZodString>;
-    } & {
-        dimensions: z.ZodOptional<z.ZodObject<{
-            width: z.ZodNumber;
-            height: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
-            width: number;
-            height: number;
-        }, {
-            width: number;
-            height: number;
-        }>>;
     } & {
         isArchived: z.ZodDefault<z.ZodBoolean>;
     } & {
@@ -650,10 +525,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -669,10 +540,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -694,17 +561,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl: z.ZodOptional<z.ZodString>;
         squareUrl: z.ZodOptional<z.ZodString>;
         closeupUrl: z.ZodOptional<z.ZodString>;
-    } & {
-        dimensions: z.ZodOptional<z.ZodObject<{
-            width: z.ZodNumber;
-            height: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
-            width: number;
-            height: number;
-        }, {
-            width: number;
-            height: number;
-        }>>;
     } & {
         isArchived: z.ZodDefault<z.ZodBoolean>;
     } & {
@@ -728,10 +584,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -747,10 +599,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -772,17 +620,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl: z.ZodOptional<z.ZodString>;
         squareUrl: z.ZodOptional<z.ZodString>;
         closeupUrl: z.ZodOptional<z.ZodString>;
-    } & {
-        dimensions: z.ZodOptional<z.ZodObject<{
-            width: z.ZodNumber;
-            height: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
-            width: number;
-            height: number;
-        }, {
-            width: number;
-            height: number;
-        }>>;
     } & {
         isArchived: z.ZodDefault<z.ZodBoolean>;
     } & {
@@ -806,10 +643,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -825,10 +658,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -3494,9 +3323,14 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
     }>]>, "many">>;
     sheets: z.ZodDefault<z.ZodArray<z.ZodObject<{
         uid: z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>;
+        originalUrl: z.ZodOptional<z.ZodString>;
+        thumbnailUrl: z.ZodOptional<z.ZodString>;
+        squareUrl: z.ZodOptional<z.ZodString>;
+        closeupUrl: z.ZodOptional<z.ZodString>;
         name: z.ZodOptional<z.ZodString>;
         widgetUids: z.ZodDefault<z.ZodArray<z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>, "many">>;
         compatibleDatasetUid: z.ZodOptional<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>>;
+    } & {
         styles: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodOptional<z.ZodNullable<z.ZodObject<{
             justifyContent: z.ZodOptional<z.ZodString>;
             alignItems: z.ZodOptional<z.ZodString>;
@@ -3576,21 +3410,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
             } | undefined;
             rotation?: number | undefined;
         }>>>>>;
-    } & {
-        originalUrl: z.ZodOptional<z.ZodString>;
-        thumbnailUrl: z.ZodOptional<z.ZodString>;
-        squareUrl: z.ZodOptional<z.ZodString>;
-        closeupUrl: z.ZodOptional<z.ZodString>;
-        dimensions: z.ZodOptional<z.ZodObject<{
-            width: z.ZodNumber;
-            height: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
-            width: number;
-            height: number;
-        }, {
-            width: number;
-            height: number;
-        }>>;
     }, "strip", z.ZodTypeAny, {
         uid: string & {
             readonly __bypp_flavor?: "SheetUid" | undefined;
@@ -3601,10 +3420,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
         name?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         compatibleDatasetUid?: DatasetUid | undefined;
         styles?: Record<string, {
             color?: string | undefined;
@@ -3639,10 +3454,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
         name?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         widgetUids?: WidgetUid[] | undefined;
         compatibleDatasetUid?: DatasetUid | undefined;
         styles?: Record<string, {
@@ -4381,17 +4192,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         squareUrl: z.ZodOptional<z.ZodString>;
         closeupUrl: z.ZodOptional<z.ZodString>;
     } & {
-        dimensions: z.ZodOptional<z.ZodObject<{
-            width: z.ZodNumber;
-            height: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
-            width: number;
-            height: number;
-        }, {
-            width: number;
-            height: number;
-        }>>;
-    } & {
         type: z.ZodLiteral<"customImage">;
     }, "strip", z.ZodTypeAny, {
         type: "customImage";
@@ -4415,10 +4215,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         sourceFormat?: string | undefined;
     }, {
         type: "customImage";
@@ -4442,10 +4238,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         sourceFormat?: string | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<SceneMapUid, z.ZodTypeDef, SceneMapUid>;
@@ -4568,17 +4360,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         squareUrl: z.ZodOptional<z.ZodString>;
         closeupUrl: z.ZodOptional<z.ZodString>;
     } & {
-        dimensions: z.ZodOptional<z.ZodObject<{
-            width: z.ZodNumber;
-            height: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
-            width: number;
-            height: number;
-        }, {
-            width: number;
-            height: number;
-        }>>;
-    } & {
         type: z.ZodLiteral<"customImage">;
     }, "strip", z.ZodTypeAny, {
         type: "customImage";
@@ -4590,10 +4371,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         opacity?: number | undefined;
     }, {
         type: "customImage";
@@ -4605,10 +4382,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         opacity?: number | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<SceneBackgroundUid, z.ZodTypeDef, SceneBackgroundUid>;
@@ -4849,7 +4622,7 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     name: string;
     license: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR";
-    version: 10;
+    version: 9;
     format: "bypp";
     exportedAt: string;
     bundleVersion: string;
@@ -4884,10 +4657,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -4906,10 +4675,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -4938,10 +4703,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -4961,10 +4722,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -4983,10 +4740,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -5005,10 +4758,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -5027,10 +4776,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -5049,10 +4794,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -5071,10 +4812,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         displayName?: string | undefined;
@@ -5745,10 +5482,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
         name?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         compatibleDatasetUid?: DatasetUid | undefined;
         styles?: Record<string, {
             color?: string | undefined;
@@ -5951,10 +5684,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         sourceFormat?: string | undefined;
     } | {
         type: "customVideo";
@@ -5991,10 +5720,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         opacity?: number | undefined;
     } | {
         type: "customVideo";
@@ -6077,7 +5802,7 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
 }, {
     name: string;
     license: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR";
-    version: 10;
+    version: 9;
     format: "bypp";
     exportedAt: string;
     bundleVersion: string;
@@ -6116,10 +5841,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -6138,10 +5859,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -6160,10 +5877,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -6192,10 +5905,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -6215,10 +5924,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -6237,10 +5942,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -6259,10 +5960,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -6281,10 +5978,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -6303,10 +5996,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         assetUids?: AssetUid[] | undefined;
         data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
         isArchived?: boolean | undefined;
@@ -6979,10 +6668,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
         name?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         widgetUids?: WidgetUid[] | undefined;
         compatibleDatasetUid?: DatasetUid | undefined;
         styles?: Record<string, {
@@ -7186,10 +6871,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         sourceFormat?: string | undefined;
     } | {
         type: "customVideo";
@@ -7226,10 +6907,6 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
-        dimensions?: {
-            width: number;
-            height: number;
-        } | undefined;
         opacity?: number | undefined;
     } | {
         type: "customVideo";
@@ -7303,6 +6980,2146 @@ declare const BeyondPaperV10Schema: z.ZodObject<{
         };
     })[] | undefined;
 }>;
-type BeyondPaperV10 = z.infer<typeof BeyondPaperV10Schema>;
+type BeyondPaperV9 = z.infer<typeof BeyondPaperV9Schema>;
 
-export { type BeyondPaperV10 as B, BeyondPaperV10Schema as a };
+/**
+ * Entity base — v2 changes:
+ *  - `displayName` is `.optional()` (was `.nullable()`). Omit the field
+ *    when no override; readers fall back to `name`.
+ *  - `description` is `.optional()` for the same reason.
+ *  - `tagsUid` defaults to `[]`.
+ *  - `isArchived` (via `WithArchiveV2Schema`) defaults to `false`.
+ *  - `pagesOrder` (via `WithPagesV2Schema`) defaults to `[]`.
+ *  - Image URLs go through `WithImagesUrlsV2Schema` (url-validated).
+ *
+ * `EntityTypeV1Schema` and `GroupRankV1Schema` are re-used from v1 —
+ * the entity taxonomy and group rank shapes are unchanged.
+ */
+declare const EntityBaseV2Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+}, "strip", z.ZodTypeAny, {
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>;
+type EntityBaseV2 = z.infer<typeof EntityBaseV2Schema>;
+declare const CharacterEntityV2Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"character">;
+}, "strip", z.ZodTypeAny, {
+    type: "character";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "character";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>;
+type CharacterEntityV2 = z.infer<typeof CharacterEntityV2Schema>;
+declare const CreatureEntityV2Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"creature">;
+}, "strip", z.ZodTypeAny, {
+    type: "creature";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "creature";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>;
+type CreatureEntityV2 = z.infer<typeof CreatureEntityV2Schema>;
+declare const GroupEntityV2Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"group">;
+    ranks: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        label: z.ZodString;
+        characters: z.ZodArray<z.ZodObject<{
+            entityUid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+            label: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }, {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }>, "many">;
+    }, "strip", z.ZodTypeAny, {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }, {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }>, "many">>;
+    charactersUids: z.ZodDefault<z.ZodArray<z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>, "many">>;
+}, "strip", z.ZodTypeAny, {
+    type: "group";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    ranks: {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }[];
+    charactersUids: EntityUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "group";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    ranks?: {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }[] | undefined;
+    charactersUids?: EntityUid[] | undefined;
+}>;
+type GroupEntityV2 = z.infer<typeof GroupEntityV2Schema>;
+declare const PlaceEntityV2Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    scenesUids: z.ZodDefault<z.ZodArray<z.ZodType<SceneUid, z.ZodTypeDef, SceneUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"place">;
+}, "strip", z.ZodTypeAny, {
+    type: "place";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    scenesUids: SceneUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "place";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    scenesUids?: SceneUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>;
+type PlaceEntityV2 = z.infer<typeof PlaceEntityV2Schema>;
+declare const ItemEntityV2Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"item">;
+}, "strip", z.ZodTypeAny, {
+    type: "item";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "item";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>;
+declare const NoteEntityV2Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"note">;
+}, "strip", z.ZodTypeAny, {
+    type: "note";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "note";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>;
+declare const AbilityEntityV2Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"ability">;
+}, "strip", z.ZodTypeAny, {
+    type: "ability";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "ability";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>;
+declare const StoryEntityV2Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"story">;
+}, "strip", z.ZodTypeAny, {
+    type: "story";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "story";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>;
+declare const EventEntityV2Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"event">;
+}, "strip", z.ZodTypeAny, {
+    type: "event";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "event";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>;
+declare const EntityV2Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"character">;
+}, "strip", z.ZodTypeAny, {
+    type: "character";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "character";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"creature">;
+}, "strip", z.ZodTypeAny, {
+    type: "creature";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "creature";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"group">;
+    ranks: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        label: z.ZodString;
+        characters: z.ZodArray<z.ZodObject<{
+            entityUid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+            label: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }, {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }>, "many">;
+    }, "strip", z.ZodTypeAny, {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }, {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }>, "many">>;
+    charactersUids: z.ZodDefault<z.ZodArray<z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>, "many">>;
+}, "strip", z.ZodTypeAny, {
+    type: "group";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    ranks: {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }[];
+    charactersUids: EntityUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "group";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    ranks?: {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }[] | undefined;
+    charactersUids?: EntityUid[] | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    scenesUids: z.ZodDefault<z.ZodArray<z.ZodType<SceneUid, z.ZodTypeDef, SceneUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"place">;
+}, "strip", z.ZodTypeAny, {
+    type: "place";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    scenesUids: SceneUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "place";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    scenesUids?: SceneUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"item">;
+}, "strip", z.ZodTypeAny, {
+    type: "item";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "item";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"note">;
+}, "strip", z.ZodTypeAny, {
+    type: "note";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "note";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"ability">;
+}, "strip", z.ZodTypeAny, {
+    type: "ability";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "ability";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"story">;
+}, "strip", z.ZodTypeAny, {
+    type: "story";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "story";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"event">;
+}, "strip", z.ZodTypeAny, {
+    type: "event";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}, {
+    type: "event";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+}>]>;
+type EntityV2 = z.infer<typeof EntityV2Schema>;
+
+/**
+ * Scene background — v2 changes: switched to `WithImagesUrlsV2Schema` /
+ * `WithVideoUrlsV2Schema` for URL validation. Shape unchanged otherwise.
+ */
+declare const SceneBackgroundBaseV2Schema: z.ZodObject<{
+    uid: z.ZodType<SceneBackgroundUid, z.ZodTypeDef, SceneBackgroundUid>;
+} & {
+    name: z.ZodString;
+} & {
+    opacity: z.ZodOptional<z.ZodNumber>;
+}, "strip", z.ZodTypeAny, {
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    opacity?: number | undefined;
+}, {
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    opacity?: number | undefined;
+}>;
+type SceneBackgroundBaseV2 = z.infer<typeof SceneBackgroundBaseV2Schema>;
+declare const CustomImageSceneBackgroundV2Schema: z.ZodObject<{
+    uid: z.ZodType<SceneBackgroundUid, z.ZodTypeDef, SceneBackgroundUid>;
+} & {
+    name: z.ZodString;
+} & {
+    opacity: z.ZodOptional<z.ZodNumber>;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"customImage">;
+}, "strip", z.ZodTypeAny, {
+    type: "customImage";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    opacity?: number | undefined;
+}, {
+    type: "customImage";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    opacity?: number | undefined;
+}>;
+type CustomImageSceneBackgroundV2 = z.infer<typeof CustomImageSceneBackgroundV2Schema>;
+declare const CustomVideoSceneBackgroundV2Schema: z.ZodObject<{
+    uid: z.ZodType<SceneBackgroundUid, z.ZodTypeDef, SceneBackgroundUid>;
+} & {
+    name: z.ZodString;
+} & {
+    opacity: z.ZodOptional<z.ZodNumber>;
+} & {
+    videoUrl: z.ZodOptional<z.ZodString>;
+    videoDimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    type: z.ZodLiteral<"customVideo">;
+}, "strip", z.ZodTypeAny, {
+    type: "customVideo";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    opacity?: number | undefined;
+}, {
+    type: "customVideo";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    opacity?: number | undefined;
+}>;
+type CustomVideoSceneBackgroundV2 = z.infer<typeof CustomVideoSceneBackgroundV2Schema>;
+declare const SceneBackgroundV2Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+    uid: z.ZodType<SceneBackgroundUid, z.ZodTypeDef, SceneBackgroundUid>;
+} & {
+    name: z.ZodString;
+} & {
+    opacity: z.ZodOptional<z.ZodNumber>;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"customImage">;
+}, "strip", z.ZodTypeAny, {
+    type: "customImage";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    opacity?: number | undefined;
+}, {
+    type: "customImage";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    opacity?: number | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<SceneBackgroundUid, z.ZodTypeDef, SceneBackgroundUid>;
+} & {
+    name: z.ZodString;
+} & {
+    opacity: z.ZodOptional<z.ZodNumber>;
+} & {
+    videoUrl: z.ZodOptional<z.ZodString>;
+    videoDimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    type: z.ZodLiteral<"customVideo">;
+}, "strip", z.ZodTypeAny, {
+    type: "customVideo";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    opacity?: number | undefined;
+}, {
+    type: "customVideo";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    opacity?: number | undefined;
+}>]>;
+type SceneBackgroundV2 = z.infer<typeof SceneBackgroundV2Schema>;
+
+/**
+ * Well-known VTT exchange formats producers may have sourced a
+ * customImage / customVideo scene map from. Use this as a discovery aid;
+ * the wire field is just `z.string()` so the format stays open.
+ *
+ *  - `dd2vtt` — DungeonDraft VTT export
+ *  - `uvtt`   — Universal VTT (open spec)
+ *  - `fvtt`   — Foundry VTT scene export
+ */
+declare const KNOWN_VTT_SOURCE_FORMATS: readonly ["dd2vtt", "uvtt", "fvtt"];
+type KnownVttSourceFormat = (typeof KNOWN_VTT_SOURCE_FORMATS)[number];
+/**
+ * Scene map — v2 changes:
+ *  - `Dd2VttSceneMapV1Schema` discriminator variant removed. The DD2VTT
+ *    files are still importable, but they collapse into `customImage`
+ *    (or `customVideo`) with the new orthogonal `sourceFormat` annotation
+ *    set to `"dd2vtt"`. This keeps the discriminator clean (just two
+ *    visual kinds: image vs. video) and lets new source formats join
+ *    without bumping the union every time.
+ */
+declare const SceneMapBaseV2Schema: z.ZodObject<{
+    uid: z.ZodType<SceneMapUid, z.ZodTypeDef, SceneMapUid>;
+} & {
+    name: z.ZodString;
+} & {
+    grid: z.ZodObject<{
+        type: z.ZodEnum<["square", "hexv", "hexh"]>;
+        size: z.ZodNumber;
+        sizeInUnit: z.ZodNumber;
+        measureUnit: z.ZodString;
+        lineWidth: z.ZodNumber;
+        color: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+        offset: z.ZodObject<{
+            x: z.ZodNumber;
+            z: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            x: number;
+            z: number;
+        }, {
+            x: number;
+            z: number;
+        }>;
+    }, "strip", z.ZodTypeAny, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }>;
+    sourceFormat: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    sourceFormat?: string | undefined;
+}, {
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    sourceFormat?: string | undefined;
+}>;
+type SceneMapBaseV2 = z.infer<typeof SceneMapBaseV2Schema>;
+declare const CustomImageSceneMapV2Schema: z.ZodObject<{
+    uid: z.ZodType<SceneMapUid, z.ZodTypeDef, SceneMapUid>;
+} & {
+    name: z.ZodString;
+} & {
+    grid: z.ZodObject<{
+        type: z.ZodEnum<["square", "hexv", "hexh"]>;
+        size: z.ZodNumber;
+        sizeInUnit: z.ZodNumber;
+        measureUnit: z.ZodString;
+        lineWidth: z.ZodNumber;
+        color: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+        offset: z.ZodObject<{
+            x: z.ZodNumber;
+            z: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            x: number;
+            z: number;
+        }, {
+            x: number;
+            z: number;
+        }>;
+    }, "strip", z.ZodTypeAny, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }>;
+    sourceFormat: z.ZodOptional<z.ZodString>;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"customImage">;
+}, "strip", z.ZodTypeAny, {
+    type: "customImage";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    sourceFormat?: string | undefined;
+}, {
+    type: "customImage";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    sourceFormat?: string | undefined;
+}>;
+type CustomImageSceneMapV2 = z.infer<typeof CustomImageSceneMapV2Schema>;
+declare const CustomVideoSceneMapV2Schema: z.ZodObject<{
+    uid: z.ZodType<SceneMapUid, z.ZodTypeDef, SceneMapUid>;
+} & {
+    name: z.ZodString;
+} & {
+    grid: z.ZodObject<{
+        type: z.ZodEnum<["square", "hexv", "hexh"]>;
+        size: z.ZodNumber;
+        sizeInUnit: z.ZodNumber;
+        measureUnit: z.ZodString;
+        lineWidth: z.ZodNumber;
+        color: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+        offset: z.ZodObject<{
+            x: z.ZodNumber;
+            z: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            x: number;
+            z: number;
+        }, {
+            x: number;
+            z: number;
+        }>;
+    }, "strip", z.ZodTypeAny, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }>;
+    sourceFormat: z.ZodOptional<z.ZodString>;
+} & {
+    videoUrl: z.ZodOptional<z.ZodString>;
+    videoDimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    type: z.ZodLiteral<"customVideo">;
+}, "strip", z.ZodTypeAny, {
+    type: "customVideo";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    sourceFormat?: string | undefined;
+}, {
+    type: "customVideo";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    sourceFormat?: string | undefined;
+}>;
+type CustomVideoSceneMapV2 = z.infer<typeof CustomVideoSceneMapV2Schema>;
+declare const SceneMapV2Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+    uid: z.ZodType<SceneMapUid, z.ZodTypeDef, SceneMapUid>;
+} & {
+    name: z.ZodString;
+} & {
+    grid: z.ZodObject<{
+        type: z.ZodEnum<["square", "hexv", "hexh"]>;
+        size: z.ZodNumber;
+        sizeInUnit: z.ZodNumber;
+        measureUnit: z.ZodString;
+        lineWidth: z.ZodNumber;
+        color: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+        offset: z.ZodObject<{
+            x: z.ZodNumber;
+            z: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            x: number;
+            z: number;
+        }, {
+            x: number;
+            z: number;
+        }>;
+    }, "strip", z.ZodTypeAny, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }>;
+    sourceFormat: z.ZodOptional<z.ZodString>;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"customImage">;
+}, "strip", z.ZodTypeAny, {
+    type: "customImage";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    sourceFormat?: string | undefined;
+}, {
+    type: "customImage";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    sourceFormat?: string | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<SceneMapUid, z.ZodTypeDef, SceneMapUid>;
+} & {
+    name: z.ZodString;
+} & {
+    grid: z.ZodObject<{
+        type: z.ZodEnum<["square", "hexv", "hexh"]>;
+        size: z.ZodNumber;
+        sizeInUnit: z.ZodNumber;
+        measureUnit: z.ZodString;
+        lineWidth: z.ZodNumber;
+        color: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+        offset: z.ZodObject<{
+            x: z.ZodNumber;
+            z: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            x: number;
+            z: number;
+        }, {
+            x: number;
+            z: number;
+        }>;
+    }, "strip", z.ZodTypeAny, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }>;
+    sourceFormat: z.ZodOptional<z.ZodString>;
+} & {
+    videoUrl: z.ZodOptional<z.ZodString>;
+    videoDimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    type: z.ZodLiteral<"customVideo">;
+}, "strip", z.ZodTypeAny, {
+    type: "customVideo";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    sourceFormat?: string | undefined;
+}, {
+    type: "customVideo";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    sourceFormat?: string | undefined;
+}>]>;
+type SceneMapV2 = z.infer<typeof SceneMapV2Schema>;
+
+declare const SheetV5Schema: z.ZodObject<{
+    uid: z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>;
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+    name: z.ZodOptional<z.ZodString>;
+    widgetUids: z.ZodDefault<z.ZodArray<z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>, "many">>;
+    compatibleDatasetUid: z.ZodOptional<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>>;
+} & {
+    styles: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodOptional<z.ZodNullable<z.ZodObject<{
+        justifyContent: z.ZodOptional<z.ZodString>;
+        alignItems: z.ZodOptional<z.ZodString>;
+        flexDirection: z.ZodOptional<z.ZodString>;
+        lineHeight: z.ZodOptional<z.ZodNumber>;
+        fontFamilyId: z.ZodOptional<z.ZodString>;
+        fontScale: z.ZodOptional<z.ZodNumber>;
+        color: z.ZodOptional<z.ZodString>;
+        paddingTop: z.ZodOptional<z.ZodNumber>;
+        paddingRight: z.ZodOptional<z.ZodNumber>;
+        paddingBottom: z.ZodOptional<z.ZodNumber>;
+        paddingLeft: z.ZodOptional<z.ZodNumber>;
+        borderWidth: z.ZodOptional<z.ZodNumber>;
+        borderStyle: z.ZodOptional<z.ZodString>;
+        borderColor: z.ZodOptional<z.ZodString>;
+        borderRadius: z.ZodOptional<z.ZodString>;
+        background: z.ZodOptional<z.ZodObject<{
+            assetUid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
+            objectFit: z.ZodOptional<z.ZodEnum<["cover", "contain", "fill", "none", "scale-down"]>>;
+        }, "strip", z.ZodTypeAny, {
+            assetUid: string & {
+                readonly __bypp_flavor?: "AssetUid" | undefined;
+            };
+            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        }, {
+            assetUid: string & {
+                readonly __bypp_flavor?: "AssetUid" | undefined;
+            };
+            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        }>>;
+    } & {
+        rotation: z.ZodOptional<z.ZodNumber>;
+    }, "strip", z.ZodTypeAny, {
+        color?: string | undefined;
+        justifyContent?: string | undefined;
+        alignItems?: string | undefined;
+        flexDirection?: string | undefined;
+        lineHeight?: number | undefined;
+        fontFamilyId?: string | undefined;
+        fontScale?: number | undefined;
+        paddingTop?: number | undefined;
+        paddingRight?: number | undefined;
+        paddingBottom?: number | undefined;
+        paddingLeft?: number | undefined;
+        borderWidth?: number | undefined;
+        borderStyle?: string | undefined;
+        borderColor?: string | undefined;
+        borderRadius?: string | undefined;
+        background?: {
+            assetUid: string & {
+                readonly __bypp_flavor?: "AssetUid" | undefined;
+            };
+            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        } | undefined;
+        rotation?: number | undefined;
+    }, {
+        color?: string | undefined;
+        justifyContent?: string | undefined;
+        alignItems?: string | undefined;
+        flexDirection?: string | undefined;
+        lineHeight?: number | undefined;
+        fontFamilyId?: string | undefined;
+        fontScale?: number | undefined;
+        paddingTop?: number | undefined;
+        paddingRight?: number | undefined;
+        paddingBottom?: number | undefined;
+        paddingLeft?: number | undefined;
+        borderWidth?: number | undefined;
+        borderStyle?: string | undefined;
+        borderColor?: string | undefined;
+        borderRadius?: string | undefined;
+        background?: {
+            assetUid: string & {
+                readonly __bypp_flavor?: "AssetUid" | undefined;
+            };
+            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        } | undefined;
+        rotation?: number | undefined;
+    }>>>>>;
+}, "strip", z.ZodTypeAny, {
+    uid: string & {
+        readonly __bypp_flavor?: "SheetUid" | undefined;
+    };
+    widgetUids: WidgetUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    name?: string | undefined;
+    compatibleDatasetUid?: DatasetUid | undefined;
+    styles?: Record<string, {
+        color?: string | undefined;
+        justifyContent?: string | undefined;
+        alignItems?: string | undefined;
+        flexDirection?: string | undefined;
+        lineHeight?: number | undefined;
+        fontFamilyId?: string | undefined;
+        fontScale?: number | undefined;
+        paddingTop?: number | undefined;
+        paddingRight?: number | undefined;
+        paddingBottom?: number | undefined;
+        paddingLeft?: number | undefined;
+        borderWidth?: number | undefined;
+        borderStyle?: string | undefined;
+        borderColor?: string | undefined;
+        borderRadius?: string | undefined;
+        background?: {
+            assetUid: string & {
+                readonly __bypp_flavor?: "AssetUid" | undefined;
+            };
+            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        } | undefined;
+        rotation?: number | undefined;
+    } | null | undefined> | undefined;
+}, {
+    uid: string & {
+        readonly __bypp_flavor?: "SheetUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    name?: string | undefined;
+    widgetUids?: WidgetUid[] | undefined;
+    compatibleDatasetUid?: DatasetUid | undefined;
+    styles?: Record<string, {
+        color?: string | undefined;
+        justifyContent?: string | undefined;
+        alignItems?: string | undefined;
+        flexDirection?: string | undefined;
+        lineHeight?: number | undefined;
+        fontFamilyId?: string | undefined;
+        fontScale?: number | undefined;
+        paddingTop?: number | undefined;
+        paddingRight?: number | undefined;
+        paddingBottom?: number | undefined;
+        paddingLeft?: number | undefined;
+        borderWidth?: number | undefined;
+        borderStyle?: string | undefined;
+        borderColor?: string | undefined;
+        borderRadius?: string | undefined;
+        background?: {
+            assetUid: string & {
+                readonly __bypp_flavor?: "AssetUid" | undefined;
+            };
+            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        } | undefined;
+        rotation?: number | undefined;
+    } | null | undefined> | undefined;
+}>;
+type SheetV5 = z.infer<typeof SheetV5Schema>;
+
+export { AbilityEntityV2Schema as A, type BeyondPaperV9 as B, type CharacterEntityV2 as C, type SheetV5 as D, type EntityBaseV2 as E, SheetV5Schema as F, type GroupEntityV2 as G, StoryEntityV2Schema as H, ItemEntityV2Schema as I, KNOWN_VTT_SOURCE_FORMATS as K, NoteEntityV2Schema as N, type PlaceEntityV2 as P, type SceneBackgroundBaseV2 as S, BeyondPaperV9Schema as a, type SceneMapBaseV2 as b, CharacterEntityV2Schema as c, type CreatureEntityV2 as d, CreatureEntityV2Schema as e, type CustomImageSceneBackgroundV2 as f, CustomImageSceneBackgroundV2Schema as g, type CustomImageSceneMapV2 as h, CustomImageSceneMapV2Schema as i, type CustomVideoSceneBackgroundV2 as j, CustomVideoSceneBackgroundV2Schema as k, type CustomVideoSceneMapV2 as l, CustomVideoSceneMapV2Schema as m, EntityBaseV2Schema as n, type EntityV2 as o, EntityV2Schema as p, EventEntityV2Schema as q, GroupEntityV2Schema as r, type KnownVttSourceFormat as s, PlaceEntityV2Schema as t, SceneBackgroundBaseV2Schema as u, type SceneBackgroundV2 as v, SceneBackgroundV2Schema as w, SceneMapBaseV2Schema as x, type SceneMapV2 as y, SceneMapV2Schema as z };

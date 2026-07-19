@@ -1,6 +1,8 @@
-export { B as BeyondPaper, a as BeyondPaperSchema, C as Chunk, c as ChunkSchema } from './chunk.v11.schema-4d0F68B1.js';
-export { k as Asset, n as AssetSchema, p as Attribution, Z as CcLicense, z as DataTableColumn, as as DataTableSchema, aw as DatasetSchema, aC as DialectSchema, aH as EntityImageFormat, aJ as EntityImageObjectFit, aM as GridData, aU as ObjectFit, J as Page, aX as PageSchema, a_ as ParentAttribution, b4 as RandomTableSchema, bc as SceneSchema, bf as Style, bg as StyleSchema, bj as TagCategorySchema, bl as TagSchema, X as Variable, bo as VariableSchema, Y as Widget, bw as WidgetSchema } from './widget.v7.schema-lcLISYFx.js';
-export { E as Entity, p as EntitySchema, S as SceneBackground, t as SceneBackgroundSchema, u as SceneMapSchema, d as Sheet, v as SheetSchema } from './scene-background.v3.schema-_s-rrmML.js';
+export { k as Asset, n as AssetSchema, p as Attribution, Y as CcLicense, z as DataTableColumn, ar as DataTableSchema, av as DatasetSchema, aB as DialectSchema, aG as EntityImageFormat, aI as EntityImageObjectFit, aL as GridData, aT as ObjectFit, J as Page, aW as PageSchema, aZ as ParentAttribution, b3 as RandomTableSchema, bb as SceneSchema, be as Style, bf as StyleSchema, bi as TagCategorySchema, bk as TagSchema, X as Variable, bn as VariableSchema } from './variable.v7.schema-ClZin-IT.js';
+export { B as BeyondPaper, a as BeyondPaperSchema } from './bypp.v11.schema-jx_md09c.js';
+export { C as Chunk, b as ChunkSchema } from './chunk.v11.schema-CP7XJ0CN.js';
+export { E as Entity, p as EntitySchema, S as SceneBackground, t as SceneBackgroundSchema, u as SceneMapSchema, d as Sheet, v as SheetSchema } from './scene-background.v3.schema-CdBgOIyw.js';
+export { W as Widget, a as WidgetSchema } from './widget.v7.schema-BTsfcd4b.js';
 import 'zod';
 
 /**

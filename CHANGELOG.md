@@ -9,6 +9,38 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v12 — 2026-07
+
+### Added
+
+- **`actionsVariablesUids` on every widget variant** — uids of `roll`
+  variables a reader offers when the widget is activated, on top of whatever
+  the widget's own `variableUid` already does. It sits on the base rather than
+  on one variant because any widget can carry actions: a character's
+  "Strength" number widget may well offer a "Strength check" roll alongside
+  its normal editing affordance. Order is the author's and readers should
+  preserve it. A uid naming a variable absent from the bundle (or one that
+  isn't a `roll` variable) should be ignored rather than treated as an error.
+
+- **The `actionRoll` widget variant** — a widget whose only job is to roll the
+  `roll` variable it's bound to. Distinct from a plain widget carrying
+  actions: here the roll IS the widget, so a reader renders it as a die or
+  button rather than as a value with a menu hanging off it. It has no config
+  of its own; formula, label, icon and colour all come from the bound
+  variable.
+
+### Migration
+
+- `v11 → v12` is a pure version bump: everything v12 adds is optional and
+  additive, so a v11 document is already a valid v12 document.
+- `v12 → v11` is **lossy**. `actionRoll` widgets are dropped and their uids
+  pruned from every `sheet.widgetUids`, so no dangling reference is left
+  behind; `actionsVariablesUids` is stripped from every surviving widget.
+  Neither loss can be folded into anything — v11 has no way to express "roll
+  this variable from this widget". The bound `roll` variables themselves stay
+  in `variables[]`; they are ordinary variables a v11 reader still
+  understands, just no longer reachable from the sheet.
+
 ## Format v11 — 2026-07
 
 ### Added
