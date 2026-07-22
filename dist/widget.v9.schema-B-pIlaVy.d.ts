@@ -1,8 +1,8 @@
 import { z } from 'zod';
-import { D as DialectUid, E as EntityUid, T as TagUid, a as DatasetUid, S as SheetUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, A as AssetUid, c as SceneUid, C as ChunkUid, R as RandomTableUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid, W as WidgetUid, d as RandomTableRowUid, e as TagCategoryUid, f as SceneMapUid, g as SceneBackgroundUid } from './variable.v7.schema-ClZin-IT.cjs';
+import { D as DialectUid, E as EntityUid, T as TagUid, a as DatasetUid, S as SheetUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, A as AssetUid, c as SceneUid, C as ChunkUid, R as RandomTableUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid, W as WidgetUid, d as RandomTableRowUid, e as TagCategoryUid, f as SceneMapUid, g as SceneBackgroundUid } from './variable.v7.schema-D14Z7-jV.js';
 
-declare const BeyondPaperV12Schema: z.ZodObject<{
-    version: z.ZodLiteral<12>;
+declare const BeyondPaperV13Schema: z.ZodObject<{
+    version: z.ZodLiteral<13>;
     format: z.ZodLiteral<"bypp">;
     name: z.ZodString;
     exportedAt: z.ZodString;
@@ -110,6 +110,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
     } & {
         assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
     } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
+    } & {
         type: z.ZodLiteral<"character">;
     }, "strip", z.ZodTypeAny, {
         type: "character";
@@ -133,6 +147,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }, {
         type: "character";
         name: string;
@@ -155,6 +174,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         description?: string | undefined;
         tagsUid?: TagUid[] | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
         displayName: z.ZodOptional<z.ZodString>;
@@ -187,6 +211,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
     } & {
         assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     } & {
         type: z.ZodLiteral<"creature">;
     }, "strip", z.ZodTypeAny, {
@@ -211,6 +249,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }, {
         type: "creature";
         name: string;
@@ -233,6 +276,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         description?: string | undefined;
         tagsUid?: TagUid[] | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
         displayName: z.ZodOptional<z.ZodString>;
@@ -265,6 +313,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
     } & {
         assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     } & {
         type: z.ZodLiteral<"group">;
         ranks: z.ZodDefault<z.ZodArray<z.ZodObject<{
@@ -333,6 +395,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }, {
         type: "group";
         name: string;
@@ -365,6 +432,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             }[];
         }[] | undefined;
         charactersUids?: EntityUid[] | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
         displayName: z.ZodOptional<z.ZodString>;
@@ -397,6 +469,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
     } & {
         assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     } & {
         scenesUids: z.ZodDefault<z.ZodArray<z.ZodType<SceneUid, z.ZodTypeDef, SceneUid>, "many">>;
     } & {
@@ -424,6 +510,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }, {
         type: "place";
         name: string;
@@ -447,6 +538,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         description?: string | undefined;
         tagsUid?: TagUid[] | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
         displayName: z.ZodOptional<z.ZodString>;
@@ -479,6 +575,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
     } & {
         assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     } & {
         type: z.ZodLiteral<"item">;
     }, "strip", z.ZodTypeAny, {
@@ -503,6 +613,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }, {
         type: "item";
         name: string;
@@ -525,6 +640,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         description?: string | undefined;
         tagsUid?: TagUid[] | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
         displayName: z.ZodOptional<z.ZodString>;
@@ -557,6 +677,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
     } & {
         assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     } & {
         type: z.ZodLiteral<"note">;
     }, "strip", z.ZodTypeAny, {
@@ -581,6 +715,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }, {
         type: "note";
         name: string;
@@ -603,6 +742,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         description?: string | undefined;
         tagsUid?: TagUid[] | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
         displayName: z.ZodOptional<z.ZodString>;
@@ -635,6 +779,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
     } & {
         assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     } & {
         type: z.ZodLiteral<"ability">;
     }, "strip", z.ZodTypeAny, {
@@ -659,6 +817,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }, {
         type: "ability";
         name: string;
@@ -681,6 +844,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         description?: string | undefined;
         tagsUid?: TagUid[] | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
         displayName: z.ZodOptional<z.ZodString>;
@@ -713,6 +881,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
     } & {
         assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     } & {
         type: z.ZodLiteral<"story">;
     }, "strip", z.ZodTypeAny, {
@@ -737,6 +919,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }, {
         type: "story";
         name: string;
@@ -759,6 +946,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         description?: string | undefined;
         tagsUid?: TagUid[] | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
         displayName: z.ZodOptional<z.ZodString>;
@@ -792,6 +984,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
     } & {
         assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
     } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
+    } & {
         type: z.ZodLiteral<"event">;
     }, "strip", z.ZodTypeAny, {
         type: "event";
@@ -815,6 +1021,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }, {
         type: "event";
         name: string;
@@ -837,6 +1048,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         description?: string | undefined;
         tagsUid?: TagUid[] | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }>]>, "many">>;
     pages: z.ZodDefault<z.ZodArray<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         uid: z.ZodType<PageUid, z.ZodTypeDef, PageUid>;
@@ -899,7 +1115,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
         wrappedInEntityUid?: EntityUid | undefined;
@@ -911,7 +1127,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
         wrappedInEntityUid?: EntityUid | undefined;
@@ -932,7 +1148,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     }, {
         type: "gallery";
@@ -941,7 +1157,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         assetUids?: AssetUid[] | undefined;
     }>, z.ZodObject<{
@@ -964,7 +1180,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     }, {
@@ -977,7 +1193,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     }>]>, "many">>;
@@ -1576,12 +1792,12 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         } & {
             rotation: z.ZodOptional<z.ZodNumber>;
@@ -1605,7 +1821,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }, {
@@ -1628,18 +1844,40 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }>>>;
     } & {
         actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "empty";
         name: string;
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -1660,19 +1898,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }, {
         type: "empty";
@@ -1680,6 +1915,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -1700,19 +1943,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -1767,12 +2007,12 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         } & {
             rotation: z.ZodOptional<z.ZodNumber>;
@@ -1796,7 +2036,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }, {
@@ -1819,12 +2059,26 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }>>>;
     } & {
         actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "bigNumber";
         name: string;
@@ -1833,6 +2087,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -1853,21 +2115,18 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
         unit?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }, {
         type: "bigNumber";
@@ -1877,6 +2136,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -1897,21 +2164,18 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
         unit?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -1962,12 +2226,12 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         } & {
             rotation: z.ZodOptional<z.ZodNumber>;
@@ -1991,7 +2255,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }, {
@@ -2014,18 +2278,40 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }>>>;
     } & {
         actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "plainText";
         name: string;
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -2046,19 +2332,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }, {
         type: "plainText";
@@ -2066,6 +2349,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -2086,19 +2377,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -2150,12 +2438,12 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         } & {
             rotation: z.ZodOptional<z.ZodNumber>;
@@ -2179,7 +2467,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }, {
@@ -2202,18 +2490,40 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }>>>;
     } & {
         actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "toggle";
         name: string;
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -2234,20 +2544,17 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }, {
         type: "toggle";
@@ -2255,6 +2562,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -2275,20 +2590,17 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -2345,12 +2657,12 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         } & {
             rotation: z.ZodOptional<z.ZodNumber>;
@@ -2374,7 +2686,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }, {
@@ -2397,18 +2709,40 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }>>>;
     } & {
         actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "bulletList";
         name: string;
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -2429,17 +2763,9 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -2448,6 +2774,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         listStyleBulletGap?: number | undefined;
         listStyleBulletIconGap?: number | undefined;
         listOptionStyle?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }, {
         type: "bulletList";
@@ -2455,6 +2786,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -2475,17 +2814,9 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -2494,6 +2825,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         listStyleBulletGap?: number | undefined;
         listStyleBulletIconGap?: number | undefined;
         listOptionStyle?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -2547,12 +2883,12 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         } & {
             rotation: z.ZodOptional<z.ZodNumber>;
@@ -2576,7 +2912,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }, {
@@ -2599,18 +2935,40 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }>>>;
     } & {
         actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "inlineList";
         name: string;
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -2631,22 +2989,19 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
         listOptionStyle?: string | undefined;
         listStyleTextSeparator?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }, {
         type: "inlineList";
@@ -2654,6 +3009,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -2674,22 +3037,19 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
         listOptionStyle?: string | undefined;
         listStyleTextSeparator?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -2745,12 +3105,12 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         } & {
             rotation: z.ZodOptional<z.ZodNumber>;
@@ -2774,7 +3134,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }, {
@@ -2797,12 +3157,26 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }>>>;
     } & {
         actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "pips";
         name: string;
@@ -2811,6 +3185,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -2831,22 +3213,19 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
         gapX?: number | undefined;
         gapY?: number | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }, {
         type: "pips";
@@ -2856,6 +3235,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -2876,22 +3263,19 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
         gapX?: number | undefined;
         gapY?: number | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -2950,12 +3334,12 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         } & {
             rotation: z.ZodOptional<z.ZodNumber>;
@@ -2979,7 +3363,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }, {
@@ -3002,12 +3386,26 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }>>>;
     } & {
         actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "bar";
         name: string;
@@ -3016,6 +3414,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3036,17 +3442,9 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -3055,6 +3453,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         barColor?: string | undefined;
         bgColor?: string | undefined;
         showValue?: boolean | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }, {
         type: "bar";
@@ -3064,6 +3467,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3084,17 +3495,9 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -3103,6 +3506,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         barColor?: string | undefined;
         bgColor?: string | undefined;
         showValue?: boolean | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -3155,12 +3563,12 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         } & {
             rotation: z.ZodOptional<z.ZodNumber>;
@@ -3184,7 +3592,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }, {
@@ -3207,19 +3615,40 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }>>>;
     } & {
         actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "entityImage";
         name: string;
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3240,19 +3669,17 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }, {
@@ -3261,7 +3688,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3282,19 +3716,17 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }>, z.ZodObject<{
@@ -3345,12 +3777,12 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         } & {
             rotation: z.ZodOptional<z.ZodNumber>;
@@ -3374,7 +3806,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }, {
@@ -3397,7 +3829,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }>>>;
@@ -3408,12 +3840,34 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         radius: z.ZodOptional<z.ZodNumber>;
     } & {
         actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "wheel";
         name: string;
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3434,19 +3888,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         readingPosition?: string | undefined;
         labelOrientation?: string | undefined;
         radius?: number | undefined;
@@ -3457,6 +3908,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3477,19 +3936,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         readingPosition?: string | undefined;
         labelOrientation?: string | undefined;
         radius?: number | undefined;
@@ -3542,12 +3998,12 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         } & {
             rotation: z.ZodOptional<z.ZodNumber>;
@@ -3571,7 +4027,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }, {
@@ -3594,7 +4050,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }>>>;
@@ -3602,12 +4058,34 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
     } & {
         type: z.ZodLiteral<"actionRoll">;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "actionRoll";
         name: string;
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3628,19 +4106,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }, {
         type: "actionRoll";
@@ -3648,6 +4123,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3668,19 +4151,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     }>]>, "many">>;
     sheets: z.ZodDefault<z.ZodArray<z.ZodObject<{
@@ -3711,12 +4191,12 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         } & {
             rotation: z.ZodOptional<z.ZodNumber>;
@@ -3740,7 +4220,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }, {
@@ -3763,7 +4243,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         }>>>>>;
@@ -3782,6 +4262,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             width: number;
             height: number;
         }>>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         uid: string & {
             readonly __bypp_flavor?: "SheetUid" | undefined;
@@ -3797,6 +4291,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             height: number;
         } | undefined;
         compatibleDatasetUid?: DatasetUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         styles?: Record<string, {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3817,7 +4316,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined> | undefined;
@@ -3836,6 +4335,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         } | undefined;
         widgetUids?: WidgetUid[] | undefined;
         compatibleDatasetUid?: DatasetUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         styles?: Record<string, {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3856,7 +4360,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined> | undefined;
@@ -4584,6 +5088,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         }>>;
     } & {
         type: z.ZodLiteral<"customImage">;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "customImage";
         name: string;
@@ -4609,6 +5127,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         dimensions?: {
             width: number;
             height: number;
+        } | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
         } | undefined;
         sourceFormat?: string | undefined;
     }, {
@@ -4636,6 +5159,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         dimensions?: {
             width: number;
             height: number;
+        } | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
         } | undefined;
         sourceFormat?: string | undefined;
     }>, z.ZodObject<{
@@ -4698,6 +5226,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         }>>;
     } & {
         type: z.ZodLiteral<"customVideo">;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "customVideo";
         name: string;
@@ -4720,6 +5262,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         videoDimensions?: {
             width: number;
             height: number;
+        } | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
         } | undefined;
         sourceFormat?: string | undefined;
     }, {
@@ -4744,6 +5291,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         videoDimensions?: {
             width: number;
             height: number;
+        } | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
         } | undefined;
         sourceFormat?: string | undefined;
     }>]>, "many">>;
@@ -4771,6 +5323,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         }>>;
     } & {
         type: z.ZodLiteral<"customImage">;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "customImage";
         name: string;
@@ -4786,6 +5352,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             height: number;
         } | undefined;
         opacity?: number | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }, {
         type: "customImage";
         name: string;
@@ -4801,6 +5372,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             height: number;
         } | undefined;
         opacity?: number | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<SceneBackgroundUid, z.ZodTypeDef, SceneBackgroundUid>;
     } & {
@@ -4821,6 +5397,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         }>>;
     } & {
         type: z.ZodLiteral<"customVideo">;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "customVideo";
         name: string;
@@ -4833,6 +5423,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             height: number;
         } | undefined;
         opacity?: number | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }, {
         type: "customVideo";
         name: string;
@@ -4845,6 +5440,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             height: number;
         } | undefined;
         opacity?: number | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }>]>, "many">>;
     assets: z.ZodDefault<z.ZodArray<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
@@ -4867,6 +5467,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             width: number;
             height: number;
         }>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "image";
         name: string;
@@ -4881,6 +5495,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }, {
         type: "image";
         name: string;
@@ -4895,6 +5514,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
     } & {
@@ -4923,6 +5547,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             width: number;
             height: number;
         }>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "video";
         name: string;
@@ -4938,6 +5576,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             width: number;
             height: number;
         } | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }, {
         type: "video";
         name: string;
@@ -4952,6 +5595,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         videoDimensions?: {
             width: number;
             height: number;
+        } | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
         } | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
@@ -4963,6 +5611,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         audioExt: z.ZodOptional<z.ZodString>;
     } & {
         type: z.ZodLiteral<"audio">;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "audio";
         name: string;
@@ -4972,6 +5634,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         audioUrl?: string | undefined;
         audioDurationSeconds?: number | undefined;
         audioExt?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }, {
         type: "audio";
         name: string;
@@ -4981,6 +5648,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         audioUrl?: string | undefined;
         audioDurationSeconds?: number | undefined;
         audioExt?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
     } & {
@@ -4991,6 +5663,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         externalId: z.ZodString;
         thumbnailUrl: z.ZodOptional<z.ZodString>;
         durationSeconds: z.ZodOptional<z.ZodNumber>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "audio-external";
         name: string;
@@ -5001,6 +5687,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         externalId: string;
         thumbnailUrl?: string | undefined;
         durationSeconds?: number | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }, {
         type: "audio-external";
         name: string;
@@ -5011,6 +5702,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         externalId: string;
         thumbnailUrl?: string | undefined;
         durationSeconds?: number | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
     } & {
@@ -5018,6 +5714,20 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
     } & {
         type: z.ZodLiteral<"entity">;
         entityUid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    } & {
+        credit: z.ZodOptional<z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodOptional<z.ZodString>;
+            license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }, {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "entity";
         name: string;
@@ -5027,6 +5737,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         entityUid: string & {
             readonly __bypp_flavor?: "EntityUid" | undefined;
         };
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }, {
         type: "entity";
         name: string;
@@ -5036,11 +5751,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         entityUid: string & {
             readonly __bypp_flavor?: "EntityUid" | undefined;
         };
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     }>]>, "many">>;
 }, "strip", z.ZodTypeAny, {
     name: string;
     license: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR";
-    version: 12;
+    version: 13;
     format: "bypp";
     exportedAt: string;
     bundleVersion: string;
@@ -5084,6 +5804,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "creature";
         name: string;
@@ -5106,6 +5831,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "group";
         name: string;
@@ -5138,6 +5868,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "place";
         name: string;
@@ -5161,6 +5896,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "item";
         name: string;
@@ -5183,6 +5923,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "note";
         name: string;
@@ -5205,6 +5950,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "ability";
         name: string;
@@ -5227,6 +5977,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "story";
         name: string;
@@ -5249,6 +6004,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "event";
         name: string;
@@ -5271,6 +6031,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         displayName?: string | undefined;
         description?: string | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     })[];
     pages: ({
         type: "standard";
@@ -5296,7 +6061,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     } | {
         type: "random";
@@ -5308,7 +6073,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     } | {
@@ -5319,7 +6084,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
         wrappedInEntityUid?: EntityUid | undefined;
@@ -5495,6 +6260,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -5515,19 +6288,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "empty";
@@ -5535,6 +6305,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -5555,19 +6333,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "bigNumber";
@@ -5577,6 +6352,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -5597,21 +6380,18 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
         unit?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "plainText";
@@ -5619,6 +6399,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -5639,19 +6427,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "toggle";
@@ -5659,6 +6444,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -5679,20 +6472,17 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "bulletList";
@@ -5700,6 +6490,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -5720,17 +6518,9 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -5739,6 +6529,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         listStyleBulletGap?: number | undefined;
         listStyleBulletIconGap?: number | undefined;
         listOptionStyle?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "inlineList";
@@ -5746,6 +6541,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -5766,22 +6569,19 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
         listOptionStyle?: string | undefined;
         listStyleTextSeparator?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "pips";
@@ -5791,6 +6591,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -5811,22 +6619,19 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
         gapX?: number | undefined;
         gapY?: number | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "bar";
@@ -5836,6 +6641,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -5856,17 +6669,9 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -5875,6 +6680,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         barColor?: string | undefined;
         bgColor?: string | undefined;
         showValue?: boolean | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "entityImage";
@@ -5882,7 +6692,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -5903,19 +6720,17 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
@@ -5924,6 +6739,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -5944,19 +6767,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         readingPosition?: string | undefined;
         labelOrientation?: string | undefined;
         radius?: number | undefined;
@@ -5977,6 +6797,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             height: number;
         } | undefined;
         compatibleDatasetUid?: DatasetUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         styles?: Record<string, {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -5997,7 +6822,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined> | undefined;
@@ -6182,6 +7007,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             width: number;
             height: number;
         } | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         sourceFormat?: string | undefined;
     } | {
         type: "customVideo";
@@ -6206,6 +7036,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             width: number;
             height: number;
         } | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         sourceFormat?: string | undefined;
     })[];
     sceneBackgrounds: ({
@@ -6223,6 +7058,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             height: number;
         } | undefined;
         opacity?: number | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "customVideo";
         name: string;
@@ -6235,6 +7075,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             height: number;
         } | undefined;
         opacity?: number | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     })[];
     assets: ({
         type: "image";
@@ -6250,6 +7095,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "video";
         name: string;
@@ -6265,6 +7115,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             width: number;
             height: number;
         } | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "audio";
         name: string;
@@ -6274,6 +7129,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         audioUrl?: string | undefined;
         audioDurationSeconds?: number | undefined;
         audioExt?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "audio-external";
         name: string;
@@ -6284,6 +7144,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         externalId: string;
         thumbnailUrl?: string | undefined;
         durationSeconds?: number | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "entity";
         name: string;
@@ -6293,6 +7158,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         entityUid: string & {
             readonly __bypp_flavor?: "EntityUid" | undefined;
         };
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     })[];
     parentAttribution?: {
         authorName: string;
@@ -6304,7 +7174,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
 }, {
     name: string;
     license: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR";
-    version: 12;
+    version: 13;
     format: "bypp";
     exportedAt: string;
     bundleVersion: string;
@@ -6355,6 +7225,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         description?: string | undefined;
         tagsUid?: TagUid[] | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "creature";
         name: string;
@@ -6377,6 +7252,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         description?: string | undefined;
         tagsUid?: TagUid[] | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "group";
         name: string;
@@ -6409,6 +7289,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             }[];
         }[] | undefined;
         charactersUids?: EntityUid[] | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "place";
         name: string;
@@ -6432,6 +7317,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         description?: string | undefined;
         tagsUid?: TagUid[] | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "item";
         name: string;
@@ -6454,6 +7344,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         description?: string | undefined;
         tagsUid?: TagUid[] | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "note";
         name: string;
@@ -6476,6 +7371,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         description?: string | undefined;
         tagsUid?: TagUid[] | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "ability";
         name: string;
@@ -6498,6 +7398,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         description?: string | undefined;
         tagsUid?: TagUid[] | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "story";
         name: string;
@@ -6520,6 +7425,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         description?: string | undefined;
         tagsUid?: TagUid[] | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "event";
         name: string;
@@ -6542,6 +7452,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         description?: string | undefined;
         tagsUid?: TagUid[] | undefined;
         sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     })[] | undefined;
     pages?: ({
         type: "standard";
@@ -6566,7 +7481,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         assetUids?: AssetUid[] | undefined;
     } | {
@@ -6579,7 +7494,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     } | {
@@ -6590,7 +7505,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
         wrappedInEntityUid?: EntityUid | undefined;
@@ -6766,6 +7681,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6786,19 +7709,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "empty";
@@ -6806,6 +7726,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6826,19 +7754,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "bigNumber";
@@ -6848,6 +7773,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6868,21 +7801,18 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
         unit?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "plainText";
@@ -6890,6 +7820,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6910,19 +7848,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "toggle";
@@ -6930,6 +7865,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6950,20 +7893,17 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "bulletList";
@@ -6971,6 +7911,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6991,17 +7939,9 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -7010,6 +7950,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         listStyleBulletGap?: number | undefined;
         listStyleBulletIconGap?: number | undefined;
         listOptionStyle?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "inlineList";
@@ -7017,6 +7962,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -7037,22 +7990,19 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
         listOptionStyle?: string | undefined;
         listStyleTextSeparator?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "pips";
@@ -7062,6 +8012,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -7082,22 +8040,19 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
         gapX?: number | undefined;
         gapY?: number | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "bar";
@@ -7107,6 +8062,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -7127,17 +8090,9 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -7146,6 +8101,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         barColor?: string | undefined;
         bgColor?: string | undefined;
         showValue?: boolean | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
         type: "entityImage";
@@ -7153,7 +8113,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -7174,19 +8141,17 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
         actionsVariablesUids?: VariableUid[] | undefined;
     } | {
@@ -7195,6 +8160,14 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -7215,19 +8188,16 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         readingPosition?: string | undefined;
         labelOrientation?: string | undefined;
         radius?: number | undefined;
@@ -7248,6 +8218,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         } | undefined;
         widgetUids?: WidgetUid[] | undefined;
         compatibleDatasetUid?: DatasetUid | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         styles?: Record<string, {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -7268,7 +8243,7 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
             rotation?: number | undefined;
         } | null | undefined> | undefined;
@@ -7453,6 +8428,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             width: number;
             height: number;
         } | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         sourceFormat?: string | undefined;
     } | {
         type: "customVideo";
@@ -7477,6 +8457,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             width: number;
             height: number;
         } | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
         sourceFormat?: string | undefined;
     })[] | undefined;
     sceneBackgrounds?: ({
@@ -7494,6 +8479,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             height: number;
         } | undefined;
         opacity?: number | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "customVideo";
         name: string;
@@ -7506,6 +8496,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             height: number;
         } | undefined;
         opacity?: number | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     })[] | undefined;
     assets?: ({
         type: "image";
@@ -7521,6 +8516,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         thumbnailUrl?: string | undefined;
         squareUrl?: string | undefined;
         closeupUrl?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "video";
         name: string;
@@ -7536,6 +8536,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
             width: number;
             height: number;
         } | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "audio";
         name: string;
@@ -7545,6 +8550,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         audioUrl?: string | undefined;
         audioDurationSeconds?: number | undefined;
         audioExt?: string | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "audio-external";
         name: string;
@@ -7555,6 +8565,11 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         externalId: string;
         thumbnailUrl?: string | undefined;
         durationSeconds?: number | undefined;
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     } | {
         type: "entity";
         name: string;
@@ -7564,39 +8579,3890 @@ declare const BeyondPaperV12Schema: z.ZodObject<{
         entityUid: string & {
             readonly __bypp_flavor?: "EntityUid" | undefined;
         };
+        credit?: {
+            name: string;
+            url?: string | undefined;
+            license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+        } | undefined;
     })[] | undefined;
 }>;
-type BeyondPaperV12 = z.infer<typeof BeyondPaperV12Schema>;
+type BeyondPaperV13 = z.infer<typeof BeyondPaperV13Schema>;
 
 /**
- * Extra roll actions attached to a widget.
+ * Credit for the human who made a single media file — an illustrator, a
+ * composer, a cartographer, a photographer.
  *
- *  - `actionsVariablesUids` — uids of `roll` variables the reader surfaces
- *    when the widget is activated. Order is the author's; readers should
- *    preserve it. Absent or empty means the widget behaves exactly as it did
- *    before v12.
+ *  - `name` — who to credit. Required whenever the block is present: a
+ *    credit without a name credits nobody.
+ *  - `url` — where to find them (portfolio, shop, profile page).
+ *  - `license` — the licence THIS FILE is under, when it differs from the
+ *    bundle's. Same enum as the bundle-level `license`
+ *    (`CcLicenseV3Schema`); there is deliberately no second licence
+ *    vocabulary in the format. Absent means "inherits the bundle's
+ *    licence".
  *
- * A uid naming a variable that is absent from the bundle (or is not a `roll`
- * variable) should be ignored by the reader rather than treated as an error —
- * bypp does not enforce referential integrity.
+ * Why this exists: before v13 a bundle had exactly one licence, so a bundle
+ * mixing a commissioned illustration (not reusable) with CC0 sound effects
+ * had to collapse to the most restrictive item and declare the whole thing
+ * `ARR` — dishonest about the files that were in fact free to reuse. A
+ * per-file credit lets the bundle stay accurate file by file.
  */
-declare const WithWidgetActionsV8Schema: z.ZodObject<{
-    actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+declare const CreditV1Schema: z.ZodObject<{
+    name: z.ZodString;
+    url: z.ZodOptional<z.ZodString>;
+    license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
 }, "strip", z.ZodTypeAny, {
-    actionsVariablesUids?: VariableUid[] | undefined;
+    name: string;
+    url?: string | undefined;
+    license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
 }, {
-    actionsVariablesUids?: VariableUid[] | undefined;
+    name: string;
+    url?: string | undefined;
+    license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
 }>;
-type WithWidgetActionsV8 = z.infer<typeof WithWidgetActionsV8Schema>;
+type CreditV1 = z.infer<typeof CreditV1Schema>;
 /**
- * A widget that rolls its bound `roll` variable. It renders as an actionable
- * die rather than as a value: the variable's dice formula is resolved against
- * the host entity and rolled when the reader activates the widget.
+ * Mixin: an optional per-file `credit`.
  *
- * It carries no config of its own — the formula, label, icon and colour all
- * come from the bound variable.
+ * It is a mixin of its own rather than a field on `with-images-urls` because
+ * credit is not an image concern — audio and video carry their own URL
+ * mixins (`with-audio-urls`, `with-video-urls`), and folding credit into the
+ * image one would mean three copies free to drift apart.
+ *
+ * It also has the opposite lifecycle to the storage fields it sits next to.
+ * Every URL / path / token field is rewritten when a file is re-encoded or
+ * re-uploaded; the credit must survive that untouched — re-encoding a
+ * painting does not change who painted it.
  */
-declare const WidgetActionRollV8Schema: z.ZodObject<{
+declare const WithCreditV1Schema: z.ZodObject<{
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+type WithCreditV1 = z.infer<typeof WithCreditV1Schema>;
+
+declare const AssetBaseV3Schema: z.ZodObject<{
+    uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
+} & {
+    name: z.ZodString;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+type AssetBaseV3 = z.infer<typeof AssetBaseV3Schema>;
+declare const ImageAssetV3Schema: z.ZodObject<{
+    uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"image">;
+    dimensions: z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "image";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    dimensions: {
+        width: number;
+        height: number;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "image";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    dimensions: {
+        width: number;
+        height: number;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+type ImageAssetV3 = z.infer<typeof ImageAssetV3Schema>;
+declare const VideoAssetV3Schema: z.ZodObject<{
+    uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
+} & {
+    name: z.ZodString;
+} & {
+    videoUrl: z.ZodOptional<z.ZodString>;
+    videoDimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    type: z.ZodLiteral<"video">;
+    dimensions: z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "video";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    dimensions: {
+        width: number;
+        height: number;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "video";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    dimensions: {
+        width: number;
+        height: number;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+type VideoAssetV3 = z.infer<typeof VideoAssetV3Schema>;
+declare const AudioAssetV3Schema: z.ZodObject<{
+    uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
+} & {
+    name: z.ZodString;
+} & {
+    audioUrl: z.ZodOptional<z.ZodString>;
+    audioDurationSeconds: z.ZodOptional<z.ZodNumber>;
+    audioExt: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"audio">;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "audio";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    audioUrl?: string | undefined;
+    audioDurationSeconds?: number | undefined;
+    audioExt?: string | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "audio";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    audioUrl?: string | undefined;
+    audioDurationSeconds?: number | undefined;
+    audioExt?: string | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+type AudioAssetV3 = z.infer<typeof AudioAssetV3Schema>;
+declare const AudioExternalAssetV3Schema: z.ZodObject<{
+    uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
+} & {
+    name: z.ZodString;
+} & {
+    type: z.ZodLiteral<"audio-external">;
+    provider: z.ZodString;
+    externalId: z.ZodString;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    durationSeconds: z.ZodOptional<z.ZodNumber>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "audio-external";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    provider: string;
+    externalId: string;
+    thumbnailUrl?: string | undefined;
+    durationSeconds?: number | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "audio-external";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    provider: string;
+    externalId: string;
+    thumbnailUrl?: string | undefined;
+    durationSeconds?: number | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+type AudioExternalAssetV3 = z.infer<typeof AudioExternalAssetV3Schema>;
+declare const EntityAssetV3Schema: z.ZodObject<{
+    uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
+} & {
+    name: z.ZodString;
+} & {
+    type: z.ZodLiteral<"entity">;
+    entityUid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "entity";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    entityUid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "entity";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    entityUid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+type EntityAssetV3 = z.infer<typeof EntityAssetV3Schema>;
+declare const AssetV3Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+    uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"image">;
+    dimensions: z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "image";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    dimensions: {
+        width: number;
+        height: number;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "image";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    dimensions: {
+        width: number;
+        height: number;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
+} & {
+    name: z.ZodString;
+} & {
+    videoUrl: z.ZodOptional<z.ZodString>;
+    videoDimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    type: z.ZodLiteral<"video">;
+    dimensions: z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "video";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    dimensions: {
+        width: number;
+        height: number;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "video";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    dimensions: {
+        width: number;
+        height: number;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
+} & {
+    name: z.ZodString;
+} & {
+    audioUrl: z.ZodOptional<z.ZodString>;
+    audioDurationSeconds: z.ZodOptional<z.ZodNumber>;
+    audioExt: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"audio">;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "audio";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    audioUrl?: string | undefined;
+    audioDurationSeconds?: number | undefined;
+    audioExt?: string | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "audio";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    audioUrl?: string | undefined;
+    audioDurationSeconds?: number | undefined;
+    audioExt?: string | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
+} & {
+    name: z.ZodString;
+} & {
+    type: z.ZodLiteral<"audio-external">;
+    provider: z.ZodString;
+    externalId: z.ZodString;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    durationSeconds: z.ZodOptional<z.ZodNumber>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "audio-external";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    provider: string;
+    externalId: string;
+    thumbnailUrl?: string | undefined;
+    durationSeconds?: number | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "audio-external";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    provider: string;
+    externalId: string;
+    thumbnailUrl?: string | undefined;
+    durationSeconds?: number | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
+} & {
+    name: z.ZodString;
+} & {
+    type: z.ZodLiteral<"entity">;
+    entityUid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "entity";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    entityUid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "entity";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "AssetUid" | undefined;
+    };
+    entityUid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>]>;
+type AssetV3 = z.infer<typeof AssetV3Schema>;
+
+declare const EntityBaseV4Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+type EntityBaseV4 = z.infer<typeof EntityBaseV4Schema>;
+declare const CharacterEntityV4Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    type: z.ZodLiteral<"character">;
+}, "strip", z.ZodTypeAny, {
+    type: "character";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "character";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+type CharacterEntityV4 = z.infer<typeof CharacterEntityV4Schema>;
+declare const CreatureEntityV4Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    type: z.ZodLiteral<"creature">;
+}, "strip", z.ZodTypeAny, {
+    type: "creature";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "creature";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+type CreatureEntityV4 = z.infer<typeof CreatureEntityV4Schema>;
+declare const GroupEntityV4Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    type: z.ZodLiteral<"group">;
+    ranks: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        label: z.ZodString;
+        characters: z.ZodArray<z.ZodObject<{
+            entityUid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+            label: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }, {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }>, "many">;
+    }, "strip", z.ZodTypeAny, {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }, {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }>, "many">>;
+    charactersUids: z.ZodDefault<z.ZodArray<z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>, "many">>;
+}, "strip", z.ZodTypeAny, {
+    type: "group";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    ranks: {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }[];
+    charactersUids: EntityUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "group";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    ranks?: {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }[] | undefined;
+    charactersUids?: EntityUid[] | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+type GroupEntityV4 = z.infer<typeof GroupEntityV4Schema>;
+declare const PlaceEntityV4Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    scenesUids: z.ZodDefault<z.ZodArray<z.ZodType<SceneUid, z.ZodTypeDef, SceneUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"place">;
+}, "strip", z.ZodTypeAny, {
+    type: "place";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    scenesUids: SceneUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "place";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    scenesUids?: SceneUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+type PlaceEntityV4 = z.infer<typeof PlaceEntityV4Schema>;
+declare const ItemEntityV4Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    type: z.ZodLiteral<"item">;
+}, "strip", z.ZodTypeAny, {
+    type: "item";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "item";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+declare const NoteEntityV4Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    type: z.ZodLiteral<"note">;
+}, "strip", z.ZodTypeAny, {
+    type: "note";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "note";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+declare const AbilityEntityV4Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    type: z.ZodLiteral<"ability">;
+}, "strip", z.ZodTypeAny, {
+    type: "ability";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "ability";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+declare const StoryEntityV4Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    type: z.ZodLiteral<"story">;
+}, "strip", z.ZodTypeAny, {
+    type: "story";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "story";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+declare const EventEntityV4Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    type: z.ZodLiteral<"event">;
+}, "strip", z.ZodTypeAny, {
+    type: "event";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "event";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+declare const EntityV4Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    type: z.ZodLiteral<"character">;
+}, "strip", z.ZodTypeAny, {
+    type: "character";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "character";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    type: z.ZodLiteral<"creature">;
+}, "strip", z.ZodTypeAny, {
+    type: "creature";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "creature";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    type: z.ZodLiteral<"group">;
+    ranks: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        label: z.ZodString;
+        characters: z.ZodArray<z.ZodObject<{
+            entityUid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+            label: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }, {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }>, "many">;
+    }, "strip", z.ZodTypeAny, {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }, {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }>, "many">>;
+    charactersUids: z.ZodDefault<z.ZodArray<z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>, "many">>;
+}, "strip", z.ZodTypeAny, {
+    type: "group";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    ranks: {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }[];
+    charactersUids: EntityUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "group";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    ranks?: {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }[] | undefined;
+    charactersUids?: EntityUid[] | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    scenesUids: z.ZodDefault<z.ZodArray<z.ZodType<SceneUid, z.ZodTypeDef, SceneUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"place">;
+}, "strip", z.ZodTypeAny, {
+    type: "place";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    scenesUids: SceneUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "place";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    scenesUids?: SceneUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    type: z.ZodLiteral<"item">;
+}, "strip", z.ZodTypeAny, {
+    type: "item";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "item";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    type: z.ZodLiteral<"note">;
+}, "strip", z.ZodTypeAny, {
+    type: "note";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "note";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    type: z.ZodLiteral<"ability">;
+}, "strip", z.ZodTypeAny, {
+    type: "ability";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "ability";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    type: z.ZodLiteral<"story">;
+}, "strip", z.ZodTypeAny, {
+    type: "story";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "story";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    type: z.ZodLiteral<"event">;
+}, "strip", z.ZodTypeAny, {
+    type: "event";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "event";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>]>;
+type EntityV4 = z.infer<typeof EntityV4Schema>;
+
+declare const CustomImageSceneMapV4Schema: z.ZodObject<{
+    uid: z.ZodType<SceneMapUid, z.ZodTypeDef, SceneMapUid>;
+} & {
+    name: z.ZodString;
+} & {
+    grid: z.ZodObject<{
+        type: z.ZodEnum<["square", "hexv", "hexh"]>;
+        size: z.ZodNumber;
+        sizeInUnit: z.ZodNumber;
+        measureUnit: z.ZodString;
+        lineWidth: z.ZodNumber;
+        color: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+        offset: z.ZodObject<{
+            x: z.ZodNumber;
+            z: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            x: number;
+            z: number;
+        }, {
+            x: number;
+            z: number;
+        }>;
+    }, "strip", z.ZodTypeAny, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }>;
+    sourceFormat: z.ZodOptional<z.ZodString>;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    type: z.ZodLiteral<"customImage">;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "customImage";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    sourceFormat?: string | undefined;
+}, {
+    type: "customImage";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    sourceFormat?: string | undefined;
+}>;
+type CustomImageSceneMapV4 = z.infer<typeof CustomImageSceneMapV4Schema>;
+declare const CustomVideoSceneMapV4Schema: z.ZodObject<{
+    uid: z.ZodType<SceneMapUid, z.ZodTypeDef, SceneMapUid>;
+} & {
+    name: z.ZodString;
+} & {
+    grid: z.ZodObject<{
+        type: z.ZodEnum<["square", "hexv", "hexh"]>;
+        size: z.ZodNumber;
+        sizeInUnit: z.ZodNumber;
+        measureUnit: z.ZodString;
+        lineWidth: z.ZodNumber;
+        color: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+        offset: z.ZodObject<{
+            x: z.ZodNumber;
+            z: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            x: number;
+            z: number;
+        }, {
+            x: number;
+            z: number;
+        }>;
+    }, "strip", z.ZodTypeAny, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }>;
+    sourceFormat: z.ZodOptional<z.ZodString>;
+} & {
+    videoUrl: z.ZodOptional<z.ZodString>;
+    videoDimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    type: z.ZodLiteral<"customVideo">;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "customVideo";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    sourceFormat?: string | undefined;
+}, {
+    type: "customVideo";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    sourceFormat?: string | undefined;
+}>;
+type CustomVideoSceneMapV4 = z.infer<typeof CustomVideoSceneMapV4Schema>;
+declare const SceneMapV4Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+    uid: z.ZodType<SceneMapUid, z.ZodTypeDef, SceneMapUid>;
+} & {
+    name: z.ZodString;
+} & {
+    grid: z.ZodObject<{
+        type: z.ZodEnum<["square", "hexv", "hexh"]>;
+        size: z.ZodNumber;
+        sizeInUnit: z.ZodNumber;
+        measureUnit: z.ZodString;
+        lineWidth: z.ZodNumber;
+        color: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+        offset: z.ZodObject<{
+            x: z.ZodNumber;
+            z: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            x: number;
+            z: number;
+        }, {
+            x: number;
+            z: number;
+        }>;
+    }, "strip", z.ZodTypeAny, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }>;
+    sourceFormat: z.ZodOptional<z.ZodString>;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    type: z.ZodLiteral<"customImage">;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "customImage";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    sourceFormat?: string | undefined;
+}, {
+    type: "customImage";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    sourceFormat?: string | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<SceneMapUid, z.ZodTypeDef, SceneMapUid>;
+} & {
+    name: z.ZodString;
+} & {
+    grid: z.ZodObject<{
+        type: z.ZodEnum<["square", "hexv", "hexh"]>;
+        size: z.ZodNumber;
+        sizeInUnit: z.ZodNumber;
+        measureUnit: z.ZodString;
+        lineWidth: z.ZodNumber;
+        color: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+        offset: z.ZodObject<{
+            x: z.ZodNumber;
+            z: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            x: number;
+            z: number;
+        }, {
+            x: number;
+            z: number;
+        }>;
+    }, "strip", z.ZodTypeAny, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }, {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    }>;
+    sourceFormat: z.ZodOptional<z.ZodString>;
+} & {
+    videoUrl: z.ZodOptional<z.ZodString>;
+    videoDimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    type: z.ZodLiteral<"customVideo">;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "customVideo";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    sourceFormat?: string | undefined;
+}, {
+    type: "customVideo";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneMapUid" | undefined;
+    };
+    grid: {
+        type: "square" | "hexv" | "hexh";
+        size: number;
+        sizeInUnit: number;
+        measureUnit: string;
+        lineWidth: number;
+        offset: {
+            x: number;
+            z: number;
+        };
+        color?: string | null | undefined;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    sourceFormat?: string | undefined;
+}>]>;
+type SceneMapV4 = z.infer<typeof SceneMapV4Schema>;
+
+declare const CustomImageSceneBackgroundV4Schema: z.ZodObject<{
+    uid: z.ZodType<SceneBackgroundUid, z.ZodTypeDef, SceneBackgroundUid>;
+} & {
+    name: z.ZodString;
+} & {
+    opacity: z.ZodOptional<z.ZodNumber>;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    type: z.ZodLiteral<"customImage">;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "customImage";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    opacity?: number | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "customImage";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    opacity?: number | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+type CustomImageSceneBackgroundV4 = z.infer<typeof CustomImageSceneBackgroundV4Schema>;
+declare const CustomVideoSceneBackgroundV4Schema: z.ZodObject<{
+    uid: z.ZodType<SceneBackgroundUid, z.ZodTypeDef, SceneBackgroundUid>;
+} & {
+    name: z.ZodString;
+} & {
+    opacity: z.ZodOptional<z.ZodNumber>;
+} & {
+    videoUrl: z.ZodOptional<z.ZodString>;
+    videoDimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    type: z.ZodLiteral<"customVideo">;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "customVideo";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    opacity?: number | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "customVideo";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    opacity?: number | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>;
+type CustomVideoSceneBackgroundV4 = z.infer<typeof CustomVideoSceneBackgroundV4Schema>;
+declare const SceneBackgroundV4Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+    uid: z.ZodType<SceneBackgroundUid, z.ZodTypeDef, SceneBackgroundUid>;
+} & {
+    name: z.ZodString;
+} & {
+    opacity: z.ZodOptional<z.ZodNumber>;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    type: z.ZodLiteral<"customImage">;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "customImage";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    opacity?: number | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "customImage";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    opacity?: number | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<SceneBackgroundUid, z.ZodTypeDef, SceneBackgroundUid>;
+} & {
+    name: z.ZodString;
+} & {
+    opacity: z.ZodOptional<z.ZodNumber>;
+} & {
+    videoUrl: z.ZodOptional<z.ZodString>;
+    videoDimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    type: z.ZodLiteral<"customVideo">;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    type: "customVideo";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    opacity?: number | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "customVideo";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "SceneBackgroundUid" | undefined;
+    };
+    videoUrl?: string | undefined;
+    videoDimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    opacity?: number | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}>]>;
+type SceneBackgroundV4 = z.infer<typeof SceneBackgroundV4Schema>;
+
+declare const SheetV7Schema: z.ZodObject<{
+    uid: z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>;
+    name: z.ZodOptional<z.ZodString>;
+    widgetUids: z.ZodDefault<z.ZodArray<z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>, "many">>;
+    compatibleDatasetUid: z.ZodOptional<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>>;
+    styles: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodOptional<z.ZodNullable<z.ZodObject<{
+        justifyContent: z.ZodOptional<z.ZodString>;
+        alignItems: z.ZodOptional<z.ZodString>;
+        flexDirection: z.ZodOptional<z.ZodString>;
+        lineHeight: z.ZodOptional<z.ZodNumber>;
+        fontFamilyId: z.ZodOptional<z.ZodString>;
+        fontScale: z.ZodOptional<z.ZodNumber>;
+        color: z.ZodOptional<z.ZodString>;
+        paddingTop: z.ZodOptional<z.ZodNumber>;
+        paddingRight: z.ZodOptional<z.ZodNumber>;
+        paddingBottom: z.ZodOptional<z.ZodNumber>;
+        paddingLeft: z.ZodOptional<z.ZodNumber>;
+        borderWidth: z.ZodOptional<z.ZodNumber>;
+        borderStyle: z.ZodOptional<z.ZodString>;
+        borderColor: z.ZodOptional<z.ZodString>;
+        borderRadius: z.ZodOptional<z.ZodString>;
+        background: z.ZodOptional<z.ZodObject<{
+            assetUid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
+            objectFit: z.ZodOptional<z.ZodEnum<["cover", "contain", "fill", "none", "scale-down"]>>;
+        }, "strip", z.ZodTypeAny, {
+            assetUid: string & {
+                readonly __bypp_flavor?: "AssetUid" | undefined;
+            };
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
+        }, {
+            assetUid: string & {
+                readonly __bypp_flavor?: "AssetUid" | undefined;
+            };
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
+        }>>;
+    } & {
+        rotation: z.ZodOptional<z.ZodNumber>;
+    }, "strip", z.ZodTypeAny, {
+        color?: string | undefined;
+        justifyContent?: string | undefined;
+        alignItems?: string | undefined;
+        flexDirection?: string | undefined;
+        lineHeight?: number | undefined;
+        fontFamilyId?: string | undefined;
+        fontScale?: number | undefined;
+        paddingTop?: number | undefined;
+        paddingRight?: number | undefined;
+        paddingBottom?: number | undefined;
+        paddingLeft?: number | undefined;
+        borderWidth?: number | undefined;
+        borderStyle?: string | undefined;
+        borderColor?: string | undefined;
+        borderRadius?: string | undefined;
+        background?: {
+            assetUid: string & {
+                readonly __bypp_flavor?: "AssetUid" | undefined;
+            };
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
+        } | undefined;
+        rotation?: number | undefined;
+    }, {
+        color?: string | undefined;
+        justifyContent?: string | undefined;
+        alignItems?: string | undefined;
+        flexDirection?: string | undefined;
+        lineHeight?: number | undefined;
+        fontFamilyId?: string | undefined;
+        fontScale?: number | undefined;
+        paddingTop?: number | undefined;
+        paddingRight?: number | undefined;
+        paddingBottom?: number | undefined;
+        paddingLeft?: number | undefined;
+        borderWidth?: number | undefined;
+        borderStyle?: string | undefined;
+        borderColor?: string | undefined;
+        borderRadius?: string | undefined;
+        background?: {
+            assetUid: string & {
+                readonly __bypp_flavor?: "AssetUid" | undefined;
+            };
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
+        } | undefined;
+        rotation?: number | undefined;
+    }>>>>>;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    uid: string & {
+        readonly __bypp_flavor?: "SheetUid" | undefined;
+    };
+    widgetUids: WidgetUid[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    name?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    compatibleDatasetUid?: DatasetUid | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    styles?: Record<string, {
+        color?: string | undefined;
+        justifyContent?: string | undefined;
+        alignItems?: string | undefined;
+        flexDirection?: string | undefined;
+        lineHeight?: number | undefined;
+        fontFamilyId?: string | undefined;
+        fontScale?: number | undefined;
+        paddingTop?: number | undefined;
+        paddingRight?: number | undefined;
+        paddingBottom?: number | undefined;
+        paddingLeft?: number | undefined;
+        borderWidth?: number | undefined;
+        borderStyle?: string | undefined;
+        borderColor?: string | undefined;
+        borderRadius?: string | undefined;
+        background?: {
+            assetUid: string & {
+                readonly __bypp_flavor?: "AssetUid" | undefined;
+            };
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
+        } | undefined;
+        rotation?: number | undefined;
+    } | null | undefined> | undefined;
+}, {
+    uid: string & {
+        readonly __bypp_flavor?: "SheetUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    name?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    widgetUids?: WidgetUid[] | undefined;
+    compatibleDatasetUid?: DatasetUid | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    styles?: Record<string, {
+        color?: string | undefined;
+        justifyContent?: string | undefined;
+        alignItems?: string | undefined;
+        flexDirection?: string | undefined;
+        lineHeight?: number | undefined;
+        fontFamilyId?: string | undefined;
+        fontScale?: number | undefined;
+        paddingTop?: number | undefined;
+        paddingRight?: number | undefined;
+        paddingBottom?: number | undefined;
+        paddingLeft?: number | undefined;
+        borderWidth?: number | undefined;
+        borderStyle?: string | undefined;
+        borderColor?: string | undefined;
+        borderRadius?: string | undefined;
+        background?: {
+            assetUid: string & {
+                readonly __bypp_flavor?: "AssetUid" | undefined;
+            };
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
+        } | undefined;
+        rotation?: number | undefined;
+    } | null | undefined> | undefined;
+}>;
+type SheetV7 = z.infer<typeof SheetV7Schema>;
+
+declare const WidgetActionRollV9Schema: z.ZodObject<{
     uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
     name: z.ZodString;
     area: z.ZodOptional<z.ZodNullable<z.ZodObject<{
@@ -7644,12 +12510,12 @@ declare const WidgetActionRollV8Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -7673,7 +12539,7 @@ declare const WidgetActionRollV8Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -7696,7 +12562,7 @@ declare const WidgetActionRollV8Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
@@ -7704,12 +12570,34 @@ declare const WidgetActionRollV8Schema: z.ZodObject<{
     actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
 } & {
     type: z.ZodLiteral<"actionRoll">;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     type: "actionRoll";
     name: string;
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -7730,19 +12618,16 @@ declare const WidgetActionRollV8Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }, {
     type: "actionRoll";
@@ -7750,6 +12635,14 @@ declare const WidgetActionRollV8Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -7770,28 +12663,24 @@ declare const WidgetActionRollV8Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }>;
-type WidgetActionRollV8 = z.infer<typeof WidgetActionRollV8Schema>;
+type WidgetActionRollV9 = z.infer<typeof WidgetActionRollV9Schema>;
 /**
- * Discriminated union of all widget kinds as of bypp v12. Every v7 variant is
- * re-declared with the v3 style (as in v7) plus the new actions mixin, and
- * the `actionRoll` variant is appended.
+ * Discriminated union of all widget kinds as of bypp v13 — the v8 union with
+ * `credit` merged into every member.
  */
-declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+declare const WidgetV9Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
     name: z.ZodString;
     area: z.ZodOptional<z.ZodNullable<z.ZodObject<{
@@ -7840,12 +12729,12 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -7869,7 +12758,7 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -7892,18 +12781,40 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
 } & {
     actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     type: "empty";
     name: string;
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -7924,19 +12835,16 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }, {
     type: "empty";
@@ -7944,6 +12852,14 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -7964,19 +12880,16 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }>, z.ZodObject<{
     uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -8031,12 +12944,12 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -8060,7 +12973,7 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -8083,12 +12996,26 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
 } & {
     actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     type: "bigNumber";
     name: string;
@@ -8097,6 +13024,14 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     min?: number | undefined;
     max?: number | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -8117,21 +13052,18 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
     unit?: string | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }, {
     type: "bigNumber";
@@ -8141,6 +13073,14 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     min?: number | undefined;
     max?: number | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -8161,21 +13101,18 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
     unit?: string | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }>, z.ZodObject<{
     uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -8226,12 +13163,12 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -8255,7 +13192,7 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -8278,18 +13215,40 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
 } & {
     actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     type: "plainText";
     name: string;
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -8310,19 +13269,16 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }, {
     type: "plainText";
@@ -8330,6 +13286,14 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -8350,19 +13314,16 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }>, z.ZodObject<{
     uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -8414,12 +13375,12 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -8443,7 +13404,7 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -8466,18 +13427,40 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
 } & {
     actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     type: "toggle";
     name: string;
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -8498,20 +13481,17 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
     toggleIconType?: string | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }, {
     type: "toggle";
@@ -8519,6 +13499,14 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -8539,20 +13527,17 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
     toggleIconType?: string | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }>, z.ZodObject<{
     uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -8609,12 +13594,12 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -8638,7 +13623,7 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -8661,18 +13646,40 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
 } & {
     actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     type: "bulletList";
     name: string;
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -8693,17 +13700,9 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     listVisibility?: string | undefined;
@@ -8712,6 +13711,11 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     listStyleBulletGap?: number | undefined;
     listStyleBulletIconGap?: number | undefined;
     listOptionStyle?: string | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }, {
     type: "bulletList";
@@ -8719,6 +13723,14 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -8739,17 +13751,9 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     listVisibility?: string | undefined;
@@ -8758,6 +13762,11 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     listStyleBulletGap?: number | undefined;
     listStyleBulletIconGap?: number | undefined;
     listOptionStyle?: string | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }>, z.ZodObject<{
     uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -8811,12 +13820,12 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -8840,7 +13849,7 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -8863,18 +13872,40 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
 } & {
     actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     type: "inlineList";
     name: string;
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -8895,22 +13926,19 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     listVisibility?: string | undefined;
     listOptionStyle?: string | undefined;
     listStyleTextSeparator?: string | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }, {
     type: "inlineList";
@@ -8918,6 +13946,14 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -8938,22 +13974,19 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     listVisibility?: string | undefined;
     listOptionStyle?: string | undefined;
     listStyleTextSeparator?: string | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }>, z.ZodObject<{
     uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -9009,12 +14042,12 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -9038,7 +14071,7 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -9061,12 +14094,26 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
 } & {
     actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     type: "pips";
     name: string;
@@ -9075,6 +14122,14 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     max?: number | undefined;
     icon?: string | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -9095,22 +14150,19 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
     gapX?: number | undefined;
     gapY?: number | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }, {
     type: "pips";
@@ -9120,6 +14172,14 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     max?: number | undefined;
     icon?: string | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -9140,22 +14200,19 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
     gapX?: number | undefined;
     gapY?: number | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }>, z.ZodObject<{
     uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -9214,12 +14271,12 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -9243,7 +14300,7 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -9266,12 +14323,26 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
 } & {
     actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     type: "bar";
     name: string;
@@ -9280,6 +14351,14 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     min?: number | undefined;
     max?: number | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -9300,17 +14379,9 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -9319,6 +14390,11 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     barColor?: string | undefined;
     bgColor?: string | undefined;
     showValue?: boolean | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }, {
     type: "bar";
@@ -9328,6 +14404,14 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     min?: number | undefined;
     max?: number | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -9348,17 +14432,9 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -9367,6 +14443,11 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     barColor?: string | undefined;
     bgColor?: string | undefined;
     showValue?: boolean | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }>, z.ZodObject<{
     uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -9419,12 +14500,12 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -9448,7 +14529,7 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -9471,19 +14552,40 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
 } & {
     actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     type: "entityImage";
     name: string;
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
-    objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -9504,19 +14606,17 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
     formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }, {
@@ -9525,7 +14625,14 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
-    objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -9546,19 +14653,17 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
     formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }>, z.ZodObject<{
@@ -9609,12 +14714,12 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -9638,7 +14743,7 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -9661,7 +14766,7 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
@@ -9672,12 +14777,34 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     radius: z.ZodOptional<z.ZodNumber>;
 } & {
     actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     type: "wheel";
     name: string;
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -9698,19 +14825,16 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     readingPosition?: string | undefined;
     labelOrientation?: string | undefined;
     radius?: number | undefined;
@@ -9721,6 +14845,14 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -9741,19 +14873,16 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     readingPosition?: string | undefined;
     labelOrientation?: string | undefined;
     radius?: number | undefined;
@@ -9806,12 +14935,12 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -9835,7 +14964,7 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -9858,7 +14987,7 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
@@ -9866,12 +14995,34 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     actionsVariablesUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
 } & {
     type: z.ZodLiteral<"actionRoll">;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     type: "actionRoll";
     name: string;
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -9892,19 +15043,16 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }, {
     type: "actionRoll";
@@ -9912,6 +15060,14 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -9932,21 +15088,18 @@ declare const WidgetV8Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
     actionsVariablesUids?: VariableUid[] | undefined;
 }>]>;
-type WidgetV8 = z.infer<typeof WidgetV8Schema>;
+type WidgetV9 = z.infer<typeof WidgetV9Schema>;
 
-export { type BeyondPaperV12 as B, type WidgetV8 as W, BeyondPaperV12Schema as a, type WidgetActionRollV8 as b, WidgetActionRollV8Schema as c, WidgetV8Schema as d, type WithWidgetActionsV8 as e, WithWidgetActionsV8Schema as f };
+export { WithCreditV1Schema as $, AbilityEntityV4Schema as A, type BeyondPaperV13 as B, type CharacterEntityV4 as C, EntityAssetV3Schema as D, type EntityV4 as E, EntityBaseV4Schema as F, type GroupEntityV4 as G, EntityV4Schema as H, EventEntityV4Schema as I, GroupEntityV4Schema as J, type ImageAssetV3 as K, ImageAssetV3Schema as L, ItemEntityV4Schema as M, NoteEntityV4Schema as N, PlaceEntityV4Schema as O, type PlaceEntityV4 as P, SceneBackgroundV4Schema as Q, SceneMapV4Schema as R, type SceneBackgroundV4 as S, SheetV7Schema as T, StoryEntityV4Schema as U, type VideoAssetV3 as V, type WidgetV9 as W, VideoAssetV3Schema as X, type WidgetActionRollV9 as Y, WidgetActionRollV9Schema as Z, WidgetV9Schema as _, type AssetV3 as a, type WithCreditV1 as a0, type AssetBaseV3 as b, AssetBaseV3Schema as c, AssetV3Schema as d, type AudioAssetV3 as e, AudioAssetV3Schema as f, type AudioExternalAssetV3 as g, AudioExternalAssetV3Schema as h, BeyondPaperV13Schema as i, type CreatureEntityV4 as j, type CreditV1 as k, type EntityBaseV4 as l, type SceneMapV4 as m, type SheetV7 as n, CharacterEntityV4Schema as o, CreatureEntityV4Schema as p, CreditV1Schema as q, type CustomImageSceneBackgroundV4 as r, CustomImageSceneBackgroundV4Schema as s, type CustomImageSceneMapV4 as t, CustomImageSceneMapV4Schema as u, type CustomVideoSceneBackgroundV4 as v, CustomVideoSceneBackgroundV4Schema as w, type CustomVideoSceneMapV4 as x, CustomVideoSceneMapV4Schema as y, type EntityAssetV3 as z };

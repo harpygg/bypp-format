@@ -3,7 +3,7 @@ import { BeyondPaperSchema, type BeyondPaper } from "./bypp.schema";
 
 describe("BeyondPaperSchema", () => {
   const validMinimal: BeyondPaper = {
-    version: 12,
+    version: 13,
     format: "bypp",
     name: "Test Bundle",
     exportedAt: "2026-03-22T12:00:00.000Z",
@@ -36,7 +36,7 @@ describe("BeyondPaperSchema", () => {
 
   it("parses a bundle that omits every content array", () => {
     const result = BeyondPaperSchema.safeParse({
-      version: 12,
+      version: 13,
       format: "bypp",
       name: "Empty Bundle",
       exportedAt: "2026-03-22T12:00:00.000Z",
@@ -614,6 +614,215 @@ describe("BeyondPaperSchema", () => {
       ...validMinimal,
       widgets: [
         { uid: "w-1", name: "w-1", type: "empty", style: { rotation: "45deg" } },
+      ],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  // ─── v13 per-file credit ──────────────────────────────────────────────
+
+  it("parses a credit on every media-bearing category (v13)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      assets: [
+        {
+          uid: "a-1",
+          name: "Map",
+          type: "image",
+          dimensions: { width: 100, height: 100 },
+          credit: {
+            name: "Ada Cartwright",
+            url: "https://example.com/ada",
+            license: "CC-BY",
+          },
+        },
+        {
+          uid: "a-2",
+          name: "Theme",
+          type: "audio",
+          audioUrl: "https://example.com/theme.mp3",
+          credit: { name: "Bo Rivers", license: "CC0" },
+        },
+        {
+          uid: "a-3",
+          name: "Intro",
+          type: "video",
+          dimensions: { width: 100, height: 100 },
+          videoUrl: "https://example.com/intro.mp4",
+          credit: { name: "Cy Nolan" },
+        },
+      ],
+      entities: [
+        {
+          uid: "e-1",
+          type: "character",
+          name: "Gandalf",
+          credit: { name: "Dee Marsh", license: "ARR" },
+        },
+      ],
+      widgets: [
+        {
+          uid: "w-1",
+          name: "w-1",
+          type: "empty",
+          credit: { name: "Eli Frost" },
+        },
+        {
+          uid: "w-2",
+          name: "w-2",
+          type: "actionRoll",
+          credit: { name: "Eli Frost" },
+        },
+      ],
+      sheets: [
+        { uid: "s-1", widgetUids: [], credit: { name: "Fay Orrin" } },
+      ],
+      sceneMaps: [
+        {
+          uid: "sm-1",
+          name: "Dungeon",
+          type: "customImage",
+          grid: {
+            type: "square",
+            size: 70,
+            sizeInUnit: 5,
+            measureUnit: "ft",
+            lineWidth: 1,
+            color: "#333333",
+            offset: { x: 0, z: 0 },
+          },
+          credit: { name: "Gil Vane", license: "CC-BY-NC" },
+        },
+        // Video-backed maps carry credit too — an animated map is somebody's
+        // work exactly as much as a still one.
+        {
+          uid: "sm-2",
+          name: "Storm",
+          type: "customVideo",
+          grid: {
+            type: "square",
+            size: 70,
+            sizeInUnit: 5,
+            measureUnit: "ft",
+            lineWidth: 1,
+            color: "#333333",
+            offset: { x: 0, z: 0 },
+          },
+          videoUrl: "https://example.com/storm.mp4",
+          credit: { name: "Gil Vane" },
+        },
+      ],
+      sceneBackgrounds: [
+        {
+          uid: "sb-1",
+          name: "Tavern",
+          type: "customImage",
+          credit: { name: "Hana Loew" },
+        },
+        {
+          uid: "sb-2",
+          name: "Rain",
+          type: "customVideo",
+          videoUrl: "https://example.com/rain.mp4",
+          credit: { name: "Hana Loew" },
+        },
+      ],
+    });
+    if (!result.success) console.error(result.error.format());
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.assets[0].credit).toEqual({
+        name: "Ada Cartwright",
+        url: "https://example.com/ada",
+        license: "CC-BY",
+      });
+      // A file's licence may be freer than the bundle's, and vice versa.
+      expect(result.data.assets[1].credit?.license).toBe("CC0");
+      expect(result.data.entities[0].credit?.license).toBe("ARR");
+      expect(result.data.sceneMaps[1].credit?.name).toBe("Gil Vane");
+      expect(result.data.sceneBackgrounds[1].credit?.name).toBe("Hana Loew");
+      expect(result.data.sheets[0].credit?.name).toBe("Fay Orrin");
+      expect(result.data.widgets[1].credit?.name).toBe("Eli Frost");
+    }
+  });
+
+  it("leaves credit absent when the producer omits it (v13)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      assets: [
+        {
+          uid: "a-1",
+          name: "Map",
+          type: "image",
+          dimensions: { width: 100, height: 100 },
+        },
+      ],
+    });
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.assets[0].credit).toBeUndefined();
+    }
+  });
+
+  it("rejects a credit with no name (v13)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      assets: [
+        {
+          uid: "a-1",
+          name: "Map",
+          type: "image",
+          dimensions: { width: 100, height: 100 },
+          credit: { url: "https://example.com/ada" },
+        },
+      ],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it("rejects a credit whose name is the empty string (v13)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      assets: [
+        {
+          uid: "a-1",
+          name: "Map",
+          type: "image",
+          dimensions: { width: 100, height: 100 },
+          credit: { name: "" },
+        },
+      ],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it("rejects a credit with a licence outside the CC enum (v13)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      assets: [
+        {
+          uid: "a-1",
+          name: "Map",
+          type: "image",
+          dimensions: { width: 100, height: 100 },
+          credit: { name: "Ada", license: "WTFPL" },
+        },
+      ],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it("rejects a credit whose url is not a url (v13)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      assets: [
+        {
+          uid: "a-1",
+          name: "Map",
+          type: "image",
+          dimensions: { width: 100, height: 100 },
+          credit: { name: "Ada", url: "ada dot com" },
+        },
       ],
     });
     expect(result.success).toBe(false);

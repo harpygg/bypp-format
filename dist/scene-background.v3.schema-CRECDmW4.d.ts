@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { S as SheetUid, W as WidgetUid, a as DatasetUid, A as AssetUid, E as EntityUid, T as TagUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, c as SceneUid, f as SceneMapUid, g as SceneBackgroundUid } from './variable.v7.schema-ClZin-IT.cjs';
+import { S as SheetUid, W as WidgetUid, a as DatasetUid, A as AssetUid, E as EntityUid, T as TagUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, c as SceneUid, f as SceneMapUid, g as SceneBackgroundUid } from './variable.v7.schema-D14Z7-jV.js';
 
 declare const SheetV6Schema: z.ZodObject<{
     uid: z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>;
@@ -29,12 +29,12 @@ declare const SheetV6Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -58,7 +58,7 @@ declare const SheetV6Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -81,7 +81,7 @@ declare const SheetV6Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>>>;
@@ -135,7 +135,7 @@ declare const SheetV6Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined> | undefined;
@@ -174,7 +174,7 @@ declare const SheetV6Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined> | undefined;
@@ -2455,4 +2455,4 @@ declare const SceneBackgroundV3Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObj
 }>]>;
 type SceneBackgroundV3 = z.infer<typeof SceneBackgroundV3Schema>;
 
-export { AbilityEntityV3Schema as A, type CharacterEntityV3 as C, type EntityV3 as E, type GroupEntityV3 as G, ItemEntityV3Schema as I, NoteEntityV3Schema as N, type PlaceEntityV3 as P, type SceneBackgroundV3 as S, type CreatureEntityV3 as a, type EntityBaseV3 as b, type SceneMapV3 as c, type SheetV6 as d, CharacterEntityV3Schema as e, CreatureEntityV3Schema as f, type CustomImageSceneBackgroundV3 as g, CustomImageSceneBackgroundV3Schema as h, type CustomImageSceneMapV3 as i, CustomImageSceneMapV3Schema as j, type CustomVideoSceneBackgroundV3 as k, CustomVideoSceneBackgroundV3Schema as l, type CustomVideoSceneMapV3 as m, CustomVideoSceneMapV3Schema as n, EntityBaseV3Schema as o, EntityV3Schema as p, EventEntityV3Schema as q, GroupEntityV3Schema as r, PlaceEntityV3Schema as s, SceneBackgroundV3Schema as t, SceneMapV3Schema as u, SheetV6Schema as v, StoryEntityV3Schema as w };
+export { AbilityEntityV3Schema as A, type CharacterEntityV3 as C, type EntityBaseV3 as E, type GroupEntityV3 as G, ItemEntityV3Schema as I, NoteEntityV3Schema as N, type PlaceEntityV3 as P, type SceneBackgroundV3 as S, CharacterEntityV3Schema as a, type CreatureEntityV3 as b, CreatureEntityV3Schema as c, type CustomImageSceneBackgroundV3 as d, CustomImageSceneBackgroundV3Schema as e, type CustomImageSceneMapV3 as f, CustomImageSceneMapV3Schema as g, type CustomVideoSceneBackgroundV3 as h, CustomVideoSceneBackgroundV3Schema as i, type CustomVideoSceneMapV3 as j, CustomVideoSceneMapV3Schema as k, EntityBaseV3Schema as l, type EntityV3 as m, EntityV3Schema as n, EventEntityV3Schema as o, GroupEntityV3Schema as p, PlaceEntityV3Schema as q, SceneBackgroundV3Schema as r, type SceneMapV3 as s, SceneMapV3Schema as t, type SheetV6 as u, SheetV6Schema as v, StoryEntityV3Schema as w };

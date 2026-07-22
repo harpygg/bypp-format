@@ -1,16 +1,18 @@
-export { B as BeyondPaper, a as BeyondPaperSchema, B as BeyondPaperV12, a as BeyondPaperV12Schema, W as ByppWidget, W as Widget, b as WidgetActionRoll, c as WidgetActionRollSchema, b as WidgetActionRollV8, c as WidgetActionRollV8Schema, d as WidgetSchema, W as WidgetV8, d as WidgetV8Schema, e as WithWidgetActions, f as WithWidgetActionsSchema, e as WithWidgetActionsV8, f as WithWidgetActionsV8Schema } from './widget.v8.schema-NcwIccH1.cjs';
+export { A as AbilityEntitySchema, A as AbilityEntityV4Schema, a as Asset, b as AssetBase, c as AssetBaseSchema, b as AssetBaseV3, c as AssetBaseV3Schema, d as AssetSchema, a as AssetV3, d as AssetV3Schema, e as AudioAsset, f as AudioAssetSchema, e as AudioAssetV3, f as AudioAssetV3Schema, g as AudioExternalAsset, h as AudioExternalAssetSchema, g as AudioExternalAssetV3, h as AudioExternalAssetV3Schema, B as BeyondPaper, i as BeyondPaperSchema, B as BeyondPaperV13, i as BeyondPaperV13Schema, a as ByppAsset, b as ByppAssetBase, C as ByppCharacterEntity, j as ByppCreatureEntity, k as ByppCredit, E as ByppEntity, l as ByppEntityBase, G as ByppGroupEntity, P as ByppPlaceEntity, S as ByppSceneBackground, m as ByppSceneMap, n as ByppSheet, W as ByppWidget, C as CharacterEntity, o as CharacterEntitySchema, C as CharacterEntityV4, o as CharacterEntityV4Schema, j as CreatureEntity, p as CreatureEntitySchema, j as CreatureEntityV4, p as CreatureEntityV4Schema, k as Credit, q as CreditSchema, k as CreditV1, q as CreditV1Schema, r as CustomImageSceneBackground, s as CustomImageSceneBackgroundSchema, r as CustomImageSceneBackgroundV4, s as CustomImageSceneBackgroundV4Schema, t as CustomImageSceneMap, u as CustomImageSceneMapSchema, t as CustomImageSceneMapV4, u as CustomImageSceneMapV4Schema, v as CustomVideoSceneBackground, w as CustomVideoSceneBackgroundSchema, v as CustomVideoSceneBackgroundV4, w as CustomVideoSceneBackgroundV4Schema, x as CustomVideoSceneMap, y as CustomVideoSceneMapSchema, x as CustomVideoSceneMapV4, y as CustomVideoSceneMapV4Schema, E as Entity, z as EntityAsset, D as EntityAssetSchema, z as EntityAssetV3, D as EntityAssetV3Schema, l as EntityBase, F as EntityBaseSchema, l as EntityBaseV4, F as EntityBaseV4Schema, H as EntitySchema, E as EntityV4, H as EntityV4Schema, I as EventEntitySchema, I as EventEntityV4Schema, G as GroupEntity, J as GroupEntitySchema, G as GroupEntityV4, J as GroupEntityV4Schema, K as ImageAsset, L as ImageAssetSchema, K as ImageAssetV3, L as ImageAssetV3Schema, M as ItemEntitySchema, M as ItemEntityV4Schema, N as NoteEntitySchema, N as NoteEntityV4Schema, P as PlaceEntity, O as PlaceEntitySchema, P as PlaceEntityV4, O as PlaceEntityV4Schema, S as SceneBackground, Q as SceneBackgroundSchema, S as SceneBackgroundV4, Q as SceneBackgroundV4Schema, m as SceneMap, R as SceneMapSchema, m as SceneMapV4, R as SceneMapV4Schema, n as Sheet, T as SheetSchema, n as SheetV7, T as SheetV7Schema, U as StoryEntitySchema, U as StoryEntityV4Schema, V as VideoAsset, X as VideoAssetSchema, V as VideoAssetV3, X as VideoAssetV3Schema, W as Widget, Y as WidgetActionRoll, Z as WidgetActionRollSchema, Y as WidgetActionRollV9, Z as WidgetActionRollV9Schema, _ as WidgetSchema, W as WidgetV9, _ as WidgetV9Schema, $ as WithCreditSchema, a0 as WithCreditV1, $ as WithCreditV1Schema } from './widget.v9.schema-CbtelRzz.cjs';
 import { z } from 'zod';
-import { D as DialectUid, E as EntityUid, T as TagUid, a as DatasetUid, S as SheetUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, A as AssetUid, c as SceneUid, C as ChunkUid, R as RandomTableUid, W as WidgetUid, d as RandomTableRowUid, e as TagCategoryUid, f as SceneMapUid, g as SceneBackgroundUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid } from './variable.v7.schema-ClZin-IT.cjs';
-export { k as Asset, l as AssetBase, m as AssetBaseSchema, l as AssetBaseV2, m as AssetBaseV2Schema, n as AssetSchema, o as AssetUidSchema, k as AssetV2, n as AssetV2Schema, p as Attribution, q as AttributionSchema, p as AttributionV3, q as AttributionV3Schema, r as AudioAsset, s as AudioAssetSchema, r as AudioAssetV2, s as AudioAssetV2Schema, t as AudioExternalAsset, u as AudioExternalAssetSchema, t as AudioExternalAssetV2, u as AudioExternalAssetV2Schema, B as BeyondPaperV3, v as BeyondPaperV3Schema, w as BeyondPaperV4, x as BeyondPaperV4Schema, k as ByppAsset, l as ByppAssetBase, y as ByppDataTable, z as ByppDataTableColumn, F as ByppDataTableRow, G as ByppDataset, H as ByppDialect, I as ByppDialectFont, J as ByppPage, K as ByppPageEntity, L as ByppPageStandard, M as ByppRandomTable, N as ByppRandomTableRow, O as ByppScene, Q as ByppTag, U as ByppTagCategory, X as ByppVariable, Y as CcLicense, Z as CcLicenseSchema, Y as CcLicenseV3, Z as CcLicenseV3Schema, _ as ChunkUidSchema, $ as CustomImageSceneMapV1, a0 as CustomImageSceneMapV1Schema, a1 as CustomVideoSceneMapV1, a2 as CustomVideoSceneMapV1Schema, y as DataTable, a3 as DataTableCellValue, a4 as DataTableCellValueSchema, a3 as DataTableCellValueV2, a4 as DataTableCellValueV2Schema, z as DataTableColumn, a5 as DataTableColumnBoolean, a6 as DataTableColumnBooleanSchema, a5 as DataTableColumnBooleanV2, a6 as DataTableColumnBooleanV2Schema, a7 as DataTableColumnChoice, a8 as DataTableColumnChoiceSchema, a7 as DataTableColumnChoiceV2, a8 as DataTableColumnChoiceV2Schema, a9 as DataTableColumnDataTableLookup, aa as DataTableColumnDataTableLookupSchema, a9 as DataTableColumnDataTableLookupV2, aa as DataTableColumnDataTableLookupV2Schema, ab as DataTableColumnDataTableRef, ac as DataTableColumnDataTableRefSchema, ab as DataTableColumnDataTableRefV2, ac as DataTableColumnDataTableRefV2Schema, ad as DataTableColumnIcon, ae as DataTableColumnIconSchema, ad as DataTableColumnIconV2, ae as DataTableColumnIconV2Schema, af as DataTableColumnNumber, ag as DataTableColumnNumberSchema, af as DataTableColumnNumberV2, ag as DataTableColumnNumberV2Schema, ah as DataTableColumnSchema, ai as DataTableColumnText, aj as DataTableColumnTextSchema, ai as DataTableColumnTextV2, aj as DataTableColumnTextV2Schema, ak as DataTableColumnTranslatableText, al as DataTableColumnTranslatableTextSchema, ak as DataTableColumnTranslatableTextV2, al as DataTableColumnTranslatableTextV2Schema, am as DataTableColumnUidSchema, z as DataTableColumnV2, ah as DataTableColumnV2Schema, an as DataTableRow, ao as DataTableRowSchema, ap as DataTableRowUidSchema, F as DataTableRowV2, aq as DataTableRowV2Schema, an as DataTableRowV3, ao as DataTableRowV3Schema, ar as DataTableSchema, as as DataTableUidSchema, at as DataTableV2, au as DataTableV2Schema, y as DataTableV3, ar as DataTableV3Schema, G as Dataset, av as DatasetSchema, aw as DatasetTargetSchema, aw as DatasetTargetV2Schema, ax as DatasetUidSchema, G as DatasetV2, av as DatasetV2Schema, ay as Dd2VttSceneMapV1, az as Dd2VttSceneMapV1Schema, H as Dialect, I as DialectFont, aA as DialectFontSchema, I as DialectFontV2, aA as DialectFontV2Schema, aB as DialectSchema, aC as DialectUidSchema, H as DialectV2, aB as DialectV2Schema, aD as ENTITY_IMAGE_RENDITIONS, aE as EntityAsset, aF as EntityAssetSchema, aE as EntityAssetV2, aF as EntityAssetV2Schema, aG as EntityImageFormat, aH as EntityImageFormatSchema, aG as EntityImageFormatV5, aH as EntityImageFormatV5Schema, aI as EntityImageObjectFit, aJ as EntityImageObjectFitSchema, aI as EntityImageObjectFitV5, aJ as EntityImageObjectFitV5Schema, aK as EntityUidSchema, aL as GridData, aM as GridDataSchema, aL as GridDataV1, aM as GridDataV1Schema, aN as ImageAsset, aO as ImageAssetSchema, aN as ImageAssetV2, aO as ImageAssetV2Schema, aP as KNOWN_EXTERNAL_AUDIO_PROVIDERS, aQ as KnownExternalAudioProvider, aR as NumberVariableV2, aS as NumberVariableV2Schema, aT as ObjectFit, aU as ObjectFitSchema, aT as ObjectFitV6, aU as ObjectFitV6Schema, J as Page, K as PageEntity, aV as PageEntitySchema, K as PageEntityV1, aV as PageEntityV1Schema, aW as PageSchema, L as PageStandard, aX as PageStandardSchema, L as PageStandardV1, aX as PageStandardV1Schema, aY as PageUidSchema, J as PageV1, aW as PageV1Schema, aZ as ParentAttribution, a_ as ParentAttributionSchema, a$ as ParentAttributionV3, b0 as ParentAttributionV3Schema, aZ as ParentAttributionV4, a_ as ParentAttributionV4Schema, M as RandomTable, N as RandomTableRow, b1 as RandomTableRowSchema, b2 as RandomTableRowUidSchema, N as RandomTableRowV7, b1 as RandomTableRowV7Schema, b3 as RandomTableSchema, b4 as RandomTableUidSchema, M as RandomTableV7, b3 as RandomTableV7Schema, O as Scene, b5 as SceneBackgroundUidSchema, b6 as SceneMapBaseV1, b7 as SceneMapBaseV1Schema, b8 as SceneMapUidSchema, b9 as SceneMapV1, ba as SceneMapV1Schema, bb as SceneSchema, bc as SceneUidSchema, O as SceneV2, bb as SceneV2Schema, bd as SheetUidSchema, be as Style, bf as StyleSchema, bg as StyleV2, bh as StyleV2Schema, be as StyleV3, bf as StyleV3Schema, Q as Tag, U as TagCategory, bi as TagCategorySchema, bj as TagCategoryUidSchema, U as TagCategoryV1, bi as TagCategoryV1Schema, bk as TagSchema, bl as TagUidSchema, Q as TagV2, bk as TagV2Schema, X as Variable, bm as VariableChoiceUidSchema, bn as VariableSchema, bo as VariableUidSchema, X as VariableV7, bn as VariableV7Schema, bp as VideoAsset, bq as VideoAssetSchema, bp as VideoAssetV2, bq as VideoAssetV2Schema, br as WidgetBackground, bs as WidgetBackgroundSchema, br as WidgetBackgroundV6, bs as WidgetBackgroundV6Schema, bt as WidgetEntityImageV5, bu as WidgetEntityImageV5Schema, bv as WidgetUidSchema, bw as WidgetV5, bx as WidgetV5Schema, by as WithStyleSchema, bz as WithStyleV2Schema, by as WithStyleV3Schema } from './variable.v7.schema-ClZin-IT.cjs';
-export { A as AbilityEntityV2Schema, B as BeyondPaperV9, a as BeyondPaperV9Schema, S as ByppSceneBackgroundBase, b as ByppSceneMapBase, C as CharacterEntityV2, c as CharacterEntityV2Schema, d as CreatureEntityV2, e as CreatureEntityV2Schema, f as CustomImageSceneBackgroundV2, g as CustomImageSceneBackgroundV2Schema, h as CustomImageSceneMapV2, i as CustomImageSceneMapV2Schema, j as CustomVideoSceneBackgroundV2, k as CustomVideoSceneBackgroundV2Schema, l as CustomVideoSceneMapV2, m as CustomVideoSceneMapV2Schema, E as EntityBaseV2, n as EntityBaseV2Schema, o as EntityV2, p as EntityV2Schema, q as EventEntityV2Schema, G as GroupEntityV2, r as GroupEntityV2Schema, I as ItemEntityV2Schema, K as KNOWN_VTT_SOURCE_FORMATS, s as KnownVttSourceFormat, N as NoteEntityV2Schema, P as PlaceEntityV2, t as PlaceEntityV2Schema, S as SceneBackgroundBase, u as SceneBackgroundBaseSchema, S as SceneBackgroundBaseV2, u as SceneBackgroundBaseV2Schema, v as SceneBackgroundV2, w as SceneBackgroundV2Schema, b as SceneMapBase, x as SceneMapBaseSchema, b as SceneMapBaseV2, x as SceneMapBaseV2Schema, y as SceneMapV2, z as SceneMapV2Schema, D as SheetV5, F as SheetV5Schema, H as StoryEntityV2Schema } from './sheet.v5.schema-DbV1RorT.cjs';
-export { B as BeyondPaperV10, a as BeyondPaperV10Schema } from './bypp.v10.schema-BGDtEXu2.cjs';
-export { B as BeyondPaperV11, a as BeyondPaperV11Schema } from './bypp.v11.schema-C-jiR8YC.cjs';
-export { C as ByppChunkBase, a as ByppChunkGallery, b as ByppChunkRandom, C as ChunkBase, c as ChunkBaseSchema, C as ChunkBaseV2, c as ChunkBaseV2Schema, a as ChunkGallery, d as ChunkGallerySchema, a as ChunkGalleryV2, d as ChunkGalleryV2Schema, b as ChunkRandom, e as ChunkRandomSchema, b as ChunkRandomV2, e as ChunkRandomV2Schema, f as ChunkTextProxyV2, g as ChunkTextProxyV2Schema, h as ChunkTextV2, i as ChunkTextV2Schema, j as ChunkV2, k as ChunkV2Schema } from './chunk.v2.schema-CPzgOZDy.cjs';
-export { C as ByppChunk, a as ByppChunkText, C as Chunk, b as ChunkSchema, a as ChunkText, c as ChunkTextSchema, a as ChunkTextV11, c as ChunkTextV11Schema, C as ChunkV11, b as ChunkV11Schema } from './chunk.v11.schema-D9fESfVu.cjs';
-export { A as AbilityEntitySchema, A as AbilityEntityV3Schema, C as ByppCharacterEntity, a as ByppCreatureEntity, E as ByppEntity, b as ByppEntityBase, G as ByppGroupEntity, P as ByppPlaceEntity, S as ByppSceneBackground, c as ByppSceneMap, d as ByppSheet, C as CharacterEntity, e as CharacterEntitySchema, C as CharacterEntityV3, e as CharacterEntityV3Schema, a as CreatureEntity, f as CreatureEntitySchema, a as CreatureEntityV3, f as CreatureEntityV3Schema, g as CustomImageSceneBackground, h as CustomImageSceneBackgroundSchema, g as CustomImageSceneBackgroundV3, h as CustomImageSceneBackgroundV3Schema, i as CustomImageSceneMap, j as CustomImageSceneMapSchema, i as CustomImageSceneMapV3, j as CustomImageSceneMapV3Schema, k as CustomVideoSceneBackground, l as CustomVideoSceneBackgroundSchema, k as CustomVideoSceneBackgroundV3, l as CustomVideoSceneBackgroundV3Schema, m as CustomVideoSceneMap, n as CustomVideoSceneMapSchema, m as CustomVideoSceneMapV3, n as CustomVideoSceneMapV3Schema, E as Entity, b as EntityBase, o as EntityBaseSchema, b as EntityBaseV3, o as EntityBaseV3Schema, p as EntitySchema, E as EntityV3, p as EntityV3Schema, q as EventEntitySchema, q as EventEntityV3Schema, G as GroupEntity, r as GroupEntitySchema, G as GroupEntityV3, r as GroupEntityV3Schema, I as ItemEntitySchema, I as ItemEntityV3Schema, N as NoteEntitySchema, N as NoteEntityV3Schema, P as PlaceEntity, s as PlaceEntitySchema, P as PlaceEntityV3, s as PlaceEntityV3Schema, S as SceneBackground, t as SceneBackgroundSchema, S as SceneBackgroundV3, t as SceneBackgroundV3Schema, c as SceneMap, u as SceneMapSchema, c as SceneMapV3, u as SceneMapV3Schema, d as Sheet, v as SheetSchema, d as SheetV6, v as SheetV6Schema, w as StoryEntitySchema, w as StoryEntityV3Schema } from './scene-background.v3.schema-gonHUjUD.cjs';
-export { W as WidgetV7, a as WidgetV7Schema, b as WidgetWheel, c as WidgetWheelSchema } from './widget.v7.schema-BL5DYMEZ.cjs';
+import { D as DialectUid, E as EntityUid, T as TagUid, a as DatasetUid, S as SheetUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, A as AssetUid, c as SceneUid, C as ChunkUid, R as RandomTableUid, W as WidgetUid, d as RandomTableRowUid, e as TagCategoryUid, f as SceneMapUid, g as SceneBackgroundUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid } from './variable.v7.schema-D14Z7-jV.cjs';
+export { k as AssetUidSchema, l as Attribution, m as AttributionSchema, l as AttributionV3, m as AttributionV3Schema, B as BeyondPaperV3, n as BeyondPaperV3Schema, o as BeyondPaperV4, p as BeyondPaperV4Schema, q as ByppDataTable, r as ByppDataTableColumn, s as ByppDataTableRow, t as ByppDataset, u as ByppDialect, v as ByppDialectFont, w as ByppPage, x as ByppPageEntity, y as ByppPageStandard, z as ByppRandomTable, F as ByppRandomTableRow, G as ByppScene, H as ByppTag, I as ByppTagCategory, J as ByppVariable, K as CcLicense, L as CcLicenseSchema, K as CcLicenseV3, L as CcLicenseV3Schema, M as ChunkUidSchema, N as CustomImageSceneMapV1, O as CustomImageSceneMapV1Schema, Q as CustomVideoSceneMapV1, U as CustomVideoSceneMapV1Schema, q as DataTable, X as DataTableCellValue, Y as DataTableCellValueSchema, X as DataTableCellValueV2, Y as DataTableCellValueV2Schema, r as DataTableColumn, Z as DataTableColumnBoolean, _ as DataTableColumnBooleanSchema, Z as DataTableColumnBooleanV2, _ as DataTableColumnBooleanV2Schema, $ as DataTableColumnChoice, a0 as DataTableColumnChoiceSchema, $ as DataTableColumnChoiceV2, a0 as DataTableColumnChoiceV2Schema, a1 as DataTableColumnDataTableLookup, a2 as DataTableColumnDataTableLookupSchema, a1 as DataTableColumnDataTableLookupV2, a2 as DataTableColumnDataTableLookupV2Schema, a3 as DataTableColumnDataTableRef, a4 as DataTableColumnDataTableRefSchema, a3 as DataTableColumnDataTableRefV2, a4 as DataTableColumnDataTableRefV2Schema, a5 as DataTableColumnIcon, a6 as DataTableColumnIconSchema, a5 as DataTableColumnIconV2, a6 as DataTableColumnIconV2Schema, a7 as DataTableColumnNumber, a8 as DataTableColumnNumberSchema, a7 as DataTableColumnNumberV2, a8 as DataTableColumnNumberV2Schema, a9 as DataTableColumnSchema, aa as DataTableColumnText, ab as DataTableColumnTextSchema, aa as DataTableColumnTextV2, ab as DataTableColumnTextV2Schema, ac as DataTableColumnTranslatableText, ad as DataTableColumnTranslatableTextSchema, ac as DataTableColumnTranslatableTextV2, ad as DataTableColumnTranslatableTextV2Schema, ae as DataTableColumnUidSchema, r as DataTableColumnV2, a9 as DataTableColumnV2Schema, af as DataTableRow, ag as DataTableRowSchema, ah as DataTableRowUidSchema, s as DataTableRowV2, ai as DataTableRowV2Schema, af as DataTableRowV3, ag as DataTableRowV3Schema, aj as DataTableSchema, ak as DataTableUidSchema, al as DataTableV2, am as DataTableV2Schema, q as DataTableV3, aj as DataTableV3Schema, t as Dataset, an as DatasetSchema, ao as DatasetTargetSchema, ao as DatasetTargetV2Schema, ap as DatasetUidSchema, t as DatasetV2, an as DatasetV2Schema, aq as Dd2VttSceneMapV1, ar as Dd2VttSceneMapV1Schema, u as Dialect, v as DialectFont, as as DialectFontSchema, v as DialectFontV2, as as DialectFontV2Schema, at as DialectSchema, au as DialectUidSchema, u as DialectV2, at as DialectV2Schema, av as ENTITY_IMAGE_RENDITIONS, aw as EntityImageFormat, ax as EntityImageFormatSchema, aw as EntityImageFormatV5, ax as EntityImageFormatV5Schema, ay as EntityImageObjectFit, az as EntityImageObjectFitSchema, ay as EntityImageObjectFitV5, az as EntityImageObjectFitV5Schema, aA as EntityUidSchema, aB as GridData, aC as GridDataSchema, aB as GridDataV1, aC as GridDataV1Schema, aD as NumberVariableV2, aE as NumberVariableV2Schema, aF as ObjectFit, aG as ObjectFitSchema, aF as ObjectFitV6, aG as ObjectFitV6Schema, w as Page, x as PageEntity, aH as PageEntitySchema, x as PageEntityV1, aH as PageEntityV1Schema, aI as PageSchema, y as PageStandard, aJ as PageStandardSchema, y as PageStandardV1, aJ as PageStandardV1Schema, aK as PageUidSchema, w as PageV1, aI as PageV1Schema, aL as ParentAttribution, aM as ParentAttributionSchema, aN as ParentAttributionV3, aO as ParentAttributionV3Schema, aL as ParentAttributionV4, aM as ParentAttributionV4Schema, z as RandomTable, F as RandomTableRow, aP as RandomTableRowSchema, aQ as RandomTableRowUidSchema, F as RandomTableRowV7, aP as RandomTableRowV7Schema, aR as RandomTableSchema, aS as RandomTableUidSchema, z as RandomTableV7, aR as RandomTableV7Schema, G as Scene, aT as SceneBackgroundUidSchema, aU as SceneMapBaseV1, aV as SceneMapBaseV1Schema, aW as SceneMapUidSchema, aX as SceneMapV1, aY as SceneMapV1Schema, aZ as SceneSchema, a_ as SceneUidSchema, G as SceneV2, aZ as SceneV2Schema, a$ as SheetUidSchema, b0 as Style, b1 as StyleSchema, b2 as StyleV2, b3 as StyleV2Schema, b0 as StyleV3, b1 as StyleV3Schema, H as Tag, I as TagCategory, b4 as TagCategorySchema, b5 as TagCategoryUidSchema, I as TagCategoryV1, b4 as TagCategoryV1Schema, b6 as TagSchema, b7 as TagUidSchema, H as TagV2, b6 as TagV2Schema, J as Variable, b8 as VariableChoiceUidSchema, b9 as VariableSchema, ba as VariableUidSchema, J as VariableV7, b9 as VariableV7Schema, bb as WidgetBackground, bc as WidgetBackgroundSchema, bb as WidgetBackgroundV6, bc as WidgetBackgroundV6Schema, bd as WidgetEntityImageV5, be as WidgetEntityImageV5Schema, bf as WidgetUidSchema, bg as WidgetV5, bh as WidgetV5Schema, bi as WithStyleSchema, bj as WithStyleV2Schema, bi as WithStyleV3Schema } from './variable.v7.schema-D14Z7-jV.cjs';
+export { A as AbilityEntityV2Schema, B as BeyondPaperV9, a as BeyondPaperV9Schema, S as ByppSceneBackgroundBase, b as ByppSceneMapBase, C as CharacterEntityV2, c as CharacterEntityV2Schema, d as CreatureEntityV2, e as CreatureEntityV2Schema, f as CustomImageSceneBackgroundV2, g as CustomImageSceneBackgroundV2Schema, h as CustomImageSceneMapV2, i as CustomImageSceneMapV2Schema, j as CustomVideoSceneBackgroundV2, k as CustomVideoSceneBackgroundV2Schema, l as CustomVideoSceneMapV2, m as CustomVideoSceneMapV2Schema, E as EntityBaseV2, n as EntityBaseV2Schema, o as EntityV2, p as EntityV2Schema, q as EventEntityV2Schema, G as GroupEntityV2, r as GroupEntityV2Schema, I as ItemEntityV2Schema, K as KNOWN_VTT_SOURCE_FORMATS, s as KnownVttSourceFormat, N as NoteEntityV2Schema, P as PlaceEntityV2, t as PlaceEntityV2Schema, S as SceneBackgroundBase, u as SceneBackgroundBaseSchema, S as SceneBackgroundBaseV2, u as SceneBackgroundBaseV2Schema, v as SceneBackgroundV2, w as SceneBackgroundV2Schema, b as SceneMapBase, x as SceneMapBaseSchema, b as SceneMapBaseV2, x as SceneMapBaseV2Schema, y as SceneMapV2, z as SceneMapV2Schema, D as SheetV5, F as SheetV5Schema, H as StoryEntityV2Schema } from './sheet.v5.schema-BDaI91wN.cjs';
+export { B as BeyondPaperV10, a as BeyondPaperV10Schema } from './bypp.v10.schema-CshMLkCs.cjs';
+export { B as BeyondPaperV11, a as BeyondPaperV11Schema } from './bypp.v11.schema-CHVxaMs7.cjs';
+export { B as BeyondPaperV12, a as BeyondPaperV12Schema, W as WidgetActionRollV8, b as WidgetActionRollV8Schema, c as WidgetV8, d as WidgetV8Schema, e as WithWidgetActions, f as WithWidgetActionsSchema, e as WithWidgetActionsV8, f as WithWidgetActionsV8Schema } from './widget.v8.schema-BHovDyjI.cjs';
+export { C as ByppChunkBase, a as ByppChunkGallery, b as ByppChunkRandom, C as ChunkBase, c as ChunkBaseSchema, C as ChunkBaseV2, c as ChunkBaseV2Schema, a as ChunkGallery, d as ChunkGallerySchema, a as ChunkGalleryV2, d as ChunkGalleryV2Schema, b as ChunkRandom, e as ChunkRandomSchema, b as ChunkRandomV2, e as ChunkRandomV2Schema, f as ChunkTextProxyV2, g as ChunkTextProxyV2Schema, h as ChunkTextV2, i as ChunkTextV2Schema, j as ChunkV2, k as ChunkV2Schema } from './chunk.v2.schema-Dxophc94.cjs';
+export { C as ByppChunk, a as ByppChunkText, C as Chunk, b as ChunkSchema, a as ChunkText, c as ChunkTextSchema, a as ChunkTextV11, c as ChunkTextV11Schema, C as ChunkV11, b as ChunkV11Schema } from './chunk.v11.schema-lVwxl32E.cjs';
+export { A as AssetBaseV2, a as AssetBaseV2Schema, b as AssetV2, c as AssetV2Schema, d as AudioAssetV2, e as AudioAssetV2Schema, f as AudioExternalAssetV2, g as AudioExternalAssetV2Schema, E as EntityAssetV2, h as EntityAssetV2Schema, I as ImageAssetV2, i as ImageAssetV2Schema, K as KNOWN_EXTERNAL_AUDIO_PROVIDERS, j as KnownExternalAudioProvider, V as VideoAssetV2, k as VideoAssetV2Schema } from './asset.v2.schema-BdTuiqms.cjs';
+export { A as AbilityEntityV3Schema, C as CharacterEntityV3, a as CharacterEntityV3Schema, b as CreatureEntityV3, c as CreatureEntityV3Schema, d as CustomImageSceneBackgroundV3, e as CustomImageSceneBackgroundV3Schema, f as CustomImageSceneMapV3, g as CustomImageSceneMapV3Schema, h as CustomVideoSceneBackgroundV3, i as CustomVideoSceneBackgroundV3Schema, j as CustomVideoSceneMapV3, k as CustomVideoSceneMapV3Schema, E as EntityBaseV3, l as EntityBaseV3Schema, m as EntityV3, n as EntityV3Schema, o as EventEntityV3Schema, G as GroupEntityV3, p as GroupEntityV3Schema, I as ItemEntityV3Schema, N as NoteEntityV3Schema, P as PlaceEntityV3, q as PlaceEntityV3Schema, S as SceneBackgroundV3, r as SceneBackgroundV3Schema, s as SceneMapV3, t as SceneMapV3Schema, u as SheetV6, v as SheetV6Schema, w as StoryEntityV3Schema } from './scene-background.v3.schema-I6kk8rYG.cjs';
+export { W as WidgetV7, a as WidgetV7Schema, b as WidgetWheel, c as WidgetWheelSchema } from './widget.v7.schema-BUMd4z9-.cjs';
 
-declare const BYPP_FORMAT_VERSION = 12;
+declare const BYPP_FORMAT_VERSION = 13;
 declare const BYPP_FORMAT_EXT = "bypp";
 
 declare const BeyondPaperV1Schema: z.ZodObject<{
@@ -707,7 +709,7 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         content: string;
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     }, {
@@ -718,7 +720,7 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         content: string;
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     }>, z.ZodObject<{
@@ -744,7 +746,7 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     }, {
         type: "textProxy";
@@ -759,7 +761,7 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
@@ -778,7 +780,7 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     }, {
         type: "gallery";
@@ -788,7 +790,7 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
@@ -810,7 +812,7 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         folded?: boolean | undefined;
     }, {
@@ -823,7 +825,7 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         folded?: boolean | undefined;
     }>]>, "many">;
@@ -1259,6 +1261,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -1271,14 +1281,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }, {
@@ -1287,6 +1289,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -1299,14 +1309,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }>, z.ZodObject<{
@@ -1389,6 +1391,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -1401,14 +1411,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -1421,6 +1423,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -1433,14 +1443,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -1519,6 +1521,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -1531,14 +1541,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }, {
@@ -1547,6 +1549,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -1559,14 +1569,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }>, z.ZodObject<{
@@ -1644,6 +1646,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -1656,14 +1666,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -1673,6 +1675,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -1685,14 +1695,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -1776,6 +1778,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -1788,14 +1798,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -1810,6 +1812,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -1822,14 +1832,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -1915,6 +1917,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -1927,14 +1937,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -1946,6 +1948,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -1958,14 +1968,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -2052,6 +2054,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -2064,14 +2074,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -2085,6 +2087,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -2097,14 +2107,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -2194,6 +2196,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -2206,14 +2216,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -2230,6 +2232,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -2242,14 +2252,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -2924,8 +2926,8 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "AssetUid" | undefined;
         };
-        durationSeconds: number;
         youtubeVideoId: string;
+        durationSeconds: number;
     }, {
         type: "audio-external";
         thumbnailUrl: string;
@@ -2933,8 +2935,8 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "AssetUid" | undefined;
         };
-        durationSeconds: number;
         youtubeVideoId: string;
+        durationSeconds: number;
     }>, z.ZodObject<{
         uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
     } & {
@@ -3177,7 +3179,7 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         content: string;
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     } | {
@@ -3193,7 +3195,7 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     } | {
         type: "gallery";
@@ -3203,7 +3205,7 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     } | {
         type: "random";
@@ -3215,7 +3217,7 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         folded?: boolean | undefined;
     })[];
@@ -3329,6 +3331,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3341,14 +3351,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -3359,6 +3361,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3371,14 +3381,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -3389,6 +3391,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3401,14 +3411,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -3417,6 +3419,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3429,14 +3439,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -3446,6 +3448,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3458,14 +3468,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -3480,6 +3482,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3492,14 +3502,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -3513,6 +3515,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3525,14 +3535,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -3546,6 +3548,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -3558,14 +3568,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -3757,8 +3759,8 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "AssetUid" | undefined;
         };
-        durationSeconds: number;
         youtubeVideoId: string;
+        durationSeconds: number;
     } | {
         type: "entity";
         name: string;
@@ -3985,7 +3987,7 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         content: string;
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     } | {
@@ -4001,7 +4003,7 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     } | {
         type: "gallery";
@@ -4011,7 +4013,7 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     } | {
         type: "random";
@@ -4023,7 +4025,7 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         folded?: boolean | undefined;
     })[];
@@ -4137,6 +4139,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -4149,14 +4159,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -4167,6 +4169,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -4179,14 +4189,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -4197,6 +4199,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -4209,14 +4219,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -4225,6 +4227,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -4237,14 +4247,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -4254,6 +4256,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -4266,14 +4276,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -4288,6 +4290,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -4300,14 +4310,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -4321,6 +4323,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -4333,14 +4343,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -4354,6 +4356,14 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -4366,14 +4376,6 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -4565,8 +4567,8 @@ declare const BeyondPaperV1Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "AssetUid" | undefined;
         };
-        durationSeconds: number;
         youtubeVideoId: string;
+        durationSeconds: number;
     } | {
         type: "entity";
         name: string;
@@ -5274,7 +5276,7 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         content: string;
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     }, {
@@ -5285,7 +5287,7 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         content: string;
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     }>, z.ZodObject<{
@@ -5311,7 +5313,7 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     }, {
         type: "textProxy";
@@ -5326,7 +5328,7 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
@@ -5345,7 +5347,7 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     }, {
         type: "gallery";
@@ -5355,7 +5357,7 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
@@ -5377,7 +5379,7 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         folded?: boolean | undefined;
     }, {
@@ -5390,7 +5392,7 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         folded?: boolean | undefined;
     }>]>, "many">;
@@ -5924,6 +5926,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -5936,14 +5946,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }, {
@@ -5952,6 +5954,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -5964,14 +5974,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }>, z.ZodObject<{
@@ -6054,6 +6056,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6066,14 +6076,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -6086,6 +6088,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6098,14 +6108,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -6184,6 +6186,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6196,14 +6206,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }, {
@@ -6212,6 +6214,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6224,14 +6234,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }>, z.ZodObject<{
@@ -6309,6 +6311,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6321,14 +6331,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -6338,6 +6340,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6350,14 +6360,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -6441,6 +6443,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6453,14 +6463,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -6475,6 +6477,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6487,14 +6497,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -6580,6 +6582,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6592,14 +6602,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -6611,6 +6613,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6623,14 +6633,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -6717,6 +6719,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6729,14 +6739,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -6750,6 +6752,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6762,14 +6772,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -6859,6 +6861,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6871,14 +6881,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -6895,6 +6897,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -6907,14 +6917,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -8149,8 +8151,8 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "AssetUid" | undefined;
         };
-        durationSeconds: number;
         youtubeVideoId: string;
+        durationSeconds: number;
     }, {
         type: "audio-external";
         thumbnailUrl: string;
@@ -8158,8 +8160,8 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "AssetUid" | undefined;
         };
-        durationSeconds: number;
         youtubeVideoId: string;
+        durationSeconds: number;
     }>, z.ZodObject<{
         uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
     } & {
@@ -8402,7 +8404,7 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         content: string;
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     } | {
@@ -8418,7 +8420,7 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     } | {
         type: "gallery";
@@ -8428,7 +8430,7 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     } | {
         type: "random";
@@ -8440,7 +8442,7 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         folded?: boolean | undefined;
     })[];
@@ -8586,6 +8588,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -8598,14 +8608,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -8616,6 +8618,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -8628,14 +8638,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -8646,6 +8648,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -8658,14 +8668,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -8674,6 +8676,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -8686,14 +8696,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -8703,6 +8705,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -8715,14 +8725,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -8737,6 +8739,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -8749,14 +8759,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -8770,6 +8772,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -8782,14 +8792,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -8803,6 +8805,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -8815,14 +8825,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -9136,8 +9138,8 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "AssetUid" | undefined;
         };
-        durationSeconds: number;
         youtubeVideoId: string;
+        durationSeconds: number;
     } | {
         type: "entity";
         name: string;
@@ -9364,7 +9366,7 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         content: string;
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     } | {
@@ -9380,7 +9382,7 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     } | {
         type: "gallery";
@@ -9390,7 +9392,7 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
     } | {
         type: "random";
@@ -9402,7 +9404,7 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         name?: string | null | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
         headingMode?: "inside" | "outside" | null | undefined;
         folded?: boolean | undefined;
     })[];
@@ -9548,6 +9550,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -9560,14 +9570,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -9578,6 +9580,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -9590,14 +9600,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -9608,6 +9610,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -9620,14 +9630,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -9636,6 +9638,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -9648,14 +9658,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -9665,6 +9667,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -9677,14 +9687,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -9699,6 +9701,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -9711,14 +9721,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -9732,6 +9734,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -9744,14 +9754,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -9765,6 +9767,14 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -9777,14 +9787,6 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -10098,8 +10100,8 @@ declare const BeyondPaperV2Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "AssetUid" | undefined;
         };
-        durationSeconds: number;
         youtubeVideoId: string;
+        durationSeconds: number;
     } | {
         type: "entity";
         name: string;
@@ -10839,7 +10841,7 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     }, {
@@ -10850,7 +10852,7 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     }>, z.ZodObject<{
@@ -10876,7 +10878,7 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     }, {
         type: "textProxy";
@@ -10891,7 +10893,7 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
@@ -10910,7 +10912,7 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     }, {
         type: "gallery";
@@ -10919,7 +10921,7 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         assetUids?: AssetUid[] | undefined;
     }>, z.ZodObject<{
@@ -10942,7 +10944,7 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     }, {
@@ -10955,7 +10957,7 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     }>]>, "many">>;
@@ -11520,6 +11522,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -11532,14 +11542,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }, {
@@ -11548,6 +11550,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -11560,14 +11570,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }>, z.ZodObject<{
@@ -11650,6 +11652,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -11662,14 +11672,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -11682,6 +11684,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -11694,14 +11704,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -11780,6 +11782,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -11792,14 +11802,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }, {
@@ -11808,6 +11810,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -11820,14 +11830,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }>, z.ZodObject<{
@@ -11905,6 +11907,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -11917,14 +11927,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -11934,6 +11936,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -11946,14 +11956,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -12037,6 +12039,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -12049,14 +12059,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -12071,6 +12073,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -12083,14 +12093,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -12176,6 +12178,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -12188,14 +12198,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -12207,6 +12209,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -12219,14 +12229,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -12313,6 +12315,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -12325,14 +12335,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -12346,6 +12348,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -12358,14 +12368,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -12455,6 +12457,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -12467,14 +12477,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -12491,6 +12493,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -12503,14 +12513,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -12595,7 +12597,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -12609,15 +12618,8 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     }, {
         type: "entityImage";
@@ -12625,7 +12627,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -12639,15 +12648,8 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     }>]>, "many">>;
     sheets: z.ZodDefault<z.ZodArray<z.ZodObject<{
@@ -14042,7 +14044,7 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     } | {
@@ -14058,7 +14060,7 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     } | {
         type: "gallery";
@@ -14068,7 +14070,7 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     } | {
         type: "random";
@@ -14080,7 +14082,7 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     })[];
@@ -14236,6 +14238,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -14248,14 +14258,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -14266,6 +14268,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -14278,14 +14288,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -14296,6 +14298,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -14308,14 +14318,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -14324,6 +14326,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -14336,14 +14346,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -14353,6 +14355,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -14365,14 +14375,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -14387,6 +14389,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -14399,14 +14409,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -14420,6 +14422,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -14432,14 +14442,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -14453,6 +14455,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -14465,14 +14475,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -14487,7 +14489,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -14501,15 +14510,8 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     })[];
     sheets: {
@@ -15044,7 +15046,7 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     } | {
@@ -15060,7 +15062,7 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     } | {
         type: "gallery";
@@ -15069,7 +15071,7 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         assetUids?: AssetUid[] | undefined;
     } | {
@@ -15082,7 +15084,7 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     })[] | undefined;
@@ -15238,6 +15240,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -15250,14 +15260,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -15268,6 +15270,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -15280,14 +15290,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -15298,6 +15300,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -15310,14 +15320,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -15326,6 +15328,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -15338,14 +15348,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -15355,6 +15357,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -15367,14 +15377,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -15389,6 +15391,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -15401,14 +15411,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -15422,6 +15424,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -15434,14 +15444,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -15455,6 +15457,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -15467,14 +15477,6 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -15489,7 +15491,14 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -15503,15 +15512,8 @@ declare const BeyondPaperV5Schema: z.ZodObject<{
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     })[] | undefined;
     sheets?: {
@@ -16538,7 +16540,7 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     }, {
@@ -16549,7 +16551,7 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     }>, z.ZodObject<{
@@ -16575,7 +16577,7 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     }, {
         type: "textProxy";
@@ -16590,7 +16592,7 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
@@ -16609,7 +16611,7 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     }, {
         type: "gallery";
@@ -16618,7 +16620,7 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         assetUids?: AssetUid[] | undefined;
     }>, z.ZodObject<{
@@ -16641,7 +16643,7 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     }, {
@@ -16654,7 +16656,7 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     }>]>, "many">>;
@@ -17268,6 +17270,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -17280,14 +17290,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }, {
@@ -17296,6 +17298,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -17308,14 +17318,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }>, z.ZodObject<{
@@ -17398,6 +17400,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -17410,14 +17420,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -17430,6 +17432,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -17442,14 +17452,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -17528,6 +17530,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -17540,14 +17550,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }, {
@@ -17556,6 +17558,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -17568,14 +17578,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }>, z.ZodObject<{
@@ -17653,6 +17655,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -17665,14 +17675,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -17682,6 +17684,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -17694,14 +17704,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -17785,6 +17787,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -17797,14 +17807,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -17819,6 +17821,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -17831,14 +17841,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -17924,6 +17926,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -17936,14 +17946,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -17955,6 +17957,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -17967,14 +17977,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -18061,6 +18063,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -18073,14 +18083,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -18094,6 +18096,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -18106,14 +18116,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -18203,6 +18205,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -18215,14 +18225,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -18239,6 +18241,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -18251,14 +18261,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -18343,7 +18345,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -18357,15 +18366,8 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     }, {
         type: "entityImage";
@@ -18373,7 +18375,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -18387,15 +18396,8 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     }>]>, "many">>;
     sheets: z.ZodDefault<z.ZodArray<z.ZodObject<{
@@ -19790,7 +19792,7 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     } | {
@@ -19806,7 +19808,7 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     } | {
         type: "gallery";
@@ -19816,7 +19818,7 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     } | {
         type: "random";
@@ -19828,7 +19830,7 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     })[];
@@ -20000,6 +20002,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -20012,14 +20022,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -20030,6 +20032,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -20042,14 +20052,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -20060,6 +20062,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -20072,14 +20082,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -20088,6 +20090,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -20100,14 +20110,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -20117,6 +20119,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -20129,14 +20139,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -20151,6 +20153,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -20163,14 +20173,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -20184,6 +20186,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -20196,14 +20206,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -20217,6 +20219,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -20229,14 +20239,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -20251,7 +20253,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -20265,15 +20274,8 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     })[];
     sheets: {
@@ -20808,7 +20810,7 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     } | {
@@ -20824,7 +20826,7 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     } | {
         type: "gallery";
@@ -20833,7 +20835,7 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         assetUids?: AssetUid[] | undefined;
     } | {
@@ -20846,7 +20848,7 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     })[] | undefined;
@@ -21018,6 +21020,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -21030,14 +21040,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -21048,6 +21050,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -21060,14 +21070,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -21078,6 +21080,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -21090,14 +21100,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -21106,6 +21108,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -21118,14 +21128,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -21135,6 +21137,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -21147,14 +21157,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -21169,6 +21171,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -21181,14 +21191,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -21202,6 +21204,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -21214,14 +21224,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -21235,6 +21237,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -21247,14 +21257,6 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -21269,7 +21271,14 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -21283,15 +21292,8 @@ declare const BeyondPaperV6Schema: z.ZodObject<{
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     })[] | undefined;
     sheets?: {
@@ -22318,7 +22320,7 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     }, {
@@ -22329,7 +22331,7 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     }>, z.ZodObject<{
@@ -22355,7 +22357,7 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     }, {
         type: "textProxy";
@@ -22370,7 +22372,7 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
@@ -22389,7 +22391,7 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     }, {
         type: "gallery";
@@ -22398,7 +22400,7 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         assetUids?: AssetUid[] | undefined;
     }>, z.ZodObject<{
@@ -22421,7 +22423,7 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     }, {
@@ -22434,7 +22436,7 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     }>]>, "many">>;
@@ -23048,6 +23050,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -23060,14 +23070,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }, {
@@ -23076,6 +23078,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -23088,14 +23098,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }>, z.ZodObject<{
@@ -23178,6 +23180,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -23190,14 +23200,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -23210,6 +23212,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -23222,14 +23232,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -23308,6 +23310,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -23320,14 +23330,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }, {
@@ -23336,6 +23338,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -23348,14 +23358,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }>, z.ZodObject<{
@@ -23433,6 +23435,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -23445,14 +23455,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -23462,6 +23464,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -23474,14 +23484,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -23565,6 +23567,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -23577,14 +23587,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -23599,6 +23601,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -23611,14 +23621,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -23704,6 +23706,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -23716,14 +23726,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -23735,6 +23737,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -23747,14 +23757,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -23841,6 +23843,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -23853,14 +23863,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -23874,6 +23876,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -23886,14 +23896,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -23983,6 +23985,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -23995,14 +24005,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -24019,6 +24021,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -24031,14 +24041,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -24123,7 +24125,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -24137,15 +24146,8 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     }, {
         type: "entityImage";
@@ -24153,7 +24155,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -24167,15 +24176,8 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     }>]>, "many">>;
     sheets: z.ZodDefault<z.ZodArray<z.ZodObject<{
@@ -25573,7 +25575,7 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     } | {
@@ -25589,7 +25591,7 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     } | {
         type: "gallery";
@@ -25599,7 +25601,7 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     } | {
         type: "random";
@@ -25611,7 +25613,7 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     })[];
@@ -25783,6 +25785,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -25795,14 +25805,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -25813,6 +25815,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -25825,14 +25835,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -25843,6 +25845,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -25855,14 +25865,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -25871,6 +25873,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -25883,14 +25893,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -25900,6 +25902,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -25912,14 +25922,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -25934,6 +25936,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -25946,14 +25956,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -25967,6 +25969,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -25979,14 +25989,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -26000,6 +26002,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -26012,14 +26022,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -26034,7 +26036,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -26048,15 +26057,8 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     })[];
     sheets: {
@@ -26592,7 +26594,7 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     } | {
@@ -26608,7 +26610,7 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     } | {
         type: "gallery";
@@ -26617,7 +26619,7 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         assetUids?: AssetUid[] | undefined;
     } | {
@@ -26630,7 +26632,7 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     })[] | undefined;
@@ -26802,6 +26804,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -26814,14 +26824,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -26832,6 +26834,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -26844,14 +26854,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -26862,6 +26864,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -26874,14 +26884,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -26890,6 +26892,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -26902,14 +26912,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -26919,6 +26921,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -26931,14 +26941,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -26953,6 +26955,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -26965,14 +26975,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -26986,6 +26988,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -26998,14 +27008,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -27019,6 +27021,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -27031,14 +27041,6 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingRight?: number | undefined;
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -27053,7 +27055,14 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -27067,15 +27076,8 @@ declare const BeyondPaperV7Schema: z.ZodObject<{
             paddingBottom?: number | undefined;
             paddingLeft?: number | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     })[] | undefined;
     sheets?: {
@@ -28103,7 +28105,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     }, {
@@ -28114,7 +28116,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     }>, z.ZodObject<{
@@ -28140,7 +28142,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     }, {
         type: "textProxy";
@@ -28155,7 +28157,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
@@ -28174,7 +28176,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     }, {
         type: "gallery";
@@ -28183,7 +28185,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         assetUids?: AssetUid[] | undefined;
     }>, z.ZodObject<{
@@ -28206,7 +28208,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     }, {
@@ -28219,7 +28221,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     }>]>, "many">>;
@@ -28808,12 +28810,12 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         }, "strip", z.ZodTypeAny, {
             color?: string | undefined;
@@ -28835,7 +28837,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }, {
             color?: string | undefined;
@@ -28857,7 +28859,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }>>>;
     }, "strip", z.ZodTypeAny, {
@@ -28866,6 +28868,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -28886,16 +28896,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }, {
@@ -28904,6 +28906,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -28924,16 +28934,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }>, z.ZodObject<{
@@ -28989,12 +28991,12 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         }, "strip", z.ZodTypeAny, {
             color?: string | undefined;
@@ -29016,7 +29018,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }, {
             color?: string | undefined;
@@ -29038,7 +29040,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }>>>;
     }, "strip", z.ZodTypeAny, {
@@ -29049,6 +29051,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -29069,16 +29079,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -29091,6 +29093,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -29111,16 +29121,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -29174,12 +29176,12 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         }, "strip", z.ZodTypeAny, {
             color?: string | undefined;
@@ -29201,7 +29203,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }, {
             color?: string | undefined;
@@ -29223,7 +29225,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }>>>;
     }, "strip", z.ZodTypeAny, {
@@ -29232,6 +29234,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -29252,16 +29262,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }, {
@@ -29270,6 +29272,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -29290,16 +29300,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     }>, z.ZodObject<{
@@ -29352,12 +29354,12 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         }, "strip", z.ZodTypeAny, {
             color?: string | undefined;
@@ -29379,7 +29381,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }, {
             color?: string | undefined;
@@ -29401,7 +29403,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }>>>;
     }, "strip", z.ZodTypeAny, {
@@ -29410,6 +29412,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -29430,16 +29440,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -29449,6 +29451,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -29469,16 +29479,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -29537,12 +29539,12 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         }, "strip", z.ZodTypeAny, {
             color?: string | undefined;
@@ -29564,7 +29566,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }, {
             color?: string | undefined;
@@ -29586,7 +29588,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }>>>;
     }, "strip", z.ZodTypeAny, {
@@ -29595,6 +29597,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -29615,16 +29625,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -29639,6 +29641,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -29659,16 +29669,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -29729,12 +29731,12 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         }, "strip", z.ZodTypeAny, {
             color?: string | undefined;
@@ -29756,7 +29758,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }, {
             color?: string | undefined;
@@ -29778,7 +29780,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }>>>;
     }, "strip", z.ZodTypeAny, {
@@ -29787,6 +29789,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -29807,16 +29817,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -29828,6 +29830,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -29848,16 +29858,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -29917,12 +29919,12 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         }, "strip", z.ZodTypeAny, {
             color?: string | undefined;
@@ -29944,7 +29946,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }, {
             color?: string | undefined;
@@ -29966,7 +29968,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }>>>;
     }, "strip", z.ZodTypeAny, {
@@ -29977,6 +29979,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -29997,16 +30007,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -30020,6 +30022,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -30040,16 +30050,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -30112,12 +30114,12 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         }, "strip", z.ZodTypeAny, {
             color?: string | undefined;
@@ -30139,7 +30141,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }, {
             color?: string | undefined;
@@ -30161,7 +30163,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }>>>;
     }, "strip", z.ZodTypeAny, {
@@ -30172,6 +30174,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -30192,16 +30202,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -30218,6 +30220,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -30238,16 +30248,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -30307,12 +30309,12 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         }, "strip", z.ZodTypeAny, {
             color?: string | undefined;
@@ -30334,7 +30336,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }, {
             color?: string | undefined;
@@ -30356,7 +30358,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }>>>;
     }, "strip", z.ZodTypeAny, {
@@ -30365,7 +30367,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -30386,18 +30395,11 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     }, {
         type: "entityImage";
@@ -30405,7 +30407,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -30426,18 +30435,11 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     }>]>, "many">>;
     sheets: z.ZodDefault<z.ZodArray<z.ZodObject<{
@@ -30475,12 +30477,12 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }, {
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             }>>;
         }, "strip", z.ZodTypeAny, {
             color?: string | undefined;
@@ -30502,7 +30504,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }, {
             color?: string | undefined;
@@ -30524,7 +30526,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         }>>>>>;
     }, "strip", z.ZodTypeAny, {
@@ -30558,7 +30560,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         } | null | undefined> | undefined;
     }, {
@@ -30592,7 +30594,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         } | null | undefined> | undefined;
     }>, "many">>;
@@ -31957,7 +31959,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     } | {
@@ -31973,7 +31975,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     } | {
         type: "gallery";
@@ -31983,7 +31985,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         assetUids: AssetUid[];
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     } | {
         type: "random";
@@ -31995,7 +31997,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     })[];
@@ -32167,6 +32169,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -32187,16 +32197,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -32207,6 +32209,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -32227,16 +32237,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -32247,6 +32249,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -32267,16 +32277,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -32285,6 +32287,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -32305,16 +32315,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -32324,6 +32326,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -32344,16 +32354,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -32368,6 +32370,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -32388,16 +32398,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -32411,6 +32413,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -32431,16 +32441,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -32454,6 +32456,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -32474,16 +32484,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -32498,7 +32500,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -32519,18 +32528,11 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     })[];
     sheets: {
@@ -32564,7 +32566,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         } | null | undefined> | undefined;
     }[];
@@ -33089,7 +33091,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         content: string;
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         mentionedEntitiesUids?: EntityUid[] | undefined;
     } | {
@@ -33105,7 +33107,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
     } | {
         type: "gallery";
@@ -33114,7 +33116,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         assetUids?: AssetUid[] | undefined;
     } | {
@@ -33127,7 +33129,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         name?: string | undefined;
         blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-        headingLevel?: 1 | 2 | 3 | 4 | undefined;
+        headingLevel?: 2 | 1 | 3 | 4 | undefined;
         headingMode?: "inside" | "outside" | undefined;
         folded?: boolean | undefined;
     })[] | undefined;
@@ -33299,6 +33301,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -33319,16 +33329,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -33339,6 +33341,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -33359,16 +33369,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -33379,6 +33381,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -33399,16 +33409,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
     } | {
@@ -33417,6 +33419,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -33437,16 +33447,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         toggleIconType?: string | undefined;
@@ -33456,6 +33458,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -33476,16 +33486,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -33500,6 +33502,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -33520,16 +33530,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         listVisibility?: string | undefined;
@@ -33543,6 +33545,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         max?: number | undefined;
         icon?: string | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -33563,16 +33573,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -33586,6 +33588,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         };
         min?: number | undefined;
         max?: number | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -33606,16 +33616,8 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
-        } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
         } | null | undefined;
         variableUid?: VariableUid | undefined;
         maxVariable?: VariableUid | null | undefined;
@@ -33630,7 +33632,14 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
         uid: string & {
             readonly __bypp_flavor?: "WidgetUid" | undefined;
         };
-        objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+        area?: {
+            width: number;
+            height: number;
+        } | null | undefined;
+        position?: {
+            left: number;
+            top: number;
+        } | null | undefined;
         style?: {
             color?: string | undefined;
             justifyContent?: string | undefined;
@@ -33651,18 +33660,11 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         } | null | undefined;
-        area?: {
-            width: number;
-            height: number;
-        } | null | undefined;
-        position?: {
-            left: number;
-            top: number;
-        } | null | undefined;
         variableUid?: VariableUid | undefined;
+        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
     })[] | undefined;
     sheets?: {
@@ -33696,7 +33698,7 @@ declare const BeyondPaperV8Schema: z.ZodObject<{
                 assetUid: string & {
                     readonly __bypp_flavor?: "AssetUid" | undefined;
                 };
-                objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
             } | undefined;
         } | null | undefined> | undefined;
     }[] | undefined;
@@ -34871,8 +34873,8 @@ declare const AudioExternalAssetV1Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "AssetUid" | undefined;
     };
-    durationSeconds: number;
     youtubeVideoId: string;
+    durationSeconds: number;
 }, {
     type: "audio-external";
     thumbnailUrl: string;
@@ -34880,8 +34882,8 @@ declare const AudioExternalAssetV1Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "AssetUid" | undefined;
     };
-    durationSeconds: number;
     youtubeVideoId: string;
+    durationSeconds: number;
 }>;
 type AudioExternalAssetV1 = z.infer<typeof AudioExternalAssetV1Schema>;
 /**
@@ -35071,8 +35073,8 @@ declare const AssetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "AssetUid" | undefined;
     };
-    durationSeconds: number;
     youtubeVideoId: string;
+    durationSeconds: number;
 }, {
     type: "audio-external";
     thumbnailUrl: string;
@@ -35080,8 +35082,8 @@ declare const AssetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "AssetUid" | undefined;
     };
-    durationSeconds: number;
     youtubeVideoId: string;
+    durationSeconds: number;
 }>, z.ZodObject<{
     uid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
 } & {
@@ -35148,7 +35150,7 @@ declare const ChunkBaseV1Schema: z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }, {
     uid: string & {
@@ -35156,7 +35158,7 @@ declare const ChunkBaseV1Schema: z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }>;
 type ChunkBaseV1 = z.infer<typeof ChunkBaseV1Schema>;
@@ -35189,7 +35191,7 @@ declare const ChunkTextV1Schema: z.ZodObject<{
     content: string;
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
     mentionedEntitiesUids?: EntityUid[] | undefined;
 }, {
@@ -35200,7 +35202,7 @@ declare const ChunkTextV1Schema: z.ZodObject<{
     content: string;
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
     mentionedEntitiesUids?: EntityUid[] | undefined;
 }>;
@@ -35238,7 +35240,7 @@ declare const ChunkTextProxyV1Schema: z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }, {
     type: "textProxy";
@@ -35253,7 +35255,7 @@ declare const ChunkTextProxyV1Schema: z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }>;
 type ChunkTextProxyV1 = z.infer<typeof ChunkTextProxyV1Schema>;
@@ -35282,7 +35284,7 @@ declare const ChunkGalleryV1Schema: z.ZodObject<{
     assetUids: AssetUid[];
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }, {
     type: "gallery";
@@ -35292,7 +35294,7 @@ declare const ChunkGalleryV1Schema: z.ZodObject<{
     assetUids: AssetUid[];
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }>;
 type ChunkGalleryV1 = z.infer<typeof ChunkGalleryV1Schema>;
@@ -35325,7 +35327,7 @@ declare const ChunkRandomV1Schema: z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
     folded?: boolean | undefined;
 }, {
@@ -35338,7 +35340,7 @@ declare const ChunkRandomV1Schema: z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
     folded?: boolean | undefined;
 }>;
@@ -35364,7 +35366,7 @@ declare const ChunkV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     content: string;
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
     mentionedEntitiesUids?: EntityUid[] | undefined;
 }, {
@@ -35375,7 +35377,7 @@ declare const ChunkV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     content: string;
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
     mentionedEntitiesUids?: EntityUid[] | undefined;
 }>, z.ZodObject<{
@@ -35401,7 +35403,7 @@ declare const ChunkV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }, {
     type: "textProxy";
@@ -35416,7 +35418,7 @@ declare const ChunkV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }>, z.ZodObject<{
     uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
@@ -35435,7 +35437,7 @@ declare const ChunkV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     assetUids: AssetUid[];
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }, {
     type: "gallery";
@@ -35445,7 +35447,7 @@ declare const ChunkV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     assetUids: AssetUid[];
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
 }>, z.ZodObject<{
     uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
@@ -35467,7 +35469,7 @@ declare const ChunkV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
     folded?: boolean | undefined;
 }, {
@@ -35480,7 +35482,7 @@ declare const ChunkV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     name?: string | null | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | null | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | null | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | null | undefined;
     headingMode?: "inside" | "outside" | null | undefined;
     folded?: boolean | undefined;
 }>]>;
@@ -38404,6 +38406,14 @@ declare const WidgetBaseV1Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -38416,14 +38426,6 @@ declare const WidgetBaseV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
 }, {
@@ -38431,6 +38433,14 @@ declare const WidgetBaseV1Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -38443,14 +38453,6 @@ declare const WidgetBaseV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
 }>;
@@ -38533,6 +38535,14 @@ declare const WidgetEmptyV1Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -38545,14 +38555,6 @@ declare const WidgetEmptyV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
 }, {
@@ -38561,6 +38563,14 @@ declare const WidgetEmptyV1Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -38573,14 +38583,6 @@ declare const WidgetEmptyV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
 }>;
@@ -38676,6 +38678,14 @@ declare const WidgetBigNumberV1Schema: z.ZodObject<{
     };
     min?: number | undefined;
     max?: number | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -38688,14 +38698,6 @@ declare const WidgetBigNumberV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -38708,6 +38710,14 @@ declare const WidgetBigNumberV1Schema: z.ZodObject<{
     };
     min?: number | undefined;
     max?: number | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -38720,14 +38730,6 @@ declare const WidgetBigNumberV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -38812,6 +38814,14 @@ declare const WidgetPlainTextV1Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -38824,14 +38834,6 @@ declare const WidgetPlainTextV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
 }, {
@@ -38840,6 +38842,14 @@ declare const WidgetPlainTextV1Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -38852,14 +38862,6 @@ declare const WidgetPlainTextV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
 }>;
@@ -38944,6 +38946,14 @@ declare const WidgetToggleV1Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -38956,14 +38966,6 @@ declare const WidgetToggleV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     toggleIconType?: string | undefined;
@@ -38973,6 +38975,14 @@ declare const WidgetToggleV1Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -38985,14 +38995,6 @@ declare const WidgetToggleV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     toggleIconType?: string | undefined;
@@ -39092,6 +39094,14 @@ declare const WidgetBulletListV1Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -39104,14 +39114,6 @@ declare const WidgetBulletListV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     listVisibility?: string | undefined;
@@ -39126,6 +39128,14 @@ declare const WidgetBulletListV1Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -39138,14 +39148,6 @@ declare const WidgetBulletListV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     listVisibility?: string | undefined;
@@ -39240,6 +39242,14 @@ declare const WidgetInlineListV1Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -39252,14 +39262,6 @@ declare const WidgetInlineListV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     listVisibility?: string | undefined;
@@ -39271,6 +39273,14 @@ declare const WidgetInlineListV1Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -39283,14 +39293,6 @@ declare const WidgetInlineListV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     listVisibility?: string | undefined;
@@ -39388,6 +39390,14 @@ declare const WidgetPipsV1Schema: z.ZodObject<{
     };
     max?: number | undefined;
     icon?: string | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -39400,14 +39410,6 @@ declare const WidgetPipsV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -39421,6 +39423,14 @@ declare const WidgetPipsV1Schema: z.ZodObject<{
     };
     max?: number | undefined;
     icon?: string | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -39433,14 +39443,6 @@ declare const WidgetPipsV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -39553,6 +39555,14 @@ declare const WidgetBarV1Schema: z.ZodObject<{
     };
     min?: number | undefined;
     max?: number | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -39565,14 +39575,6 @@ declare const WidgetBarV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -39589,6 +39591,14 @@ declare const WidgetBarV1Schema: z.ZodObject<{
     };
     min?: number | undefined;
     max?: number | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -39601,14 +39611,6 @@ declare const WidgetBarV1Schema: z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -39696,6 +39698,14 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -39708,14 +39718,6 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
 }, {
@@ -39724,6 +39726,14 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -39736,14 +39746,6 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
 }>, z.ZodObject<{
@@ -39826,6 +39828,14 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     min?: number | undefined;
     max?: number | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -39838,14 +39848,6 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -39858,6 +39860,14 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     min?: number | undefined;
     max?: number | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -39870,14 +39880,6 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -39956,6 +39958,14 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -39968,14 +39978,6 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
 }, {
@@ -39984,6 +39986,14 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -39996,14 +40006,6 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
 }>, z.ZodObject<{
@@ -40081,6 +40083,14 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -40093,14 +40103,6 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     toggleIconType?: string | undefined;
@@ -40110,6 +40112,14 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -40122,14 +40132,6 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     toggleIconType?: string | undefined;
@@ -40213,6 +40215,14 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -40225,14 +40235,6 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     listVisibility?: string | undefined;
@@ -40247,6 +40249,14 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -40259,14 +40269,6 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     listVisibility?: string | undefined;
@@ -40352,6 +40354,14 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -40364,14 +40374,6 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     listVisibility?: string | undefined;
@@ -40383,6 +40385,14 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -40395,14 +40405,6 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     listVisibility?: string | undefined;
@@ -40489,6 +40491,14 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     max?: number | undefined;
     icon?: string | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -40501,14 +40511,6 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -40522,6 +40524,14 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     max?: number | undefined;
     icon?: string | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -40534,14 +40544,6 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -40631,6 +40633,14 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     min?: number | undefined;
     max?: number | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -40643,14 +40653,6 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -40667,6 +40669,14 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     min?: number | undefined;
     max?: number | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -40679,14 +40689,6 @@ declare const WidgetV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         paddingRight?: number | undefined;
         paddingBottom?: number | undefined;
         paddingLeft?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -42585,12 +42587,12 @@ declare const WidgetEntityImageV6Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     }, "strip", z.ZodTypeAny, {
         color?: string | undefined;
@@ -42612,7 +42614,7 @@ declare const WidgetEntityImageV6Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
     }, {
         color?: string | undefined;
@@ -42634,7 +42636,7 @@ declare const WidgetEntityImageV6Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
     }>>>;
 }, "strip", z.ZodTypeAny, {
@@ -42643,7 +42645,14 @@ declare const WidgetEntityImageV6Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
-    objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -42664,18 +42673,11 @@ declare const WidgetEntityImageV6Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
+    objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
     formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
 }, {
     type: "entityImage";
@@ -42683,7 +42685,14 @@ declare const WidgetEntityImageV6Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
-    objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -42704,20 +42713,13 @@ declare const WidgetEntityImageV6Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
+    objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
     formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
 }>;
 type WidgetEntityImageV6 = z.infer<typeof WidgetEntityImageV6Schema>;
 
-export { AbilityEntityV1Schema, type ActionVisualV1 as ActionVisual, IconCompoSlotConfigV1Schema as ActionVisualIconCompoSlotConfigSchema, ActionVisualV1Schema as ActionVisualSchema, type ActionVisualV1, ActionVisualV1Schema, type AssetBaseV1, AssetBaseV1Schema, AssetUid, type AssetV1, AssetV1Schema, type AudioAssetV1, AudioAssetV1Schema, type AudioExternalAssetV1, AudioExternalAssetV1Schema, BYPP_FORMAT_EXT, BYPP_FORMAT_VERSION, type BarOrientationV1 as BarOrientation, BarOrientationV1Schema as BarOrientationSchema, type BarOrientationV1, BarOrientationV1Schema, type BeyondPaperV1, BeyondPaperV1Schema, type BeyondPaperV2, BeyondPaperV2Schema, type BeyondPaperV5, BeyondPaperV5Schema, type BeyondPaperV6, BeyondPaperV6Schema, type BeyondPaperV7, BeyondPaperV7Schema, type BeyondPaperV8, BeyondPaperV8Schema, type BooleanVariableV1 as BooleanVariable, BooleanVariableV1Schema as BooleanVariableSchema, type BooleanVariableV1, BooleanVariableV1Schema, type DataTableLookupVariableV2 as ByppDataTableLookupVariable, type DataTableRefVariableV2 as ByppDataTableRefVariable, type GroupRankV1 as ByppGroupRank, type GroupRankCharacterV1 as ByppGroupRankCharacter, type VariableBaseV1 as ByppVariableBase, type WidgetBaseV1 as ByppWidgetBase, type CharacterEntityV1, CharacterEntityV1Schema, type ChoiceOptionV1 as ChoiceOption, ChoiceOptionV1Schema as ChoiceOptionSchema, type ChoiceOptionV1, ChoiceOptionV1Schema, type ChoiceVariableV1 as ChoiceVariable, ChoiceVariableV1Schema as ChoiceVariableSchema, type ChoiceVariableV1, ChoiceVariableV1Schema, type ChunkBaseV1, ChunkBaseV1Schema, type ChunkBlockStyleV1 as ChunkBlockStyle, ChunkBlockStyleV1Schema as ChunkBlockStyleSchema, type ChunkBlockStyleV1, ChunkBlockStyleV1Schema, type ChunkGalleryV1, ChunkGalleryV1Schema, type ChunkHeadingLevelV1 as ChunkHeadingLevel, ChunkHeadingLevelV1Schema as ChunkHeadingLevelSchema, type ChunkHeadingLevelV1, ChunkHeadingLevelV1Schema, type ChunkHeadingModeV1 as ChunkHeadingMode, ChunkHeadingModeV1Schema as ChunkHeadingModeSchema, type ChunkHeadingModeV1, ChunkHeadingModeV1Schema, type ChunkRandomV1, ChunkRandomV1Schema, type ChunkTextProxyV1, ChunkTextProxyV1Schema, type ChunkTextV1, ChunkTextV1Schema, ChunkUid, type ChunkV1, ChunkV1Schema, type CreatureEntityV1, CreatureEntityV1Schema, type CustomImageSceneBackgroundV1, CustomImageSceneBackgroundV1Schema, type CustomVideoSceneBackgroundV1, CustomVideoSceneBackgroundV1Schema, DOWN_MIGRATIONS, DataTableColumnUid, type DataTableDirectLookupVariableV6 as DataTableDirectLookupVariable, DataTableDirectLookupVariableV6Schema as DataTableDirectLookupVariableSchema, type DataTableDirectLookupVariableV6, DataTableDirectLookupVariableV6Schema, type DataTableLookupVariableV2 as DataTableLookupVariable, DataTableLookupVariableV2Schema as DataTableLookupVariableSchema, type DataTableLookupVariableV2, DataTableLookupVariableV2Schema, type DataTableRefVariableV2 as DataTableRefVariable, DataTableRefVariableV2Schema as DataTableRefVariableSchema, type DataTableRefVariableV2, DataTableRefVariableV2Schema, DataTableRowUid, DataTableUid, DatasetTargetV1Schema, DatasetUid, type DatasetV1, DatasetV1Schema, type DialectFontV1, DialectFontV1Schema, DialectUid, type DialectV1, DialectV1Schema, type EntityAssetV1, EntityAssetV1Schema, type EntityBaseV1, EntityBaseV1Schema, type EntityTypeV1 as EntityType, EntityTypeV1Schema as EntityTypeSchema, type EntityTypeV1, EntityTypeV1Schema, type EntityTypeV1 as EntityTypeV2, EntityTypeV1Schema as EntityTypeV2Schema, type EntityTypeV1 as EntityTypeV3, EntityTypeV1Schema as EntityTypeV3Schema, EntityUid, type EntityV1, EntityV1Schema, EventEntityV1Schema, type FormulaVariableV1 as FormulaVariable, FormulaVariableV1Schema as FormulaVariableSchema, type FormulaVariableV1, FormulaVariableV1Schema, type GroupEntityV1, GroupEntityV1Schema, type GroupRankV1 as GroupRank, type GroupRankCharacterV1 as GroupRankCharacter, GroupRankCharacterV1Schema as GroupRankCharacterSchema, type GroupRankCharacterV1, GroupRankCharacterV1Schema, GroupRankV1Schema as GroupRankSchema, type GroupRankV1, GroupRankV1Schema, type IconCompoV1 as IconCompo, IconCompoV1Schema as IconCompoSchema, type IconCompoSlotConfigV1 as IconCompoSlotConfig, IconCompoSlotConfigV1Schema as IconCompoSlotConfigSchema, type IconCompoSlotConfigV1, IconCompoSlotConfigV1Schema, type IconCompoV1, IconCompoV1Schema, type ImageAssetV1, ImageAssetV1Schema, type ImageDimensionsV1 as ImageDimensions, ImageDimensionsV1Schema as ImageDimensionsSchema, type ImageDimensionsV1, ImageDimensionsV1Schema, type ImageVariableV5 as ImageVariable, ImageVariableV5Schema as ImageVariableSchema, type ImageVariableV5, ImageVariableV5Schema, ItemEntityV1Schema, KNOWN_AUDIO_EXTS, type KnownAudioExt, MIGRATIONS, type Migrator, NoteEntityV1Schema, type NumberVariableV1 as NumberVariable, NumberVariableV1Schema as NumberVariableSchema, type NumberVariableV1, NumberVariableV1Schema, PageUid, type PlaceEntityV1, PlaceEntityV1Schema, RandomTableRowUid, type RandomTableRowV1, RandomTableRowV1Schema, type RandomTableRowV2, RandomTableRowV2Schema, RandomTableUid, type RandomTableV1, RandomTableV1Schema, type RandomTableV2, RandomTableV2Schema, type RollVariableV1 as RollVariable, RollVariableV1Schema as RollVariableSchema, type RollVariableV1, RollVariableV1Schema, SCHEMA_BY_VERSION, type SceneBackgroundBaseV1, SceneBackgroundBaseV1Schema, SceneBackgroundUid, type SceneBackgroundV1, SceneBackgroundV1Schema, type SceneGameModeV1, SceneGameModeV1Schema, SceneMapUid, SceneUid, type SceneV1, SceneV1Schema, SheetUid, type SheetV2, SheetV2Schema, type SheetV3, SheetV3Schema, StoryEntityV1Schema, StyleV1Schema, TagCategoryUid, TagUid, type TagV1, TagV1Schema, type TextVariableV1 as TextVariable, TextVariableV1Schema as TextVariableSchema, type TextVariableV1, TextVariableV1Schema, type TranslatableTextV2 as TranslatableText, TranslatableTextV2Schema as TranslatableTextSchema, type TranslatableTextV2, TranslatableTextV2Schema, type VariableBaseV1 as VariableBase, VariableBaseV1Schema as VariableBaseSchema, type VariableBaseV1, VariableBaseV1Schema, VariableChoiceUid, VariableDataValueV1Schema as VariableDataValueSchema, VariableDataValueV1Schema, VariableUid, type VariableV1, VariableV1Schema, type VariableV2, VariableV2Schema, type VariableV5, VariableV5Schema, type VariableV6, VariableV6Schema, VariablesDataRecordV1Schema as VariablesDataRecordSchema, VariablesDataRecordV1Schema, type VideoAssetV1, VideoAssetV1Schema, type WidgetBarV1 as WidgetBar, WidgetBarV1Schema as WidgetBarSchema, type WidgetBarV1, WidgetBarV1Schema, type WidgetBaseV1 as WidgetBase, WidgetBaseV1Schema as WidgetBaseSchema, type WidgetBaseV1, WidgetBaseV1Schema, type WidgetBigNumberV1 as WidgetBigNumber, WidgetBigNumberV1Schema as WidgetBigNumberSchema, type WidgetBigNumberV1, WidgetBigNumberV1Schema, type WidgetBulletListV1 as WidgetBulletList, WidgetBulletListV1Schema as WidgetBulletListSchema, type WidgetBulletListV1, WidgetBulletListV1Schema, type WidgetEmptyV1 as WidgetEmpty, WidgetEmptyV1Schema as WidgetEmptySchema, type WidgetEmptyV1, WidgetEmptyV1Schema, type WidgetEntityImageV6 as WidgetEntityImage, WidgetEntityImageV6Schema as WidgetEntityImageSchema, type WidgetInlineListV1 as WidgetInlineList, WidgetInlineListV1Schema as WidgetInlineListSchema, type WidgetInlineListV1, WidgetInlineListV1Schema, type WidgetPipsV1 as WidgetPips, WidgetPipsV1Schema as WidgetPipsSchema, type WidgetPipsV1, WidgetPipsV1Schema, type WidgetPlainTextV1 as WidgetPlainText, WidgetPlainTextV1Schema as WidgetPlainTextSchema, type WidgetPlainTextV1, WidgetPlainTextV1Schema, type WidgetToggleV1 as WidgetToggle, WidgetToggleV1Schema as WidgetToggleSchema, type WidgetToggleV1, WidgetToggleV1Schema, WidgetUid, type WidgetV1, WidgetV1Schema, WithArchiveV2Schema as WithArchiveSchema, WithArchiveV1Schema, WithArchiveV2Schema, WithAreaV1Schema as WithAreaSchema, WithAreaV1Schema, WithAssetsV1Schema as WithAssetsSchema, WithAssetsV1Schema, WithAudioUrlsV2Schema as WithAudioUrlsSchema, WithAudioUrlsV1Schema, WithAudioUrlsV2Schema, WithDataV1Schema as WithDataSchema, WithDataV1Schema, WithImagesUrlsV2Schema as WithImagesUrlsSchema, WithImagesUrlsV1Schema, WithImagesUrlsV2Schema, WithImagesUrlsV3Schema, WithLocalizedNameV2Schema as WithLocalizedNameSchema, WithLocalizedNameV2Schema, WithNameV1Schema as WithNameSchema, WithNameV1Schema, WithPagesV2Schema as WithPagesSchema, WithPagesV1Schema, WithPagesV2Schema, WithPositionV1Schema as WithPositionSchema, WithPositionV1Schema, WithScenesV2Schema as WithScenesSchema, WithScenesV1Schema, WithScenesV2Schema, WithStyleV1Schema, WithVideoUrlsV2Schema as WithVideoUrlsSchema, WithVideoUrlsV1Schema, WithVideoUrlsV2Schema, migrate };
+export { AbilityEntityV1Schema, type ActionVisualV1 as ActionVisual, IconCompoSlotConfigV1Schema as ActionVisualIconCompoSlotConfigSchema, ActionVisualV1Schema as ActionVisualSchema, type ActionVisualV1, ActionVisualV1Schema, type AssetBaseV1, AssetBaseV1Schema, AssetUid, type AssetV1, AssetV1Schema, type AudioAssetV1, AudioAssetV1Schema, type AudioExternalAssetV1, AudioExternalAssetV1Schema, BYPP_FORMAT_EXT, BYPP_FORMAT_VERSION, type BarOrientationV1 as BarOrientation, BarOrientationV1Schema as BarOrientationSchema, type BarOrientationV1, BarOrientationV1Schema, type BeyondPaperV1, BeyondPaperV1Schema, type BeyondPaperV2, BeyondPaperV2Schema, type BeyondPaperV5, BeyondPaperV5Schema, type BeyondPaperV6, BeyondPaperV6Schema, type BeyondPaperV7, BeyondPaperV7Schema, type BeyondPaperV8, BeyondPaperV8Schema, type BooleanVariableV1 as BooleanVariable, BooleanVariableV1Schema as BooleanVariableSchema, type BooleanVariableV1, BooleanVariableV1Schema, type DataTableLookupVariableV2 as ByppDataTableLookupVariable, type DataTableRefVariableV2 as ByppDataTableRefVariable, type GroupRankV1 as ByppGroupRank, type GroupRankCharacterV1 as ByppGroupRankCharacter, type VariableBaseV1 as ByppVariableBase, type WidgetBaseV1 as ByppWidgetBase, type CharacterEntityV1, CharacterEntityV1Schema, type ChoiceOptionV1 as ChoiceOption, ChoiceOptionV1Schema as ChoiceOptionSchema, type ChoiceOptionV1, ChoiceOptionV1Schema, type ChoiceVariableV1 as ChoiceVariable, ChoiceVariableV1Schema as ChoiceVariableSchema, type ChoiceVariableV1, ChoiceVariableV1Schema, type ChunkBaseV1, ChunkBaseV1Schema, type ChunkBlockStyleV1 as ChunkBlockStyle, ChunkBlockStyleV1Schema as ChunkBlockStyleSchema, type ChunkBlockStyleV1, ChunkBlockStyleV1Schema, type ChunkGalleryV1, ChunkGalleryV1Schema, type ChunkHeadingLevelV1 as ChunkHeadingLevel, ChunkHeadingLevelV1Schema as ChunkHeadingLevelSchema, type ChunkHeadingLevelV1, ChunkHeadingLevelV1Schema, type ChunkHeadingModeV1 as ChunkHeadingMode, ChunkHeadingModeV1Schema as ChunkHeadingModeSchema, type ChunkHeadingModeV1, ChunkHeadingModeV1Schema, type ChunkRandomV1, ChunkRandomV1Schema, type ChunkTextProxyV1, ChunkTextProxyV1Schema, type ChunkTextV1, ChunkTextV1Schema, ChunkUid, type ChunkV1, ChunkV1Schema, type CreatureEntityV1, CreatureEntityV1Schema, type CustomImageSceneBackgroundV1, CustomImageSceneBackgroundV1Schema, type CustomVideoSceneBackgroundV1, CustomVideoSceneBackgroundV1Schema, DOWN_MIGRATIONS, DataTableColumnUid, type DataTableDirectLookupVariableV6 as DataTableDirectLookupVariable, DataTableDirectLookupVariableV6Schema as DataTableDirectLookupVariableSchema, type DataTableDirectLookupVariableV6, DataTableDirectLookupVariableV6Schema, type DataTableLookupVariableV2 as DataTableLookupVariable, DataTableLookupVariableV2Schema as DataTableLookupVariableSchema, type DataTableLookupVariableV2, DataTableLookupVariableV2Schema, type DataTableRefVariableV2 as DataTableRefVariable, DataTableRefVariableV2Schema as DataTableRefVariableSchema, type DataTableRefVariableV2, DataTableRefVariableV2Schema, DataTableRowUid, DataTableUid, DatasetTargetV1Schema, DatasetUid, type DatasetV1, DatasetV1Schema, type DialectFontV1, DialectFontV1Schema, DialectUid, type DialectV1, DialectV1Schema, type EntityAssetV1, EntityAssetV1Schema, type EntityBaseV1, EntityBaseV1Schema, type EntityTypeV1 as EntityType, EntityTypeV1Schema as EntityTypeSchema, type EntityTypeV1, EntityTypeV1Schema, type EntityTypeV1 as EntityTypeV2, EntityTypeV1Schema as EntityTypeV2Schema, type EntityTypeV1 as EntityTypeV3, EntityTypeV1Schema as EntityTypeV3Schema, type EntityTypeV1 as EntityTypeV4, EntityTypeV1Schema as EntityTypeV4Schema, EntityUid, type EntityV1, EntityV1Schema, EventEntityV1Schema, type FormulaVariableV1 as FormulaVariable, FormulaVariableV1Schema as FormulaVariableSchema, type FormulaVariableV1, FormulaVariableV1Schema, type GroupEntityV1, GroupEntityV1Schema, type GroupRankV1 as GroupRank, type GroupRankCharacterV1 as GroupRankCharacter, GroupRankCharacterV1Schema as GroupRankCharacterSchema, type GroupRankCharacterV1, GroupRankCharacterV1Schema, GroupRankV1Schema as GroupRankSchema, type GroupRankV1, GroupRankV1Schema, type IconCompoV1 as IconCompo, IconCompoV1Schema as IconCompoSchema, type IconCompoSlotConfigV1 as IconCompoSlotConfig, IconCompoSlotConfigV1Schema as IconCompoSlotConfigSchema, type IconCompoSlotConfigV1, IconCompoSlotConfigV1Schema, type IconCompoV1, IconCompoV1Schema, type ImageAssetV1, ImageAssetV1Schema, type ImageDimensionsV1 as ImageDimensions, ImageDimensionsV1Schema as ImageDimensionsSchema, type ImageDimensionsV1, ImageDimensionsV1Schema, type ImageVariableV5 as ImageVariable, ImageVariableV5Schema as ImageVariableSchema, type ImageVariableV5, ImageVariableV5Schema, ItemEntityV1Schema, KNOWN_AUDIO_EXTS, type KnownAudioExt, MIGRATIONS, type Migrator, NoteEntityV1Schema, type NumberVariableV1 as NumberVariable, NumberVariableV1Schema as NumberVariableSchema, type NumberVariableV1, NumberVariableV1Schema, PageUid, type PlaceEntityV1, PlaceEntityV1Schema, RandomTableRowUid, type RandomTableRowV1, RandomTableRowV1Schema, type RandomTableRowV2, RandomTableRowV2Schema, RandomTableUid, type RandomTableV1, RandomTableV1Schema, type RandomTableV2, RandomTableV2Schema, type RollVariableV1 as RollVariable, RollVariableV1Schema as RollVariableSchema, type RollVariableV1, RollVariableV1Schema, SCHEMA_BY_VERSION, type SceneBackgroundBaseV1, SceneBackgroundBaseV1Schema, SceneBackgroundUid, type SceneBackgroundV1, SceneBackgroundV1Schema, type SceneGameModeV1, SceneGameModeV1Schema, SceneMapUid, SceneUid, type SceneV1, SceneV1Schema, SheetUid, type SheetV2, SheetV2Schema, type SheetV3, SheetV3Schema, StoryEntityV1Schema, StyleV1Schema, TagCategoryUid, TagUid, type TagV1, TagV1Schema, type TextVariableV1 as TextVariable, TextVariableV1Schema as TextVariableSchema, type TextVariableV1, TextVariableV1Schema, type TranslatableTextV2 as TranslatableText, TranslatableTextV2Schema as TranslatableTextSchema, type TranslatableTextV2, TranslatableTextV2Schema, type VariableBaseV1 as VariableBase, VariableBaseV1Schema as VariableBaseSchema, type VariableBaseV1, VariableBaseV1Schema, VariableChoiceUid, VariableDataValueV1Schema as VariableDataValueSchema, VariableDataValueV1Schema, VariableUid, type VariableV1, VariableV1Schema, type VariableV2, VariableV2Schema, type VariableV5, VariableV5Schema, type VariableV6, VariableV6Schema, VariablesDataRecordV1Schema as VariablesDataRecordSchema, VariablesDataRecordV1Schema, type VideoAssetV1, VideoAssetV1Schema, type WidgetBarV1 as WidgetBar, WidgetBarV1Schema as WidgetBarSchema, type WidgetBarV1, WidgetBarV1Schema, type WidgetBaseV1 as WidgetBase, WidgetBaseV1Schema as WidgetBaseSchema, type WidgetBaseV1, WidgetBaseV1Schema, type WidgetBigNumberV1 as WidgetBigNumber, WidgetBigNumberV1Schema as WidgetBigNumberSchema, type WidgetBigNumberV1, WidgetBigNumberV1Schema, type WidgetBulletListV1 as WidgetBulletList, WidgetBulletListV1Schema as WidgetBulletListSchema, type WidgetBulletListV1, WidgetBulletListV1Schema, type WidgetEmptyV1 as WidgetEmpty, WidgetEmptyV1Schema as WidgetEmptySchema, type WidgetEmptyV1, WidgetEmptyV1Schema, type WidgetEntityImageV6 as WidgetEntityImage, WidgetEntityImageV6Schema as WidgetEntityImageSchema, type WidgetInlineListV1 as WidgetInlineList, WidgetInlineListV1Schema as WidgetInlineListSchema, type WidgetInlineListV1, WidgetInlineListV1Schema, type WidgetPipsV1 as WidgetPips, WidgetPipsV1Schema as WidgetPipsSchema, type WidgetPipsV1, WidgetPipsV1Schema, type WidgetPlainTextV1 as WidgetPlainText, WidgetPlainTextV1Schema as WidgetPlainTextSchema, type WidgetPlainTextV1, WidgetPlainTextV1Schema, type WidgetToggleV1 as WidgetToggle, WidgetToggleV1Schema as WidgetToggleSchema, type WidgetToggleV1, WidgetToggleV1Schema, WidgetUid, type WidgetV1, WidgetV1Schema, WithArchiveV2Schema as WithArchiveSchema, WithArchiveV1Schema, WithArchiveV2Schema, WithAreaV1Schema as WithAreaSchema, WithAreaV1Schema, WithAssetsV1Schema as WithAssetsSchema, WithAssetsV1Schema, WithAudioUrlsV2Schema as WithAudioUrlsSchema, WithAudioUrlsV1Schema, WithAudioUrlsV2Schema, WithDataV1Schema as WithDataSchema, WithDataV1Schema, WithImagesUrlsV2Schema as WithImagesUrlsSchema, WithImagesUrlsV1Schema, WithImagesUrlsV2Schema, WithImagesUrlsV3Schema, WithLocalizedNameV2Schema as WithLocalizedNameSchema, WithLocalizedNameV2Schema, WithNameV1Schema as WithNameSchema, WithNameV1Schema, WithPagesV2Schema as WithPagesSchema, WithPagesV1Schema, WithPagesV2Schema, WithPositionV1Schema as WithPositionSchema, WithPositionV1Schema, WithScenesV2Schema as WithScenesSchema, WithScenesV1Schema, WithScenesV2Schema, WithStyleV1Schema, WithVideoUrlsV2Schema as WithVideoUrlsSchema, WithVideoUrlsV1Schema, WithVideoUrlsV2Schema, migrate };

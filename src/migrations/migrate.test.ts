@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { BeyondPaperSchema } from "../bypp.schema";
 import { BeyondPaperV1Schema } from "../schemas/bypp.v1.schema";
+import { BeyondPaperV13Schema } from "../schemas/bypp.v13.schema";
 import { BYPP_FORMAT_VERSION } from "../version";
 import {
   DOWN_MIGRATIONS,
@@ -1132,6 +1133,215 @@ describe("migrate", () => {
       expect(v11.widgets[0].actionsVariablesUids).toBeUndefined();
       // The dropped widget's uid must not linger as a dangling reference.
       expect(v11.sheets[0].widgetUids).toEqual(["w-keep"]);
+    });
+  });
+
+  describe("v12 → v13", () => {
+    const v12Minimal = {
+      version: 12 as const,
+      format: "bypp",
+      name: "v12 bundle",
+      exportedAt: "2026-07-22T12:00:00.000Z",
+      bundleVersion: "1.0.0",
+      license: "ARR",
+      licenseVersion: "4.0",
+      attribution: { authorName: "Alice" },
+      dialects: [],
+      entities: [],
+      pages: [],
+      chunks: [],
+      datasets: [],
+      variables: [],
+      widgets: [],
+      sheets: [],
+      dataTables: [],
+      randomTables: [],
+      tags: [],
+      tagCategories: [],
+      scenes: [],
+      sceneMaps: [],
+      sceneBackgrounds: [],
+      assets: [],
+    };
+
+    // A v13 bundle exercising `credit` in all six categories, including both
+    // variants of the two map/background unions.
+    const credited = {
+      ...v12Minimal,
+      version: 13 as const,
+      assets: [
+        {
+          uid: "a-img",
+          name: "Map",
+          type: "image",
+          dimensions: { width: 100, height: 100 },
+          credit: {
+            name: "Ada Cartwright",
+            url: "https://example.com/ada",
+            license: "CC-BY",
+          },
+        },
+        {
+          uid: "a-audio",
+          name: "Theme",
+          type: "audio",
+          audioUrl: "https://example.com/theme.mp3",
+          credit: { name: "Bo Rivers", license: "CC0" },
+        },
+      ],
+      entities: [
+        {
+          uid: "e-1",
+          type: "character",
+          name: "Gandalf",
+          credit: { name: "Dee Marsh" },
+        },
+      ],
+      widgets: [
+        { uid: "w-1", name: "w-1", type: "empty", credit: { name: "Eli" } },
+      ],
+      sheets: [{ uid: "s-1", widgetUids: ["w-1"], credit: { name: "Fay" } }],
+      sceneMaps: [
+        {
+          uid: "sm-img",
+          name: "Dungeon",
+          type: "customImage",
+          grid: {
+            type: "square",
+            size: 70,
+            sizeInUnit: 5,
+            measureUnit: "ft",
+            lineWidth: 1,
+            color: "#333333",
+            offset: { x: 0, z: 0 },
+          },
+          credit: { name: "Gil Vane" },
+        },
+        {
+          uid: "sm-vid",
+          name: "Storm",
+          type: "customVideo",
+          grid: {
+            type: "square",
+            size: 70,
+            sizeInUnit: 5,
+            measureUnit: "ft",
+            lineWidth: 1,
+            color: "#333333",
+            offset: { x: 0, z: 0 },
+          },
+          videoUrl: "https://example.com/storm.mp4",
+          credit: { name: "Gil Vane" },
+        },
+      ],
+      sceneBackgrounds: [
+        {
+          uid: "sb-img",
+          name: "Tavern",
+          type: "customImage",
+          credit: { name: "Hana Loew" },
+        },
+        {
+          uid: "sb-vid",
+          name: "Rain",
+          type: "customVideo",
+          videoUrl: "https://example.com/rain.mp4",
+          credit: { name: "Hana Loew" },
+        },
+      ],
+    };
+
+    type Credited = { credit?: { name: string } };
+    type CreditedBundle = {
+      version: number;
+      assets: Credited[];
+      entities: Credited[];
+      widgets: Credited[];
+      sheets: Credited[];
+      sceneMaps: Credited[];
+      sceneBackgrounds: Credited[];
+    };
+
+    const CREDITED_CATEGORIES = [
+      "assets",
+      "entities",
+      "widgets",
+      "sheets",
+      "sceneMaps",
+      "sceneBackgrounds",
+    ] as const;
+
+    it("upgrades a minimal v12 bundle to v13 (pure version bump)", () => {
+      const v13 = migrate(v12Minimal, 13) as { version: number };
+      expect(v13.version).toBe(13);
+    });
+
+    it("invents no credit on upgrade — the bundle author is not every file's author", () => {
+      const v12 = {
+        ...v12Minimal,
+        assets: [
+          {
+            uid: "a-1",
+            name: "Map",
+            type: "image",
+            dimensions: { width: 100, height: 100 },
+          },
+        ],
+      };
+
+      const v13 = migrate(v12, 13) as CreditedBundle;
+
+      expect(v13.version).toBe(13);
+      expect(v13.assets[0].credit).toBeUndefined();
+    });
+
+    it("strips credit from every category on downgrade v13 → v12", () => {
+      const v12 = migrate(credited, 12) as CreditedBundle;
+
+      expect(v12.version).toBe(12);
+      for (const category of CREDITED_CATEGORIES) {
+        for (const item of v12[category]) {
+          expect(item.credit, `${category} kept a credit`).toBeUndefined();
+        }
+      }
+      // Nothing else is dropped: the items themselves survive, both variants
+      // of the map / background unions included.
+      expect(v12.assets).toHaveLength(2);
+      expect(v12.sceneMaps).toHaveLength(2);
+      expect(v12.sceneBackgrounds).toHaveLength(2);
+    });
+
+    it("leaves the bundle-level license alone on downgrade (no silent relicensing)", () => {
+      const v12 = migrate(credited, 12) as { license: string };
+      // A CC0 file credit must not widen — nor an ARR one narrow — the
+      // bundle's own licence.
+      expect(v12.license).toBe("ARR");
+    });
+
+    it("loses credits round-tripping v13 → v12 → v13, and still parses as v13", () => {
+      const roundTripped = migrate(migrate(credited, 12), 13) as CreditedBundle;
+
+      // Credit has no representation in v12, so it cannot survive the trip —
+      // but the round trip must still yield a valid v13 document.
+      expect(roundTripped.version).toBe(13);
+      for (const category of CREDITED_CATEGORIES) {
+        for (const item of roundTripped[category]) {
+          expect(item.credit, `${category} resurrected a credit`).toBeUndefined();
+        }
+      }
+      expect(BeyondPaperV13Schema.safeParse(roundTripped).success).toBe(true);
+    });
+
+    it("preserves credits when a v13 document is parsed directly", () => {
+      const parsed = BeyondPaperV13Schema.parse(credited);
+      expect(parsed.assets[0].credit).toEqual({
+        name: "Ada Cartwright",
+        url: "https://example.com/ada",
+        license: "CC-BY",
+      });
+      expect(parsed.assets[1].credit?.license).toBe("CC0");
+      expect(parsed.sceneMaps[1].credit?.name).toBe("Gil Vane");
+      expect(parsed.sceneBackgrounds[1].credit?.name).toBe("Hana Loew");
     });
   });
 });

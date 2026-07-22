@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { C as ChunkUid, A as AssetUid, R as RandomTableUid, E as EntityUid } from './variable.v7.schema-ClZin-IT.js';
+import { C as ChunkUid, A as AssetUid, R as RandomTableUid, E as EntityUid } from './variable.v7.schema-D14Z7-jV.js';
 
 /**
  * Chunk — v2 changes: optional fields previously typed
@@ -19,7 +19,7 @@ declare const ChunkBaseV2Schema: z.ZodObject<{
     };
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
 }, {
     uid: string & {
@@ -27,7 +27,7 @@ declare const ChunkBaseV2Schema: z.ZodObject<{
     };
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
 }>;
 type ChunkBaseV2 = z.infer<typeof ChunkBaseV2Schema>;
@@ -49,7 +49,7 @@ declare const ChunkTextV2Schema: z.ZodObject<{
     content: string;
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     mentionedEntitiesUids?: EntityUid[] | undefined;
 }, {
@@ -60,7 +60,7 @@ declare const ChunkTextV2Schema: z.ZodObject<{
     content: string;
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     mentionedEntitiesUids?: EntityUid[] | undefined;
 }>;
@@ -88,7 +88,7 @@ declare const ChunkTextProxyV2Schema: z.ZodObject<{
     };
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
 }, {
     type: "textProxy";
@@ -103,7 +103,7 @@ declare const ChunkTextProxyV2Schema: z.ZodObject<{
     };
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
 }>;
 type ChunkTextProxyV2 = z.infer<typeof ChunkTextProxyV2Schema>;
@@ -124,7 +124,7 @@ declare const ChunkGalleryV2Schema: z.ZodObject<{
     assetUids: AssetUid[];
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
 }, {
     type: "gallery";
@@ -133,7 +133,7 @@ declare const ChunkGalleryV2Schema: z.ZodObject<{
     };
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     assetUids?: AssetUid[] | undefined;
 }>;
@@ -158,7 +158,7 @@ declare const ChunkRandomV2Schema: z.ZodObject<{
     };
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     folded?: boolean | undefined;
 }, {
@@ -171,7 +171,7 @@ declare const ChunkRandomV2Schema: z.ZodObject<{
     };
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     folded?: boolean | undefined;
 }>;
@@ -194,7 +194,7 @@ declare const ChunkV2Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     content: string;
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     mentionedEntitiesUids?: EntityUid[] | undefined;
 }, {
@@ -205,7 +205,7 @@ declare const ChunkV2Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     content: string;
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     mentionedEntitiesUids?: EntityUid[] | undefined;
 }>, z.ZodObject<{
@@ -231,7 +231,7 @@ declare const ChunkV2Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
 }, {
     type: "textProxy";
@@ -246,7 +246,7 @@ declare const ChunkV2Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
 }>, z.ZodObject<{
     uid: z.ZodType<ChunkUid, z.ZodTypeDef, ChunkUid>;
@@ -265,7 +265,7 @@ declare const ChunkV2Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     assetUids: AssetUid[];
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
 }, {
     type: "gallery";
@@ -274,7 +274,7 @@ declare const ChunkV2Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     assetUids?: AssetUid[] | undefined;
 }>, z.ZodObject<{
@@ -297,7 +297,7 @@ declare const ChunkV2Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     folded?: boolean | undefined;
 }, {
@@ -310,7 +310,7 @@ declare const ChunkV2Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     folded?: boolean | undefined;
 }>]>;

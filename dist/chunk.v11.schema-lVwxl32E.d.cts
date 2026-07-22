@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { C as ChunkUid, E as EntityUid, A as AssetUid, R as RandomTableUid } from './variable.v7.schema-ClZin-IT.js';
+import { C as ChunkUid, E as EntityUid, A as AssetUid, R as RandomTableUid } from './variable.v7.schema-D14Z7-jV.cjs';
 
 /**
  * Chunk — v11 changes: a text chunk may carry `wrappedInEntityUid`, the
@@ -39,7 +39,7 @@ declare const ChunkTextV11Schema: z.ZodObject<{
     content: string;
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     mentionedEntitiesUids?: EntityUid[] | undefined;
     wrappedInEntityUid?: EntityUid | undefined;
@@ -51,7 +51,7 @@ declare const ChunkTextV11Schema: z.ZodObject<{
     content: string;
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     mentionedEntitiesUids?: EntityUid[] | undefined;
     wrappedInEntityUid?: EntityUid | undefined;
@@ -76,7 +76,7 @@ declare const ChunkV11Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     content: string;
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     mentionedEntitiesUids?: EntityUid[] | undefined;
     wrappedInEntityUid?: EntityUid | undefined;
@@ -88,7 +88,7 @@ declare const ChunkV11Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     content: string;
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     mentionedEntitiesUids?: EntityUid[] | undefined;
     wrappedInEntityUid?: EntityUid | undefined;
@@ -109,7 +109,7 @@ declare const ChunkV11Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     assetUids: AssetUid[];
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
 }, {
     type: "gallery";
@@ -118,7 +118,7 @@ declare const ChunkV11Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     assetUids?: AssetUid[] | undefined;
 }>, z.ZodObject<{
@@ -141,7 +141,7 @@ declare const ChunkV11Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     folded?: boolean | undefined;
 }, {
@@ -154,7 +154,7 @@ declare const ChunkV11Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     name?: string | undefined;
     blockStyle?: "gm-tips" | "more-info" | "warning" | "quote" | "note" | "tip" | "info" | "rule" | undefined;
-    headingLevel?: 1 | 2 | 3 | 4 | undefined;
+    headingLevel?: 2 | 1 | 3 | 4 | undefined;
     headingMode?: "inside" | "outside" | undefined;
     folded?: boolean | undefined;
 }>]>;

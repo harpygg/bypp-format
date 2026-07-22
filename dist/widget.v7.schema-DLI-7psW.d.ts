@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { W as WidgetUid, V as VariableUid, A as AssetUid } from './variable.v7.schema-ClZin-IT.cjs';
+import { W as WidgetUid, V as VariableUid, A as AssetUid } from './variable.v7.schema-D14Z7-jV.js';
 
 /**
  * A rotary value picker. The ring of values is derived entirely by the reader
@@ -63,12 +63,12 @@ declare const WidgetWheelV7Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -92,7 +92,7 @@ declare const WidgetWheelV7Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -115,7 +115,7 @@ declare const WidgetWheelV7Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
@@ -130,6 +130,14 @@ declare const WidgetWheelV7Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -150,17 +158,9 @@ declare const WidgetWheelV7Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     readingPosition?: string | undefined;
@@ -172,6 +172,14 @@ declare const WidgetWheelV7Schema: z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -192,17 +200,9 @@ declare const WidgetWheelV7Schema: z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     readingPosition?: string | undefined;
@@ -265,12 +265,12 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -294,7 +294,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -317,7 +317,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
@@ -327,6 +327,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -347,17 +355,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
 }, {
@@ -366,6 +366,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -386,17 +394,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
 }>, z.ZodObject<{
@@ -452,12 +452,12 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -481,7 +481,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -504,7 +504,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
@@ -516,6 +516,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     min?: number | undefined;
     max?: number | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -536,17 +544,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -559,6 +559,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     min?: number | undefined;
     max?: number | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -579,17 +587,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -643,12 +643,12 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -672,7 +672,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -695,7 +695,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
@@ -705,6 +705,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -725,17 +733,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
 }, {
@@ -744,6 +744,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -764,17 +772,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
 }>, z.ZodObject<{
@@ -827,12 +827,12 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -856,7 +856,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -879,7 +879,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
@@ -889,6 +889,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -909,17 +917,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     toggleIconType?: string | undefined;
@@ -929,6 +929,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -949,17 +957,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     toggleIconType?: string | undefined;
@@ -1018,12 +1018,12 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -1047,7 +1047,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -1070,7 +1070,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
@@ -1080,6 +1080,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -1100,17 +1108,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     listVisibility?: string | undefined;
@@ -1125,6 +1125,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -1145,17 +1153,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     listVisibility?: string | undefined;
@@ -1216,12 +1216,12 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -1245,7 +1245,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -1268,7 +1268,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
@@ -1278,6 +1278,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -1298,17 +1306,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     listVisibility?: string | undefined;
@@ -1320,6 +1320,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -1340,17 +1348,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     listVisibility?: string | undefined;
@@ -1410,12 +1410,12 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -1439,7 +1439,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -1462,7 +1462,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
@@ -1474,6 +1474,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     max?: number | undefined;
     icon?: string | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -1494,17 +1502,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -1518,6 +1518,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     max?: number | undefined;
     icon?: string | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -1538,17 +1546,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -1611,12 +1611,12 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -1640,7 +1640,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -1663,7 +1663,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
@@ -1675,6 +1675,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     min?: number | undefined;
     max?: number | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -1695,17 +1703,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -1722,6 +1722,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     };
     min?: number | undefined;
     max?: number | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -1742,17 +1750,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     maxVariable?: VariableUid | null | undefined;
@@ -1812,12 +1812,12 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -1841,7 +1841,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -1864,7 +1864,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
@@ -1874,7 +1874,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
-    objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -1895,19 +1902,12 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
+    objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
     formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
 }, {
     type: "entityImage";
@@ -1915,7 +1915,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
-    objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -1936,19 +1943,12 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
-    } | null | undefined;
     variableUid?: VariableUid | undefined;
+    objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
     formatSlug?: "square" | "original" | "thumbnail" | "closeup" | undefined;
 }>, z.ZodObject<{
     uid: z.ZodType<WidgetUid, z.ZodTypeDef, WidgetUid>;
@@ -1998,12 +1998,12 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }, {
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         }>>;
     } & {
         rotation: z.ZodOptional<z.ZodNumber>;
@@ -2027,7 +2027,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }, {
@@ -2050,7 +2050,7 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
     }>>>;
@@ -2065,6 +2065,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -2085,17 +2093,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     readingPosition?: string | undefined;
@@ -2107,6 +2107,14 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     uid: string & {
         readonly __bypp_flavor?: "WidgetUid" | undefined;
     };
+    area?: {
+        width: number;
+        height: number;
+    } | null | undefined;
+    position?: {
+        left: number;
+        top: number;
+    } | null | undefined;
     style?: {
         color?: string | undefined;
         justifyContent?: string | undefined;
@@ -2127,17 +2135,9 @@ declare const WidgetV7Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             assetUid: string & {
                 readonly __bypp_flavor?: "AssetUid" | undefined;
             };
-            objectFit?: "fill" | "cover" | "contain" | "none" | "scale-down" | undefined;
+            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
         } | undefined;
         rotation?: number | undefined;
-    } | null | undefined;
-    area?: {
-        width: number;
-        height: number;
-    } | null | undefined;
-    position?: {
-        left: number;
-        top: number;
     } | null | undefined;
     variableUid?: VariableUid | undefined;
     readingPosition?: string | undefined;

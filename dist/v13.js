@@ -1993,27 +1993,29 @@ var BeyondPaperV12Schema = z86.object({
   assets: z86.array(AssetV2Schema).default([])
 });
 
-// src/v10.ts
-var BYPP_FORMAT_VERSION2 = 10;
+// src/v13.ts
+var BYPP_FORMAT_VERSION2 = 13;
 export {
-  AssetV2Schema as AssetSchema,
+  AssetV3Schema as AssetSchema,
   BYPP_FORMAT_VERSION2 as BYPP_FORMAT_VERSION,
-  BeyondPaperV10Schema as BeyondPaperSchema,
-  ChunkV2Schema as ChunkSchema,
+  BeyondPaperV13Schema as BeyondPaperSchema,
+  ChunkV11Schema as ChunkSchema,
+  CreditV1Schema as CreditSchema,
   DataTableV3Schema as DataTableSchema,
   DatasetV2Schema as DatasetSchema,
   DialectV2Schema as DialectSchema,
-  EntityV3Schema as EntitySchema,
+  EntityV4Schema as EntitySchema,
   PageV1Schema as PageSchema,
   RandomTableV7Schema as RandomTableSchema,
-  SceneBackgroundV3Schema as SceneBackgroundSchema,
-  SceneMapV3Schema as SceneMapSchema,
+  SceneBackgroundV4Schema as SceneBackgroundSchema,
+  SceneMapV4Schema as SceneMapSchema,
   SceneV2Schema as SceneSchema,
-  SheetV6Schema as SheetSchema,
+  SheetV7Schema as SheetSchema,
   StyleV3Schema as StyleSchema,
   TagCategoryV1Schema as TagCategorySchema,
   TagV2Schema as TagSchema,
   VariableV7Schema as VariableSchema,
-  WidgetV7Schema as WidgetSchema
+  WidgetV9Schema as WidgetSchema,
+  WithCreditV1Schema as WithCreditSchema
 };
-//# sourceMappingURL=v10.js.map
+//# sourceMappingURL=v13.js.map

@@ -9,6 +9,49 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v13 — 2026-07
+
+### Added
+
+- **A per-file `credit` on every media-bearing model** — `{ name, url?,
+  license? }` on `assets[]`, `entities[]`, `sceneMaps[]`, `sceneBackgrounds[]`,
+  `sheets[]` and `widgets[]`. It names whoever made that one file: an
+  illustrator, a composer, a cartographer. `name` is required when the block is
+  present; `url` points at their page; `license` is the licence of THAT FILE
+  when it differs from the bundle's.
+
+  The motivation is honesty about mixed licences. A bundle has exactly one
+  `license`, so one mixing a commissioned illustration (not reusable) with CC0
+  sound effects had to collapse to its most restrictive item and declare the
+  whole thing `ARR`, misdescribing the files that were in fact free. An absent
+  `credit` still means "inherits the bundle's licence", so nothing changes for
+  producers who don't use it. `credit.license` reuses the existing `CcLicense`
+  enum — the format has one licence vocabulary, not two — and the bundle-level
+  `license` / `attribution` block is untouched.
+
+- **`WithCreditV1Schema` / `CreditV1Schema`** — a mixin of its own rather than
+  a field on `with-images-urls`. Credit is not an image concern: audio and
+  video carry their own URL mixins, so folding it in would have meant three
+  copies free to drift. And it has the opposite lifecycle to the storage fields
+  it would have sat next to — those are rewritten whenever a file is
+  re-encoded, while the credit must survive that untouched.
+
+- **Credit on every variant**, including `customVideo` scene maps and
+  backgrounds, `audio-external` and `entity` assets, and all eleven widgets —
+  so "which kinds can be credited?" is never a question a reader has to ask.
+
+### Migration
+
+- `v12 → v13` is a pure version bump — everything added is optional, so a v12
+  document is already a valid v13 one. Nothing is synthesized from the
+  bundle-level `attribution`: the bundle's author is not automatically the
+  author of every file it contains.
+- `v13 → v12` is **lossy**. `credit` is stripped everywhere, and the bundle's
+  `license` is left exactly as it was — `credit.license` cannot be merged
+  upward, since the only safe collapse is the most restrictive one, which would
+  relicense CC0 files as `ARR`. A downgraded bundle is simply silent about who
+  made each file, which is all v12 could express.
+
 ## Format v12 — 2026-07
 
 ### Added

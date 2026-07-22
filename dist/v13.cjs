@@ -17,30 +17,32 @@ var __copyProps = (to, from, except, desc) => {
 };
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// src/v12.ts
-var v12_exports = {};
-__export(v12_exports, {
-  AssetSchema: () => AssetV2Schema,
+// src/v13.ts
+var v13_exports = {};
+__export(v13_exports, {
+  AssetSchema: () => AssetV3Schema,
   BYPP_FORMAT_VERSION: () => BYPP_FORMAT_VERSION2,
-  BeyondPaperSchema: () => BeyondPaperV12Schema,
+  BeyondPaperSchema: () => BeyondPaperV13Schema,
   ChunkSchema: () => ChunkV11Schema,
+  CreditSchema: () => CreditV1Schema,
   DataTableSchema: () => DataTableV3Schema,
   DatasetSchema: () => DatasetV2Schema,
   DialectSchema: () => DialectV2Schema,
-  EntitySchema: () => EntityV3Schema,
+  EntitySchema: () => EntityV4Schema,
   PageSchema: () => PageV1Schema,
   RandomTableSchema: () => RandomTableV7Schema,
-  SceneBackgroundSchema: () => SceneBackgroundV3Schema,
-  SceneMapSchema: () => SceneMapV3Schema,
+  SceneBackgroundSchema: () => SceneBackgroundV4Schema,
+  SceneMapSchema: () => SceneMapV4Schema,
   SceneSchema: () => SceneV2Schema,
-  SheetSchema: () => SheetV6Schema,
+  SheetSchema: () => SheetV7Schema,
   StyleSchema: () => StyleV3Schema,
   TagCategorySchema: () => TagCategoryV1Schema,
   TagSchema: () => TagV2Schema,
   VariableSchema: () => VariableV7Schema,
-  WidgetSchema: () => WidgetV8Schema
+  WidgetSchema: () => WidgetV9Schema,
+  WithCreditSchema: () => WithCreditV1Schema
 });
-module.exports = __toCommonJS(v12_exports);
+module.exports = __toCommonJS(v13_exports);
 
 // src/schemas/bypp.v13.schema.ts
 var import_zod76 = require("zod");
@@ -2037,14 +2039,15 @@ var BeyondPaperV12Schema = import_zod86.z.object({
   assets: import_zod86.z.array(AssetV2Schema).default([])
 });
 
-// src/v12.ts
-var BYPP_FORMAT_VERSION2 = 12;
+// src/v13.ts
+var BYPP_FORMAT_VERSION2 = 13;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   AssetSchema,
   BYPP_FORMAT_VERSION,
   BeyondPaperSchema,
   ChunkSchema,
+  CreditSchema,
   DataTableSchema,
   DatasetSchema,
   DialectSchema,
@@ -2059,6 +2062,7 @@ var BYPP_FORMAT_VERSION2 = 12;
   TagCategorySchema,
   TagSchema,
   VariableSchema,
-  WidgetSchema
+  WidgetSchema,
+  WithCreditSchema
 });
-//# sourceMappingURL=v12.cjs.map
+//# sourceMappingURL=v13.cjs.map
