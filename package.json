@@ -66,15 +66,19 @@
         "types": "./dist/v13.d.cts",
         "default": "./dist/v13.cjs"
       }
-    }
+    },
+    "./examples/*": "./examples/*",
+    "./package.json": "./package.json"
   },
   "files": [
-    "dist"
+    "dist",
+    "examples"
   ],
   "scripts": {
     "prepare": "tsup",
     "build": "tsup",
     "test": "vitest run",
+    "examples:emit": "UPDATE_EXAMPLES=1 vitest run src/examples.test.ts",
     "test:watch": "vitest"
   },
   "peerDependencies": {

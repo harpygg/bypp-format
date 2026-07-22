@@ -1,0 +1,4572 @@
+{
+  "version": 12,
+  "format": "bypp",
+  "name": "Shattered Reach [D&D 2024]",
+  "exportedAt": "2026-07-22T10:43:17.949Z",
+  "bundleVersion": "1",
+  "license": "ARR",
+  "licenseVersion": "4.0",
+  "attribution": {
+    "authorName": "Maslow#3409"
+  },
+  "dialects": [
+    {
+      "uid": "4Z2w-uI9t-8gwB-YOtT",
+      "name": "Cartographer's Code",
+      "font": {
+        "fontFamily": "qijomi",
+        "fontUrl": "https://harpy.gg/assets/fonts/qijomi.woff2"
+      },
+      "order": 4,
+      "spokenByEntitiesUids": [
+        "OVC53xdg1YDHCSwH3id5"
+      ]
+    },
+    {
+      "uid": "SBy8-53LR-gIXS-zrdB",
+      "name": "Stoneforged Speech",
+      "font": {
+        "fontFamily": "daedra",
+        "fontUrl": "https://harpy.gg/assets/fonts/daedra.woff2"
+      },
+      "order": 7,
+      "spokenByEntitiesUids": []
+    },
+    {
+      "uid": "TQBU-lTAA-WTWY-9gvj",
+      "name": "Eclipsed Canticle",
+      "font": {
+        "fontFamily": "celestial",
+        "fontUrl": "https://harpy.gg/assets/fonts/celestial.woff2"
+      },
+      "order": 6,
+      "spokenByEntitiesUids": [
+        "36szNG9RdIFpwt05IH2N"
+      ]
+    },
+    {
+      "uid": "YtiA-Tvrj-uPFc-NHQk",
+      "name": "Fragmented Tongue",
+      "font": {
+        "fontFamily": "dwemer",
+        "fontUrl": "https://harpy.gg/assets/fonts/dwemer.woff2"
+      },
+      "order": 2,
+      "spokenByEntitiesUids": []
+    },
+    {
+      "uid": "1CHz-eVND-vCec-EWO3",
+      "name": "Thunderchild",
+      "font": {
+        "fontFamily": "dovahkiin",
+        "fontUrl": "https://harpy.gg/assets/fonts/dovahkiin.woff2"
+      },
+      "order": 8,
+      "spokenByEntitiesUids": []
+    },
+    {
+      "uid": "U1mY-w3QR-CLvJ-6nL0",
+      "name": "Skyblazer's Dialect",
+      "font": {
+        "fontFamily": "tuigan",
+        "fontUrl": "https://harpy.gg/assets/fonts/tuigan.woff2"
+      },
+      "order": 5,
+      "spokenByEntitiesUids": []
+    },
+    {
+      "uid": "ik8u-4SxH-mp6h-EdxX",
+      "name": "Whisperwind",
+      "font": {
+        "fontFamily": "iokharic",
+        "fontUrl": "https://harpy.gg/assets/fonts/iokharic.woff2"
+      },
+      "order": 3,
+      "spokenByEntitiesUids": []
+    },
+    {
+      "uid": "EU6k-whhW-J12y-WvUB",
+      "name": "Serpentine",
+      "font": {
+        "fontFamily": "gargish",
+        "fontUrl": "https://harpy.gg/assets/fonts/gargish.woff2"
+      },
+      "order": 1,
+      "spokenByEntitiesUids": [
+        "12fQPWmUzZNI9kxudIgi"
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "uid": "12fQPWmUzZNI9kxudIgi",
+      "displayName": "Olwen of the Veil",
+      "description": "She tells you in riddles because the truth, said plainly, breaks things.",
+      "tagsUid": [
+        "zcNZUW8ZtgOqVK98iYRb",
+        "8c2794SqsS25ygDf0eMI",
+        "DilpHWWHjCwuw8q0qal3",
+        "CqdSC6kjkqIczGW5Pe7F"
+      ],
+      "name": "Olwen of the Veil",
+      "isArchived": false,
+      "pagesOrder": [
+        "f3qW8Y319eKN4czUFASN"
+      ],
+      "data": {
+        "7SVOZlm9prNxciQk76dA": "h7xK-Nb1F-lKxd-LuBs"
+      },
+      "type": "character"
+    },
+    {
+      "uid": "36szNG9RdIFpwt05IH2N",
+      "displayName": "Thalia Embermane",
+      "description": "The fire answers her moods before her mind does, and her moods have never been patient.",
+      "tagsUid": [
+        "uUVwyPcpXJ9e4tHTYMDD",
+        "wXWBFemXJcXM1zOL5ftX",
+        "EAHFvHbcb5M3R66nmopV",
+        "bAKQespnPN6weV91dEEL"
+      ],
+      "name": "Thalia Embermane",
+      "isArchived": false,
+      "pagesOrder": [
+        "WgTbnnFMCTPdVPMKahpW"
+      ],
+      "type": "character"
+    },
+    {
+      "uid": "Fan2gBEflkhtktv7PEv5",
+      "displayName": "Wolsam",
+      "description": "The funniest person in any room. The jokes get louder when the wound gets deeper.",
+      "tagsUid": [
+        "jDfTHxFEEql6EvECGjPY",
+        "RcR0gE5afTCmd87NozxR",
+        "ynGRI07gnBLPGPsLaI7m",
+        "SG6kwMHNBzQdjklnPP4q"
+      ],
+      "name": "Wolsam",
+      "originalUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/wolsam.webp",
+      "thumbnailUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/wolsam-thumb.webp",
+      "squareUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/wolsam-square.webp",
+      "closeupUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/wolsam-closeup.webp",
+      "dimensions": {
+        "width": 1920,
+        "height": 960
+      },
+      "isArchived": false,
+      "pagesOrder": [
+        "UigrnisYZ9e3XZkkl7mD"
+      ],
+      "data": {
+        "qepyLBpOzxpCGYhkFcU5": "Lute of Whispers, disguise kit, forgery kit",
+        "jLdhVbZ91qAfCcELkhXW": "FAfkDBA7YUYLJtTN8wsk",
+        "4DPYRS76IKmFbUHaCNIs": "FAfkDBA7YUYLJtTN8wsk",
+        "hwPS7lbUYOsSv8KKNfPg": true,
+        "sYZSn2sHXYrpaNblz5wL": "WbV7AnDnhLvaGWQG3nTE",
+        "lHs4FFsJDnc4ypyjWjkQ": 12,
+        "R07fJ9o4V6bhjtr3aYHn": "FAfkDBA7YUYLJtTN8wsk",
+        "XKHGLy4aN17ZnKBIhAy5": "College of Whispers",
+        "tka2wD1462fODTBZLYov": "PgX1aYZefyiZK3dlpknb",
+        "ElU1hkuUgdsQzp9tmdQB": "Simple weapons, hand crossbows, longswords, rapiers, shortswords",
+        "joaQNCTlQF48zyDVe66O": false,
+        "HouITOmrZKxfUG77Qm0s": "FAfkDBA7YUYLJtTN8wsk",
+        "o2kThRNm9lol5G1fPb40": 6500,
+        "aDF3nbdrtdY3F1wTtudF": "Charlatan",
+        "Rf9Hs1oqHKPBlOvXxFDR": false,
+        "A6U9faRjhawqbvXQfNej": 33,
+        "Jbw3ZkQctABHIeLgEkDu": "Tiefling",
+        "8OA7YlB22BrDGJCnj2hl": "PgX1aYZefyiZK3dlpknb",
+        "qQFHVD38OAmfSeFyEVgM": "FAfkDBA7YUYLJtTN8wsk",
+        "1J2D96ogo2h2LzKbLHFP": false,
+        "k9dOlOoAGn1YWXDNQSal": false,
+        "MhtcM0nTPwqjYxxWNQit": "Theatrical. Uses humor as armor. Collects secrets.",
+        "LJSKOaSsHkfnF9vUsOTU": "Bardic Inspiration (d8, 4 uses)\nJack of All Trades\nSong of Rest (d6)",
+        "BFJF5hXMD6wBeUxJLNUW": "\n",
+        "3OhIqsZkQO2AuSD0qecJ": "Wolsam prefers not to fight. But when cornered, it's quick.",
+        "5ohxwYYvPOJO3sdbp4oq": "FAfkDBA7YUYLJtTN8wsk",
+        "v1OSJdasGRBfMV3oxgj2": 33,
+        "ppJXxS8mq79tpMmJ4ScU": "1d8+3 piercing",
+        "eNSG6IgiY0Vx8lGfZ5GM": "FAfkDBA7YUYLJtTN8wsk",
+        "AULSl5A8IRGuyfMDFynL": true,
+        "aJ4FjGqm87Bo1wdw5sWS": false,
+        "AudSdODZVhENNIykIga1": "FAfkDBA7YUYLJtTN8wsk",
+        "MqJlCigqTdgt34gIliuL": 0,
+        "FyPxvyVeuUPb4yLDUq05": "FAfkDBA7YUYLJtTN8wsk",
+        "pj1ZnsNovbXekNi8ncda": "HxyOUwmqyI36XP5T8fCi",
+        "nl12DLRs3aJ1lB6Y2yv1": 16,
+        "IfvsKunDU4hcFPzt8WxP": 15,
+        "1P7hSxbSskHGXT5TB0d9": "+6",
+        "4NCfJj2XvLIlQdb9PLFh": "FAfkDBA7YUYLJtTN8wsk",
+        "0FUQZyTXyJLhI2YnKXsp": "FAfkDBA7YUYLJtTN8wsk",
+        "HEj3wLXAKIvCrzXXdBcv": 8,
+        "D7yZakafZHQRPNpCRHTu": "FAfkDBA7YUYLJtTN8wsk",
+        "mAb1ZNiaQ3VtURfic4Zc": "Font of Inspiration\nPsychic Blades (3d6)\nWords of Terror",
+        "LNdXFCAJxN5e1PUOdILH": "HxyOUwmqyI36XP5T8fCi",
+        "nRBRwxQzuOUQzvw2IZfw": "Rapier",
+        "Yl0t5DgflBpPGdxk5tJT": "9tVh565gE8TxWqY3XKu5",
+        "04vuxqyy2bG4udQVwRAw": 10,
+        "c65WRYvxHICCtOoU6ANa": 0,
+        "iKxBRoYg23fNPsjsZr0N": "9tVh565gE8TxWqY3XKu5",
+        "zBaq6x6llDj1YUsFuMlG": 18,
+        "6TFSl4ygSNK9EOLDWw3b": "Actor",
+        "11st8AJbF7Kb1AOtY5wf": "FAfkDBA7YUYLJtTN8wsk",
+        "jGKDEdhKlvcQjOB79xBp": 1.78,
+        "XmB6tQGDGDDv8uwLvwab": "FAfkDBA7YUYLJtTN8wsk",
+        "S3cvclAz9lcpRw9xUeAc": true,
+        "TETqbvnEjoQVh2NxJovc": 12,
+        "TYBShjlZIy6RVddQ9rdY": 0,
+        "rj7ANYqyqPR4y3M0RHnS": "aRRx9xN4CmXv3JooB539",
+        "DMImRKWXTJpmyodpsoHh": 70
+      },
+      "type": "character"
+    },
+    {
+      "uid": "OVC53xdg1YDHCSwH3id5",
+      "displayName": "Dincy",
+      "description": "She packed the antidote before you knew you were poisoned.",
+      "tagsUid": [
+        "uUVwyPcpXJ9e4tHTYMDD",
+        "RcR0gE5afTCmd87NozxR",
+        "djNqxycyEmLJCOAGRrAl",
+        "80XF6ZrnDek4WwMaRfMS"
+      ],
+      "name": "Dincy",
+      "originalUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/dincy.webp",
+      "thumbnailUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/dincy-thumb.webp",
+      "squareUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/dincy-square.webp",
+      "closeupUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/dincy-closeup.webp",
+      "dimensions": {
+        "width": 1920,
+        "height": 960
+      },
+      "isArchived": false,
+      "pagesOrder": [
+        "rjGtBOyRzL0lcGjxvGh6"
+      ],
+      "data": {
+        "qepyLBpOzxpCGYhkFcU5": "Cartographer's tools, navigator's tools",
+        "jLdhVbZ91qAfCcELkhXW": "9tVh565gE8TxWqY3XKu5",
+        "4DPYRS76IKmFbUHaCNIs": "OW76ZrlFsJFdZz4D1Zh1",
+        "lHs4FFsJDnc4ypyjWjkQ": 14,
+        "sYZSn2sHXYrpaNblz5wL": "ATxzxHzHZbYnAMEFRXdA",
+        "R07fJ9o4V6bhjtr3aYHn": "OW76ZrlFsJFdZz4D1Zh1",
+        "XKHGLy4aN17ZnKBIhAy5": "School of Divination",
+        "tka2wD1462fODTBZLYov": "PgX1aYZefyiZK3dlpknb",
+        "ElU1hkuUgdsQzp9tmdQB": "Daggers, darts, slings, quarterstaffs, light crossbows",
+        "joaQNCTlQF48zyDVe66O": false,
+        "HouITOmrZKxfUG77Qm0s": "OW76ZrlFsJFdZz4D1Zh1",
+        "o2kThRNm9lol5G1fPb40": 6500,
+        "aDF3nbdrtdY3F1wTtudF": "Guild Artisan (Cartographer's Guild)",
+        "Rf9Hs1oqHKPBlOvXxFDR": false,
+        "fMhD3Yrj53H7IXPD4AFb": true,
+        "Jbw3ZkQctABHIeLgEkDu": "Half-elf",
+        "A6U9faRjhawqbvXQfNej": 32,
+        "rj7ANYqyqPR4y3M0RHnS": "nxCu1AQvzX1kNhEjk3dh",
+        "8OA7YlB22BrDGJCnj2hl": "PgX1aYZefyiZK3dlpknb",
+        "YBPwCWw2GyBOOkjnmBQS": "Something here",
+        "qQFHVD38OAmfSeFyEVgM": "OW76ZrlFsJFdZz4D1Zh1",
+        "1J2D96ogo2h2LzKbLHFP": false,
+        "k9dOlOoAGn1YWXDNQSal": false,
+        "MhtcM0nTPwqjYxxWNQit": "Meticulous. Anxious. Shows care through preparation.",
+        "LJSKOaSsHkfnF9vUsOTU": "Arcane Recovery\nPortent (2 dice)\nExpert Divination",
+        "NFJ0P0UBGfBwIDPFIu55": "xqpi-mVwE-UNwJ-sGeq",
+        "lsO99a61PLKINJ7LXmxg": true,
+        "3OhIqsZkQO2AuSD0qecJ": "Rarely used. Dincy prefers spells.",
+        "5ohxwYYvPOJO3sdbp4oq": "OW76ZrlFsJFdZz4D1Zh1",
+        "v1OSJdasGRBfMV3oxgj2": 32,
+        "ppJXxS8mq79tpMmJ4ScU": "1d6-1 bludgeoning",
+        "eNSG6IgiY0Vx8lGfZ5GM": "9tVh565gE8TxWqY3XKu5",
+        "AULSl5A8IRGuyfMDFynL": false,
+        "aJ4FjGqm87Bo1wdw5sWS": false,
+        "AudSdODZVhENNIykIga1": "9tVh565gE8TxWqY3XKu5",
+        "MqJlCigqTdgt34gIliuL": 0,
+        "FyPxvyVeuUPb4yLDUq05": "OW76ZrlFsJFdZz4D1Zh1",
+        "TETqbvnEjoQVh2NxJovc": 18,
+        "pj1ZnsNovbXekNi8ncda": "OW76ZrlFsJFdZz4D1Zh1",
+        "nl12DLRs3aJ1lB6Y2yv1": 14,
+        "IfvsKunDU4hcFPzt8WxP": 15,
+        "4NCfJj2XvLIlQdb9PLFh": "OW76ZrlFsJFdZz4D1Zh1",
+        "1P7hSxbSskHGXT5TB0d9": "+2",
+        "0FUQZyTXyJLhI2YnKXsp": "9tVh565gE8TxWqY3XKu5",
+        "HEj3wLXAKIvCrzXXdBcv": 8,
+        "D7yZakafZHQRPNpCRHTu": "OW76ZrlFsJFdZz4D1Zh1",
+        "mAb1ZNiaQ3VtURfic4Zc": "Ritual Casting\nSpellcasting (INT, DC 15, +7 to hit)",
+        "LNdXFCAJxN5e1PUOdILH": "OW76ZrlFsJFdZz4D1Zh1",
+        "TYBShjlZIy6RVddQ9rdY": 0,
+        "Yl0t5DgflBpPGdxk5tJT": "OW76ZrlFsJFdZz4D1Zh1",
+        "nRBRwxQzuOUQzvw2IZfw": "Quarterstaff",
+        "04vuxqyy2bG4udQVwRAw": 13,
+        "jKCjUC4X9wQjPEpKiqym": "Some backstory here",
+        "c65WRYvxHICCtOoU6ANa": 0,
+        "zBaq6x6llDj1YUsFuMlG": 10,
+        "iKxBRoYg23fNPsjsZr0N": "OW76ZrlFsJFdZz4D1Zh1",
+        "6TFSl4ygSNK9EOLDWw3b": "War Caster",
+        "jGKDEdhKlvcQjOB79xBp": 1.76,
+        "11st8AJbF7Kb1AOtY5wf": "OW76ZrlFsJFdZz4D1Zh1",
+        "XmB6tQGDGDDv8uwLvwab": "OW76ZrlFsJFdZz4D1Zh1"
+      },
+      "type": "character"
+    },
+    {
+      "uid": "nVEnyBkDwAqKk4uSRuD1",
+      "displayName": "Yonai",
+      "description": "Not the smartest. Not the fastest. But when the ground splits, he is still standing.",
+      "tagsUid": [
+        "OR35eDKsHDuuxqQ5cf5I",
+        "RcR0gE5afTCmd87NozxR",
+        "ynGRI07gnBLPGPsLaI7m",
+        "1dBojTOG4I4uOxlh3QzL"
+      ],
+      "name": "Yonai",
+      "originalUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/yonai.webp",
+      "thumbnailUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/yonai-thumb.webp",
+      "squareUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/yonai-square.webp",
+      "closeupUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/yonai-closeup.webp",
+      "dimensions": {
+        "width": 1920,
+        "height": 960
+      },
+      "isArchived": false,
+      "pagesOrder": [
+        "hrtSEXIrLrvsiMZwV6GO"
+      ],
+      "data": {
+        "1J2D96ogo2h2LzKbLHFP": true,
+        "5ohxwYYvPOJO3sdbp4oq": "OW76ZrlFsJFdZz4D1Zh1",
+        "aDF3nbdrtdY3F1wTtudF": "Soldier",
+        "1P7hSxbSskHGXT5TB0d9": "+7",
+        "o2kThRNm9lol5G1fPb40": 6500,
+        "pj1ZnsNovbXekNi8ncda": "OW76ZrlFsJFdZz4D1Zh1",
+        "R07fJ9o4V6bhjtr3aYHn": "OW76ZrlFsJFdZz4D1Zh1",
+        "joaQNCTlQF48zyDVe66O": false,
+        "04vuxqyy2bG4udQVwRAw": 14,
+        "Jbw3ZkQctABHIeLgEkDu": "Human",
+        "11st8AJbF7Kb1AOtY5wf": "9tVh565gE8TxWqY3XKu5",
+        "aJ4FjGqm87Bo1wdw5sWS": true,
+        "zBaq6x6llDj1YUsFuMlG": 10,
+        "YBPwCWw2GyBOOkjnmBQS": "qsdqsdqsdqsdqsdazeazeqsd. ",
+        "MqJlCigqTdgt34gIliuL": 0,
+        "qepyLBpOzxpCGYhkFcU5": "Smith's tools",
+        "jKCjUC4X9wQjPEpKiqym": "Coucou Voila\nEt aussi",
+        "6TFSl4ygSNK9EOLDWw3b": "Great Weapon Master",
+        "iKxBRoYg23fNPsjsZr0N": "OW76ZrlFsJFdZz4D1Zh1",
+        "3OhIqsZkQO2AuSD0qecJ": "Great Weapon Master: -5/+10",
+        "XmB6tQGDGDDv8uwLvwab": "OW76ZrlFsJFdZz4D1Zh1",
+        "4DPYRS76IKmFbUHaCNIs": "OW76ZrlFsJFdZz4D1Zh1",
+        "lHs4FFsJDnc4ypyjWjkQ": 16,
+        "4NCfJj2XvLIlQdb9PLFh": "OW76ZrlFsJFdZz4D1Zh1",
+        "D7yZakafZHQRPNpCRHTu": "9tVh565gE8TxWqY3XKu5",
+        "LJSKOaSsHkfnF9vUsOTU": "Fighting Style: Great Weapon Fighting\nSecond Wind\nAction Surge (1 use)",
+        "jLdhVbZ91qAfCcELkhXW": "OW76ZrlFsJFdZz4D1Zh1",
+        "ppJXxS8mq79tpMmJ4ScU": "1d12+4 slashing",
+        "Yl0t5DgflBpPGdxk5tJT": "OW76ZrlFsJFdZz4D1Zh1",
+        "nl12DLRs3aJ1lB6Y2yv1": 12,
+        "ElU1hkuUgdsQzp9tmdQB": "Simple weapons, martial weapons",
+        "jGKDEdhKlvcQjOB79xBp": 1.88,
+        "HouITOmrZKxfUG77Qm0s": "OW76ZrlFsJFdZz4D1Zh1",
+        "Rf9Hs1oqHKPBlOvXxFDR": true,
+        "lsO99a61PLKINJ7LXmxg": false,
+        "IfvsKunDU4hcFPzt8WxP": 18,
+        "LNdXFCAJxN5e1PUOdILH": "OW76ZrlFsJFdZz4D1Zh1",
+        "XKHGLy4aN17ZnKBIhAy5": "Champion",
+        "mAb1ZNiaQ3VtURfic4Zc": "Extra Attack\nImproved Critical (19-20)",
+        "A6U9faRjhawqbvXQfNej": 44,
+        "v1OSJdasGRBfMV3oxgj2": 44,
+        "AULSl5A8IRGuyfMDFynL": true,
+        "MhtcM0nTPwqjYxxWNQit": "Stubborn. Protective. Processes emotions two days late.",
+        "HEj3wLXAKIvCrzXXdBcv": 18,
+        "eNSG6IgiY0Vx8lGfZ5GM": "OW76ZrlFsJFdZz4D1Zh1",
+        "FyPxvyVeuUPb4yLDUq05": "9tVh565gE8TxWqY3XKu5",
+        "nRBRwxQzuOUQzvw2IZfw": "Dawnreaver",
+        "NFJ0P0UBGfBwIDPFIu55": "xqpi-mVwE-UNwJ-sGeq",
+        "kEn0BCicmYs1euKaHXYq": [
+          "wkbb-DECU-BR1H-mxRe",
+          "n4dU-Esqh-aSYR-MAdE",
+          "vNwm-mtVE-wElk-LWnT"
+        ],
+        "k9dOlOoAGn1YWXDNQSal": false,
+        "0FUQZyTXyJLhI2YnKXsp": "OW76ZrlFsJFdZz4D1Zh1",
+        "tka2wD1462fODTBZLYov": "PgX1aYZefyiZK3dlpknb",
+        "TETqbvnEjoQVh2NxJovc": 8,
+        "AudSdODZVhENNIykIga1": "OW76ZrlFsJFdZz4D1Zh1",
+        "fMhD3Yrj53H7IXPD4AFb": false,
+        "ctJoYszcDzDMhKcheBkO": "TLTFSk9sfCwbel5zSwfz",
+        "TYBShjlZIy6RVddQ9rdY": 3,
+        "c65WRYvxHICCtOoU6ANa": 0,
+        "rj7ANYqyqPR4y3M0RHnS": "q9ky2tQ8ZAJlwBdzt0S9",
+        "OSkj42vrIstXiThlY3eb": true,
+        "FD0FD3hHFdWhci8kSRCf": "",
+        "sNY1rOMGkPHuXUXbiH9q": true,
+        "qQFHVD38OAmfSeFyEVgM": "9tVh565gE8TxWqY3XKu5"
+      },
+      "type": "character"
+    },
+    {
+      "uid": "viJ7ytjL1B6AN2fhGSmb",
+      "displayName": "Thessaly Venn",
+      "description": "Taller than most, sharper than all. She remembers every slight.",
+      "tagsUid": [
+        "hUDAl7OzT4SBKNcTzyIK",
+        "vsHahEOwDe9j36iRTV8R",
+        "ZNM18FItSmydw3KAAlZM",
+        "Gl4UpStNdGRBrZfO9gKM"
+      ],
+      "name": "Thessaly Venn, Sovereign of Amberlake",
+      "originalUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/thessaly-venn-sovereign-of-amberlake.webp",
+      "thumbnailUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/thessaly-venn-sovereign-of-amberlake-thumb.webp",
+      "squareUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/thessaly-venn-sovereign-of-amberlake-square.webp",
+      "closeupUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/thessaly-venn-sovereign-of-amberlake-closeup.webp",
+      "dimensions": {
+        "width": 1920,
+        "height": 960
+      },
+      "isArchived": false,
+      "pagesOrder": [
+        "Spyi4d6HPxz0CJwYH5pu"
+      ],
+      "data": {
+        "tka2wD1462fODTBZLYov": "ecQkqEalsS8MIWCGyu10"
+      },
+      "type": "character"
+    },
+    {
+      "uid": "7784X1uGEjOtMwqOOMM9",
+      "displayName": "Kael Ashward",
+      "description": "Three attempts on the Sovereign's life. Zero that reached her.",
+      "tagsUid": [
+        "OR35eDKsHDuuxqQ5cf5I",
+        "ZNM18FItSmydw3KAAlZM",
+        "hUDAl7OzT4SBKNcTzyIK",
+        "ynGRI07gnBLPGPsLaI7m"
+      ],
+      "name": "Kael Ashward, Sworn Shield of the Sovereign",
+      "originalUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/kael-ashward-sworn-shield-of-the-sov.webp",
+      "thumbnailUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/kael-ashward-sworn-shield-of-the-sov-thumb.webp",
+      "squareUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/kael-ashward-sworn-shield-of-the-sov-square.webp",
+      "closeupUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/kael-ashward-sworn-shield-of-the-sov-closeup.webp",
+      "dimensions": {
+        "width": 1920,
+        "height": 960
+      },
+      "isArchived": false,
+      "pagesOrder": [
+        "Yg2kVylnM8y3eeNxt5LM"
+      ],
+      "data": {
+        "tka2wD1462fODTBZLYov": "oVMEfG5OPFKGyeki6A0T"
+      },
+      "type": "character"
+    },
+    {
+      "uid": "qDrjmYSFgHYxORuzgZfm",
+      "displayName": "Shield of Dawn",
+      "description": "A battered starbrass shield that glows faintly at the edges, warm to the touch before battle.",
+      "tagsUid": [
+        "s4n5yMqUzDHCQ5P5Qzla",
+        "OR35eDKsHDuuxqQ5cf5I",
+        "TOIzXOMypzxw828NlR9B",
+        "HASy65mvAufQuRJxgN3q"
+      ],
+      "name": "Yonai's Shield of Dawn",
+      "isArchived": false,
+      "pagesOrder": [
+        "XG2pQxKNipFeICRlfDBj"
+      ],
+      "type": "item"
+    },
+    {
+      "uid": "xDgcUM2zeiLLOdt2N4fP",
+      "displayName": "Dawnreaver",
+      "description": "A two-handed axe forged for a man who fights like he has already decided to die standing.",
+      "tagsUid": [
+        "s4n5yMqUzDHCQ5P5Qzla",
+        "bAKQespnPN6weV91dEEL",
+        "RcR0gE5afTCmd87NozxR",
+        "W7Y5ATjAauh4rbrgoZCZ"
+      ],
+      "name": "Dawnreaver",
+      "originalUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/dawnreaver.webp",
+      "thumbnailUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/dawnreaver-thumb.webp",
+      "squareUrl": "https://raw.githubusercontent.com/harpygg/bypp-format/main/examples/assets/dawnreaver-square.webp",
+      "dimensions": {
+        "width": 1920,
+        "height": 986
+      },
+      "isArchived": false,
+      "pagesOrder": [
+        "NnVH3tGoAC0T6CPzGYm4"
+      ],
+      "type": "item"
+    }
+  ],
+  "pages": [
+    {
+      "uid": "f3qW8Y319eKN4czUFASN",
+      "name": "Description",
+      "type": "standard",
+      "chunksOrder": [
+        "Mh6NZu2ffAchUru431kC"
+      ]
+    },
+    {
+      "uid": "WgTbnnFMCTPdVPMKahpW",
+      "name": "Description",
+      "type": "standard",
+      "chunksOrder": [
+        "IgqoitpkXucdjAjtMDRE"
+      ]
+    },
+    {
+      "uid": "UigrnisYZ9e3XZkkl7mD",
+      "name": "Description",
+      "type": "standard",
+      "chunksOrder": [
+        "IArxx1TesvAwIs1OKJWD"
+      ]
+    },
+    {
+      "uid": "rjGtBOyRzL0lcGjxvGh6",
+      "name": "Description",
+      "type": "standard",
+      "chunksOrder": [
+        "OxKPFrEdvcyTQHpEYvNo"
+      ]
+    },
+    {
+      "uid": "hrtSEXIrLrvsiMZwV6GO",
+      "name": "Description",
+      "type": "standard",
+      "chunksOrder": [
+        "W5FDUVJernHUTznQzp1z",
+        "zRB2RuTm7a9ZYzdP5GpQ",
+        "zo0cRQ3GGh3UIfPRyMJY",
+        "V4F5UXeE74hrBsBDiN3o"
+      ]
+    },
+    {
+      "uid": "Spyi4d6HPxz0CJwYH5pu",
+      "name": "Description",
+      "type": "standard",
+      "chunksOrder": [
+        "jIWaOLGfoaq6GIG8fVL4"
+      ]
+    },
+    {
+      "uid": "Yg2kVylnM8y3eeNxt5LM",
+      "name": "Description",
+      "type": "standard",
+      "chunksOrder": [
+        "tJqucgjoI2eBGNxW6ah3"
+      ]
+    },
+    {
+      "uid": "XG2pQxKNipFeICRlfDBj",
+      "name": "Description",
+      "type": "standard",
+      "chunksOrder": [
+        "3gJteTPLm0t7JolPLLfT"
+      ]
+    },
+    {
+      "uid": "NnVH3tGoAC0T6CPzGYm4",
+      "name": "Description",
+      "type": "standard",
+      "chunksOrder": [
+        "NmDXZwr27TM4Lu7VZmwJ"
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "uid": "Mh6NZu2ffAchUru431kC",
+      "headingMode": "outside",
+      "type": "text",
+      "content": "<p>Olwen moves through the world like someone walking through a room full of sleeping people, carefully, with a constant awareness of how much noise she might accidentally make. She is not fragile. She is cautious in the way that people who carry volatile things learn to be cautious. What she carries is knowledge, the particular and terrible kind that arrives uninvited and leaves bruises on the inside of her skull.</p><p>She sees through the Veil, the thin membrane between what is and what is about to be. This is not a metaphor. For Olwen, the present is translucent, layered with ghostly impressions of possible futures that flicker at the edges of her vision like heat shimmer over summer stone. She has learned to parse these impressions the way a sailor reads clouds: quickly, imperfectly, with the understanding that being wrong about the weather can kill you. The Shattering Prophecy weighs on her constantly, a vision she has seen from angles that differ from Selene's but converge on the same catastrophic point.</p><p>Her speech patterns frustrate people who want straight answers. She wraps truth in riddles and parables, not out of pretension but out of hard experience. She learned early that telling someone their future plainly tends to either paralyze them or provoke them into making it worse. A riddle, by contrast, gives them room to find their own path to the answer. She considers this kindness. Others consider it infuriating. She accepts the trade-off.</p><p>Within the Whispering Shadows, the secretive circle to which she belongs, Olwen is both respected and somewhat feared. She knows too much about too many of its members, not because she has spied but because the Veil simply shows her things she did not ask to see. She has developed a habit of forgetting on purpose, a deliberate blurring of knowledge she should not possess, which is harder than it sounds and leaves her with persistent headaches.</p><p>Selene the Starborn is the one soul Olwen trusts with the unfiltered truth. Their relationship is built on the shared burden of sight: two women who see too much, debating endlessly how much of it to share with a world that is not ready. They meet in the Luminescent Marshlands, where the light behaves strangely and the air itself seems to listen, because both of them find that prophecy speaks more clearly in places where the boundary between real and possible grows thin. The Shattering Prophecy is the subject they circle most often, each offering interpretations the other dismantles, each grateful for the dismantling.</p><p>She drinks mint tea constantly, holds the cup with both hands as if anchoring herself to its warmth. Her rooms smell of dried lavender and candle wax. She keeps no mirrors. She is kind in a way that feels ancient, patient, as if she has already seen how the conversation ends and has decided to be gentle about it.</p>"
+    },
+    {
+      "uid": "IgqoitpkXucdjAjtMDRE",
+      "headingMode": "outside",
+      "type": "text",
+      "content": "<p>Thalia's hair does not merely look like fire; it behaves like it. On calm days it settles into deep auburn waves. When she is angry, and she is angry often, the ends brighten to copper and gold and the air around her face shimmers with heat. She has burned three pillows in her sleep during bad dreams. She has scorched the hand of a man who grabbed her arm in a market. She did not mean to do either of these things. That is the core problem of Thalia Embermane: the fire does not wait for permission.</p><p>She grew up among the Wildling Clans, where elemental affinity is considered a gift. It took her seventeen years to understand that it is also a leash. Her power is not something she wields; it is something she negotiates with, constantly, the way one might negotiate with a large and affectionate dog that does not understand its own strength. She has learned control through repetition and pain, but control is not the same as mastery, and mastery implies a dominance she has never quite achieved.</p><p>With people she trusts, Thalia is blunt, physical, generous to a fault. She cooks for friends and burns the food slightly because she cannot help it, and everyone pretends not to notice the charred edges. She touches people when she talks to them, a hand on the shoulder, a nudge with her elbow, as if confirming through contact that they are real and she has not accidentally hurt them. They met at The Cinder Forge during a demonstration that went sideways when Thalia's fire responded to Vork's rage and the resulting conflagration melted a practice dummy into slag. The Wildling Clans elders would have called this resonance. Vork called it the most fun he had had in months. They have been inseparable in the way of two volatile substances that are somehow more stable combined than apart.</p><p>At The Cinder Forge she trains with the Inferno Elementals, the semi-sentient fire constructs that inhabit the deeper furnaces. They recognize her, or at least respond to her presence in ways they do not respond to others, flickering into complex patterns when she approaches, mirroring her emotional state in their flame-shapes. She finds this comforting and unsettling in equal measure. The Wildling Clans taught her that fire is alive; the Inferno Elementals are proof that the teaching was more literal than anyone intended.</p><p>But beneath the volatility there is a steadiness that surprises people who only know her reputation. She has sat with injured strangers through the night, keeping the cold at bay with a warmth so carefully modulated it barely flickered. She remembers birthdays. She mends her own clothes with stitches so small and even they seem to belong to a different person entirely. The contradiction is the point: Thalia contains both the inferno and the hearth, and she is still learning which one she wants to be.</p>"
+    },
+    {
+      "uid": "IArxx1TesvAwIs1OKJWD",
+      "type": "text",
+      "content": "<p>Wolsam is the funniest person in any room they enter, and this should worry you. The jokes come quick, layered, self-deprecating in a way that feels generous but actually forecloses any real question about how they are doing. They will make you laugh so hard you forget what you were asking. That is the point. They have been doing this since they were old enough to learn that a well-timed joke can make an angry person put down a bottle, and the instinct has calcified into something closer to reflex than choice.</p>\n<p>Maslow has told Gandalf something</p>\n<p>They are androgynous and deliberate about it, shifting presentation like weather. Some days sharp-jawed and angular, others soft, kohl-eyed, draped in fabrics that catch light. They enjoy the confusion this produces in people who need categories. They enjoy most forms of confusion, actually, as long as they are the one producing it. At the Windward Cliffs, where the air is sharp and the light has a crystalline edge, Wolsam performs for dock workers and sky-captains who never suspect the bard is cataloguing every word they say.</p>\n<p>With strangers, Wolsam is devastating. They listen like you are the most interesting person alive, remember the name of your dog, your mother's favorite flower, the throwaway detail about your childhood that you mentioned once and forgot. They file all of it. Not maliciously, not exactly, but because knowing things about people is the closest Wolsam gets to feeling safe. A secret learned is a lever held. A pattern understood is a threat predicted. Their occasional dealings with the Whispering Shadows grew from this instinct; the shadow brokers recognized a kindred appetite for information and offered a standing invitation that Wolsam has neither accepted nor refused.</p>\n<p>With Yonai and Dincy, the performance thins. Not disappears; Wolsam may never be capable of its complete absence. But the timing of the jokes loosens, the eye contact lasts a beat longer, and sometimes, rarely, they will say something true without wrapping it in irony first. They no longer lie to either of them, a concession that cost more than either companion fully understands. Lying is easy for Wolsam. Stopping is the hard part.</p>\n<p>Their music is where the mask drops entirely, and they know it, which is why they prefer to play when they think no one important is listening. The Lute of Whispers, an instrument they acquired under circumstances they change with every retelling, responds to emotional truth in ways that make deception impossible; its strings go dull when fed falsehood and ring bright when given something real. Dincy once walked in on them playing and stood in the doorway for a full minute before Wolsam noticed. Neither of them has mentioned it since.</p>\n<p>Gale the Whisper is perhaps the only person who genuinely unsettles Wolsam, because Gale does everything Wolsam does but better, more completely, with fewer seams showing. They met at the Windward Cliffs during a smuggler's trial and spent an evening trading half-truths with such precision that neither learned anything real, which both of them found exhilarating and faintly terrifying. They collect small, useless objects: a button from a coat they stole at fourteen, a river stone from a place they will not name. They sleep lightly, always near an exit. Their laughter fills rooms. Their silence, on the rare occasions it falls, empties them.</p>",
+      "mentionedEntitiesUids": [
+        "Fan2gBEflkhtktv7PEv5",
+        "OVC53xdg1YDHCSwH3id5",
+        "nVEnyBkDwAqKk4uSRuD1"
+      ]
+    },
+    {
+      "uid": "OxKPFrEdvcyTQHpEYvNo",
+      "headingMode": "outside",
+      "type": "text",
+      "content": "<p>Dincy prepares. That is the first thing anyone notices and the last thing they understand. She checks the wards twice. She memorizes exit routes before entering a room. She keeps three backup reagents in a leather case she sewed herself, each vial labeled in a script so small it requires a magnifying lens. People mistake this for confidence, for mastery. It is neither. It is the architecture of someone who learned, through a mistake she will not name, that the wrong incantation at the wrong moment can cost a life that was not hers to spend.</p><p>Her mind is extraordinary and she knows it, which creates a particular kind of loneliness. She sees patterns before others see the pieces: the way a Threshold Collapse follows tidal rhythms, the correlation between wind-salt erosion and bridge failure on the outer fragments. She can hold six variables in her head simultaneously while adjusting for a seventh. She corresponded for two years with researchers at the Cartographer's Guild, exchanging notes on spatial distortion, and they still cite her early observations on rift migration. But intelligence without certainty is just a faster way to imagine catastrophe, and Dincy can imagine catastrophe in exquisite, paralyzing detail.</p><p>With strangers she is polite, precise, and slightly cold. Not unkind, but clinical, the warmth held behind glass where it cannot be misinterpreted or, worse, reciprocated before she is ready. Trust with Dincy is incremental: she will share information before she shares opinion, opinion before she shares doubt, and doubt before she shares anything that matters. The process can take months. It cannot be rushed. Trying to rush it is the fastest way to reset it entirely.</p><p>She shows love through preparation. When Yonai's boots wore thin, Dincy did not say anything; she simply left a reinforcement charm on them overnight. When Wolsam caught fever on the Saltwind Crossing, she had already packed the right tincture three days before symptoms appeared, because she had noticed the slight change in their breathing. She will not hold your hand. She will make sure the bridge you are about to cross will bear your weight.</p><p>The Arcane Codex sits on her desk in Amberlake Enclave, its pages warped by humidity and covered in her marginalia. She has read it cover to cover eleven times and disagrees with roughly a third of its conclusions, but she keeps returning to it the way one returns to an argument with a dead mentor. Her quarters in Amberlake are small, immaculate, and smell of chalk dust and lamp oil. The Threshold Collapse data she has pinned to every available wall makes the room look like the inside of a troubled mind, which is not entirely inaccurate.</p><p>In conflict she is terrifyingly competent but slow to commit, always running one more calculation, always imagining the version where she chooses wrong. The paralysis is real, and she hates it. When she finally acts, it is with a precision that borders on violence, each spell placed exactly where the damage needs to be and nowhere else. Her fingers are perpetually stained with ink. She sleeps poorly and pretends otherwise, though the bruise-colored shadows under her eyes have become so permanent that Wolsam once tried to match them in watercolor, which made Dincy laugh so hard she spilled her tea. She kept the painting.</p>"
+    },
+    {
+      "uid": "W5FDUVJernHUTznQzp1z",
+      "name": "Cool",
+      "blockStyle": "more-info",
+      "headingMode": "outside",
+      "type": "text",
+      "content": "<p>Yonai is not clever. He would be the first to tell you this, in a tone so matter-of-fact it could break your heart. He loses arguments to Dincy before they start, misreads Wolsam's deflections half the time, and once spent three days navigating the Gildcrest Company toward a ruin that turned out to be a goat farm. But when the ground splits and the Deep yawns below and everyone freezes, Yonai moves. Not because he is unafraid. Because he has decided, somewhere in the marrow of his bones, that standing still while someone he loves is in danger is simply not something his body will allow.&nbsp;</p>",
+      "mentionedEntitiesUids": [
+        "Fan2gBEflkhtktv7PEv5",
+        "OVC53xdg1YDHCSwH3id5",
+        "nVEnyBkDwAqKk4uSRuD1"
+      ]
+    },
+    {
+      "uid": "zRB2RuTm7a9ZYzdP5GpQ",
+      "type": "text",
+      "content": "<p>He processes emotions the way stone absorbs rain: slowly, deeply, and long after the storm has passed. An insult at breakfast will not land until dinner. Grief from a year ago will surface mid-sentence, unexpected, turning his voice rough. He does not cry easily, but when he does, it is total, a kind of surrender that leaves him hollowed out and strangely gentle afterward. Dincy has learned to just sit near him during those times. Wolsam still doesn't know what to do, which Yonai finds oddly comforting.</p>",
+      "mentionedEntitiesUids": [
+        "Fan2gBEflkhtktv7PEv5",
+        "OVC53xdg1YDHCSwH3id5",
+        "nVEnyBkDwAqKk4uSRuD1"
+      ]
+    },
+    {
+      "uid": "zo0cRQ3GGh3UIfPRyMJY",
+      "type": "text",
+      "content": "<p>With strangers he is warm but measured, the kind of person who will share his fire and his food but watch your hands while he does it. He reads threat through instinct, not analysis, a prickling at the back of his neck, a wrongness in the way someone holds their shoulders. He has been right about this often enough that both Dincy and Wolsam have stopped questioning it. Among the clearings of Elaria's Canopy, where the Gildcrest Company sometimes makes camp beneath the vast green silence, Yonai is the one who checks the perimeter while others sleep.</p>\n<p>His worst failing is his refusal to ask for help. He will haul supplies until his back screams, stand watch until his vision blurs, absorb everyone else's fears until his own chest is so tight he cannot breathe. He mistakes this for strength. Dincy calls it arrogance. Wolsam calls it martyrdom. They are both right, and Yonai knows it, but knowing has never once stopped him.</p>",
+      "mentionedEntitiesUids": [
+        "Fan2gBEflkhtktv7PEv5",
+        "OVC53xdg1YDHCSwH3id5",
+        "nVEnyBkDwAqKk4uSRuD1"
+      ]
+    },
+    {
+      "uid": "V4F5UXeE74hrBsBDiN3o",
+      "type": "text",
+      "content": "<p>Fenris Stonebrow is the only person outside the Company whose silence Yonai finds restful rather than suspicious. They stood together once during a bridge collapse near the Canopy's edge, and afterward neither spoke of what happened, which sealed something between them more firmly than any oath. Fenris gave him the Dawnreaver, a battered relic of the old order, and Yonai carries it not because he believes in its symbolism but because Fenris does, and that is enough.</p>\n<p>In conflict he is direct and devastatingly present. He does not posture. He does not threaten. He sets his feet, lifts his blade, braces the Dawnreaver against his forearm, and commits. The courage people see in him is not the absence of terror; it is the decision to act while his hands are still shaking. He smells like iron and cedar smoke. His laugh, when it comes, is sudden and too loud, the kind that startles birds from rafters.</p>",
+      "mentionedEntitiesUids": [
+        "nVEnyBkDwAqKk4uSRuD1",
+        "xDgcUM2zeiLLOdt2N4fP"
+      ]
+    },
+    {
+      "uid": "jIWaOLGfoaq6GIG8fVL4",
+      "type": "text",
+      "content": "<p>Thessaly Venn is tall. Not figuratively, not metaphorically. She stands a full head above most people in the Reach, broad-shouldered, straight-backed, with a gaze that lands on you like a physical weight. She wears dark feathered collars that frame her face like a mane, and when she enters a room, conversations stop. Not out of fear, though fear is there. Out of the simple recognition that someone important has arrived and has no intention of waiting for you to finish your sentence.</p>\n<p>She governs the Amberlake Enclave and holds the most influential seat on the Council of the Fragments. She inherited sovereignty at nineteen after her mother's skiff went down in a storm that the Cartographer's Guild still argues about. She grieved for exactly one week, then walked into the council chamber, sat in her mother's chair, and told the assembled delegates that if any of them thought her age was an opportunity, they were welcome to test that theory now. Nobody moved. She has been governing ever since.</p>\n<p>Thessaly says what she thinks. There is no diplomatic version of Thessaly, no softened phrasing, no careful ambiguity. If your plan is weak, she will tell you it is weak, and then she will tell you how to fix it. If you have done something worthy of respect, she will say so plainly, and the words will mean more than a month of flattery from anyone else. She does not forget disrespect. Not ever. The Whispering Shadows learned this when one of their operatives was caught surveilling the Enclave; Thessaly expelled the entire network from Amberlake territory within a day and has not allowed them back.</p>\n<p>She hired the Gildcrest Company for a salvage job two years ago. It was supposed to be routine. Yonai broke a door that Thessaly specifically said not to break. Wolsam charmed a guard that Thessaly specifically said not to talk to. Dincy, however, delivered a report so thorough that Thessaly read it twice and then offered the Company a retainer on the spot. She briefs them personally in her map room, surrounded by charts and books and candlelight, Kael Ashward standing guard behind her chair. She sends them where diplomacy has failed and blunt honesty is the only remaining tool.</p>\n<p>With strangers, Thessaly is commanding but fair. With allies, she is generous in a way that surprises people who only know her reputation: she remembers birthdays, sends supplies to struggling fragments without publicizing it, and once personally carried timber to rebuild a Bridge Keeper outpost after a storm. With Kael Ashward, she is something else entirely. Quieter. Not softer, because Thessaly does not do soft, but present in a way she is not with anyone else. She touches Kael's arm when she thinks nobody is looking. She trusts Kael with the one thing she hides from the world: that she is afraid of the water, the same water that took her mother, the water that surrounds the Enclave on every side. Kael knows. Kael has always known. And Thessaly trusts her with it because Kael is the only person who has never once tried to fix it, only to stand beside it.</p>",
+      "mentionedEntitiesUids": [
+        "7784X1uGEjOtMwqOOMM9",
+        "Fan2gBEflkhtktv7PEv5",
+        "OVC53xdg1YDHCSwH3id5",
+        "nVEnyBkDwAqKk4uSRuD1",
+        "viJ7ytjL1B6AN2fhGSmb"
+      ]
+    },
+    {
+      "uid": "tJqucgjoI2eBGNxW6ah3",
+      "headingMode": "outside",
+      "type": "text",
+      "content": "<p>Kael Ashward is the kind of quiet that makes rooms nervous. She stands behind Thessaly Venn's chair at every meeting, every briefing, every council session, lance resting against her shoulder, eyes tracking every hand that moves too quickly. She has been the Sovereign's sworn shield for six years. In that time, three assassination attempts have reached the briefing room. None reached the Sovereign.</p>\n<p>She was a Bridge Keeper before Amberlake. Good with stone, good with heights, better with a blade than anyone in the order wanted to admit. Fenris Stonebrow trained alongside her for a season at the Cinder Forge and still says she is the fastest person he has ever seen move in full armor. She left the Keepers after an incident she does not discuss. Thessaly Venn offered her the position three days later, which suggests the Sovereign knew about the incident before Kael did.</p>\n<p>Kael speaks rarely and means every word. She assesses threats constantly, cataloguing exits and weapons in any room she enters. Yonai recognizes this habit because he does the same thing, and the two of them share a mutual respect built on silence rather than conversation. Wolsam once tried to make Kael laugh for an entire evening. Kael smiled once, at the seventeenth attempt, and Wolsam still considers it their greatest achievement. Dincy respects Kael's efficiency and the two exchange nods that contain more information than most people's paragraphs.</p>\n<p>What everyone sees is a bodyguard. What Thessaly sees is the person who brings her tea without being asked, who memorizes her schedule so she does not have to, who noticed the nightmares about the water before Thessaly ever spoke of them and simply started sleeping closer to the door. Their relationship is the worst-kept secret in Amberlake and the best-kept secret on the Council, where acknowledging it would create political complications that neither of them has the patience for.</p>\n<p>Kael's fear is not dying. It is surviving. Specifically, it is the image of standing in that briefing room with the chair empty. She has contingency plans for every threat to Thessaly's life. She has no plan for grief. This is the one gap in her defenses, and she suspects Thessaly knows it, because Thessaly knows everything, and because sometimes, when Kael is standing behind the throne, Thessaly reaches back and briefly touches her hand.</p>",
+      "mentionedEntitiesUids": [
+        "7784X1uGEjOtMwqOOMM9",
+        "Fan2gBEflkhtktv7PEv5",
+        "OVC53xdg1YDHCSwH3id5",
+        "nVEnyBkDwAqKk4uSRuD1",
+        "viJ7ytjL1B6AN2fhGSmb"
+      ]
+    },
+    {
+      "uid": "3gJteTPLm0t7JolPLLfT",
+      "headingMode": "outside",
+      "type": "text",
+      "content": "<p>The Shield of Dawn is not beautiful. It is dented, scratched, and the starbrass has oxidized in patches to a dull green that Yonai has never bothered to polish away. One edge was repaired with ordinary iron after the Battle of Broken Bridges, and the weld line is visible, an ugly seam of dark metal against the pale gold. It is the most reassuring object in the Shattered Reach.</p><p>The shield was forged in The Cinder Forge, the legendary smithy buried in the volcanic heart of the southern fragments. Starbrass is mined from veins deep inside the floating fragments, where the stone still hums with residual energy from whatever force holds the islands aloft. The metal absorbs this energy during smelting and releases it slowly over centuries, producing the faint warmth and amber glow that gives the shield its name. The Forge's master smiths considered it one of their finest commissions, and the techniques used in its crafting have since been lost, even to them.</p><p>Fenris Stonebrow, a veteran warden and soldier of considerable reputation, carried the shield for thirty years before passing it to Yonai. Fenris had recognized in the younger man a quality he valued above martial skill: the instinct to place himself between danger and the people behind him without calculating whether the math favored survival. The handover was unceremonious. Fenris simply set the shield against Yonai's bedroll one morning and walked away. When Yonai tried to return it, Fenris said only: \"It was never mine. I was just keeping it warm.\"</p><p>The glow intensifies before violence, though no artificer has explained why. Yonai does not consider it magical in the traditional sense. He describes it as responsive, the way a good hunting dog raises its hackles before the hunter sees the threat. In the Battle of Broken Bridges, the glow spread from the edges inward until the entire surface radiated a steady amber light, warm enough to feel on exposed skin from several feet away. Allies report that standing near it quiets the particular panic of combat: the racing heart, the tunnel vision, the urge to run.</p><p>Yonai maintains the shield himself with methodical care each evening: checking the straps, oiling the grip, testing the arm brace for flex. He has turned down offers to have the dents hammered out. Each one, he says, is a record of something that did not get through. The deep gouge near the center boss came from a collapsing bridge support. The cluster of small dents along the left rim came from a hail of crossbow bolts during a supply run that went wrong. The long scrape across the back is from a fall he does not discuss.</p><p>Dincy once asked him what would happen if the shield broke. Yonai considered the question for a long time, then said he supposed he would have to stand in front of people without it. The way he said it made clear that this, not any blade or fall, was the thing he feared most.</p>"
+    },
+    {
+      "uid": "NmDXZwr27TM4Lu7VZmwJ",
+      "headingMode": "outside",
+      "type": "text",
+      "content": "<p>Dawnreaver is not a graceful weapon. It is a slab of blackened steel mounted on an ash-wood haft nearly as tall as the man who carries it, its edge ground to a crescent that catches light like a second sunrise. Fenris Stonebrow forged it at the Cinder Forge over the course of three weeks, working in silence, refusing to discuss the design with anyone. When asked why so large, Fenris reportedly said, \"Because he will not stop swinging until everyone behind him is safe, and he needs something that makes them stay behind him.\"</p><p>Yonai received Dawnreaver after the Battle of Broken Bridges, when his previous weapon, a standard-issue guardsman's sword, shattered against a barricade. Fenris had been watching Yonai fight for months by then. He had seen the way Yonai plants his feet, the way he uses his body as a wall between danger and the people he protects. A sword was wrong for him. A shield was wrong too, because Yonai does not defend by blocking. He defends by making sure nothing gets past him. A great axe, something with reach and weight and the authority to end an advance in a single stroke, that was right.</p><p>The weapon is nearly a halberd in proportion, its haft reinforced with iron bands that Fenris wrapped himself. The blade is slightly asymmetric, heavier on the leading edge, which gives each swing a pulling momentum that Yonai has learned to roll into the next strike. It is not fast. It does not need to be. Dincy once observed that watching Yonai fight with Dawnreaver is like watching a door close; slow, inevitable, and final.</p><p>Wolsam has threatened to write a ballad about the axe at least four times. Yonai has threatened to hide the Lute of Whispers each time. The axe has a notch near the base of the blade from the Battle of Broken Bridges that Yonai refuses to let Fenris repair. He says it reminds him that weapons break. Fenris says it reminds him that Yonai is sentimental. They are both correct.</p><p>Among the Gildcrest Company, Dawnreaver has become something of a symbol. When Yonai sets it down, blade-first, into the ground at camp, it means they are staying. When he picks it up, it means they are leaving. No one discusses this. It simply is.</p>"
+    }
+  ],
+  "datasets": [
+    {
+      "uid": "IWNSh0lQb3fyqUgW1R9X",
+      "name": "Character sheet [main]",
+      "weight": 0,
+      "targets": [
+        "character"
+      ],
+      "targetTagsGroup": "some"
+    }
+  ],
+  "variables": [
+    {
+      "uid": "7SVOZlm9prNxciQk76dA",
+      "name": "Noto wheel",
+      "datasetsUids": [],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Noto wheel",
+      "type": "choice",
+      "options": [
+        {
+          "uid": "9F56-fJEI-RCFi-4LSs",
+          "label": "‎‎‎‎‎‎‎‎‎‎‎𐤛",
+          "icon": "face-hand-over-mouth"
+        },
+        {
+          "uid": "OJ09-qvNN-gURW-IRG8",
+          "label": "𐤀",
+          "icon": "face-smile-upside-down"
+        },
+        {
+          "uid": "4qv3-hpIw-s2dz-y36a",
+          "label": "𐤁",
+          "icon": "chess-rook-piece"
+        },
+        {
+          "uid": "H4p1-nWpF-zMKZ-ZpA7",
+          "label": "𐤂",
+          "icon": "dice-d8"
+        },
+        {
+          "uid": "IZiz-K6cT-PMT7-ZBf4",
+          "label": "𐤃",
+          "icon": "card-diamond"
+        },
+        {
+          "uid": "Mx3D-f2KJ-g2bF-dN9I",
+          "label": "𐤄",
+          "icon": "face-shush"
+        },
+        {
+          "uid": "orjL-7Oiw-VsgK-W7wf",
+          "label": "𐤅",
+          "icon": "shield-halved"
+        },
+        {
+          "uid": "bwLZ-UvOz-snSu-aIUI",
+          "label": "𐤆",
+          "icon": "rabbit"
+        },
+        {
+          "uid": "DkUV-3EtY-Dx17-D7DW",
+          "label": "𐤇",
+          "icon": "acorn"
+        },
+        {
+          "uid": "PpAZ-FkLe-CXpH-LNVw",
+          "label": "𐤈",
+          "icon": "dice-d12"
+        },
+        {
+          "uid": "Wkuq-aRJW-hq2G-l0mz",
+          "label": "𐤉",
+          "icon": "ribbon"
+        },
+        {
+          "uid": "qHjR-1WD0-QhwN-eUsb",
+          "label": "𐤊",
+          "icon": "square-hollow"
+        },
+        {
+          "uid": "4wXk-U8G1-ozLU-FFIF",
+          "label": "‎𐤋‎",
+          "icon": "wreath-laurel"
+        },
+        {
+          "uid": "qFBH-JJOz-gXLd-fxaB",
+          "label": "𐤌",
+          "icon": "dash"
+        },
+        {
+          "uid": "11HE-QHmL-1PQW-lETY",
+          "label": "𐤍",
+          "icon": "chess-board"
+        },
+        {
+          "uid": "I6Fc-LTC7-wiKe-IPc9",
+          "label": "𐤎‎",
+          "icon": "game-board"
+        },
+        {
+          "uid": "SvHD-nm5G-Lj5n-qp3s",
+          "label": "𐤐",
+          "icon": "scroll"
+        },
+        {
+          "uid": "DLkA-sFrP-qEgE-ODSV",
+          "label": "𐤑",
+          "icon": "rabbit"
+        },
+        {
+          "uid": "DqzA-oa7i-Jep2-dTkh",
+          "label": "𐤒",
+          "icon": "face-grin-stars"
+        },
+        {
+          "uid": "N1Ld-eDZK-sjr1-G7MB",
+          "label": "𐤓",
+          "icon": "ear-deaf"
+        },
+        {
+          "uid": "N7la-ddC3-gUbt-l46l",
+          "label": "𐤔",
+          "icon": "octagon"
+        },
+        {
+          "uid": "h3ya-vrKj-pOpk-DiVp",
+          "label": "𐤕",
+          "icon": "face-smile-upside-down"
+        },
+        {
+          "uid": "mAgv-nTei-NBGI-9DX4",
+          "label": "𐤖",
+          "icon": "face-laugh-beam"
+        },
+        {
+          "uid": "h7xK-Nb1F-lKxd-LuBs",
+          "label": "𐤗",
+          "icon": "face-sleepy"
+        },
+        {
+          "uid": "fw5u-xt6A-AVyh-uZ9g",
+          "label": "𐤘",
+          "icon": "axe-battle"
+        },
+        {
+          "uid": "8qcx-TqKe-dLVi-dmqc",
+          "label": "𐤙",
+          "icon": "cards"
+        }
+      ],
+      "hasNumericValue": false,
+      "hasIcon": false
+    },
+    {
+      "uid": "Rf9Hs1oqHKPBlOvXxFDR",
+      "name": "Shields",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Shields",
+      "type": "boolean"
+    },
+    {
+      "uid": "tka2wD1462fODTBZLYov",
+      "name": "Level",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": true,
+      "isHiddenFromSheet": false,
+      "label": "Level",
+      "type": "dataTableRef",
+      "dataTableUid": "D8PalTFAJFmpi5GYRG6D",
+      "labelColumnUid": "gY1VGpFXelc0qplbTwN4",
+      "valueColumnUid": "gY1VGpFXelc0qplbTwN4",
+      "isMultiple": false
+    },
+    {
+      "uid": "v1OSJdasGRBfMV3oxgj2",
+      "name": "Hit Points (current)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Hit Points (current)",
+      "type": "number",
+      "defaultValue": 10
+    },
+    {
+      "uid": "AULSl5A8IRGuyfMDFynL",
+      "name": "Light Armor",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Light Armor",
+      "type": "boolean"
+    },
+    {
+      "uid": "HEj3wLXAKIvCrzXXdBcv",
+      "name": "Strength",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Strength",
+      "type": "number",
+      "defaultValue": 10
+    },
+    {
+      "uid": "BFJF5hXMD6wBeUxJLNUW",
+      "name": "Weapon 2 (name)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 2 (name)",
+      "type": "text"
+    },
+    {
+      "uid": "1P7hSxbSskHGXT5TB0d9",
+      "name": "Weapon 1 (bonus)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 1 (bonus)",
+      "type": "text"
+    },
+    {
+      "uid": "0FUQZyTXyJLhI2YnKXsp",
+      "name": "History mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "History mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "TYBShjlZIy6RVddQ9rdY",
+      "name": "Death Saves (successes)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Death Saves (successes)",
+      "type": "number",
+      "defaultValue": 0
+    },
+    {
+      "uid": "1J2D96ogo2h2LzKbLHFP",
+      "name": "Heavy Armor",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Heavy Armor",
+      "type": "boolean"
+    },
+    {
+      "uid": "qepyLBpOzxpCGYhkFcU5",
+      "name": "Tool Proficiencies",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Tool Proficiencies",
+      "type": "text"
+    },
+    {
+      "uid": "XmB6tQGDGDDv8uwLvwab",
+      "name": "Sleight of Hand mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "Sleight of Hand mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "6TFSl4ygSNK9EOLDWw3b",
+      "name": "Feats",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Feats",
+      "type": "text"
+    },
+    {
+      "uid": "c65WRYvxHICCtOoU6ANa",
+      "name": "Death Saves (failures)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Death Saves (failures)",
+      "type": "number",
+      "defaultValue": 0
+    },
+    {
+      "uid": "R07fJ9o4V6bhjtr3aYHn",
+      "name": "Insight mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "Insight mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "pj1ZnsNovbXekNi8ncda",
+      "name": "Persuasion mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "Persuasion mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "jGKDEdhKlvcQjOB79xBp",
+      "name": "Size",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Size",
+      "type": "number",
+      "defaultValue": 1.7
+    },
+    {
+      "uid": "nl12DLRs3aJ1lB6Y2yv1",
+      "name": "Dexterity",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Dexterity",
+      "type": "number",
+      "defaultValue": 10
+    },
+    {
+      "uid": "04vuxqyy2bG4udQVwRAw",
+      "name": "Wisdom",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Wisdom",
+      "type": "number",
+      "defaultValue": 10
+    },
+    {
+      "uid": "rj7ANYqyqPR4y3M0RHnS",
+      "name": "Class",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": true,
+      "isHiddenFromSheet": false,
+      "label": "Class",
+      "type": "dataTableRef",
+      "dataTableUid": "8TRJT9wSr1yXy0EdQISl",
+      "labelColumnUid": "skNw90YyMq1OKVFPWlY7",
+      "valueColumnUid": "0iet9pnNOxUmREHabuZi",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "q9ky2tQ8ZAJlwBdzt0S9"
+      ]
+    },
+    {
+      "uid": "TETqbvnEjoQVh2NxJovc",
+      "name": "Intelligence",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Intelligence",
+      "type": "number",
+      "defaultValue": 10
+    },
+    {
+      "uid": "LJSKOaSsHkfnF9vUsOTU",
+      "name": "Features (1)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Features (1)",
+      "type": "text"
+    },
+    {
+      "uid": "aDF3nbdrtdY3F1wTtudF",
+      "name": "Background",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Background",
+      "type": "text"
+    },
+    {
+      "uid": "aJ4FjGqm87Bo1wdw5sWS",
+      "name": "Medium Armor",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Medium Armor",
+      "type": "boolean"
+    },
+    {
+      "uid": "zBaq6x6llDj1YUsFuMlG",
+      "name": "Charisma",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Charisma",
+      "type": "number",
+      "defaultValue": 10
+    },
+    {
+      "uid": "Yl0t5DgflBpPGdxk5tJT",
+      "name": "Acrobatics mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Acrobatics mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "DMImRKWXTJpmyodpsoHh",
+      "name": "Test number",
+      "datasetsUids": [],
+      "isHiddenFromSheet": false,
+      "label": "Test number",
+      "type": "number"
+    },
+    {
+      "uid": "IfvsKunDU4hcFPzt8WxP",
+      "name": "Armor Class",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Armor Class",
+      "type": "number",
+      "defaultValue": 10
+    },
+    {
+      "uid": "ElU1hkuUgdsQzp9tmdQB",
+      "name": "Weapon Proficiencies",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon Proficiencies",
+      "type": "text"
+    },
+    {
+      "uid": "hwPS7lbUYOsSv8KKNfPg",
+      "name": "Charisma Save (Proficiency)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Charisma Save (Proficiency)",
+      "type": "boolean",
+      "defaultValue": false
+    },
+    {
+      "uid": "11st8AJbF7Kb1AOtY5wf",
+      "name": "Perception mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "Perception mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "ppJXxS8mq79tpMmJ4ScU",
+      "name": "Weapon 1 (damage)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 1 (damage)",
+      "type": "text"
+    },
+    {
+      "uid": "AudSdODZVhENNIykIga1",
+      "name": "Arcana mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "Arcana mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "qQFHVD38OAmfSeFyEVgM",
+      "name": "Athletics mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "Athletics mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "D7yZakafZHQRPNpCRHTu",
+      "name": "Intimidation mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "Intimidation mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "HouITOmrZKxfUG77Qm0s",
+      "name": "Animal Handling mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "Animal Handling mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "3OhIqsZkQO2AuSD0qecJ",
+      "name": "Weapon 1 (notes)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 1 (notes)",
+      "type": "text"
+    },
+    {
+      "uid": "A6U9faRjhawqbvXQfNej",
+      "name": "Hit Points (max)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Hit Points (max)",
+      "type": "number",
+      "defaultValue": 10
+    },
+    {
+      "uid": "o2kThRNm9lol5G1fPb40",
+      "name": "XP",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "XP",
+      "type": "number",
+      "defaultValue": 0
+    },
+    {
+      "uid": "lHs4FFsJDnc4ypyjWjkQ",
+      "name": "Constitution",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Constitution",
+      "type": "number",
+      "defaultValue": 10
+    },
+    {
+      "uid": "MhtcM0nTPwqjYxxWNQit",
+      "name": "Traits",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Traits",
+      "type": "text"
+    },
+    {
+      "uid": "XKHGLy4aN17ZnKBIhAy5",
+      "name": "Subclass",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Subclass",
+      "type": "text",
+      "defaultValue": "Subclass"
+    },
+    {
+      "uid": "iKxBRoYg23fNPsjsZr0N",
+      "name": "Deception mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "Deception mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "jLdhVbZ91qAfCcELkhXW",
+      "name": "Investigation mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "Investigation mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "FyPxvyVeuUPb4yLDUq05",
+      "name": "Survival mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "Survival mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "mAb1ZNiaQ3VtURfic4Zc",
+      "name": "Features (2)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Features (2)",
+      "type": "text"
+    },
+    {
+      "uid": "joaQNCTlQF48zyDVe66O",
+      "name": "Inspiration",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Inspiration",
+      "type": "boolean",
+      "defaultValue": false
+    },
+    {
+      "uid": "k9dOlOoAGn1YWXDNQSal",
+      "name": "Shield",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Shield",
+      "type": "boolean"
+    },
+    {
+      "uid": "S3cvclAz9lcpRw9xUeAc",
+      "name": "Dexterity Save (Proficiency)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Dexterity Save (Proficiency)",
+      "type": "boolean",
+      "defaultValue": false
+    },
+    {
+      "uid": "nRBRwxQzuOUQzvw2IZfw",
+      "name": "Weapon 1 (name)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 1 (name)",
+      "type": "text"
+    },
+    {
+      "uid": "8OA7YlB22BrDGJCnj2hl",
+      "name": "Manual Level",
+      "datasetsUids": [],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Manual Level",
+      "type": "dataTableRef",
+      "dataTableUid": "D8PalTFAJFmpi5GYRG6D",
+      "labelColumnUid": "gY1VGpFXelc0qplbTwN4",
+      "valueColumnUid": "gY1VGpFXelc0qplbTwN4",
+      "isMultiple": false
+    },
+    {
+      "uid": "Jbw3ZkQctABHIeLgEkDu",
+      "name": "Species",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Species",
+      "type": "text"
+    },
+    {
+      "uid": "sYZSn2sHXYrpaNblz5wL",
+      "name": "Spellcasting ability old",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Spellcasting ability old",
+      "type": "dataTableRef",
+      "dataTableUid": "cf2UJBgg7XRpEcJT4ti8",
+      "labelColumnUid": "lXiPm3rBJziYqSxCv3ok",
+      "valueColumnUid": "pHIBUW766TK9PFm2hPaY",
+      "isMultiple": false
+    },
+    {
+      "uid": "5ohxwYYvPOJO3sdbp4oq",
+      "name": "Religion mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "Religion mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "LNdXFCAJxN5e1PUOdILH",
+      "name": "Performance mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "Performance mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "MqJlCigqTdgt34gIliuL",
+      "name": "Hit Points (temp)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Hit Points (temp)",
+      "type": "number",
+      "defaultValue": 0
+    },
+    {
+      "uid": "eNSG6IgiY0Vx8lGfZ5GM",
+      "name": "Medicine mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "Medicine mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "4NCfJj2XvLIlQdb9PLFh",
+      "name": "Nature mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "Nature mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "4DPYRS76IKmFbUHaCNIs",
+      "name": "Stealth mastery",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "label": "Stealth mastery",
+      "type": "dataTableRef",
+      "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
+      "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
+      "valueColumnUid": "Y04lsbtKe9diSgrzRL6k",
+      "iconColumnUid": "oRjden4jFS6HrvcpKjEy",
+      "isMultiple": false,
+      "defaultRowUids": [
+        "OW76ZrlFsJFdZz4D1Zh1"
+      ]
+    },
+    {
+      "uid": "fMhD3Yrj53H7IXPD4AFb",
+      "name": "Intelligence Save (Proficiency)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Intelligence Save (Proficiency)",
+      "type": "boolean",
+      "defaultValue": false
+    },
+    {
+      "uid": "YBPwCWw2GyBOOkjnmBQS",
+      "name": "Appearance",
+      "datasetsUids": [],
+      "isHiddenFromSheet": false,
+      "label": "Appearance",
+      "type": "text"
+    },
+    {
+      "uid": "NFJ0P0UBGfBwIDPFIu55",
+      "name": "Some list",
+      "datasetsUids": [],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Some list",
+      "type": "choice",
+      "options": [
+        {
+          "uid": "xqpi-mVwE-UNwJ-sGeq",
+          "label": "Opt 1",
+          "icon": "face-grin-wink"
+        },
+        {
+          "uid": "oNQy-V4a1-IBMG-O6bJ",
+          "label": "Opt 2",
+          "icon": "snowflake"
+        },
+        {
+          "uid": "0v4a-WpsW-aYzA-pkFO",
+          "label": "Opt 3",
+          "icon": "mace"
+        }
+      ],
+      "hasNumericValue": false,
+      "hasIcon": false
+    },
+    {
+      "uid": "jKCjUC4X9wQjPEpKiqym",
+      "name": "Backstory and personality",
+      "datasetsUids": [],
+      "isHiddenFromSheet": false,
+      "label": "Backstory and personality",
+      "type": "text"
+    },
+    {
+      "uid": "lsO99a61PLKINJ7LXmxg",
+      "name": "Wisdom Save (Proficiency)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Wisdom Save (Proficiency)",
+      "type": "boolean",
+      "defaultValue": false
+    },
+    {
+      "uid": "kEn0BCicmYs1euKaHXYq",
+      "name": "Languages",
+      "datasetsUids": [],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Languages",
+      "type": "choice",
+      "options": [
+        {
+          "uid": "vNwm-mtVE-wElk-LWnT",
+          "label": "Elvish",
+          "icon": "people-group"
+        },
+        {
+          "uid": "n4dU-Esqh-aSYR-MAdE",
+          "label": "Dwarven",
+          "icon": "shield-quartered"
+        },
+        {
+          "uid": "wkbb-DECU-BR1H-mxRe",
+          "label": "Common",
+          "icon": "face-glasses"
+        }
+      ],
+      "isMultiple": true,
+      "hasNumericValue": false,
+      "hasIcon": false,
+      "defaultOptionUids": [
+        "wkbb-DECU-BR1H-mxRe"
+      ]
+    },
+    {
+      "uid": "sNY1rOMGkPHuXUXbiH9q",
+      "name": "Strength Save (Proficiency)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Strength Save (Proficiency)",
+      "type": "boolean",
+      "defaultValue": false
+    },
+    {
+      "uid": "OSkj42vrIstXiThlY3eb",
+      "name": "Constitution Save (Proficiency)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Constitution Save (Proficiency)",
+      "type": "boolean",
+      "defaultValue": false
+    },
+    {
+      "uid": "ctJoYszcDzDMhKcheBkO",
+      "name": "Skill 1",
+      "datasetsUids": [],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Skill 1",
+      "type": "dataTableRef",
+      "dataTableUid": "BgwCqWDEZnTdGwd5gTr1",
+      "labelColumnUid": "cVal22Rs5wXxMqYO0Eoq",
+      "valueColumnUid": "qGKdhyuaaOVVm1MbIW8a",
+      "isMultiple": false
+    },
+    {
+      "uid": "FD0FD3hHFdWhci8kSRCf",
+      "name": "Weapon 6 (notes)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 6 (notes)",
+      "type": "text"
+    },
+    {
+      "uid": "2K5M43INr2uiCWaIJNl6",
+      "name": "Weapon 2 (damage)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 2 (damage)",
+      "type": "text"
+    },
+    {
+      "uid": "2oa6NDxl11R5QTBTQtaD",
+      "name": "Weapon 5 (damage)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 5 (damage)",
+      "type": "text"
+    },
+    {
+      "uid": "3LHNJJqt0VX9ZWibUuCg",
+      "name": "Animal Handling Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Animal Handling Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"HouITOmrZKxfUG77Qm0s\" data-variable-state=\"ok\">$Animal Handling mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "5UeMbPgGdKaeAXPJiAqv",
+      "name": "Intimidation Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Intimidation Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"D7yZakafZHQRPNpCRHTu\" data-variable-state=\"ok\">$Intimidation mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "5dqmtpOKLcYLmARqXyE0",
+      "name": "Charisma (mod)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Charisma (mod)",
+      "type": "formula",
+      "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"zBaq6x6llDj1YUsFuMlG\">$Charisme</span> )</p>"
+    },
+    {
+      "uid": "5vZhTL1YkANZpYY5kCC2",
+      "name": "History Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "History Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"0FUQZyTXyJLhI2YnKXsp\" data-variable-state=\"ok\">$History mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "6Db2v59dLYgrKQhX8xW5",
+      "name": "Dexterity (mod)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Dexterity (mod)",
+      "type": "formula",
+      "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"nl12DLRs3aJ1lB6Y2yv1\">$Dexterité</span> )</p>"
+    },
+    {
+      "uid": "6xhSSHaGrwjZ4n1dBWJp",
+      "name": "Spellcasting ability",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Spellcasting ability",
+      "type": "dataTableLookup",
+      "sourceVariableUid": "rj7ANYqyqPR4y3M0RHnS",
+      "dataTableUid": "8TRJT9wSr1yXy0EdQISl",
+      "columnUid": "dRfPKRrcw7edMAbn4ptr",
+      "multiAggregator": "concat"
+    },
+    {
+      "uid": "7IjyUtsxZXHw057PzZt4",
+      "name": "[AB] Strength check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "[AB] Strength check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"bqqcVDTWiYiBPtotYW3l\">$Strength (mod)</span> \"</p>",
+      "visual": {
+        "type": "awesome",
+        "icon": "hand-fist"
+      }
+    },
+    {
+      "uid": "7dYfEwVcZW2LjKCdr2sX",
+      "name": "Intelligence Save",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Intelligence Save",
+      "type": "formula",
+      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"fMhD3Yrj53H7IXPD4AFb\">$Maîtrise Intelligence</span>  , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de maîtrise</span> + <span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\">$Intelligence (mod)</span>  , <span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\">$Intelligence (mod)</span>  )</p>"
+    },
+    {
+      "uid": "9J5qgafmlqCPUJp1a6yj",
+      "name": "Investigation check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Investigation check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"M55Zhfu4pwWaBRpdCNbN\">$Investigation Mod</span>  \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "spell_ice_wall",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "9bMSo8CPog4WdWC4yITU",
+      "name": "Performance Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Performance Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"LNdXFCAJxN5e1PUOdILH\" data-variable-state=\"ok\">$Performance mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "9qVnbAxwTgXMb6EfNXpR",
+      "name": "Survival check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Survival check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"DGADEXxVJHoWT5663XuS\">$Survival Mod</span>  \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "meat",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "AEDg7ls4KNW5OH9wMmHE",
+      "name": "Religion Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Religion Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"5ohxwYYvPOJO3sdbp4oq\" data-variable-state=\"ok\">$Religion mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "Abd1YAifISVssGjfwZB3",
+      "name": "Weapon 4 (notes)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 4 (notes)",
+      "type": "text"
+    },
+    {
+      "uid": "AmT9mzROklUoLyYq17UA",
+      "name": "Hit die (dX)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Hit die (dX)",
+      "type": "formula",
+      "formula": "<p>\"d\" &amp; <span class=\"mceNonEditable\" data-variable=\"ZXdtJv0yc9SVlKyg1Bnt\">$Hit die</span> </p>"
+    },
+    {
+      "uid": "B80nAhPn33R3ClNcblkY",
+      "name": "Weapon 3 (damage)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 3 (damage)",
+      "type": "text"
+    },
+    {
+      "uid": "CCrcA8uF07Z8cJiDrglL",
+      "name": "Strength save",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Strength save",
+      "type": "formula",
+      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"sNY1rOMGkPHuXUXbiH9q\">$Strength Save (Proficiency)</span> , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Proficiency Bonus</span> + <span class=\"mceNonEditable\" data-variable=\"bqqcVDTWiYiBPtotYW3l\">$Strength (mod)</span> , <span class=\"mceNonEditable\" data-variable=\"bqqcVDTWiYiBPtotYW3l\">$Strength (mod)</span> )</p>"
+    },
+    {
+      "uid": "DGADEXxVJHoWT5663XuS",
+      "name": "Survival Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Survival Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"FyPxvyVeuUPb4yLDUq05\" data-variable-state=\"ok\">$Survival mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "E4WeGPNnRKzzPn9RJb9q",
+      "name": "Perception Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Perception Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"11st8AJbF7Kb1AOtY5wf\" data-variable-state=\"ok\">$Perception mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "Etmcmbrg4fQ9vR1prqig",
+      "name": "Spellcasting Modifier",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Spellcasting Modifier",
+      "type": "formula",
+      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"sYZSn2sHXYrpaNblz5wL\">$Spellcasting ability</span> ,</p>\n<p> SWITCH_CONTAINS(</p>\n<p>  <span class=\"mceNonEditable\" data-variable=\"sYZSn2sHXYrpaNblz5wL\" data-variable-state=\"ok\">$Spellcasting ability</span> ,</p>\n<p>  \"cha\", <span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span> ,</p>\n<p>  \"wis\", <span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>  ,</p>\n<p>  \"dex\", <span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterity (mod)</span> ,</p>\n<p>  \"con\", <span class=\"mceNonEditable\" data-variable=\"TnvtbzZASMQDALM0gLKN\">$Constitution (mod)</span> ,</p>\n<p>  \"str\", <span class=\"mceNonEditable\" data-variable=\"bqqcVDTWiYiBPtotYW3l\">$Strength (mod)</span> ,</p>\n<p>  \"int\", <span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>  </p>\n<p> ),</p>\n<p> 0</p>\n<p>)</p>"
+    },
+    {
+      "uid": "F7U5DPhqOBf5o646Bl5Y",
+      "name": "Religion check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Religion check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"AEDg7ls4KNW5OH9wMmHE\">$Religion Mod</span>  \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "stained_glass_window",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "H4bdk2OByr5rWmNI6NZE",
+      "name": "Hit dice (spent)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Hit dice (spent)",
+      "type": "number",
+      "defaultValue": 0
+    },
+    {
+      "uid": "HDjIU7LnIo9yFbMnE3La",
+      "name": "Arcana check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Arcana check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"jnVtU4SvClym6t0MkO2M\">$Arcana Mod</span>  \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "type_ability",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "IRpsAUTF1hvc7blt1OhW",
+      "name": "POW",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "POW",
+      "type": "roll",
+      "diceFormula": "<p>\"20d8\"</p>",
+      "visual": {
+        "type": "awesome",
+        "icon": "helmet-battle"
+      },
+      "hue": 180
+    },
+    {
+      "uid": "JYU13WnbplfjFHepuJPN",
+      "name": "Charisma Save",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Charisma Save",
+      "type": "formula",
+      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"hwPS7lbUYOsSv8KKNfPg\">$Maîtrise Charisme</span>  , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de maîtrise</span> + <span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\">$Charisme (mod)</span>   , <span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\">$Charisme (mod)</span>     )</p>"
+    },
+    {
+      "uid": "JsB1yhc1xVrj4UIYRcOC",
+      "name": "[AB] Wisdom check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "[AB] Wisdom check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\">$Wisdom (mod)</span>  \"</p>",
+      "visual": {
+        "type": "awesome",
+        "icon": "ring"
+      }
+    },
+    {
+      "uid": "Jw8Ce60bZXoNpwkk9mxl",
+      "name": "[AB] Intelligence check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "[AB] Intelligence check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\">$Intelligence (mod)</span>  \"</p>",
+      "visual": {
+        "type": "awesome",
+        "icon": "hat-wizard"
+      }
+    },
+    {
+      "uid": "K1fxoJj2UzQZdSR0IyLb",
+      "name": "Weapon 3 (notes)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 3 (notes)",
+      "type": "text"
+    },
+    {
+      "uid": "KRG7foyxyWgLx3MC3GZ7",
+      "name": "Medicine Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Medicine Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"eNSG6IgiY0Vx8lGfZ5GM\" data-variable-state=\"ok\">$Medicine mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "KRK97ibPw3J9xwPIMN4I",
+      "name": "Nature Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Nature Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"4NCfJj2XvLIlQdb9PLFh\" data-variable-state=\"ok\">$Nature mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "KTenCb4IovsCWHHBd1z4",
+      "name": "Weapon 2 (bonus)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 2 (bonus)",
+      "type": "text"
+    },
+    {
+      "uid": "Lk7eZ8Oh97eEgcgJkEpg",
+      "name": "Animal handling check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Animal handling check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"3LHNJJqt0VX9ZWibUuCg\">$Animal Handling Mod</span>  \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "horse",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "M55Zhfu4pwWaBRpdCNbN",
+      "name": "Investigation Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Investigation Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"jLdhVbZ91qAfCcELkhXW\" data-variable-state=\"ok\">$Investigation mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "MmubyoPlakPW72BW58Z6",
+      "name": "Weapon 3 (name)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 3 (name)",
+      "type": "text"
+    },
+    {
+      "uid": "Nh1xZSntP39atjsLG02o",
+      "name": "Weapon 6 (damage)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 6 (damage)",
+      "type": "text"
+    },
+    {
+      "uid": "NybJzAyzaPmMuU35YsHS",
+      "name": "Speed",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Speed",
+      "type": "number",
+      "defaultValue": 30
+    },
+    {
+      "uid": "Okv3S1uPAvSwtH0eFuuM",
+      "name": "Weapon 2 (notes)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 2 (notes)",
+      "type": "text"
+    },
+    {
+      "uid": "OsyIeOd611Ek3HqGfIP2",
+      "name": "Weapon 4 (damage)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 4 (damage)",
+      "type": "text"
+    },
+    {
+      "uid": "Pdve15mL6rrvsiFBddrT",
+      "name": "Constitution Save",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Constitution Save",
+      "type": "formula",
+      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"OSkj42vrIstXiThlY3eb\">$Maîtrise Constitution</span>  , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de maîtrise</span> + <span class=\"mceNonEditable\" data-variable=\"TnvtbzZASMQDALM0gLKN\">$Constitution (mod)</span>  , <span class=\"mceNonEditable\" data-variable=\"TnvtbzZASMQDALM0gLKN\">$Constitution (mod)</span>  )</p>"
+    },
+    {
+      "uid": "QmdLKSm2cwWFI1M6qtf2",
+      "name": "Persuasion check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Persuasion check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"k7QSnFVYmVTJ5cOVBLO7\">$Persuasion Mod</span>  \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "spell_mind_control",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "Qpy6GL5U9luDlQ6ATeHL",
+      "name": "Acrobatics check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Acrobatics check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"uyNvmXTX39nKE8aMFUBS\">$Acrobatics Mod</span> \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "ninja",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "QxPiZBq0aRs2ETMbaIpQ",
+      "name": "Medicine check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Medicine check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"KRG7foyxyWgLx3MC3GZ7\">$Medicine Mod</span>  \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "spell_healing",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "R9Td1RLHqavqxqZ8uZcb",
+      "name": "Passive Perception",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Passive Perception",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"E4WeGPNnRKzzPn9RJb9q\">$JdS Perception</span> + 10</p>"
+    },
+    {
+      "uid": "SEvG037oE5W2EJDRw4oa",
+      "name": "Weapon 5 (bonus)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 5 (bonus)",
+      "type": "text"
+    },
+    {
+      "uid": "TnvtbzZASMQDALM0gLKN",
+      "name": "Constitution (mod)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Constitution (mod)",
+      "type": "formula",
+      "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"lHs4FFsJDnc4ypyjWjkQ\">$Constitution</span> )</p>"
+    },
+    {
+      "uid": "U6TcdcIFltxmPw2keR81",
+      "name": "Intelligence (mod)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Intelligence (mod)",
+      "type": "formula",
+      "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"TETqbvnEjoQVh2NxJovc\">$Intelligence</span> )</p>"
+    },
+    {
+      "uid": "UmaCa6NwJ67xZaGnR048",
+      "name": "[AB] Charisma check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "[AB] Charisma check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\">$Charisma (mod)</span> \"</p>",
+      "visual": {
+        "type": "awesome",
+        "icon": "hammer-war"
+      },
+      "hue": 50
+    },
+    {
+      "uid": "VNWu4HL4YOhCBRrwWF29",
+      "name": "Weapon 5 (notes)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 5 (notes)",
+      "type": "text"
+    },
+    {
+      "uid": "WNycODVqJyQ9WmAT2god",
+      "name": "Weapon 4 (name)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 4 (name)",
+      "type": "text"
+    },
+    {
+      "uid": "XGhMoqEYlOw0avT58RNP",
+      "name": "Perception check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Perception check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"E4WeGPNnRKzzPn9RJb9q\">$Perception Mod</span>  \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "summon_falcon",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "XvE18dOjPlnrKES1nOSe",
+      "name": "Wisdom Save",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Wisdom Save",
+      "type": "formula",
+      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"lsO99a61PLKINJ7LXmxg\">$Maîtrise Sagesse</span> , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de maîtrise</span> + <span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\">$Sagesse (mod)</span>  , <span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\">$Sagesse (mod)</span>    )</p>"
+    },
+    {
+      "uid": "Z3Vb4Zol5ybkdlOvJRUh",
+      "name": "Initiative",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Initiative",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterité (mod)</span> </p>"
+    },
+    {
+      "uid": "ZXdtJv0yc9SVlKyg1Bnt",
+      "name": "Hit die",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Hit die",
+      "type": "dataTableLookup",
+      "sourceVariableUid": "rj7ANYqyqPR4y3M0RHnS",
+      "dataTableUid": "8TRJT9wSr1yXy0EdQISl",
+      "columnUid": "rNrqAKcG0O5L4j987jH0",
+      "multiAggregator": "concat"
+    },
+    {
+      "uid": "af3pLEmbYh4DdILjgG0m",
+      "name": "Sleight of Hand Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Sleight of Hand Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\" data-variable-state=\"ok\">$Dexterity (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"XmB6tQGDGDDv8uwLvwab\" data-variable-state=\"ok\">$Sleight of Hand mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "aggayXtHI4YaaSete11d",
+      "name": "Insight Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Insight Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"R07fJ9o4V6bhjtr3aYHn\" data-variable-state=\"ok\">$Insight mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "b3yolgJyV7NcTmF17K8b",
+      "name": "Dexterity Save",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Dexterity Save",
+      "type": "formula",
+      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"S3cvclAz9lcpRw9xUeAc\">$Maîtrise Dexterité</span> , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de maîtrise</span> + <span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterité (mod)</span>  , <span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterité (mod)</span>  )</p>"
+    },
+    {
+      "uid": "bTqfkhWdXKjcWGiHC2mP",
+      "name": "Stealth check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Stealth check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"c3lyAOO7S97FY6xcIwXU\">$Stealth Mod</span>  \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "slow",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "bqqcVDTWiYiBPtotYW3l",
+      "name": "Strength (mod)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Strength (mod)",
+      "type": "formula",
+      "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"HEj3wLXAKIvCrzXXdBcv\">$Force</span> )</p>"
+    },
+    {
+      "uid": "c3lyAOO7S97FY6xcIwXU",
+      "name": "Stealth Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Stealth Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\" data-variable-state=\"ok\">$Dexterity (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"4DPYRS76IKmFbUHaCNIs\" data-variable-state=\"ok\">$Stealth mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "cOzgCaoB1u98bfUgSzg3",
+      "name": "Hit die (max)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Hit die (max)",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"tka2wD1462fODTBZLYov\">$Level</span> </p>"
+    },
+    {
+      "uid": "d3LbutLlKNdWwHiwHvbp",
+      "name": "[AB] Constitution check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "[AB] Constitution check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"TnvtbzZASMQDALM0gLKN\">$Constitution (mod)</span>  \"</p>",
+      "visual": {
+        "type": "awesome",
+        "icon": "shield-halved"
+      }
+    },
+    {
+      "uid": "d9BRyedULWbG1Tr1I76X",
+      "name": "Deception check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Deception check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"niXHqgJct6Bqh1XVEXnt\">$Deception Mod</span>  \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "thief_mask",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "gkUDaWw041CPbTeWaRFo",
+      "name": "Wisdom (mod)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Wisdom (mod)",
+      "type": "formula",
+      "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"04vuxqyy2bG4udQVwRAw\">$Sagesse</span>  )</p>"
+    },
+    {
+      "uid": "j4fhMDjAl8OBeiMg98AQ",
+      "name": "Weapon 3 (bonus)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 3 (bonus)",
+      "type": "text"
+    },
+    {
+      "uid": "jGPIJvvQXWcu9wrgp6Uh",
+      "name": "Weapon 5 (name)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 5 (name)",
+      "type": "text"
+    },
+    {
+      "uid": "jnVtU4SvClym6t0MkO2M",
+      "name": "Arcana Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Arcana Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"AudSdODZVhENNIykIga1\" data-variable-state=\"ok\">$Arcana mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "k7QSnFVYmVTJ5cOVBLO7",
+      "name": "Persuasion Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Persuasion Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"pj1ZnsNovbXekNi8ncda\" data-variable-state=\"ok\">$Persuasion mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "kOiOThjodZBjPnReNHJZ",
+      "name": "Proficiency Bonus",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Proficiency Bonus",
+      "type": "dataTableLookup",
+      "sourceVariableUid": "tka2wD1462fODTBZLYov",
+      "dataTableUid": "D8PalTFAJFmpi5GYRG6D",
+      "columnUid": "0NiXwGHYokdGmUPx351o",
+      "multiAggregator": "concat"
+    },
+    {
+      "uid": "lXeBsBajKJMYYNQS1MPo",
+      "name": "Nature check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Nature check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"KRK97ibPw3J9xwPIMN4I\">$Nature Mod</span>  \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "tree",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "mLLbFGNQnkFvDT5PBlpv",
+      "name": "Weapon 4 (bonus)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 4 (bonus)",
+      "type": "text"
+    },
+    {
+      "uid": "niXHqgJct6Bqh1XVEXnt",
+      "name": "Deception Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Deception Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"iKxBRoYg23fNPsjsZr0N\" data-variable-state=\"ok\">$Deception mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "pIuQN8loVZ76zb1ldU3Y",
+      "name": "Intimidation check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Intimidation check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"5UeMbPgGdKaeAXPJiAqv\">$Intimidation Mod</span>  \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "human_rage",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "r4YDl8hrv6oHu3WehiuM",
+      "name": "Hie die",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Hie die",
+      "type": "dataTableLookup"
+    },
+    {
+      "uid": "rt8bWdTD1TEbEI6XEKb7",
+      "name": "[AB] Dexterity check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "[AB] Dexterity check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterity (mod)</span>  \"</p>",
+      "visual": {
+        "type": "awesome",
+        "icon": "bow-arrow"
+      }
+    },
+    {
+      "uid": "snnVOmwmvtuvx2OmyYHF",
+      "name": "Weapon 6 (bonus)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 6 (bonus)",
+      "type": "text"
+    },
+    {
+      "uid": "sr6F4tWmSUEq24Me9O7f",
+      "name": "Athletics check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Athletics check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"xpw8K4qsmACX8dkN3S1L\">$Athletics mod</span> \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "armored_glove",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "u8Oz469YzBCqbqJ7ktFG",
+      "name": "Test lookup lookup",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isMandatory": false,
+      "isHiddenFromSheet": false,
+      "label": "Test lookup lookup",
+      "type": "dataTableLookup",
+      "sourceVariableUid": "rj7ANYqyqPR4y3M0RHnS",
+      "dataTableUid": "8TRJT9wSr1yXy0EdQISl",
+      "columnUid": "M3hOls7aFitoEG0JkiqO",
+      "multiAggregator": "concat"
+    },
+    {
+      "uid": "uyNvmXTX39nKE8aMFUBS",
+      "name": "Acrobatics Mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Acrobatics Mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\" data-variable-state=\"ok\">$Dexterity (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"Yl0t5DgflBpPGdxk5tJT\" data-variable-state=\"ok\">$Acrobatics mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "vL3jidHOEtqnjvKcb81r",
+      "name": "Sleight of Hand check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Sleight of Hand check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"af3pLEmbYh4DdILjgG0m\">$Sleight of Hand Mod</span>  \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "bag",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "vTsYAf4bCqw2sf7Bn7lK",
+      "name": "Insight check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Insight check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"aggayXtHI4YaaSete11d\">$Insight Mod</span>  \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "vision_accuracy",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "wOuy6FBkjOcfTrXM6Ed3",
+      "name": "Performance check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Performance check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"9bMSo8CPog4WdWC4yITU\">$Performance Mod</span>  \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "music",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "xPsz8CsDT85uxg9ZGvZ3",
+      "name": "History check",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "History check",
+      "type": "roll",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"5vZhTL1YkANZpYY5kCC2\">$History Mod</span>  \"</p>",
+      "visual": {
+        "type": "compo",
+        "icons": {
+          "main": {
+            "icon": "book",
+            "size": 75,
+            "rotate": 0,
+            "revert": false
+          },
+          "topLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "topRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomRight": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          },
+          "bottomLeft": {
+            "icon": null,
+            "size": 30,
+            "rotate": 0,
+            "revert": false
+          }
+        }
+      }
+    },
+    {
+      "uid": "xpw8K4qsmACX8dkN3S1L",
+      "name": "Athletics mod",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Athletics mod",
+      "type": "formula",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"bqqcVDTWiYiBPtotYW3l\" data-variable-state=\"ok\">$Strength (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"qQFHVD38OAmfSeFyEVgM\" data-variable-state=\"ok\">$Athletics mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
+    },
+    {
+      "uid": "yjjTea5kDXPVw2HmfS4a",
+      "name": "Weapon 6 (name)",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "isHiddenFromSheet": false,
+      "label": "Weapon 6 (name)",
+      "type": "text"
+    }
+  ],
+  "widgets": [],
+  "sheets": [],
+  "dataTables": [
+    {
+      "uid": "D8PalTFAJFmpi5GYRG6D",
+      "name": {
+        "en": "Levels",
+        "fr": "Niveaux"
+      },
+      "weight": 0,
+      "adminOnly": false,
+      "columns": [
+        {
+          "uid": "gY1VGpFXelc0qplbTwN4",
+          "label": {
+            "fr": "Niveau",
+            "en": "Level"
+          },
+          "type": "number"
+        },
+        {
+          "uid": "0NiXwGHYokdGmUPx351o",
+          "label": {
+            "en": "Proficiency bonus",
+            "fr": "Bonus de maîtrise"
+          },
+          "type": "number"
+        }
+      ],
+      "rows": [
+        {
+          "uid": "rraRZUjyUDMIhEj3jLsl",
+          "data": {
+            "0NiXwGHYokdGmUPx351o": 2,
+            "gY1VGpFXelc0qplbTwN4": 1
+          }
+        },
+        {
+          "uid": "ecQkqEalsS8MIWCGyu10",
+          "data": {
+            "gY1VGpFXelc0qplbTwN4": 2,
+            "0NiXwGHYokdGmUPx351o": 2
+          }
+        },
+        {
+          "uid": "C2I8MbRtFWBRQz6SDzmi",
+          "data": {
+            "0NiXwGHYokdGmUPx351o": 2,
+            "gY1VGpFXelc0qplbTwN4": 3
+          }
+        },
+        {
+          "uid": "qA3GpFilbrm4Wcrn6bsV",
+          "data": {
+            "gY1VGpFXelc0qplbTwN4": 4,
+            "0NiXwGHYokdGmUPx351o": 2
+          }
+        },
+        {
+          "uid": "PgX1aYZefyiZK3dlpknb",
+          "data": {
+            "0NiXwGHYokdGmUPx351o": 3,
+            "gY1VGpFXelc0qplbTwN4": 5
+          }
+        },
+        {
+          "uid": "oVMEfG5OPFKGyeki6A0T",
+          "data": {
+            "0NiXwGHYokdGmUPx351o": 3,
+            "gY1VGpFXelc0qplbTwN4": 6
+          }
+        },
+        {
+          "uid": "tFO78www78gOrPUWLSYX",
+          "data": {
+            "gY1VGpFXelc0qplbTwN4": 7,
+            "0NiXwGHYokdGmUPx351o": 3
+          }
+        },
+        {
+          "uid": "noWRQAGLjtWDSNxCATjt",
+          "data": {
+            "0NiXwGHYokdGmUPx351o": 3,
+            "gY1VGpFXelc0qplbTwN4": 8
+          }
+        },
+        {
+          "uid": "nonljNon85bY4aWrlzAU",
+          "data": {
+            "gY1VGpFXelc0qplbTwN4": 9,
+            "0NiXwGHYokdGmUPx351o": 4
+          }
+        },
+        {
+          "uid": "ZhRabyQ0kFYGax2lWPCC",
+          "data": {
+            "0NiXwGHYokdGmUPx351o": 4,
+            "gY1VGpFXelc0qplbTwN4": 10
+          }
+        },
+        {
+          "uid": "1fJAXB1tCBl6NNZGcP96",
+          "data": {
+            "gY1VGpFXelc0qplbTwN4": 11,
+            "0NiXwGHYokdGmUPx351o": 4
+          }
+        },
+        {
+          "uid": "waiMGvzD7CkshbydfXFR",
+          "data": {
+            "0NiXwGHYokdGmUPx351o": 4,
+            "gY1VGpFXelc0qplbTwN4": 12
+          }
+        },
+        {
+          "uid": "VdY5YPStV7LIHMVAavjp",
+          "data": {
+            "gY1VGpFXelc0qplbTwN4": 13,
+            "0NiXwGHYokdGmUPx351o": 5
+          }
+        },
+        {
+          "uid": "5ggP8fzohlO1yqGcmwt1",
+          "data": {
+            "0NiXwGHYokdGmUPx351o": 5,
+            "gY1VGpFXelc0qplbTwN4": 14
+          }
+        },
+        {
+          "uid": "MQG8BxTxkRWaOt9YfFAT",
+          "data": {
+            "gY1VGpFXelc0qplbTwN4": 15,
+            "0NiXwGHYokdGmUPx351o": 5
+          }
+        },
+        {
+          "uid": "NyAXubVOSb5Zqrzm4tGW",
+          "data": {
+            "0NiXwGHYokdGmUPx351o": 5,
+            "gY1VGpFXelc0qplbTwN4": 16
+          }
+        },
+        {
+          "uid": "mmEsHR8vLJ4YM2EAQyWA",
+          "data": {
+            "gY1VGpFXelc0qplbTwN4": 17,
+            "0NiXwGHYokdGmUPx351o": 6
+          }
+        },
+        {
+          "uid": "c6zsvMgtoBCloSBNkKTN",
+          "data": {
+            "0NiXwGHYokdGmUPx351o": 6,
+            "gY1VGpFXelc0qplbTwN4": 18
+          }
+        },
+        {
+          "uid": "03jAxh6ZStA9W32ER4QB",
+          "data": {
+            "gY1VGpFXelc0qplbTwN4": 19,
+            "0NiXwGHYokdGmUPx351o": 6
+          }
+        },
+        {
+          "uid": "rl1sYU2LDO0Rntc3vtEo",
+          "data": {
+            "0NiXwGHYokdGmUPx351o": 6,
+            "gY1VGpFXelc0qplbTwN4": 20
+          }
+        }
+      ]
+    },
+    {
+      "uid": "aSswRRaVsFWeRzfJ5Idw",
+      "name": {
+        "en": "Skill mastery"
+      },
+      "weight": 0,
+      "adminOnly": false,
+      "columns": [
+        {
+          "uid": "QqoDU2GGqTgVP1dmhhN7",
+          "label": {
+            "en": "Key"
+          },
+          "type": "text"
+        },
+        {
+          "uid": "oRjden4jFS6HrvcpKjEy",
+          "label": {
+            "en": "Icon",
+            "fr": "Icône"
+          },
+          "type": "icon"
+        },
+        {
+          "uid": "Y04lsbtKe9diSgrzRL6k",
+          "label": {
+            "fr": "Valeur",
+            "en": "Value"
+          },
+          "type": "number"
+        },
+        {
+          "uid": "GX6sd2Ppy4yZoQMQlOtW",
+          "label": {
+            "fr": "Nom",
+            "en": "Name"
+          },
+          "type": "text"
+        }
+      ],
+      "rows": [
+        {
+          "uid": "OW76ZrlFsJFdZz4D1Zh1",
+          "data": {
+            "Y04lsbtKe9diSgrzRL6k": 0,
+            "GX6sd2Ppy4yZoQMQlOtW": "None",
+            "QqoDU2GGqTgVP1dmhhN7": "none",
+            "oRjden4jFS6HrvcpKjEy": "circle-hollow"
+          }
+        },
+        {
+          "uid": "FAfkDBA7YUYLJtTN8wsk",
+          "data": {
+            "Y04lsbtKe9diSgrzRL6k": 0.5,
+            "GX6sd2Ppy4yZoQMQlOtW": "Jack of all trades",
+            "oRjden4jFS6HrvcpKjEy": "circle-half-stroke",
+            "QqoDU2GGqTgVP1dmhhN7": "jack-of-all-trades"
+          }
+        },
+        {
+          "uid": "9tVh565gE8TxWqY3XKu5",
+          "data": {
+            "QqoDU2GGqTgVP1dmhhN7": "master",
+            "oRjden4jFS6HrvcpKjEy": "circle",
+            "Y04lsbtKe9diSgrzRL6k": 1,
+            "GX6sd2Ppy4yZoQMQlOtW": "Master"
+          }
+        },
+        {
+          "uid": "HxyOUwmqyI36XP5T8fCi",
+          "data": {
+            "oRjden4jFS6HrvcpKjEy": "star",
+            "QqoDU2GGqTgVP1dmhhN7": "export",
+            "GX6sd2Ppy4yZoQMQlOtW": "Expert",
+            "Y04lsbtKe9diSgrzRL6k": 2
+          }
+        },
+        {
+          "uid": "GZmWKxWAqEMumUOGGwpo",
+          "data": {
+            "oRjden4jFS6HrvcpKjEy": "fire",
+            "Y04lsbtKe9diSgrzRL6k": 3,
+            "GX6sd2Ppy4yZoQMQlOtW": "Very very good",
+            "QqoDU2GGqTgVP1dmhhN7": "very-very-good"
+          }
+        }
+      ]
+    },
+    {
+      "uid": "8TRJT9wSr1yXy0EdQISl",
+      "name": {
+        "en": "Classes"
+      },
+      "icon": "teddy-bear",
+      "weight": 0,
+      "adminOnly": false,
+      "columns": [
+        {
+          "uid": "0iet9pnNOxUmREHabuZi",
+          "label": {
+            "en": "Key"
+          },
+          "type": "text"
+        },
+        {
+          "uid": "skNw90YyMq1OKVFPWlY7",
+          "label": {
+            "en": "Name"
+          },
+          "type": "translatableText"
+        },
+        {
+          "uid": "KYEYhVUgq1nrAufIzao4",
+          "label": {
+            "en": "Primary abilities"
+          },
+          "type": "dataTableRef",
+          "dataTableUid": "cf2UJBgg7XRpEcJT4ti8",
+          "labelColumnUid": "lXiPm3rBJziYqSxCv3ok",
+          "valueColumnUid": "pHIBUW766TK9PFm2hPaY",
+          "isMultiple": true
+        },
+        {
+          "uid": "rNrqAKcG0O5L4j987jH0",
+          "label": {
+            "en": "Hit die"
+          },
+          "type": "number"
+        },
+        {
+          "uid": "dRfPKRrcw7edMAbn4ptr",
+          "label": {
+            "en": "Spellcasting ability"
+          },
+          "type": "dataTableRef",
+          "dataTableUid": "cf2UJBgg7XRpEcJT4ti8",
+          "labelColumnUid": "lXiPm3rBJziYqSxCv3ok",
+          "valueColumnUid": "pHIBUW766TK9PFm2hPaY",
+          "isMultiple": false,
+          "defaultRowUids": [
+            "ATxzxHzHZbYnAMEFRXdA"
+          ]
+        },
+        {
+          "uid": "M3hOls7aFitoEG0JkiqO",
+          "label": {
+            "en": "Spellcasting ability key"
+          },
+          "type": "dataTableLookup",
+          "sourceColumnUid": "dRfPKRrcw7edMAbn4ptr",
+          "dataTableUid": "cf2UJBgg7XRpEcJT4ti8",
+          "columnUid": "pHIBUW766TK9PFm2hPaY",
+          "multiAggregator": "concat"
+        },
+        {
+          "uid": "zNtt5AMP2Tx6mDbNl9wK",
+          "label": {
+            "en": "Spellcaster"
+          },
+          "type": "boolean"
+        }
+      ],
+      "rows": [
+        {
+          "uid": "cfk1h6LuLB9a4Gbc2zXq",
+          "data": {
+            "zNtt5AMP2Tx6mDbNl9wK": true,
+            "dRfPKRrcw7edMAbn4ptr": "ATxzxHzHZbYnAMEFRXdA",
+            "skNw90YyMq1OKVFPWlY7": {
+              "en": "Artificer"
+            },
+            "rNrqAKcG0O5L4j987jH0": 8,
+            "KYEYhVUgq1nrAufIzao4": [
+              "ATxzxHzHZbYnAMEFRXdA"
+            ],
+            "0iet9pnNOxUmREHabuZi": "artificer"
+          }
+        },
+        {
+          "uid": "ozv9jcbb1A3U1iYETBC9",
+          "data": {
+            "rNrqAKcG0O5L4j987jH0": 12,
+            "KYEYhVUgq1nrAufIzao4": [
+              "rbZlOL56vhVn8tnLGmhl"
+            ],
+            "0iet9pnNOxUmREHabuZi": "barbarian",
+            "skNw90YyMq1OKVFPWlY7": {
+              "en": "Barbarian"
+            },
+            "dRfPKRrcw7edMAbn4ptr": ""
+          }
+        },
+        {
+          "uid": "aRRx9xN4CmXv3JooB539",
+          "data": {
+            "rNrqAKcG0O5L4j987jH0": 8,
+            "skNw90YyMq1OKVFPWlY7": {
+              "en": "Bard"
+            },
+            "KYEYhVUgq1nrAufIzao4": [
+              "WbV7AnDnhLvaGWQG3nTE"
+            ],
+            "0iet9pnNOxUmREHabuZi": "bard",
+            "dRfPKRrcw7edMAbn4ptr": "WbV7AnDnhLvaGWQG3nTE",
+            "zNtt5AMP2Tx6mDbNl9wK": true
+          }
+        },
+        {
+          "uid": "fkIW7YydfHJjZzg1LjeI",
+          "data": {
+            "KYEYhVUgq1nrAufIzao4": [
+              "yp1tLrAGVUDqs3sURjC8"
+            ],
+            "0iet9pnNOxUmREHabuZi": "cleric",
+            "rNrqAKcG0O5L4j987jH0": 8,
+            "skNw90YyMq1OKVFPWlY7": {
+              "en": "Cleric"
+            },
+            "dRfPKRrcw7edMAbn4ptr": "yp1tLrAGVUDqs3sURjC8",
+            "zNtt5AMP2Tx6mDbNl9wK": true
+          }
+        },
+        {
+          "uid": "C4xlGLdBLpS9NlSpA8KT",
+          "data": {
+            "dRfPKRrcw7edMAbn4ptr": "yp1tLrAGVUDqs3sURjC8",
+            "zNtt5AMP2Tx6mDbNl9wK": true,
+            "skNw90YyMq1OKVFPWlY7": {
+              "en": "Druid"
+            },
+            "0iet9pnNOxUmREHabuZi": "druid",
+            "KYEYhVUgq1nrAufIzao4": [
+              "yp1tLrAGVUDqs3sURjC8"
+            ],
+            "rNrqAKcG0O5L4j987jH0": 8
+          }
+        },
+        {
+          "uid": "q9ky2tQ8ZAJlwBdzt0S9",
+          "data": {
+            "zNtt5AMP2Tx6mDbNl9wK": true,
+            "dRfPKRrcw7edMAbn4ptr": "ATxzxHzHZbYnAMEFRXdA",
+            "rNrqAKcG0O5L4j987jH0": 10,
+            "KYEYhVUgq1nrAufIzao4": [
+              "rbZlOL56vhVn8tnLGmhl",
+              "4EGWhJoI85aUoaur21rY"
+            ],
+            "0iet9pnNOxUmREHabuZi": "fighter",
+            "skNw90YyMq1OKVFPWlY7": {
+              "en": "Fighter"
+            }
+          }
+        },
+        {
+          "uid": "j7EkURaH5HkI6OE684XD",
+          "data": {
+            "dRfPKRrcw7edMAbn4ptr": "yp1tLrAGVUDqs3sURjC8",
+            "zNtt5AMP2Tx6mDbNl9wK": true,
+            "skNw90YyMq1OKVFPWlY7": {
+              "en": "Monk"
+            },
+            "rNrqAKcG0O5L4j987jH0": 8,
+            "0iet9pnNOxUmREHabuZi": "monk",
+            "KYEYhVUgq1nrAufIzao4": [
+              "4EGWhJoI85aUoaur21rY",
+              "yp1tLrAGVUDqs3sURjC8"
+            ]
+          }
+        },
+        {
+          "uid": "1YOLaFgLkbENzCBVqijH",
+          "data": {
+            "rNrqAKcG0O5L4j987jH0": 10,
+            "0iet9pnNOxUmREHabuZi": "paladin",
+            "KYEYhVUgq1nrAufIzao4": [
+              "rbZlOL56vhVn8tnLGmhl",
+              "WbV7AnDnhLvaGWQG3nTE"
+            ],
+            "skNw90YyMq1OKVFPWlY7": {
+              "en": "Paladin"
+            },
+            "dRfPKRrcw7edMAbn4ptr": "WbV7AnDnhLvaGWQG3nTE",
+            "zNtt5AMP2Tx6mDbNl9wK": true
+          }
+        },
+        {
+          "uid": "zE3UOxLqMdpWc2YlXORC",
+          "data": {
+            "0iet9pnNOxUmREHabuZi": "ranger",
+            "KYEYhVUgq1nrAufIzao4": [
+              "4EGWhJoI85aUoaur21rY",
+              "yp1tLrAGVUDqs3sURjC8"
+            ],
+            "skNw90YyMq1OKVFPWlY7": {
+              "en": "Ranger"
+            },
+            "rNrqAKcG0O5L4j987jH0": 10,
+            "dRfPKRrcw7edMAbn4ptr": "yp1tLrAGVUDqs3sURjC8",
+            "zNtt5AMP2Tx6mDbNl9wK": true
+          }
+        },
+        {
+          "uid": "FbhGO5a9cRbZrDJwpsEn",
+          "data": {
+            "rNrqAKcG0O5L4j987jH0": 8,
+            "0iet9pnNOxUmREHabuZi": "rogue",
+            "skNw90YyMq1OKVFPWlY7": {
+              "en": "Rogue"
+            },
+            "KYEYhVUgq1nrAufIzao4": [
+              "4EGWhJoI85aUoaur21rY"
+            ],
+            "dRfPKRrcw7edMAbn4ptr": "ATxzxHzHZbYnAMEFRXdA",
+            "zNtt5AMP2Tx6mDbNl9wK": true
+          }
+        },
+        {
+          "uid": "98k5CDahqVqxtnYcY7Ai",
+          "data": {
+            "dRfPKRrcw7edMAbn4ptr": "WbV7AnDnhLvaGWQG3nTE",
+            "KYEYhVUgq1nrAufIzao4": [
+              "WbV7AnDnhLvaGWQG3nTE"
+            ],
+            "0iet9pnNOxUmREHabuZi": "sorcerer",
+            "rNrqAKcG0O5L4j987jH0": 6,
+            "skNw90YyMq1OKVFPWlY7": {
+              "en": "Sorcerer"
+            },
+            "zNtt5AMP2Tx6mDbNl9wK": true
+          }
+        },
+        {
+          "uid": "u7tXGSrxvXcgDe9snCL3",
+          "data": {
+            "dRfPKRrcw7edMAbn4ptr": "WbV7AnDnhLvaGWQG3nTE",
+            "zNtt5AMP2Tx6mDbNl9wK": true,
+            "0iet9pnNOxUmREHabuZi": "warlock",
+            "rNrqAKcG0O5L4j987jH0": 8,
+            "skNw90YyMq1OKVFPWlY7": {
+              "en": "Warlock"
+            },
+            "KYEYhVUgq1nrAufIzao4": [
+              "WbV7AnDnhLvaGWQG3nTE"
+            ]
+          }
+        },
+        {
+          "uid": "nxCu1AQvzX1kNhEjk3dh",
+          "data": {
+            "zNtt5AMP2Tx6mDbNl9wK": true,
+            "dRfPKRrcw7edMAbn4ptr": "ATxzxHzHZbYnAMEFRXdA",
+            "rNrqAKcG0O5L4j987jH0": 6,
+            "skNw90YyMq1OKVFPWlY7": {
+              "en": "Wizard"
+            },
+            "KYEYhVUgq1nrAufIzao4": [
+              "ATxzxHzHZbYnAMEFRXdA"
+            ],
+            "0iet9pnNOxUmREHabuZi": "wizard"
+          }
+        }
+      ]
+    },
+    {
+      "uid": "cf2UJBgg7XRpEcJT4ti8",
+      "name": {
+        "en": "Primary abilities"
+      },
+      "weight": 0,
+      "adminOnly": false,
+      "columns": [
+        {
+          "uid": "pHIBUW766TK9PFm2hPaY",
+          "label": {
+            "en": "Key"
+          },
+          "type": "text"
+        },
+        {
+          "uid": "lXiPm3rBJziYqSxCv3ok",
+          "label": {
+            "en": "Name"
+          },
+          "type": "text"
+        }
+      ],
+      "rows": [
+        {
+          "uid": "rbZlOL56vhVn8tnLGmhl",
+          "data": {
+            "pHIBUW766TK9PFm2hPaY": "str",
+            "lXiPm3rBJziYqSxCv3ok": "Strength"
+          }
+        },
+        {
+          "uid": "4EGWhJoI85aUoaur21rY",
+          "data": {
+            "lXiPm3rBJziYqSxCv3ok": "Dexterity",
+            "pHIBUW766TK9PFm2hPaY": "dex"
+          }
+        },
+        {
+          "uid": "MgdHvidPRmTyGhYnmlYa",
+          "data": {
+            "lXiPm3rBJziYqSxCv3ok": "Constitution",
+            "pHIBUW766TK9PFm2hPaY": "con"
+          }
+        },
+        {
+          "uid": "yp1tLrAGVUDqs3sURjC8",
+          "data": {
+            "lXiPm3rBJziYqSxCv3ok": "Wisdom",
+            "pHIBUW766TK9PFm2hPaY": "wis"
+          }
+        },
+        {
+          "uid": "ATxzxHzHZbYnAMEFRXdA",
+          "data": {
+            "pHIBUW766TK9PFm2hPaY": "int",
+            "lXiPm3rBJziYqSxCv3ok": "Intelligence"
+          }
+        },
+        {
+          "uid": "WbV7AnDnhLvaGWQG3nTE",
+          "data": {
+            "lXiPm3rBJziYqSxCv3ok": "Charisma",
+            "pHIBUW766TK9PFm2hPaY": "cha"
+          }
+        }
+      ]
+    },
+    {
+      "uid": "BgwCqWDEZnTdGwd5gTr1",
+      "name": {
+        "en": "Skills"
+      },
+      "weight": 0,
+      "adminOnly": false,
+      "columns": [
+        {
+          "uid": "qGKdhyuaaOVVm1MbIW8a",
+          "label": {
+            "en": "Key"
+          },
+          "type": "text"
+        },
+        {
+          "uid": "cVal22Rs5wXxMqYO0Eoq",
+          "label": {
+            "en": "Name"
+          },
+          "type": "translatableText"
+        },
+        {
+          "uid": "4tIddDAyqTGr3FL2xhf9",
+          "label": {
+            "en": "Primary ability"
+          },
+          "type": "dataTableRef",
+          "dataTableUid": "cf2UJBgg7XRpEcJT4ti8",
+          "labelColumnUid": "lXiPm3rBJziYqSxCv3ok",
+          "valueColumnUid": "pHIBUW766TK9PFm2hPaY",
+          "isMultiple": false
+        }
+      ],
+      "rows": [
+        {
+          "uid": "taHxt0JENEtfCGWim6CF",
+          "data": {
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Athletics"
+            },
+            "qGKdhyuaaOVVm1MbIW8a": "athletics",
+            "4tIddDAyqTGr3FL2xhf9": "rbZlOL56vhVn8tnLGmhl"
+          }
+        },
+        {
+          "uid": "TLTFSk9sfCwbel5zSwfz",
+          "data": {
+            "qGKdhyuaaOVVm1MbIW8a": "acrobatics",
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Acrobatics"
+            },
+            "4tIddDAyqTGr3FL2xhf9": "4EGWhJoI85aUoaur21rY"
+          }
+        },
+        {
+          "uid": "EUZOfihOkyqoSiwjP4n8",
+          "data": {
+            "4tIddDAyqTGr3FL2xhf9": "4EGWhJoI85aUoaur21rY",
+            "qGKdhyuaaOVVm1MbIW8a": "sleight-of-hand",
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Sleight of hand"
+            }
+          }
+        },
+        {
+          "uid": "tqDnBk43vKLPsN4OdhJn",
+          "data": {
+            "qGKdhyuaaOVVm1MbIW8a": "stealth",
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Stealth"
+            },
+            "4tIddDAyqTGr3FL2xhf9": "4EGWhJoI85aUoaur21rY"
+          }
+        },
+        {
+          "uid": "sIAtFcWXe1nEAek2Pbzt",
+          "data": {
+            "qGKdhyuaaOVVm1MbIW8a": "arcana",
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Arcana"
+            },
+            "4tIddDAyqTGr3FL2xhf9": "ATxzxHzHZbYnAMEFRXdA"
+          }
+        },
+        {
+          "uid": "JlFsxbPooNlX5TGXY7QW",
+          "data": {
+            "4tIddDAyqTGr3FL2xhf9": "ATxzxHzHZbYnAMEFRXdA",
+            "qGKdhyuaaOVVm1MbIW8a": "history",
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "History"
+            }
+          }
+        },
+        {
+          "uid": "VX0ffkTXX5lY9ZjOtHBR",
+          "data": {
+            "4tIddDAyqTGr3FL2xhf9": "ATxzxHzHZbYnAMEFRXdA",
+            "qGKdhyuaaOVVm1MbIW8a": "investigation",
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Investigation"
+            }
+          }
+        },
+        {
+          "uid": "9SPgwhAz9bTQN00Z7CKR",
+          "data": {
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Nature"
+            },
+            "qGKdhyuaaOVVm1MbIW8a": "nature",
+            "4tIddDAyqTGr3FL2xhf9": "ATxzxHzHZbYnAMEFRXdA"
+          }
+        },
+        {
+          "uid": "55817JM2kda9AjdtltAV",
+          "data": {
+            "4tIddDAyqTGr3FL2xhf9": "ATxzxHzHZbYnAMEFRXdA",
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Religion"
+            },
+            "qGKdhyuaaOVVm1MbIW8a": "religion"
+          }
+        },
+        {
+          "uid": "Sw7WZgoq0A2ZBicMnIpW",
+          "data": {
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Animal handling"
+            },
+            "qGKdhyuaaOVVm1MbIW8a": "animal-handling",
+            "4tIddDAyqTGr3FL2xhf9": "yp1tLrAGVUDqs3sURjC8"
+          }
+        },
+        {
+          "uid": "pwewb1DVZQBuNkemFLUi",
+          "data": {
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Insight"
+            },
+            "qGKdhyuaaOVVm1MbIW8a": "insight",
+            "4tIddDAyqTGr3FL2xhf9": "yp1tLrAGVUDqs3sURjC8"
+          }
+        },
+        {
+          "uid": "p7WTIaKiDi9JwHj6y71O",
+          "data": {
+            "qGKdhyuaaOVVm1MbIW8a": "medicine",
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Medicine"
+            },
+            "4tIddDAyqTGr3FL2xhf9": "yp1tLrAGVUDqs3sURjC8"
+          }
+        },
+        {
+          "uid": "kucfMJIzLiayb6lRraCr",
+          "data": {
+            "4tIddDAyqTGr3FL2xhf9": "yp1tLrAGVUDqs3sURjC8",
+            "qGKdhyuaaOVVm1MbIW8a": "perception",
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Perception"
+            }
+          }
+        },
+        {
+          "uid": "xIWvcFjhyxxQZTvXVJHp",
+          "data": {
+            "qGKdhyuaaOVVm1MbIW8a": "survival",
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Survival"
+            },
+            "4tIddDAyqTGr3FL2xhf9": "yp1tLrAGVUDqs3sURjC8"
+          }
+        },
+        {
+          "uid": "3RuvRfabknc9VCOLO2CN",
+          "data": {
+            "4tIddDAyqTGr3FL2xhf9": "WbV7AnDnhLvaGWQG3nTE",
+            "qGKdhyuaaOVVm1MbIW8a": "deception",
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Deception"
+            }
+          }
+        },
+        {
+          "uid": "1UC7Ajl29TPjew6cczKc",
+          "data": {
+            "qGKdhyuaaOVVm1MbIW8a": "intimidation",
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Intimidation"
+            },
+            "4tIddDAyqTGr3FL2xhf9": "WbV7AnDnhLvaGWQG3nTE"
+          }
+        },
+        {
+          "uid": "oLHd6fHHHt7G1zF20YhP",
+          "data": {
+            "qGKdhyuaaOVVm1MbIW8a": "performance",
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Performance"
+            },
+            "4tIddDAyqTGr3FL2xhf9": "WbV7AnDnhLvaGWQG3nTE"
+          }
+        },
+        {
+          "uid": "C8sLXj41sJw6dG1u7deW",
+          "data": {
+            "qGKdhyuaaOVVm1MbIW8a": "persuasion",
+            "cVal22Rs5wXxMqYO0Eoq": {
+              "en": "Persuasion"
+            },
+            "4tIddDAyqTGr3FL2xhf9": "WbV7AnDnhLvaGWQG3nTE"
+          }
+        }
+      ]
+    }
+  ],
+  "randomTables": [
+    {
+      "uid": "JrShABmD4j1zAP0atme6",
+      "title": "Encounters Across the Reach",
+      "rows": [
+        {
+          "uid": "3x2DENRgYJuASjuS5EQ6",
+          "range": 0,
+          "content": "<span id=\"aB3x\" class=\"mceNonEditable\" data-roll=\"1d4\"> 1d4 </span> Gleamfang Panthers stalking through the canopy, eyes reflecting like coins in the undergrowth. They circle but do not attack unless cornered."
+        },
+        {
+          "uid": "s3Rc4owe4qDFEoZ3lqXd",
+          "range": 0,
+          "content": "A lone Marsh Drake basking on a sun-warmed rock, its bioluminescent scales pulsing lazily. It hisses if approached but will trade passage for a fresh fish."
+        },
+        {
+          "uid": "fw94Qhj3YMtJGQ2X4wj5",
+          "range": 0,
+          "content": "<p><span id=\"kR7m\" class=\"mceNonEditable\" data-roll=\"1d6\"> 1d6 </span> Chimeric Wisps drifting near a cracked Threshold. They shift shape constantly. Touching one forces a Wisdom save or the character glimpses a random fragment for 1d4 seconds.</p>"
+        },
+        {
+          "uid": "SamL4S8krqsk52wsLIAv",
+          "range": 0,
+          "content": "<span id=\"pQ2n\" class=\"mceNonEditable\" data-roll=\"2d4\"> 2d4 </span> Inferno Elementals seeping from a volcanic vent. They are not hostile, but the ground within 30 feet is dangerously hot. A Cartographer's Guild marker nearby warns: DO NOT CAMP."
+        },
+        {
+          "uid": "VuzOz6zuP4jT4Y0UVZLa",
+          "range": 0,
+          "content": "An Elerian Wyrm gliding overhead, impossibly large and silent. It circles twice, then banks toward the Windward Cliffs. The Wildling Clans say a wyrm circling means a Threshold just failed somewhere."
+        },
+        {
+          "uid": "OAyoino0JAd0p2gttqXx",
+          "range": 0,
+          "content": "<span id=\"mW8v\" class=\"mceNonEditable\" data-roll=\"1d4\"> 1d4 </span> Amberlake Spirits hovering over still water at dusk. Their glow is warm and inviting. Anyone who follows them for more than ten minutes must make a Charisma save or lose track of time until dawn."
+        },
+        {
+          "uid": "ZHsciyvjkKfwJdOdhvTa",
+          "range": 0,
+          "content": "A wounded Bridge Keeper sitting against a collapsed span, clutching a satchel of repair tools. She says the bridge fell on its own. Her eyes say otherwise."
+        },
+        {
+          "uid": "9TdeBcBD7Iu4m4Fwf4YM",
+          "range": 0,
+          "content": "A Skybreaker Skiff drifting unmanned, its sail torn, bumping gently against a cliff face. The cargo hold contains sealed Cartographer's Guild charts and a half-eaten meal still warm."
+        }
+      ]
+    }
+  ],
+  "tags": [
+    {
+      "uid": "zcNZUW8ZtgOqVK98iYRb",
+      "name": "Seer",
+      "categoryUid": "Ltke2smxv6PZmAHKiHD2",
+      "useAsFolder": false
+    },
+    {
+      "uid": "U0dBZN3nPmh1z5O0dlQK",
+      "name": "Artificer",
+      "categoryUid": "Ltke2smxv6PZmAHKiHD2",
+      "useAsFolder": false
+    },
+    {
+      "uid": "jDfTHxFEEql6EvECGjPY",
+      "name": "Bard",
+      "categoryUid": "Ltke2smxv6PZmAHKiHD2",
+      "useAsFolder": false
+    },
+    {
+      "uid": "XbYjTXTQ8OgWP8djxVMZ",
+      "name": "Captain",
+      "categoryUid": "Ltke2smxv6PZmAHKiHD2",
+      "useAsFolder": false
+    },
+    {
+      "uid": "uUVwyPcpXJ9e4tHTYMDD",
+      "name": "Mage",
+      "categoryUid": "Ltke2smxv6PZmAHKiHD2",
+      "useAsFolder": false
+    },
+    {
+      "uid": "vsHahEOwDe9j36iRTV8R",
+      "name": "Scholar",
+      "categoryUid": "Ltke2smxv6PZmAHKiHD2",
+      "useAsFolder": false
+    },
+    {
+      "uid": "dGclszFa4I5Eq4ILtUVy",
+      "name": "Scout",
+      "categoryUid": "Ltke2smxv6PZmAHKiHD2",
+      "useAsFolder": false
+    },
+    {
+      "uid": "Z1WZytLfnHahxpjtmMbH",
+      "name": "Spy",
+      "categoryUid": "Ltke2smxv6PZmAHKiHD2",
+      "useAsFolder": false
+    },
+    {
+      "uid": "OR35eDKsHDuuxqQ5cf5I",
+      "name": "Warrior",
+      "categoryUid": "Ltke2smxv6PZmAHKiHD2",
+      "useAsFolder": false
+    },
+    {
+      "uid": "8c2794SqsS25ygDf0eMI",
+      "name": "Shadow Network",
+      "categoryUid": "2mCFvuHclNYCx5jCNAnZ",
+      "useAsFolder": false
+    },
+    {
+      "uid": "X227D3CvFIW0UhtCWRDQ",
+      "name": "Bridge Wardens",
+      "categoryUid": "2mCFvuHclNYCx5jCNAnZ",
+      "useAsFolder": false
+    },
+    {
+      "uid": "80XF6ZrnDek4WwMaRfMS",
+      "name": "Cartographers",
+      "categoryUid": "2mCFvuHclNYCx5jCNAnZ",
+      "useAsFolder": false
+    },
+    {
+      "uid": "DGteDYHHL6gB7WztsXCO",
+      "name": "Serpent Tribe",
+      "categoryUid": "2mCFvuHclNYCx5jCNAnZ",
+      "useAsFolder": false
+    },
+    {
+      "uid": "TOIzXOMypzxw828NlR9B",
+      "name": "Sun Order",
+      "categoryUid": "2mCFvuHclNYCx5jCNAnZ",
+      "useAsFolder": false
+    },
+    {
+      "uid": "hUDAl7OzT4SBKNcTzyIK",
+      "name": "The Council",
+      "categoryUid": "2mCFvuHclNYCx5jCNAnZ",
+      "useAsFolder": false
+    },
+    {
+      "uid": "RcR0gE5afTCmd87NozxR",
+      "name": "The Gildcrest",
+      "categoryUid": "2mCFvuHclNYCx5jCNAnZ",
+      "useAsFolder": false
+    },
+    {
+      "uid": "EAHFvHbcb5M3R66nmopV",
+      "name": "Wildlings",
+      "categoryUid": "2mCFvuHclNYCx5jCNAnZ",
+      "useAsFolder": false
+    },
+    {
+      "uid": "DilpHWWHjCwuw8q0qal3",
+      "name": "Marshlands",
+      "categoryUid": "0SzVa30cooMJWtQ95qgM",
+      "useAsFolder": false
+    },
+    {
+      "uid": "ZNM18FItSmydw3KAAlZM",
+      "name": "Amberlake",
+      "categoryUid": "0SzVa30cooMJWtQ95qgM",
+      "useAsFolder": true
+    },
+    {
+      "uid": "bAKQespnPN6weV91dEEL",
+      "name": "Cinder Forge",
+      "categoryUid": "0SzVa30cooMJWtQ95qgM",
+      "useAsFolder": false
+    },
+    {
+      "uid": "zhb7mu4ZopEx3OTe1LGI",
+      "name": "Crystal Dunes",
+      "categoryUid": "0SzVa30cooMJWtQ95qgM",
+      "useAsFolder": false
+    },
+    {
+      "uid": "smvFc0rVscHbn1nLp7Vp",
+      "name": "Elaria",
+      "categoryUid": "0SzVa30cooMJWtQ95qgM",
+      "useAsFolder": false
+    },
+    {
+      "uid": "oA5q2IfMypmWVNxvfoFn",
+      "name": "Skyward Abyss",
+      "categoryUid": "0SzVa30cooMJWtQ95qgM",
+      "useAsFolder": false
+    },
+    {
+      "uid": "AYEGm48qE6KeUTaEyR4j",
+      "name": "Windward Cliffs",
+      "categoryUid": "0SzVa30cooMJWtQ95qgM",
+      "useAsFolder": false
+    },
+    {
+      "uid": "CqdSC6kjkqIczGW5Pe7F",
+      "name": "Prophecy",
+      "categoryUid": "RSEfnRxCgDZ4R2VTOgGY",
+      "useAsFolder": false
+    },
+    {
+      "uid": "ynGRI07gnBLPGPsLaI7m",
+      "name": "Camaraderie",
+      "categoryUid": "RSEfnRxCgDZ4R2VTOgGY",
+      "useAsFolder": false
+    },
+    {
+      "uid": "42jdflpUmkdTBrez7rG2",
+      "name": "Corruption",
+      "categoryUid": "RSEfnRxCgDZ4R2VTOgGY",
+      "useAsFolder": false
+    },
+    {
+      "uid": "nng94uquEi2bp9xi4W3H",
+      "name": "Exploration",
+      "categoryUid": "RSEfnRxCgDZ4R2VTOgGY",
+      "useAsFolder": false
+    },
+    {
+      "uid": "6SPz6fA3QbQq6ayUzoJP",
+      "name": "Sundering",
+      "categoryUid": "RSEfnRxCgDZ4R2VTOgGY",
+      "useAsFolder": false
+    },
+    {
+      "uid": "igghsfn4OuquryRVCcVx",
+      "name": "The Deep",
+      "categoryUid": "RSEfnRxCgDZ4R2VTOgGY",
+      "useAsFolder": false
+    },
+    {
+      "uid": "Gl4UpStNdGRBrZfO9gKM",
+      "name": "Unity",
+      "categoryUid": "RSEfnRxCgDZ4R2VTOgGY",
+      "useAsFolder": false
+    },
+    {
+      "uid": "wXWBFemXJcXM1zOL5ftX",
+      "name": "Fire",
+      "categoryUid": "29yBX0ZUGdDbCyXIWWQy",
+      "useAsFolder": false
+    },
+    {
+      "uid": "djNqxycyEmLJCOAGRrAl",
+      "name": "Arcane",
+      "categoryUid": "29yBX0ZUGdDbCyXIWWQy",
+      "useAsFolder": false
+    },
+    {
+      "uid": "HASy65mvAufQuRJxgN3q",
+      "name": "Celestial",
+      "categoryUid": "29yBX0ZUGdDbCyXIWWQy",
+      "useAsFolder": false
+    },
+    {
+      "uid": "EmIGr2MLjnuiP4TE14mh",
+      "name": "Luminescence",
+      "categoryUid": "29yBX0ZUGdDbCyXIWWQy",
+      "useAsFolder": false
+    },
+    {
+      "uid": "Ai291OvQDKISvoB6St2Z",
+      "name": "Nature Magic",
+      "categoryUid": "29yBX0ZUGdDbCyXIWWQy",
+      "useAsFolder": false
+    },
+    {
+      "uid": "55xH4lCkbiBZfuWvjb4K",
+      "name": "Old Magic",
+      "categoryUid": "29yBX0ZUGdDbCyXIWWQy",
+      "useAsFolder": false
+    },
+    {
+      "uid": "HAbuirbrf4pQqsMvYdwS",
+      "name": "Portal Magic",
+      "categoryUid": "29yBX0ZUGdDbCyXIWWQy",
+      "useAsFolder": false
+    },
+    {
+      "uid": "SG6kwMHNBzQdjklnPP4q",
+      "name": "Wind",
+      "categoryUid": "29yBX0ZUGdDbCyXIWWQy",
+      "useAsFolder": false
+    },
+    {
+      "uid": "1dBojTOG4I4uOxlh3QzL",
+      "name": "Post-Sundering",
+      "categoryUid": "XvPY3HWbEDAP5gM2QlRi",
+      "useAsFolder": false
+    },
+    {
+      "uid": "zezuLejY6oLfrrHXlARX",
+      "name": "Ancient",
+      "categoryUid": "XvPY3HWbEDAP5gM2QlRi",
+      "useAsFolder": false
+    },
+    {
+      "uid": "bRovywSvlqo7SWVsgJ4z",
+      "name": "Pre-Sundering",
+      "categoryUid": "XvPY3HWbEDAP5gM2QlRi",
+      "useAsFolder": false
+    },
+    {
+      "uid": "W7Y5ATjAauh4rbrgoZCZ",
+      "name": "War of Bridges",
+      "categoryUid": "XvPY3HWbEDAP5gM2QlRi",
+      "useAsFolder": false
+    },
+    {
+      "uid": "s4n5yMqUzDHCQ5P5Qzla",
+      "name": "Weapon",
+      "categoryUid": "XqFT45YBZseM2B7BGdnz",
+      "useAsFolder": false
+    },
+    {
+      "uid": "4Q12NaSmlZyTi1mqJBid",
+      "name": "Arcane Tool",
+      "categoryUid": "XqFT45YBZseM2B7BGdnz",
+      "useAsFolder": false
+    },
+    {
+      "uid": "pzsIOQ44X2B4aOeFx8Ij",
+      "name": "Musical",
+      "categoryUid": "XqFT45YBZseM2B7BGdnz",
+      "useAsFolder": false
+    },
+    {
+      "uid": "D88eqyw2YcrFLnf01Fxz",
+      "name": "Relic",
+      "categoryUid": "XqFT45YBZseM2B7BGdnz",
+      "useAsFolder": false
+    },
+    {
+      "uid": "wJPBYlzloNW2X2ZTk39v",
+      "name": "Vessel",
+      "categoryUid": "XqFT45YBZseM2B7BGdnz",
+      "useAsFolder": false
+    }
+  ],
+  "tagCategories": [
+    {
+      "uid": "Ltke2smxv6PZmAHKiHD2",
+      "name": "Roles"
+    },
+    {
+      "uid": "2mCFvuHclNYCx5jCNAnZ",
+      "name": "Factions"
+    },
+    {
+      "uid": "0SzVa30cooMJWtQ95qgM",
+      "name": "Regions"
+    },
+    {
+      "uid": "RSEfnRxCgDZ4R2VTOgGY",
+      "name": "Themes"
+    },
+    {
+      "uid": "29yBX0ZUGdDbCyXIWWQy",
+      "name": "Elements & Magic"
+    },
+    {
+      "uid": "XvPY3HWbEDAP5gM2QlRi",
+      "name": "Eras"
+    },
+    {
+      "uid": "XqFT45YBZseM2B7BGdnz",
+      "name": "Object Properties"
+    }
+  ],
+  "scenes": [],
+  "sceneMaps": [],
+  "sceneBackgrounds": [],
+  "assets": []
+}
