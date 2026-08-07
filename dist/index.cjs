@@ -51,11 +51,12 @@ __export(index_exports, {
   BYPP_FORMAT_VERSION: () => BYPP_FORMAT_VERSION,
   BarOrientationSchema: () => BarOrientationV1Schema,
   BarOrientationV1Schema: () => BarOrientationV1Schema,
-  BeyondPaperSchema: () => BeyondPaperV13Schema,
+  BeyondPaperSchema: () => BeyondPaperV14Schema,
   BeyondPaperV10Schema: () => BeyondPaperV10Schema,
   BeyondPaperV11Schema: () => BeyondPaperV11Schema,
   BeyondPaperV12Schema: () => BeyondPaperV12Schema,
   BeyondPaperV13Schema: () => BeyondPaperV13Schema,
+  BeyondPaperV14Schema: () => BeyondPaperV14Schema,
   BeyondPaperV1Schema: () => BeyondPaperV1Schema,
   BeyondPaperV2Schema: () => BeyondPaperV2Schema,
   BeyondPaperV3Schema: () => BeyondPaperV3Schema,
@@ -67,6 +68,8 @@ __export(index_exports, {
   BeyondPaperV9Schema: () => BeyondPaperV9Schema,
   BooleanVariableSchema: () => BooleanVariableV1Schema,
   BooleanVariableV1Schema: () => BooleanVariableV1Schema,
+  BundleImageSchema: () => BundleImageV14Schema,
+  BundleImageV14Schema: () => BundleImageV14Schema,
   CcLicenseSchema: () => CcLicenseV3Schema,
   CcLicenseV3Schema: () => CcLicenseV3Schema,
   CharacterEntitySchema: () => CharacterEntityV4Schema,
@@ -429,10 +432,10 @@ __export(index_exports, {
 module.exports = __toCommonJS(index_exports);
 
 // src/version.ts
-var BYPP_FORMAT_VERSION = 13;
+var BYPP_FORMAT_VERSION = 14;
 var BYPP_FORMAT_EXT = "bypp";
 
-// src/schemas/bypp.v13.schema.ts
+// src/schemas/bypp.v14.schema.ts
 var import_zod76 = require("zod");
 
 // src/models/asset.v3.schema.ts
@@ -1325,6 +1328,14 @@ var AssetV3Schema = import_zod39.z.discriminatedUnion("type", [
   EntityAssetV3Schema
 ]);
 
+// src/mixins/with-images-urls.v3.schema.ts
+var WithImagesUrlsV3Schema = WithImagesUrlsV2Schema.extend({
+  dimensions: ImageDimensionsV1Schema.optional()
+});
+
+// src/models/bundle-image.v14.schema.ts
+var BundleImageV14Schema = WithImagesUrlsV3Schema.merge(WithCreditV1Schema);
+
 // src/models/chunk.v11.schema.ts
 var import_zod41 = require("zod");
 
@@ -1434,11 +1445,6 @@ var import_zod48 = require("zod");
 var import_zod46 = require("zod");
 var WithArchiveV2Schema = import_zod46.z.object({
   isArchived: import_zod46.z.boolean().default(false)
-});
-
-// src/mixins/with-images-urls.v3.schema.ts
-var WithImagesUrlsV3Schema = WithImagesUrlsV2Schema.extend({
-  dimensions: ImageDimensionsV1Schema.optional()
 });
 
 // src/mixins/with-pages.v2.schema.ts
@@ -2066,15 +2072,18 @@ var BeyondPaperV4Schema = import_zod75.z.object({
   assets: import_zod75.z.array(AssetV2Schema).default([])
 });
 
-// src/schemas/bypp.v13.schema.ts
-var BeyondPaperV13Schema = import_zod76.z.object({
+// src/schemas/bypp.v14.schema.ts
+var BeyondPaperV14Schema = import_zod76.z.object({
   // Format metadata
-  version: import_zod76.z.literal(13),
+  version: import_zod76.z.literal(14),
   format: import_zod76.z.literal("bypp"),
   // Bundle metadata
   name: import_zod76.z.string(),
   exportedAt: import_zod76.z.string(),
   bundleVersion: import_zod76.z.string(),
+  // The bundle's cover. Optional: a bundle with no cover simply omits it,
+  // and so does every document produced before v14.
+  image: BundleImageV14Schema.optional(),
   // Licensing & attribution
   license: CcLicenseV3Schema,
   licenseVersion: import_zod76.z.literal("4.0"),
@@ -2443,6 +2452,42 @@ var BeyondPaperV12Schema = import_zod86.z.object({
   sceneMaps: import_zod86.z.array(SceneMapV3Schema).default([]),
   sceneBackgrounds: import_zod86.z.array(SceneBackgroundV3Schema).default([]),
   assets: import_zod86.z.array(AssetV2Schema).default([])
+});
+
+// src/schemas/bypp.v13.schema.ts
+var import_zod87 = require("zod");
+var BeyondPaperV13Schema = import_zod87.z.object({
+  // Format metadata
+  version: import_zod87.z.literal(13),
+  format: import_zod87.z.literal("bypp"),
+  // Bundle metadata
+  name: import_zod87.z.string(),
+  exportedAt: import_zod87.z.string(),
+  bundleVersion: import_zod87.z.string(),
+  // Licensing & attribution
+  license: CcLicenseV3Schema,
+  licenseVersion: import_zod87.z.literal("4.0"),
+  attribution: AttributionV3Schema,
+  parentAttribution: ParentAttributionV4Schema.optional(),
+  creatorLinks: import_zod87.z.array(import_zod87.z.string().url()).optional(),
+  // Content — every category defaults to `[]`. Producers may omit any
+  // unused category to cut file size; readers always see a concrete array.
+  dialects: import_zod87.z.array(DialectV2Schema).default([]),
+  entities: import_zod87.z.array(EntityV4Schema).default([]),
+  pages: import_zod87.z.array(PageV1Schema).default([]),
+  chunks: import_zod87.z.array(ChunkV11Schema).default([]),
+  datasets: import_zod87.z.array(DatasetV2Schema).default([]),
+  variables: import_zod87.z.array(VariableV7Schema).default([]),
+  widgets: import_zod87.z.array(WidgetV9Schema).default([]),
+  sheets: import_zod87.z.array(SheetV7Schema).default([]),
+  dataTables: import_zod87.z.array(DataTableV3Schema).default([]),
+  randomTables: import_zod87.z.array(RandomTableV7Schema).default([]),
+  tags: import_zod87.z.array(TagV2Schema).default([]),
+  tagCategories: import_zod87.z.array(TagCategoryV1Schema).default([]),
+  scenes: import_zod87.z.array(SceneV2Schema).default([]),
+  sceneMaps: import_zod87.z.array(SceneMapV4Schema).default([]),
+  sceneBackgrounds: import_zod87.z.array(SceneBackgroundV4Schema).default([]),
+  assets: import_zod87.z.array(AssetV3Schema).default([])
 });
 
 // src/migrations/v1-to-v2.ts
@@ -2851,6 +2896,21 @@ var stripCredit = (item) => {
   return rest;
 };
 
+// src/migrations/v13-to-v14.ts
+var v13ToV14 = (v13) => ({
+  ...v13,
+  version: 14
+});
+
+// src/migrations/v14-to-v13.ts
+var v14ToV13 = (v14) => {
+  const { image: _image, ...rest } = v14;
+  return {
+    ...rest,
+    version: 13
+  };
+};
+
 // src/migrations/index.ts
 var MIGRATIONS = {
   1: v1ToV2,
@@ -2864,7 +2924,8 @@ var MIGRATIONS = {
   9: v9ToV10,
   10: v10ToV11,
   11: v11ToV12,
-  12: v12ToV13
+  12: v12ToV13,
+  13: v13ToV14
 };
 var DOWN_MIGRATIONS = {
   2: v2ToV1,
@@ -2878,7 +2939,8 @@ var DOWN_MIGRATIONS = {
   10: v10ToV9,
   11: v11ToV10,
   12: v12ToV11,
-  13: v13ToV12
+  13: v13ToV12,
+  14: v14ToV13
 };
 var SCHEMA_BY_VERSION = {
   1: BeyondPaperV1Schema,
@@ -2893,7 +2955,8 @@ var SCHEMA_BY_VERSION = {
   10: BeyondPaperV10Schema,
   11: BeyondPaperV11Schema,
   12: BeyondPaperV12Schema,
-  13: BeyondPaperV13Schema
+  13: BeyondPaperV13Schema,
+  14: BeyondPaperV14Schema
 };
 var migrate = (raw, targetVersion = BYPP_FORMAT_VERSION) => {
   if (typeof raw !== "object" || raw === null) {
@@ -2997,6 +3060,7 @@ var validateStep = (current, version) => {
   BeyondPaperV11Schema,
   BeyondPaperV12Schema,
   BeyondPaperV13Schema,
+  BeyondPaperV14Schema,
   BeyondPaperV1Schema,
   BeyondPaperV2Schema,
   BeyondPaperV3Schema,
@@ -3008,6 +3072,8 @@ var validateStep = (current, version) => {
   BeyondPaperV9Schema,
   BooleanVariableSchema,
   BooleanVariableV1Schema,
+  BundleImageSchema,
+  BundleImageV14Schema,
   CcLicenseSchema,
   CcLicenseV3Schema,
   CharacterEntitySchema,

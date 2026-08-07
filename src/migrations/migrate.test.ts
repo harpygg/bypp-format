@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { BeyondPaperSchema } from "../bypp.schema";
 import { BeyondPaperV1Schema } from "../schemas/bypp.v1.schema";
 import { BeyondPaperV13Schema } from "../schemas/bypp.v13.schema";
+import { BeyondPaperV14Schema } from "../schemas/bypp.v14.schema";
 import { BYPP_FORMAT_VERSION } from "../version";
 import {
   DOWN_MIGRATIONS,
@@ -1342,6 +1343,104 @@ describe("migrate", () => {
       expect(parsed.assets[1].credit?.license).toBe("CC0");
       expect(parsed.sceneMaps[1].credit?.name).toBe("Gil Vane");
       expect(parsed.sceneBackgrounds[1].credit?.name).toBe("Hana Loew");
+    });
+  });
+
+  describe("v13 → v14", () => {
+    const v13Minimal = {
+      version: 13 as const,
+      format: "bypp",
+      name: "v13 bundle",
+      exportedAt: "2026-08-07T12:00:00.000Z",
+      bundleVersion: "1.0.0",
+      license: "CC-BY",
+      licenseVersion: "4.0",
+      attribution: { authorName: "Alice" },
+      dialects: [],
+      entities: [],
+      pages: [],
+      chunks: [],
+      datasets: [],
+      variables: [],
+      widgets: [],
+      sheets: [],
+      dataTables: [],
+      randomTables: [],
+      tags: [],
+      tagCategories: [],
+      scenes: [],
+      sceneMaps: [],
+      sceneBackgrounds: [],
+      assets: [],
+    };
+
+    const covered = {
+      ...v13Minimal,
+      version: 14 as const,
+      image: {
+        originalUrl: "https://example.com/cover.webp",
+        thumbnailUrl: "https://example.com/cover-thumb.webp",
+        dimensions: { width: 1024, height: 768 },
+        credit: {
+          name: "Ida Bellweather",
+          url: "https://example.com/ida",
+          license: "CC-BY-SA" as const,
+        },
+      },
+    };
+
+    it("upgrades a minimal v13 bundle to v14 (pure version bump)", () => {
+      const v14 = migrate(v13Minimal, 14) as { version: number };
+      expect(v14.version).toBe(14);
+    });
+
+    it("invents no cover on upgrade", () => {
+      const v14 = migrate(v13Minimal, 14) as { image?: unknown };
+      expect(v14.image).toBeUndefined();
+    });
+
+    it("drops the cover on downgrade v14 → v13", () => {
+      const v13 = migrate(covered, 13) as { version: number; image?: unknown };
+      expect(v13.version).toBe(13);
+      expect(v13.image).toBeUndefined();
+    });
+
+    it("loses the cover round-tripping v14 → v13 → v14, and still parses as v14", () => {
+      const roundTripped = migrate(migrate(covered, 13), 14) as {
+        version: number;
+        image?: unknown;
+      };
+      expect(roundTripped.version).toBe(14);
+      expect(roundTripped.image).toBeUndefined();
+      expect(BeyondPaperV14Schema.safeParse(roundTripped).success).toBe(true);
+    });
+
+    it("preserves the cover when a v14 document is parsed directly", () => {
+      const parsed = BeyondPaperV14Schema.parse(covered);
+      expect(parsed.image?.originalUrl).toBe("https://example.com/cover.webp");
+      expect(parsed.image?.dimensions).toEqual({ width: 1024, height: 768 });
+      expect(parsed.image?.credit?.name).toBe("Ida Bellweather");
+      // The cover's own licence overrides the bundle's for that one file.
+      expect(parsed.image?.credit?.license).toBe("CC-BY-SA");
+      expect(parsed.license).toBe("CC-BY");
+    });
+
+    it("accepts a cover carrying only one rendition", () => {
+      const result = BeyondPaperV14Schema.safeParse({
+        ...v13Minimal,
+        version: 14,
+        image: { thumbnailUrl: "https://example.com/only-thumb.webp" },
+      });
+      expect(result.success).toBe(true);
+    });
+
+    it("rejects a cover whose URL is not a URL", () => {
+      const result = BeyondPaperV14Schema.safeParse({
+        ...v13Minimal,
+        version: 14,
+        image: { originalUrl: "cover.webp" },
+      });
+      expect(result.success).toBe(false);
     });
   });
 });

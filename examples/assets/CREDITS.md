@@ -1,6 +1,6 @@
 # Example asset credits
 
-Media referenced by `examples/shattered-reach.bypp`.
+Media referenced by the versioned example bundles (`examples/bypp.v*.example.bypp`).
 
 ## Illustrations — © Corinne Caro
 
@@ -16,6 +16,7 @@ use only. The credit also travels inside the `.bypp` itself, on each entity's
 | `kael-ashward-*` | Kael Ashward, Sworn Shield of the Sovereign |
 | `thessaly-venn-*` | Thessaly Venn, Sovereign of Amberlake |
 | `dawnreaver*` | Dawnreaver |
+| `cover*` | The bundle's cover (same source as `dawnreaver*`) |
 
 Website: [corinnecaro.com](https://www.corinnecaro.com/)
 

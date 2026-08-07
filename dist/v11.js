@@ -1,4 +1,4 @@
-// src/schemas/bypp.v13.schema.ts
+// src/schemas/bypp.v14.schema.ts
 import { z as z76 } from "zod";
 
 // src/models/asset.v3.schema.ts
@@ -874,6 +874,14 @@ var AssetV3Schema = z39.discriminatedUnion("type", [
   EntityAssetV3Schema
 ]);
 
+// src/mixins/with-images-urls.v3.schema.ts
+var WithImagesUrlsV3Schema = WithImagesUrlsV2Schema.extend({
+  dimensions: ImageDimensionsV1Schema.optional()
+});
+
+// src/models/bundle-image.v14.schema.ts
+var BundleImageV14Schema = WithImagesUrlsV3Schema.merge(WithCreditV1Schema);
+
 // src/models/chunk.v11.schema.ts
 import { z as z41 } from "zod";
 
@@ -983,11 +991,6 @@ import { z as z48 } from "zod";
 import { z as z46 } from "zod";
 var WithArchiveV2Schema = z46.object({
   isArchived: z46.boolean().default(false)
-});
-
-// src/mixins/with-images-urls.v3.schema.ts
-var WithImagesUrlsV3Schema = WithImagesUrlsV2Schema.extend({
-  dimensions: ImageDimensionsV1Schema.optional()
 });
 
 // src/mixins/with-pages.v2.schema.ts
@@ -1614,15 +1617,18 @@ var BeyondPaperV4Schema = z75.object({
   assets: z75.array(AssetV2Schema).default([])
 });
 
-// src/schemas/bypp.v13.schema.ts
-var BeyondPaperV13Schema = z76.object({
+// src/schemas/bypp.v14.schema.ts
+var BeyondPaperV14Schema = z76.object({
   // Format metadata
-  version: z76.literal(13),
+  version: z76.literal(14),
   format: z76.literal("bypp"),
   // Bundle metadata
   name: z76.string(),
   exportedAt: z76.string(),
   bundleVersion: z76.string(),
+  // The bundle's cover. Optional: a bundle with no cover simply omits it,
+  // and so does every document produced before v14.
+  image: BundleImageV14Schema.optional(),
   // Licensing & attribution
   license: CcLicenseV3Schema,
   licenseVersion: z76.literal("4.0"),
@@ -1991,6 +1997,42 @@ var BeyondPaperV12Schema = z86.object({
   sceneMaps: z86.array(SceneMapV3Schema).default([]),
   sceneBackgrounds: z86.array(SceneBackgroundV3Schema).default([]),
   assets: z86.array(AssetV2Schema).default([])
+});
+
+// src/schemas/bypp.v13.schema.ts
+import { z as z87 } from "zod";
+var BeyondPaperV13Schema = z87.object({
+  // Format metadata
+  version: z87.literal(13),
+  format: z87.literal("bypp"),
+  // Bundle metadata
+  name: z87.string(),
+  exportedAt: z87.string(),
+  bundleVersion: z87.string(),
+  // Licensing & attribution
+  license: CcLicenseV3Schema,
+  licenseVersion: z87.literal("4.0"),
+  attribution: AttributionV3Schema,
+  parentAttribution: ParentAttributionV4Schema.optional(),
+  creatorLinks: z87.array(z87.string().url()).optional(),
+  // Content — every category defaults to `[]`. Producers may omit any
+  // unused category to cut file size; readers always see a concrete array.
+  dialects: z87.array(DialectV2Schema).default([]),
+  entities: z87.array(EntityV4Schema).default([]),
+  pages: z87.array(PageV1Schema).default([]),
+  chunks: z87.array(ChunkV11Schema).default([]),
+  datasets: z87.array(DatasetV2Schema).default([]),
+  variables: z87.array(VariableV7Schema).default([]),
+  widgets: z87.array(WidgetV9Schema).default([]),
+  sheets: z87.array(SheetV7Schema).default([]),
+  dataTables: z87.array(DataTableV3Schema).default([]),
+  randomTables: z87.array(RandomTableV7Schema).default([]),
+  tags: z87.array(TagV2Schema).default([]),
+  tagCategories: z87.array(TagCategoryV1Schema).default([]),
+  scenes: z87.array(SceneV2Schema).default([]),
+  sceneMaps: z87.array(SceneMapV4Schema).default([]),
+  sceneBackgrounds: z87.array(SceneBackgroundV4Schema).default([]),
+  assets: z87.array(AssetV3Schema).default([])
 });
 
 // src/v11.ts

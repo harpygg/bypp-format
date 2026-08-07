@@ -9,6 +9,41 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v14 — 2026-08
+
+### Added
+
+- **A bundle-level `image`** — the bundle's own cover, optional, at the top of
+  the manifest. Same shape as any other image-bearing model: the pre-rendered
+  URL set (`originalUrl` / `thumbnailUrl` / `squareUrl` / `closeupUrl`), the
+  original's pixel `dimensions`, and a `credit`. Every field is optional in
+  turn, so a producer that only renders a thumbnail emits just `thumbnailUrl`.
+
+  This is the picture OF the bundle — the one on a shelf, in a library grid, on
+  a download page — not a picture the bundle contains. Every model inside a
+  bundle could already carry one; the bundle itself could not, so a reader
+  listing the `.bypp` files it holds had a name and nothing else to show.
+
+  The `credit` is there for the same reason `sheets[]` got one in v13: cover
+  art is usually commissioned, the artist is rarely the bundle's author, and
+  their licence may differ from the bundle's. `credit.license` overrides the
+  bundle's `license` for that one file; absent, the cover inherits it.
+
+- **`BundleImageV14Schema`** — a model rather than an inline object, so a
+  reader can validate a cover on its own, and so v15 can fork it without
+  touching the manifest's other fields.
+
+### Migration
+
+- `v13 → v14` is a pure version bump — `image` is optional, so a v13 document
+  is already a valid v14 one. No cover is synthesized from the bundle's first
+  entity or sheet: that would invent an editorial choice the producer never
+  made and stamp it into a file that then looks authored.
+- `v14 → v13` is **lossy**: the cover is dropped, credit included. There is
+  nothing to fold it into — turning it into an asset or entity would add
+  content the bundle never declared, and a reader would then list a phantom
+  item. A downgraded bundle is simply coverless, which is all v13 could say.
+
 ## Format v13 — 2026-07
 
 ### Added

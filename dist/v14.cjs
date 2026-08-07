@@ -17,12 +17,13 @@ var __copyProps = (to, from, except, desc) => {
 };
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// src/v13.ts
-var v13_exports = {};
-__export(v13_exports, {
+// src/v14.ts
+var v14_exports = {};
+__export(v14_exports, {
   AssetSchema: () => AssetV3Schema,
   BYPP_FORMAT_VERSION: () => BYPP_FORMAT_VERSION2,
-  BeyondPaperSchema: () => BeyondPaperV13Schema,
+  BeyondPaperSchema: () => BeyondPaperV14Schema,
+  BundleImageSchema: () => BundleImageV14Schema,
   ChunkSchema: () => ChunkV11Schema,
   CreditSchema: () => CreditV1Schema,
   DataTableSchema: () => DataTableV3Schema,
@@ -42,7 +43,7 @@ __export(v13_exports, {
   WidgetSchema: () => WidgetV9Schema,
   WithCreditSchema: () => WithCreditV1Schema
 });
-module.exports = __toCommonJS(v13_exports);
+module.exports = __toCommonJS(v14_exports);
 
 // src/schemas/bypp.v14.schema.ts
 var import_zod76 = require("zod");
@@ -2081,13 +2082,14 @@ var BeyondPaperV13Schema = import_zod87.z.object({
   assets: import_zod87.z.array(AssetV3Schema).default([])
 });
 
-// src/v13.ts
-var BYPP_FORMAT_VERSION2 = 13;
+// src/v14.ts
+var BYPP_FORMAT_VERSION2 = 14;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   AssetSchema,
   BYPP_FORMAT_VERSION,
   BeyondPaperSchema,
+  BundleImageSchema,
   ChunkSchema,
   CreditSchema,
   DataTableSchema,
@@ -2107,4 +2109,4 @@ var BYPP_FORMAT_VERSION2 = 13;
   WidgetSchema,
   WithCreditSchema
 });
-//# sourceMappingURL=v13.cjs.map
+//# sourceMappingURL=v14.cjs.map

@@ -65,6 +65,10 @@ export {
   BeyondPaperV13Schema,
   type BeyondPaperV13,
 } from "./schemas/bypp.v13.schema";
+export {
+  BeyondPaperV14Schema,
+  type BeyondPaperV14,
+} from "./schemas/bypp.v14.schema";
 
 // Current aliases for license / attribution types. License and base
 // attribution shapes haven't changed in v4 — they stay rooted in v3.
@@ -647,6 +651,12 @@ export {
   type CustomVideoSceneBackgroundV3,
 } from "./models/scene-background.v3.schema";
 
+// Model (v14) — the bundle's own cover image.
+export {
+  BundleImageV14Schema,
+  type BundleImageV14,
+} from "./models/bundle-image.v14.schema";
+
 // Models (v13 per-file `credit`) — every media-bearing model forked to carry
 // an optional `credit` block (see `with-credit.v1.schema`).
 export {
@@ -1103,6 +1113,10 @@ export {
   CreditV1Schema as CreditSchema,
   type CreditV1 as Credit,
 } from "./mixins/with-credit.v1.schema";
+export {
+  BundleImageV14Schema as BundleImageSchema,
+  type BundleImageV14 as BundleImage,
+} from "./models/bundle-image.v14.schema";
 export { WithNameV1Schema as WithNameSchema } from "./mixins/with-name.v1.schema";
 export {
   WithLocalizedNameV2Schema as WithLocalizedNameSchema,
@@ -1153,3 +1167,4 @@ export type { DataTableRowV2 as ByppDataTableRow } from "./models/data-table.v2.
 export type { DataTableRefVariableV2 as ByppDataTableRefVariable } from "./models/variable.v2.schema";
 export type { DataTableLookupVariableV2 as ByppDataTableLookupVariable } from "./models/variable.v2.schema";
 export type { CreditV1 as ByppCredit } from "./mixins/with-credit.v1.schema";
+export type { BundleImageV14 as ByppBundleImage } from "./models/bundle-image.v14.schema";

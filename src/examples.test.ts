@@ -8,7 +8,7 @@ import { migrate, SCHEMA_BY_VERSION } from "./migrations";
 /**
  * One canonical `.bypp` per format version, all derived from a single source.
  *
- * `bypp.v13.example.bypp` is a real Harpy export — the only hand-managed file.
+ * `bypp.v14.example.bypp` is a real Harpy export — the only hand-managed file.
  * Every older version is GENERATED from it by running the down-migration
  * chain, so the set can never drift: an example that disagrees with its own
  * migrator is a broken migrator, and this test says so.
@@ -80,10 +80,25 @@ describe("versioned examples", () => {
     expect(result.success).toBe(true);
   });
 
-  // The per-file `credit` landed in v13; every older example must be silent
-  // about it rather than carrying a field its schema can't describe.
-  it.each(DERIVED)("v%i carries no credit", (version) => {
-    expect(JSON.stringify(read(fileFor(version)))).not.toContain('"credit"');
+  // A field must be absent from every example predating the version that
+  // introduced it, rather than sit in a document whose schema can't describe
+  // it. Append a line here whenever a version adds one — the examples at or
+  // above `since` legitimately keep it, older ones must be silent.
+  const FIELDS_INTRODUCED_AT = [
+    { field: "credit", since: 13 },
+    { field: "image", since: 14 },
+  ];
+
+  it.each(DERIVED)("v%i carries no field newer than itself", (version) => {
+    const doc = read(fileFor(version));
+    for (const { field, since } of FIELDS_INTRODUCED_AT) {
+      if (version < since) {
+        expect(
+          hasKey(doc, field),
+          `v${version} carries \`${field}\`, introduced in v${since}`,
+        ).toBe(false);
+      }
+    }
   });
 
   // Without this, a file that falls out of the window as a new version ships
@@ -120,3 +135,18 @@ describe("versioned examples", () => {
     );
   });
 });
+
+// Presence of a KEY anywhere in the document. A substring search on the
+// serialized JSON would confuse keys with values — `"image"` is also an asset
+// `type`, and every example carries one.
+function hasKey(value: unknown, key: string): boolean {
+  if (Array.isArray(value)) {
+    return value.some((item) => hasKey(item, key));
+  }
+  if (typeof value === "object" && value !== null) {
+    return (
+      key in value || Object.values(value).some((item) => hasKey(item, key))
+    );
+  }
+  return false;
+}

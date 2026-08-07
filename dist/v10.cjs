@@ -42,7 +42,7 @@ __export(v10_exports, {
 });
 module.exports = __toCommonJS(v10_exports);
 
-// src/schemas/bypp.v13.schema.ts
+// src/schemas/bypp.v14.schema.ts
 var import_zod76 = require("zod");
 
 // src/models/asset.v3.schema.ts
@@ -918,6 +918,14 @@ var AssetV3Schema = import_zod39.z.discriminatedUnion("type", [
   EntityAssetV3Schema
 ]);
 
+// src/mixins/with-images-urls.v3.schema.ts
+var WithImagesUrlsV3Schema = WithImagesUrlsV2Schema.extend({
+  dimensions: ImageDimensionsV1Schema.optional()
+});
+
+// src/models/bundle-image.v14.schema.ts
+var BundleImageV14Schema = WithImagesUrlsV3Schema.merge(WithCreditV1Schema);
+
 // src/models/chunk.v11.schema.ts
 var import_zod41 = require("zod");
 
@@ -1027,11 +1035,6 @@ var import_zod48 = require("zod");
 var import_zod46 = require("zod");
 var WithArchiveV2Schema = import_zod46.z.object({
   isArchived: import_zod46.z.boolean().default(false)
-});
-
-// src/mixins/with-images-urls.v3.schema.ts
-var WithImagesUrlsV3Schema = WithImagesUrlsV2Schema.extend({
-  dimensions: ImageDimensionsV1Schema.optional()
 });
 
 // src/mixins/with-pages.v2.schema.ts
@@ -1658,15 +1661,18 @@ var BeyondPaperV4Schema = import_zod75.z.object({
   assets: import_zod75.z.array(AssetV2Schema).default([])
 });
 
-// src/schemas/bypp.v13.schema.ts
-var BeyondPaperV13Schema = import_zod76.z.object({
+// src/schemas/bypp.v14.schema.ts
+var BeyondPaperV14Schema = import_zod76.z.object({
   // Format metadata
-  version: import_zod76.z.literal(13),
+  version: import_zod76.z.literal(14),
   format: import_zod76.z.literal("bypp"),
   // Bundle metadata
   name: import_zod76.z.string(),
   exportedAt: import_zod76.z.string(),
   bundleVersion: import_zod76.z.string(),
+  // The bundle's cover. Optional: a bundle with no cover simply omits it,
+  // and so does every document produced before v14.
+  image: BundleImageV14Schema.optional(),
   // Licensing & attribution
   license: CcLicenseV3Schema,
   licenseVersion: import_zod76.z.literal("4.0"),
@@ -2035,6 +2041,42 @@ var BeyondPaperV12Schema = import_zod86.z.object({
   sceneMaps: import_zod86.z.array(SceneMapV3Schema).default([]),
   sceneBackgrounds: import_zod86.z.array(SceneBackgroundV3Schema).default([]),
   assets: import_zod86.z.array(AssetV2Schema).default([])
+});
+
+// src/schemas/bypp.v13.schema.ts
+var import_zod87 = require("zod");
+var BeyondPaperV13Schema = import_zod87.z.object({
+  // Format metadata
+  version: import_zod87.z.literal(13),
+  format: import_zod87.z.literal("bypp"),
+  // Bundle metadata
+  name: import_zod87.z.string(),
+  exportedAt: import_zod87.z.string(),
+  bundleVersion: import_zod87.z.string(),
+  // Licensing & attribution
+  license: CcLicenseV3Schema,
+  licenseVersion: import_zod87.z.literal("4.0"),
+  attribution: AttributionV3Schema,
+  parentAttribution: ParentAttributionV4Schema.optional(),
+  creatorLinks: import_zod87.z.array(import_zod87.z.string().url()).optional(),
+  // Content — every category defaults to `[]`. Producers may omit any
+  // unused category to cut file size; readers always see a concrete array.
+  dialects: import_zod87.z.array(DialectV2Schema).default([]),
+  entities: import_zod87.z.array(EntityV4Schema).default([]),
+  pages: import_zod87.z.array(PageV1Schema).default([]),
+  chunks: import_zod87.z.array(ChunkV11Schema).default([]),
+  datasets: import_zod87.z.array(DatasetV2Schema).default([]),
+  variables: import_zod87.z.array(VariableV7Schema).default([]),
+  widgets: import_zod87.z.array(WidgetV9Schema).default([]),
+  sheets: import_zod87.z.array(SheetV7Schema).default([]),
+  dataTables: import_zod87.z.array(DataTableV3Schema).default([]),
+  randomTables: import_zod87.z.array(RandomTableV7Schema).default([]),
+  tags: import_zod87.z.array(TagV2Schema).default([]),
+  tagCategories: import_zod87.z.array(TagCategoryV1Schema).default([]),
+  scenes: import_zod87.z.array(SceneV2Schema).default([]),
+  sceneMaps: import_zod87.z.array(SceneMapV4Schema).default([]),
+  sceneBackgrounds: import_zod87.z.array(SceneBackgroundV4Schema).default([]),
+  assets: import_zod87.z.array(AssetV3Schema).default([])
 });
 
 // src/v10.ts
