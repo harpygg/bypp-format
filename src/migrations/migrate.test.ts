@@ -3,6 +3,7 @@ import { BeyondPaperSchema } from "../bypp.schema";
 import { BeyondPaperV1Schema } from "../schemas/bypp.v1.schema";
 import { BeyondPaperV13Schema } from "../schemas/bypp.v13.schema";
 import { BeyondPaperV14Schema } from "../schemas/bypp.v14.schema";
+import { BeyondPaperV15Schema } from "../schemas/bypp.v15.schema";
 import { BYPP_FORMAT_VERSION } from "../version";
 import {
   DOWN_MIGRATIONS,
@@ -1441,6 +1442,137 @@ describe("migrate", () => {
         image: { originalUrl: "cover.webp" },
       });
       expect(result.success).toBe(false);
+    });
+  });
+
+  describe("v14 \u2192 v15", () => {
+    const v14Minimal = {
+      version: 14 as const,
+      format: "bypp",
+      name: "v14 bundle",
+      exportedAt: "2026-08-07T12:00:00.000Z",
+      bundleVersion: "1.0.0",
+      license: "CC-BY",
+      licenseVersion: "4.0",
+      attribution: { authorName: "Alice" },
+      dialects: [],
+      entities: [],
+      pages: [],
+      chunks: [],
+      datasets: [],
+      variables: [],
+      widgets: [],
+      sheets: [],
+      dataTables: [],
+      randomTables: [],
+      tags: [],
+      tagCategories: [],
+      scenes: [],
+      sceneMaps: [],
+      sceneBackgrounds: [],
+      assets: [],
+    };
+
+    const spoken = {
+      ...v14Minimal,
+      dialects: [
+        {
+          uid: "dia-1",
+          name: "Cartographer's Code",
+          font: {
+            fontFamily: "qijomi",
+            fontUrl: "https://harpy.gg/assets/fonts/qijomi.woff2",
+          },
+          order: 4,
+          spokenByEntitiesUids: ["ent-1"],
+        },
+      ],
+    };
+
+    type Dialected = {
+      version: number;
+      dialects: {
+        uid: string;
+        name: string;
+        fontFamily?: string;
+        font?: { fontFamily: string; fontUrl: string };
+        order?: number;
+        spokenByEntitiesUids: string[];
+      }[];
+    };
+
+    it("upgrades a minimal v14 bundle to v15", () => {
+      const v15 = migrate(v14Minimal, 15) as { version: number };
+      expect(v15.version).toBe(15);
+    });
+
+    it("unwraps `font` into a bare `fontFamily` on upgrade", () => {
+      const v15 = migrate(spoken, 15) as Dialected;
+      expect(v15.dialects[0].fontFamily).toBe("qijomi");
+      expect(v15.dialects[0].font).toBeUndefined();
+    });
+
+    it("keeps everything else about the dialect on upgrade", () => {
+      const v15 = migrate(spoken, 15) as Dialected;
+      expect(v15.dialects[0].uid).toBe("dia-1");
+      expect(v15.dialects[0].name).toBe("Cartographer's Code");
+      expect(v15.dialects[0].order).toBe(4);
+      expect(v15.dialects[0].spokenByEntitiesUids).toEqual(["ent-1"]);
+    });
+
+    it("rebuilds the legacy font URL on downgrade v15 \u2192 v14", () => {
+      const v15 = migrate(spoken, 15);
+      const v14 = migrate(v15, 14) as Dialected;
+      expect(v14.version).toBe(14);
+      expect(v14.dialects[0].font).toEqual({
+        fontFamily: "qijomi",
+        fontUrl: "https://harpy.gg/assets/fonts/qijomi.woff2",
+      });
+    });
+
+    it("round-trips a Harpy-authored dialect v14 \u2192 v15 \u2192 v14 unchanged", () => {
+      const roundTripped = migrate(migrate(spoken, 15), 14) as Dialected;
+      expect(roundTripped.dialects).toEqual(spoken.dialects);
+      expect(BeyondPaperV14Schema.safeParse(roundTripped).success).toBe(true);
+    });
+
+    it("accepts a v15 dialect that names no typeface", () => {
+      const result = BeyondPaperV15Schema.safeParse({
+        ...v14Minimal,
+        version: 15,
+        dialects: [
+          { uid: "dia-2", name: "Old Tongue", spokenByEntitiesUids: [] },
+        ],
+      });
+      expect(result.success).toBe(true);
+    });
+
+    it("drops a fontless dialect on downgrade \u2014 v14 cannot express it", () => {
+      const fontless = BeyondPaperV15Schema.parse({
+        ...v14Minimal,
+        version: 15,
+        dialects: [
+          { uid: "dia-2", name: "Old Tongue", spokenByEntitiesUids: [] },
+        ],
+      });
+      const v14 = migrate(fontless, 14) as Dialected;
+      expect(v14.dialects).toEqual([]);
+    });
+
+    it("accepts any family name, not just the ones one producer ships", () => {
+      const result = BeyondPaperV15Schema.safeParse({
+        ...v14Minimal,
+        version: 15,
+        dialects: [
+          {
+            uid: "dia-3",
+            name: "House Script",
+            fontFamily: "my-own-face",
+            spokenByEntitiesUids: [],
+          },
+        ],
+      });
+      expect(result.success).toBe(true);
     });
   });
 });

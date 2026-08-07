@@ -69,6 +69,10 @@ export {
   BeyondPaperV14Schema,
   type BeyondPaperV14,
 } from "./schemas/bypp.v14.schema";
+export {
+  BeyondPaperV15Schema,
+  type BeyondPaperV15,
+} from "./schemas/bypp.v15.schema";
 
 // Current aliases for license / attribution types. License and base
 // attribution shapes haven't changed in v4 — they stay rooted in v3.
@@ -534,6 +538,11 @@ export {
 } from "./models/dialect.v2.schema";
 
 export {
+  DialectV3Schema,
+  type DialectV3,
+} from "./models/dialect.v3.schema";
+
+export {
   RandomTableV2Schema,
   RandomTableRowV2Schema,
   type RandomTableV2,
@@ -781,12 +790,13 @@ export {
   type DatasetV2 as Dataset,
 } from "./models/dataset.v2.schema";
 
+// v15 dropped the `font` object for a bare `fontFamily`, so there is no
+// current `DialectFont` alias any more — `DialectFontV1`/`V2` stay exported
+// above for readers pinned to those versions.
 export {
-  DialectV2Schema as DialectSchema,
-  DialectFontV2Schema as DialectFontSchema,
-  type DialectV2 as Dialect,
-  type DialectFontV2 as DialectFont,
-} from "./models/dialect.v2.schema";
+  DialectV3Schema as DialectSchema,
+  type DialectV3 as Dialect,
+} from "./models/dialect.v3.schema";
 
 // Current entity aliases point at v4 — v4 adds the per-file `credit` on the
 // base, hence on every variant.
@@ -1158,8 +1168,7 @@ export type { SceneBackgroundV4 as ByppSceneBackground } from "./models/scene-ba
 export type { SceneBackgroundBaseV2 as ByppSceneBackgroundBase } from "./models/scene-background.v2.schema";
 export type { AssetV3 as ByppAsset } from "./models/asset.v3.schema";
 export type { AssetBaseV3 as ByppAssetBase } from "./models/asset.v3.schema";
-export type { DialectV2 as ByppDialect } from "./models/dialect.v2.schema";
-export type { DialectFontV2 as ByppDialectFont } from "./models/dialect.v2.schema";
+export type { DialectV3 as ByppDialect } from "./models/dialect.v3.schema";
 export type { SheetV7 as ByppSheet } from "./models/sheet.v7.schema";
 export type { DataTableV3 as ByppDataTable } from "./models/data-table.v3.schema";
 export type { DataTableColumnV2 as ByppDataTableColumn } from "./models/data-table.v2.schema";

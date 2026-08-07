@@ -9,6 +9,53 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v15 — 2026-08
+
+### Changed
+
+- **A dialect names a typeface, it no longer ships one.** `dialects[].font`
+  was `{ fontFamily, fontUrl }`; it is now a single optional
+  `dialects[].fontFamily`, a bare string.
+
+  `fontUrl` was never authored by anyone. Producers synthesized it at export
+  time from the family name, and readers ignored it and matched on the name —
+  so it carried all of the cost and none of the benefit. The costs were real:
+
+  - **Neutrality.** The URL pointed at the producer's own asset server, which
+    meant every third-party reader of an open format fetched its typefaces
+    from a single vendor.
+  - **Bandwidth.** That vendor paid for the traffic of everyone else's
+    readers.
+  - **Redistribution.** Fantasy scripts are commonly derived from copyrighted
+    alphabets. A `.bypp` sold by one publisher was serving another party's
+    font file from a third party's servers — a claim the format has no
+    standing to make on anyone's behalf.
+
+  What remains is a name, not a file. Naming a typeface redistributes nothing,
+  it survives the round-trip unchanged, and a reader maps it onto whatever it
+  has licensed — or renders the dialect in its own font.
+
+  `fontFamily` is **optional** and loosely typed: a dialect is "a language
+  these entities speak", the typeface is decoration, and a producer with no
+  opinion on it should not have to invent one.
+
+### Migrations
+
+- `v14 → v15` unwraps the `font` object into `fontFamily`. Non-lossy in every
+  way that matters — the discarded URL was derived, not authored.
+- `v15 → v14` rebuilds the URL from the family name using the pattern every
+  v14 producer emitted. A dialect naming **no** family cannot be expressed in
+  v14 at all and is **dropped**; inventing a typeface for it would put an
+  editorial choice in the file that its author never made. Dropping dangles
+  nothing: `spokenByEntitiesUids` points from the dialect to entities, and no
+  other category references a dialect uid.
+
+### Removed
+
+- The current `DialectFontSchema` / `DialectFont` aliases from the package
+  root, and `ByppDialectFont`. The versioned `DialectFontV1` / `DialectFontV2`
+  stay exported for readers pinned to those versions.
+
 ## Format v14 — 2026-08
 
 ### Added
