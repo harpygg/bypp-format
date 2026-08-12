@@ -4,6 +4,7 @@ import { BeyondPaperV1Schema } from "../schemas/bypp.v1.schema";
 import { BeyondPaperV13Schema } from "../schemas/bypp.v13.schema";
 import { BeyondPaperV14Schema } from "../schemas/bypp.v14.schema";
 import { BeyondPaperV15Schema } from "../schemas/bypp.v15.schema";
+import { BeyondPaperV16Schema } from "../schemas/bypp.v16.schema";
 import { BYPP_FORMAT_VERSION } from "../version";
 import {
   DOWN_MIGRATIONS,
@@ -1573,6 +1574,186 @@ describe("migrate", () => {
         ],
       });
       expect(result.success).toBe(true);
+    });
+  });
+
+  describe("v15 → v16", () => {
+    const v15Minimal = {
+      version: 15 as const,
+      format: "bypp",
+      name: "v15 bundle",
+      exportedAt: "2026-08-07T12:00:00.000Z",
+      bundleVersion: "1.0.0",
+      license: "CC-BY",
+      licenseVersion: "4.0",
+      attribution: { authorName: "Alice" },
+      dialects: [],
+      entities: [],
+      pages: [],
+      chunks: [],
+      datasets: [],
+      variables: [
+        {
+          uid: "var-1",
+          name: "Strength",
+          type: "number",
+          datasetsUids: ["ds-1"],
+          min: 1,
+          max: 20,
+        },
+        {
+          uid: "var-2",
+          name: "Background",
+          type: "text",
+          datasetsUids: ["ds-1"],
+        },
+      ],
+      widgets: [],
+      sheets: [],
+      dataTables: [],
+      randomTables: [],
+      tags: [],
+      tagCategories: [],
+      scenes: [],
+      sceneMaps: [],
+      sceneBackgrounds: [],
+      assets: [],
+    };
+
+    type Iconed = {
+      version: number;
+      variables: {
+        uid: string;
+        name: string;
+        icon?: string;
+        type: string;
+        min?: number;
+        max?: number;
+      }[];
+    };
+
+    const grouped = {
+      ...v15Minimal,
+      version: 16 as const,
+      variables: [
+        { ...v15Minimal.variables[0], icon: "hand-fist" },
+        { ...v15Minimal.variables[1], icon: "scroll" },
+      ],
+    };
+
+    it("upgrades a minimal v15 bundle to v16", () => {
+      const v16 = migrate(v15Minimal, 16) as { version: number };
+      expect(v16.version).toBe(16);
+    });
+
+    it("invents no icon on upgrade", () => {
+      const v16 = migrate(v15Minimal, 16) as Iconed;
+      expect(v16.variables[0].icon).toBeUndefined();
+      expect(v16.variables[1].icon).toBeUndefined();
+    });
+
+    it("keeps everything else about the variable on upgrade", () => {
+      const v16 = migrate(v15Minimal, 16) as Iconed;
+      expect(v16.variables[0].name).toBe("Strength");
+      expect(v16.variables[0].min).toBe(1);
+      expect(v16.variables[0].max).toBe(20);
+      expect(v16.variables[0].type).toBe("number");
+      expect(v16.variables[1].name).toBe("Background");
+      expect(v16.variables[1].type).toBe("text");
+    });
+
+    it("parses an icon on any variant", () => {
+      const result = BeyondPaperV16Schema.safeParse({
+        ...v15Minimal,
+        version: 16,
+        variables: [
+          {
+            uid: "var-1",
+            name: "Strength",
+            icon: "hand-fist",
+            type: "number",
+            datasetsUids: ["ds-1"],
+          },
+          {
+            uid: "var-2",
+            name: "Alive",
+            icon: "heart",
+            type: "boolean",
+            datasetsUids: ["ds-1"],
+          },
+          {
+            uid: "var-3",
+            name: "Longsword",
+            icon: "sword",
+            type: "roll",
+            datasetsUids: ["ds-1"],
+            diceFormula: "1d20+5",
+          },
+        ],
+      });
+      if (!result.success) console.error(result.error.format());
+      expect(result.success).toBe(true);
+    });
+
+    it("accepts any icon name, not just the ones one reader ships", () => {
+      const result = BeyondPaperV16Schema.safeParse({
+        ...v15Minimal,
+        version: 16,
+        variables: [
+          {
+            uid: "var-1",
+            name: "Ki",
+            icon: "my-own-house-glyph",
+            type: "number",
+            datasetsUids: ["ds-1"],
+          },
+        ],
+      });
+      expect(result.success).toBe(true);
+    });
+
+    it("drops the icon on downgrade v16 → v15", () => {
+      const v15 = migrate(grouped, 15) as Iconed;
+      expect(v15.version).toBe(15);
+      expect(v15.variables[0].icon).toBeUndefined();
+      expect(v15.variables[1].icon).toBeUndefined();
+      expect(BeyondPaperV15Schema.safeParse(v15).success).toBe(true);
+    });
+
+    it("keeps the variables themselves on downgrade — widgets point at them", () => {
+      const v15 = migrate(grouped, 15) as Iconed;
+      expect(v15.variables.map((v) => v.uid)).toEqual(["var-1", "var-2"]);
+    });
+
+    it("round-trips an icon-less v15 bundle v15 → v16 → v15 unchanged", () => {
+      const roundTripped = migrate(migrate(v15Minimal, 16), 15) as Iconed;
+      expect(roundTripped.variables).toEqual(v15Minimal.variables);
+      expect(BeyondPaperV15Schema.safeParse(roundTripped).success).toBe(true);
+    });
+
+    it("loses the icon round-tripping v16 → v15 → v16, and still parses as v16", () => {
+      const roundTripped = migrate(migrate(grouped, 15), 16) as Iconed;
+      expect(roundTripped.version).toBe(16);
+      expect(roundTripped.variables[0].icon).toBeUndefined();
+      expect(roundTripped.variables[1].icon).toBeUndefined();
+      expect(BeyondPaperV16Schema.safeParse(roundTripped).success).toBe(true);
+    });
+
+    it("rejects a variable whose icon is not a string", () => {
+      const result = BeyondPaperV16Schema.safeParse({
+        ...v15Minimal,
+        version: 16,
+        variables: [
+          {
+            uid: "var-1",
+            name: "Strength",
+            icon: 7,
+            type: "number",
+            datasetsUids: ["ds-1"],
+          },
+        ],
+      });
+      expect(result.success).toBe(false);
     });
   });
 });

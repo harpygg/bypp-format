@@ -8,7 +8,7 @@ import { migrate, SCHEMA_BY_VERSION } from "./migrations";
 /**
  * One canonical `.bypp` per format version, all derived from a single source.
  *
- * `bypp.v14.example.bypp` is a real Harpy export — the only hand-managed file.
+ * `bypp.v16.example.bypp` is a real Harpy export — the only hand-managed file.
  * Every older version is GENERATED from it by running the down-migration
  * chain, so the set can never drift: an example that disagrees with its own
  * migrator is a broken migrator, and this test says so.
@@ -84,18 +84,34 @@ describe("versioned examples", () => {
   // introduced it, rather than sit in a document whose schema can't describe
   // it. Append a line here whenever a version adds one — the examples at or
   // above `since` legitimately keep it, older ones must be silent.
-  const FIELDS_INTRODUCED_AT = [
+  //
+  // `on` narrows the search to the TOP level of the entries of one content
+  // array. Use it when the key is not unique to the version that introduced
+  // it: `icon` has been carried by a choice option since v1, and so has a
+  // roll's `awesome` visual — both NESTED inside a variable — so a
+  // document-wide recursive search would flag every pre-v16 example for a
+  // field they are entitled to. What v16 introduced is an icon ON the
+  // variable itself, and that is all the scoped check looks at.
+  const FIELDS_INTRODUCED_AT: {
+    field: string;
+    since: number;
+    on?: string;
+  }[] = [
     { field: "credit", since: 13 },
     { field: "image", since: 14 },
+    { field: "icon", since: 16, on: "variables" },
   ];
 
   it.each(DERIVED)("v%i carries no field newer than itself", (version) => {
     const doc = read(fileFor(version));
-    for (const { field, since } of FIELDS_INTRODUCED_AT) {
+    for (const { field, since, on } of FIELDS_INTRODUCED_AT) {
       if (version < since) {
+        const carries = on
+          ? hasOwnKey((doc as Record<string, unknown>)[on], field)
+          : hasKey(doc, field);
         expect(
-          hasKey(doc, field),
-          `v${version} carries \`${field}\`, introduced in v${since}`,
+          carries,
+          `v${version} carries \`${field}\`${on ? ` on \`${on}\`` : ""}, introduced in v${since}`,
         ).toBe(false);
       }
     }
@@ -139,6 +155,18 @@ describe("versioned examples", () => {
 // Presence of a KEY anywhere in the document. A substring search on the
 // serialized JSON would confuse keys with values — `"image"` is also an asset
 // `type`, and every example carries one.
+// Presence of a KEY on the entries of one content array, and no deeper. The
+// recursive `hasKey` below cannot answer this: a key that also exists on a
+// nested shape would match there and say nothing about the entry itself.
+function hasOwnKey(entries: unknown, key: string): boolean {
+  if (!Array.isArray(entries)) {
+    return false;
+  }
+  return entries.some(
+    (entry) => typeof entry === "object" && entry !== null && key in entry,
+  );
+}
+
 function hasKey(value: unknown, key: string): boolean {
   if (Array.isArray(value)) {
     return value.some((item) => hasKey(item, key));

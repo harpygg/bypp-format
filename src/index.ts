@@ -73,6 +73,10 @@ export {
   BeyondPaperV15Schema,
   type BeyondPaperV15,
 } from "./schemas/bypp.v15.schema";
+export {
+  BeyondPaperV16Schema,
+  type BeyondPaperV16,
+} from "./schemas/bypp.v16.schema";
 
 // Current aliases for license / attribution types. License and base
 // attribution shapes haven't changed in v4 — they stay rooted in v3.
@@ -192,6 +196,10 @@ export {
   type WithCreditV1,
   type CreditV1,
 } from "./mixins/with-credit.v1.schema";
+export {
+  WithIconV1Schema,
+  type WithIconV1,
+} from "./mixins/with-icon.v1.schema";
 
 // Mixins (v2)
 export {
@@ -447,6 +455,33 @@ export {
   type VariableV6,
   type DataTableDirectLookupVariableV6,
 } from "./models/variable.v6.schema";
+
+// Models (v8) — every variable variant re-declared with the optional `icon`
+// merged in. The union changed with them.
+export {
+  VariableBaseV8Schema,
+  NumberVariableV8Schema,
+  TextVariableV8Schema,
+  BooleanVariableV8Schema,
+  ChoiceVariableV8Schema,
+  FormulaVariableV8Schema,
+  RollVariableV8Schema,
+  ImageVariableV8Schema,
+  DataTableRefVariableV8Schema,
+  DataTableLookupVariableV8Schema,
+  DataTableDirectLookupVariableV8Schema,
+  type VariableBaseV8,
+  type NumberVariableV8,
+  type TextVariableV8,
+  type BooleanVariableV8,
+  type ChoiceVariableV8,
+  type FormulaVariableV8,
+  type RollVariableV8,
+  type ImageVariableV8,
+  type DataTableRefVariableV8,
+  type DataTableLookupVariableV8,
+  type DataTableDirectLookupVariableV8,
+} from "./models/variable.v8.schema";
 
 export {
   SheetV2Schema,
@@ -900,57 +935,56 @@ export {
   type TagCategoryV1 as TagCategory,
 } from "./models/tag-category.v1.schema";
 
+// Current variable aliases point at v8 — v16 merged the icon mixin into
+// every variant, so the base, the union and all ten variants forked at once.
+// (v7's `min`/`max`/`step` on the `number` variant and v6's
+// `dataTableDirectLookup` are carried forward by that fork, not undone.)
 export {
-  DataTableRefVariableV2Schema as DataTableRefVariableSchema,
-  DataTableLookupVariableV2Schema as DataTableLookupVariableSchema,
-  type DataTableRefVariableV2 as DataTableRefVariable,
-  type DataTableLookupVariableV2 as DataTableLookupVariable,
-} from "./models/variable.v2.schema";
+  VariableV8Schema,
+  type VariableV8,
+  VariableV8Schema as VariableSchema,
+  type VariableV8 as Variable,
+  VariableBaseV8Schema as VariableBaseSchema,
+  NumberVariableV8Schema as NumberVariableSchema,
+  TextVariableV8Schema as TextVariableSchema,
+  BooleanVariableV8Schema as BooleanVariableSchema,
+  ChoiceVariableV8Schema as ChoiceVariableSchema,
+  FormulaVariableV8Schema as FormulaVariableSchema,
+  RollVariableV8Schema as RollVariableSchema,
+  ImageVariableV8Schema as ImageVariableSchema,
+  DataTableRefVariableV8Schema as DataTableRefVariableSchema,
+  DataTableLookupVariableV8Schema as DataTableLookupVariableSchema,
+  DataTableDirectLookupVariableV8Schema as DataTableDirectLookupVariableSchema,
+  type VariableBaseV8 as VariableBase,
+  type NumberVariableV8 as NumberVariable,
+  type TextVariableV8 as TextVariable,
+  type BooleanVariableV8 as BooleanVariable,
+  type ChoiceVariableV8 as ChoiceVariable,
+  type FormulaVariableV8 as FormulaVariable,
+  type RollVariableV8 as RollVariable,
+  type ImageVariableV8 as ImageVariable,
+  type DataTableRefVariableV8 as DataTableRefVariable,
+  type DataTableLookupVariableV8 as DataTableLookupVariable,
+  type DataTableDirectLookupVariableV8 as DataTableDirectLookupVariable,
+} from "./models/variable.v8.schema";
 
-// Current variable aliases point at v6 — the union (and the
-// `dataTableDirectLookup` variant it added) is the only variable shape that
-// changed in v6.
+// The `number` variant's value domain, introduced in v7 and carried into the
+// v8 variant unchanged — exported under its own name for migration authors.
 export {
-  DataTableDirectLookupVariableV6Schema as DataTableDirectLookupVariableSchema,
-  type DataTableDirectLookupVariableV6 as DataTableDirectLookupVariable,
-} from "./models/variable.v6.schema";
-// Current variable aliases point at v7 — v7 adds `min`/`max`/`step` on the
-// `number` variant.
-export {
-  VariableV7Schema,
-  type VariableV7,
   NumberVariableV2Schema,
   type NumberVariableV2,
-  VariableV7Schema as VariableSchema,
-  type VariableV7 as Variable,
+  VariableV7Schema,
+  type VariableV7,
 } from "./models/variable.v7.schema";
 
-// The `image` variant was introduced in v5 and is unchanged in v6 — its
-// current alias stays rooted in v5.
+// Shapes NESTED inside a variant rather than merged into it: an option of a
+// `choice`, the visual of a `roll`. v16 touched the variants, not these, so
+// their current aliases stay rooted in v1.
 export {
-  ImageVariableV5Schema as ImageVariableSchema,
-  type ImageVariableV5 as ImageVariable,
-} from "./models/variable.v5.schema";
-
-export {
-  VariableBaseV1Schema as VariableBaseSchema,
-  NumberVariableV1Schema as NumberVariableSchema,
-  TextVariableV1Schema as TextVariableSchema,
-  BooleanVariableV1Schema as BooleanVariableSchema,
-  ChoiceVariableV1Schema as ChoiceVariableSchema,
-  FormulaVariableV1Schema as FormulaVariableSchema,
-  RollVariableV1Schema as RollVariableSchema,
   ChoiceOptionV1Schema as ChoiceOptionSchema,
   ActionVisualV1Schema as ActionVisualSchema,
   IconCompoV1Schema as IconCompoSchema,
   IconCompoSlotConfigV1Schema as IconCompoSlotConfigSchema,
-  type VariableBaseV1 as VariableBase,
-  type NumberVariableV1 as NumberVariable,
-  type TextVariableV1 as TextVariable,
-  type BooleanVariableV1 as BooleanVariable,
-  type ChoiceVariableV1 as ChoiceVariable,
-  type FormulaVariableV1 as FormulaVariable,
-  type RollVariableV1 as RollVariable,
   type ChoiceOptionV1 as ChoiceOption,
   type ActionVisualV1 as ActionVisual,
   type IconCompoV1 as IconCompo,
@@ -1153,8 +1187,8 @@ export type { ChunkTextV11 as ByppChunkText } from "./models/chunk.v11.schema";
 export type { ChunkGalleryV2 as ByppChunkGallery } from "./models/chunk.v2.schema";
 export type { ChunkRandomV2 as ByppChunkRandom } from "./models/chunk.v2.schema";
 export type { DatasetV2 as ByppDataset } from "./models/dataset.v2.schema";
-export type { VariableV7 as ByppVariable } from "./models/variable.v7.schema";
-export type { VariableBaseV1 as ByppVariableBase } from "./models/variable.v1.schema";
+export type { VariableV8 as ByppVariable } from "./models/variable.v8.schema";
+export type { VariableBaseV8 as ByppVariableBase } from "./models/variable.v8.schema";
 export type { WidgetV9 as ByppWidget } from "./models/widget.v9.schema";
 export type { WidgetBaseV1 as ByppWidgetBase } from "./models/widget.v1.schema";
 export type { RandomTableV7 as ByppRandomTable } from "./models/random-table.v7.schema";
@@ -1173,7 +1207,7 @@ export type { SheetV7 as ByppSheet } from "./models/sheet.v7.schema";
 export type { DataTableV3 as ByppDataTable } from "./models/data-table.v3.schema";
 export type { DataTableColumnV2 as ByppDataTableColumn } from "./models/data-table.v2.schema";
 export type { DataTableRowV2 as ByppDataTableRow } from "./models/data-table.v2.schema";
-export type { DataTableRefVariableV2 as ByppDataTableRefVariable } from "./models/variable.v2.schema";
-export type { DataTableLookupVariableV2 as ByppDataTableLookupVariable } from "./models/variable.v2.schema";
+export type { DataTableRefVariableV8 as ByppDataTableRefVariable } from "./models/variable.v8.schema";
+export type { DataTableLookupVariableV8 as ByppDataTableLookupVariable } from "./models/variable.v8.schema";
 export type { CreditV1 as ByppCredit } from "./mixins/with-credit.v1.schema";
 export type { BundleImageV14 as ByppBundleImage } from "./models/bundle-image.v14.schema";

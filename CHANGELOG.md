@@ -9,6 +9,59 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v16 — 2026-08
+
+### Added
+
+- **A variable can name an icon.** `variables[].icon` is optional, sits on
+  every variant, and holds a bare icon NAME — FontAwesome-style, e.g.
+  `"shield"` — never a URL or a file. That is the convention the format has
+  used since v1 for a choice option's `icon` and for a roll's `awesome`
+  visual; v16 gives the variable itself the same thing.
+
+  The motivation is that the format could describe a dataset's fields but not
+  the shape of the sheet they came from. A d20 character sheet has six
+  abilities, a dozen skills, saves, senses, gear slots — thirty-odd fields that
+  no reader can put on one screen. The `.bypp` carried all of them and nothing
+  about how they were grouped, so every reader rendered one flat list and every
+  producer lost its grouping the moment it exported.
+
+  The name does double duty: it draws next to the field AND it is the key a
+  reader groups by. Every variable naming `"shield"` lands in the same section,
+  headed by that icon. This is deliberately not a `category` string — an icon
+  gives a section a heading nobody has to translate, where a label would be
+  authored in one language and shown to readers who may not speak it.
+
+  Grouping is a **reader convention, not a format rule**. A producer that just
+  wants an icon next to a field name sets it and ignores the grouping; a reader
+  with no notion of sections draws the icon and stops there. Variables that
+  name no icon are simply ungrouped.
+
+  The field is a loose `string` for the same reason `dialects[].fontFamily` is:
+  an open format has no standing to freeze one vendor's icon catalog, and a
+  producer whose catalog is richer than the reader's should still be able to
+  say what it means. A name the reader doesn't recognise is one it doesn't
+  draw.
+
+- **`WithIconV1Schema`** — a mixin, merged into all ten variants the way
+  `WithCreditV1Schema` was merged into every asset variant at v13. The base,
+  the union and all ten variants fork to `variable.v8.schema` together;
+  the shapes NESTED inside a variant — a choice's `options[]`, a roll's
+  `visual` — are untouched and stay rooted in v1.
+
+### Migrations
+
+- `v15 → v16` is a pure version bump. `icon` is optional, so a v15 variable is
+  already a valid v16 one. No icon is synthesized from the variable's `type`:
+  that would make every v15 bundle claim a grouping its author never chose, and
+  the difference between "grouped under a shield" and "not grouped" is the
+  distinction v16 exists to carry.
+- `v16 → v15` is **lossy**: the field is dropped and the sheet's grouping goes
+  with it, leaving the flat list v15 always showed. The variables themselves
+  stay — an icon-less variable is perfectly expressible in v15, and dropping
+  one to save a decoration would dangle every `widgets[].variableUid` pointing
+  at it and orphan the entity data keyed by its uid.
+
 ## Format v15 — 2026-08
 
 ### Changed
