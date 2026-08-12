@@ -152,9 +152,6 @@ describe("versioned examples", () => {
   });
 });
 
-// Presence of a KEY anywhere in the document. A substring search on the
-// serialized JSON would confuse keys with values — `"image"` is also an asset
-// `type`, and every example carries one.
 // Presence of a KEY on the entries of one content array, and no deeper. The
 // recursive `hasKey` below cannot answer this: a key that also exists on a
 // nested shape would match there and say nothing about the entry itself.
@@ -167,6 +164,9 @@ function hasOwnKey(entries: unknown, key: string): boolean {
   );
 }
 
+// Presence of a KEY anywhere in the document. A substring search on the
+// serialized JSON would confuse keys with values — `"image"` is also an asset
+// `type`, and every example carries one.
 function hasKey(value: unknown, key: string): boolean {
   if (Array.isArray(value)) {
     return value.some((item) => hasKey(item, key));
