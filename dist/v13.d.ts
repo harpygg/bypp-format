@@ -1,8 +1,9 @@
-export { l as Attribution, I as CcLicense, r as DataTableColumn, ah as DataTableSchema, al as DatasetSchema, as as EntityImageFormat, au as EntityImageObjectFit, ax as GridData, aB as ObjectFit, u as Page, aE as PageSchema, aH as ParentAttribution, aN as RandomTableSchema, aV as SceneSchema, aY as Style, aZ as StyleSchema, b0 as TagCategorySchema, b2 as TagSchema, H as Variable, b5 as VariableSchema } from './variable.v7.schema-CNP3lacZ.js';
-export { B as BeyondPaper, a as BeyondPaperSchema } from './bypp.v13.schema-BT8g6diH.js';
-export { a as Asset, d as AssetSchema, j as Credit, p as CreditSchema, E as Entity, D as EntitySchema, S as SceneBackground, M as SceneBackgroundSchema, l as SceneMap, O as SceneMapSchema, m as Sheet, Q as SheetSchema, W as Widget, U as WidgetActionRoll, Y as WidgetSchema, Z as WithCreditSchema } from './widget.v9.schema-DBd8zXIH.js';
-export { C as Chunk, b as ChunkSchema } from './chunk.v11.schema-D47PDSxS.js';
-export { c as DialectSchema } from './dialect.v2.schema-Do0MXEsy.js';
+export { l as Attribution, H as CcLicense, r as DataTableColumn, ag as DataTableSchema, ak as DatasetSchema, ar as EntityImageFormat, at as EntityImageObjectFit, aw as GridData, ay as ObjectFit, u as Page, aB as PageSchema, aE as ParentAttribution, aK as RandomTableSchema, aS as SceneSchema, aV as Style, aW as StyleSchema, aZ as TagCategorySchema, a$ as TagSchema } from './data-table.v3.schema-C2QhxvaB.js';
+export { B as BeyondPaper, a as BeyondPaperSchema } from './bypp.v13.schema-DI8WKX4N.js';
+export { a as Asset, d as AssetSchema, j as Credit, p as CreditSchema, E as Entity, D as EntitySchema, S as SceneBackground, M as SceneBackgroundSchema, l as SceneMap, O as SceneMapSchema, m as Sheet, Q as SheetSchema, W as Widget, U as WidgetActionRoll, Y as WidgetSchema, Z as WithCreditSchema } from './widget.v9.schema-BjchZCVK.js';
+export { C as Chunk, b as ChunkSchema } from './chunk.v11.schema-XXn7UWGK.js';
+export { c as DialectSchema } from './dialect.v2.schema-CsL8HVV7.js';
+export { V as Variable, b as VariableSchema } from './variable.v7.schema-6Ko7Sa0z.js';
 import 'zod';
 
 /**

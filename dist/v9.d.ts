@@ -1,9 +1,10 @@
-export { l as Attribution, I as CcLicense, r as DataTableColumn, ah as DataTableSchema, al as DatasetSchema, as as EntityImageFormat, au as EntityImageObjectFit, ax as GridData, aB as ObjectFit, u as Page, aE as PageSchema, aH as ParentAttribution, aN as RandomTableSchema, aV as SceneSchema, aY as Style, aZ as StyleSchema, b0 as TagCategorySchema, b2 as TagSchema, H as Variable, b5 as VariableSchema } from './variable.v7.schema-CNP3lacZ.js';
-export { B as BeyondPaper, a as BeyondPaperSchema, o as Entity, p as EntitySchema, v as SceneBackground, w as SceneBackgroundSchema, z as SceneMapSchema, D as Sheet, F as SheetSchema } from './sheet.v5.schema-BKeIGuWm.js';
-export { j as Chunk, k as ChunkSchema } from './chunk.v2.schema-DH6adoIL.js';
-export { c as DialectSchema } from './dialect.v2.schema-Do0MXEsy.js';
-export { b as Asset, c as AssetSchema } from './asset.v2.schema-BuvZIlD2.js';
-export { W as Widget, a as WidgetSchema } from './widget.v7.schema-CE1e940l.js';
+export { l as Attribution, H as CcLicense, r as DataTableColumn, ag as DataTableSchema, ak as DatasetSchema, ar as EntityImageFormat, at as EntityImageObjectFit, aw as GridData, ay as ObjectFit, u as Page, aB as PageSchema, aE as ParentAttribution, aK as RandomTableSchema, aS as SceneSchema, aV as Style, aW as StyleSchema, aZ as TagCategorySchema, a$ as TagSchema } from './data-table.v3.schema-C2QhxvaB.js';
+export { B as BeyondPaper, a as BeyondPaperSchema, o as Entity, p as EntitySchema, v as SceneBackground, w as SceneBackgroundSchema, z as SceneMapSchema, D as Sheet, F as SheetSchema } from './sheet.v5.schema-BdRBOHbg.js';
+export { j as Chunk, k as ChunkSchema } from './chunk.v2.schema-DbJ5xc6h.js';
+export { c as DialectSchema } from './dialect.v2.schema-CsL8HVV7.js';
+export { b as Asset, c as AssetSchema } from './asset.v2.schema-DGzdUexD.js';
+export { V as Variable, b as VariableSchema } from './variable.v7.schema-6Ko7Sa0z.js';
+export { W as Widget, a as WidgetSchema } from './widget.v7.schema-CqnUO40o.js';
 import 'zod';
 
 /**

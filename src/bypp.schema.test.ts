@@ -3,7 +3,7 @@ import { BeyondPaperSchema, type BeyondPaper } from "./bypp.schema";
 
 describe("BeyondPaperSchema", () => {
   const validMinimal: BeyondPaper = {
-    version: 15,
+    version: 16,
     format: "bypp",
     name: "Test Bundle",
     exportedAt: "2026-03-22T12:00:00.000Z",
@@ -36,7 +36,7 @@ describe("BeyondPaperSchema", () => {
 
   it("parses a bundle that omits every content array", () => {
     const result = BeyondPaperSchema.safeParse({
-      version: 15,
+      version: 16,
       format: "bypp",
       name: "Empty Bundle",
       exportedAt: "2026-03-22T12:00:00.000Z",
@@ -822,6 +822,106 @@ describe("BeyondPaperSchema", () => {
           type: "image",
           dimensions: { width: 100, height: 100 },
           credit: { name: "Ada", url: "ada dot com" },
+        },
+      ],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  // ─── v16 variable icon ────────────────────────────────────────────────
+
+  it("parses a variable that names an icon, on every kind of variant (v16)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      variables: [
+        {
+          uid: "v-1",
+          name: "Strength",
+          icon: "hand-fist",
+          type: "number",
+          datasetsUids: ["ds-1"],
+          min: 1,
+          max: 20,
+        },
+        {
+          uid: "v-2",
+          name: "Background",
+          icon: "scroll",
+          type: "text",
+          datasetsUids: ["ds-1"],
+        },
+        {
+          uid: "v-3",
+          name: "Longsword",
+          icon: "sword",
+          type: "roll",
+          datasetsUids: ["ds-1"],
+          diceFormula: "1d20+5",
+        },
+        {
+          uid: "v-4",
+          name: "Portrait",
+          icon: "user",
+          type: "image",
+          datasetsUids: ["ds-1"],
+        },
+      ],
+    });
+    if (!result.success) console.error(result.error.format());
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.variables[0].icon).toBe("hand-fist");
+      expect(result.data.variables[2].icon).toBe("sword");
+    }
+  });
+
+  it("lets variables share an icon — that is the grouping key (v16)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      variables: [
+        {
+          uid: "v-1",
+          name: "Athletics",
+          icon: "dumbbell",
+          type: "number",
+          datasetsUids: ["ds-1"],
+        },
+        {
+          uid: "v-2",
+          name: "Acrobatics",
+          icon: "dumbbell",
+          type: "number",
+          datasetsUids: ["ds-1"],
+        },
+        // No icon at all — ungrouped, which is what every pre-v16 variable is.
+        {
+          uid: "v-3",
+          name: "Notes",
+          type: "text",
+          datasetsUids: ["ds-1"],
+        },
+      ],
+    });
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.variables.map((v) => v.icon)).toEqual([
+        "dumbbell",
+        "dumbbell",
+        undefined,
+      ]);
+    }
+  });
+
+  it("rejects a variable whose icon is not a string (v16)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      variables: [
+        {
+          uid: "v-1",
+          name: "Strength",
+          icon: 7,
+          type: "number",
+          datasetsUids: ["ds-1"],
         },
       ],
     });
