@@ -51,7 +51,7 @@ __export(index_exports, {
   BYPP_FORMAT_VERSION: () => BYPP_FORMAT_VERSION,
   BarOrientationSchema: () => BarOrientationV1Schema,
   BarOrientationV1Schema: () => BarOrientationV1Schema,
-  BeyondPaperSchema: () => BeyondPaperV16Schema,
+  BeyondPaperSchema: () => BeyondPaperV17Schema,
   BeyondPaperV10Schema: () => BeyondPaperV10Schema,
   BeyondPaperV11Schema: () => BeyondPaperV11Schema,
   BeyondPaperV12Schema: () => BeyondPaperV12Schema,
@@ -59,6 +59,7 @@ __export(index_exports, {
   BeyondPaperV14Schema: () => BeyondPaperV14Schema,
   BeyondPaperV15Schema: () => BeyondPaperV15Schema,
   BeyondPaperV16Schema: () => BeyondPaperV16Schema,
+  BeyondPaperV17Schema: () => BeyondPaperV17Schema,
   BeyondPaperV1Schema: () => BeyondPaperV1Schema,
   BeyondPaperV2Schema: () => BeyondPaperV2Schema,
   BeyondPaperV3Schema: () => BeyondPaperV3Schema,
@@ -337,13 +338,15 @@ __export(index_exports, {
   StyleV1Schema: () => StyleV1Schema,
   StyleV2Schema: () => StyleV2Schema,
   StyleV3Schema: () => StyleV3Schema,
-  TagCategorySchema: () => TagCategoryV1Schema,
+  TagCategorySchema: () => TagCategoryV2Schema,
   TagCategoryUidSchema: () => TagCategoryUidSchema,
   TagCategoryV1Schema: () => TagCategoryV1Schema,
-  TagSchema: () => TagV2Schema,
+  TagCategoryV2Schema: () => TagCategoryV2Schema,
+  TagSchema: () => TagV3Schema,
   TagUidSchema: () => TagUidSchema,
   TagV1Schema: () => TagV1Schema,
   TagV2Schema: () => TagV2Schema,
+  TagV3Schema: () => TagV3Schema,
   TextVariableSchema: () => TextVariableV8Schema,
   TextVariableV1Schema: () => TextVariableV1Schema,
   TextVariableV8Schema: () => TextVariableV8Schema,
@@ -447,10 +450,10 @@ __export(index_exports, {
 module.exports = __toCommonJS(index_exports);
 
 // src/version.ts
-var BYPP_FORMAT_VERSION = 16;
+var BYPP_FORMAT_VERSION = 17;
 var BYPP_FORMAT_EXT = "bypp";
 
-// src/schemas/bypp.v16.schema.ts
+// src/schemas/bypp.v17.schema.ts
 var import_zod79 = require("zod");
 
 // src/models/asset.v3.schema.ts
@@ -1760,21 +1763,27 @@ var SheetV6Schema = SheetV5Schema.merge(WithImagesUrlsV3Schema);
 // src/models/sheet.v7.schema.ts
 var SheetV7Schema = SheetV6Schema.merge(WithCreditV1Schema);
 
-// src/models/tag.v2.schema.ts
+// src/mixins/with-icon.v1.schema.ts
 var import_zod63 = require("zod");
-var TagV2Schema = import_zod63.z.object({ uid: TagUidSchema }).merge(WithNameV1Schema).extend({
-  categoryUid: TagCategoryUidSchema.optional(),
-  useAsFolder: import_zod63.z.boolean().default(false)
+var WithIconV1Schema = import_zod63.z.object({
+  icon: import_zod63.z.string().optional()
 });
+
+// src/models/tag.v2.schema.ts
+var import_zod64 = require("zod");
+var TagV2Schema = import_zod64.z.object({ uid: TagUidSchema }).merge(WithNameV1Schema).extend({
+  categoryUid: TagCategoryUidSchema.optional(),
+  useAsFolder: import_zod64.z.boolean().default(false)
+});
+
+// src/models/tag.v3.schema.ts
+var TagV3Schema = TagV2Schema.merge(WithIconV1Schema);
+
+// src/models/tag-category.v2.schema.ts
+var TagCategoryV2Schema = TagCategoryV1Schema.merge(WithIconV1Schema);
 
 // src/models/variable.v8.schema.ts
 var import_zod68 = require("zod");
-
-// src/mixins/with-icon.v1.schema.ts
-var import_zod64 = require("zod");
-var WithIconV1Schema = import_zod64.z.object({
-  icon: import_zod64.z.string().optional()
-});
 
 // src/models/variable.v5.schema.ts
 var import_zod65 = require("zod");
@@ -2129,10 +2138,10 @@ var BeyondPaperV4Schema = import_zod78.z.object({
   assets: import_zod78.z.array(AssetV2Schema).default([])
 });
 
-// src/schemas/bypp.v16.schema.ts
-var BeyondPaperV16Schema = import_zod79.z.object({
+// src/schemas/bypp.v17.schema.ts
+var BeyondPaperV17Schema = import_zod79.z.object({
   // Format metadata
-  version: import_zod79.z.literal(16),
+  version: import_zod79.z.literal(17),
   format: import_zod79.z.literal("bypp"),
   // Bundle metadata
   name: import_zod79.z.string(),
@@ -2159,8 +2168,8 @@ var BeyondPaperV16Schema = import_zod79.z.object({
   sheets: import_zod79.z.array(SheetV7Schema).default([]),
   dataTables: import_zod79.z.array(DataTableV3Schema).default([]),
   randomTables: import_zod79.z.array(RandomTableV7Schema).default([]),
-  tags: import_zod79.z.array(TagV2Schema).default([]),
-  tagCategories: import_zod79.z.array(TagCategoryV1Schema).default([]),
+  tags: import_zod79.z.array(TagV3Schema).default([]),
+  tagCategories: import_zod79.z.array(TagCategoryV2Schema).default([]),
   scenes: import_zod79.z.array(SceneV2Schema).default([]),
   sceneMaps: import_zod79.z.array(SceneMapV4Schema).default([]),
   sceneBackgrounds: import_zod79.z.array(SceneBackgroundV4Schema).default([]),
@@ -2625,6 +2634,45 @@ var BeyondPaperV15Schema = import_zod92.z.object({
   assets: import_zod92.z.array(AssetV3Schema).default([])
 });
 
+// src/schemas/bypp.v16.schema.ts
+var import_zod93 = require("zod");
+var BeyondPaperV16Schema = import_zod93.z.object({
+  // Format metadata
+  version: import_zod93.z.literal(16),
+  format: import_zod93.z.literal("bypp"),
+  // Bundle metadata
+  name: import_zod93.z.string(),
+  exportedAt: import_zod93.z.string(),
+  bundleVersion: import_zod93.z.string(),
+  // The bundle's cover. Optional: a bundle with no cover simply omits it,
+  // and so does every document produced before v14.
+  image: BundleImageV14Schema.optional(),
+  // Licensing & attribution
+  license: CcLicenseV3Schema,
+  licenseVersion: import_zod93.z.literal("4.0"),
+  attribution: AttributionV3Schema,
+  parentAttribution: ParentAttributionV4Schema.optional(),
+  creatorLinks: import_zod93.z.array(import_zod93.z.string().url()).optional(),
+  // Content — every category defaults to `[]`. Producers may omit any
+  // unused category to cut file size; readers always see a concrete array.
+  dialects: import_zod93.z.array(DialectV3Schema).default([]),
+  entities: import_zod93.z.array(EntityV4Schema).default([]),
+  pages: import_zod93.z.array(PageV1Schema).default([]),
+  chunks: import_zod93.z.array(ChunkV11Schema).default([]),
+  datasets: import_zod93.z.array(DatasetV2Schema).default([]),
+  variables: import_zod93.z.array(VariableV8Schema).default([]),
+  widgets: import_zod93.z.array(WidgetV9Schema).default([]),
+  sheets: import_zod93.z.array(SheetV7Schema).default([]),
+  dataTables: import_zod93.z.array(DataTableV3Schema).default([]),
+  randomTables: import_zod93.z.array(RandomTableV7Schema).default([]),
+  tags: import_zod93.z.array(TagV2Schema).default([]),
+  tagCategories: import_zod93.z.array(TagCategoryV1Schema).default([]),
+  scenes: import_zod93.z.array(SceneV2Schema).default([]),
+  sceneMaps: import_zod93.z.array(SceneMapV4Schema).default([]),
+  sceneBackgrounds: import_zod93.z.array(SceneBackgroundV4Schema).default([]),
+  assets: import_zod93.z.array(AssetV3Schema).default([])
+});
+
 // src/migrations/v1-to-v2.ts
 var v1ToV2 = (v1) => ({
   ...v1,
@@ -3087,6 +3135,20 @@ var v16ToV15 = (v16) => ({
   variables: v16.variables.map(({ icon: _icon, ...rest }) => rest)
 });
 
+// src/migrations/v16-to-v17.ts
+var v16ToV17 = (v16) => ({
+  ...v16,
+  version: 17
+});
+
+// src/migrations/v17-to-v16.ts
+var v17ToV16 = (v17) => ({
+  ...v17,
+  version: 16,
+  tags: v17.tags.map(({ icon: _icon, ...rest }) => rest),
+  tagCategories: v17.tagCategories.map(({ icon: _icon, ...rest }) => rest)
+});
+
 // src/migrations/index.ts
 var MIGRATIONS = {
   1: v1ToV2,
@@ -3103,7 +3165,8 @@ var MIGRATIONS = {
   12: v12ToV13,
   13: v13ToV14,
   14: v14ToV15,
-  15: v15ToV16
+  15: v15ToV16,
+  16: v16ToV17
 };
 var DOWN_MIGRATIONS = {
   2: v2ToV1,
@@ -3120,7 +3183,8 @@ var DOWN_MIGRATIONS = {
   13: v13ToV12,
   14: v14ToV13,
   15: v15ToV14,
-  16: v16ToV15
+  16: v16ToV15,
+  17: v17ToV16
 };
 var SCHEMA_BY_VERSION = {
   1: BeyondPaperV1Schema,
@@ -3138,7 +3202,8 @@ var SCHEMA_BY_VERSION = {
   13: BeyondPaperV13Schema,
   14: BeyondPaperV14Schema,
   15: BeyondPaperV15Schema,
-  16: BeyondPaperV16Schema
+  16: BeyondPaperV16Schema,
+  17: BeyondPaperV17Schema
 };
 var migrate = (raw, targetVersion = BYPP_FORMAT_VERSION) => {
   if (typeof raw !== "object" || raw === null) {
@@ -3245,6 +3310,7 @@ var validateStep = (current, version) => {
   BeyondPaperV14Schema,
   BeyondPaperV15Schema,
   BeyondPaperV16Schema,
+  BeyondPaperV17Schema,
   BeyondPaperV1Schema,
   BeyondPaperV2Schema,
   BeyondPaperV3Schema,
@@ -3526,10 +3592,12 @@ var validateStep = (current, version) => {
   TagCategorySchema,
   TagCategoryUidSchema,
   TagCategoryV1Schema,
+  TagCategoryV2Schema,
   TagSchema,
   TagUidSchema,
   TagV1Schema,
   TagV2Schema,
+  TagV3Schema,
   TextVariableSchema,
   TextVariableV1Schema,
   TextVariableV8Schema,

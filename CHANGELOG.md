@@ -9,6 +9,97 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v17 — 2026-08
+
+### Added
+
+- **A tag and a tag category can name an icon.** `tags[].icon` and
+  `tagCategories[].icon` are optional and hold a bare icon NAME — a slug, e.g.
+  `"sword"` — never a URL or a file, the same convention every other icon
+  field in the format has used since v1. The format ships no artwork and
+  endorses no icon library: each consumer maps the slug onto whatever icon
+  set it draws with.
+
+  A tag is drawn as much as it is read. In the tools that produce bundles, a
+  sword sits next to "Weapon" and a crown next to "Noble"; the format carried
+  the word and dropped the picture, so a bundle that went out and came back
+  arrived as a wall of undifferentiated text and its author re-picked every
+  icon by hand. Categories lose more than tags do: a category is a heading,
+  and a heading is half typography.
+
+  Unlike `variables[].icon`, this one carries no grouping meaning — tags are
+  already grouped, by `categoryUid`. It is a decoration on the label, and a
+  reader that draws no icons ignores it.
+
+- **A reference icon registry** — 320 slugs covering weapons, armour, spells,
+  creatures, characters, places and the rest of the tabletop vocabulary.
+
+  It ships **off the format's surface**, deliberately: not re-exported from the
+  package root, not reachable from `bypp-format/v17`, and it does not move
+  `BYPP_FORMAT_VERSION`.
+
+  The slugs live in **`bypp-format/icons.json`** and nowhere else — read those
+  bytes directly from any language. `bypp-format/icons` is a thin JavaScript
+  convenience over the same file (`BYPP_ICON_NAMES`, `isByppIconName`,
+  `ICON_SLUG_PATTERN`); it reads the JSON rather than restating it, so the two
+  cannot disagree.
+
+  There is deliberately **no literal union type** of the 320 slugs. Such a type
+  would say the registry is closed, and it isn't: `"my_own_glyph"` is a
+  conformant icon name, and a type rejecting it would misrepresent the format
+  to the audience most likely to trust it.
+
+  **It takes no option away from anyone.** A producer emitting
+  `"my_own_glyph"` is exactly as conformant as one emitting `"sword"`; every
+  icon field stays a loose `string`, in v17 exactly as in v1, and nothing
+  validates against this list. The registry only ever ADDS the possibility of
+  being understood.
+
+  What it fixes is that a name nobody published is an opaque identifier, and
+  putting one of those in a portable format defeats the point of naming an
+  icon instead of shipping an image. A reader receiving `"spell_thunder_bold"`
+  cannot tell a vocabulary word from a typo, and has nothing to draw ahead of
+  time; with a published list it ships its OWN art for these slugs and knows
+  it covers what producers actually send.
+
+  It is not exclusive and not curated — think of it as the union of what
+  producers actually emit. FontAwesome-style names are the common case across
+  the format's older icon fields and stay valid everywhere; what a
+  general-purpose icon library does not carry is the tabletop-specific half —
+  a shield that reflects rather than blocks, a summoned falcon, twelve roman
+  numerals, a dozen distinguishable spell glyphs. That is the gap these slugs
+  fill, and a slug an implementer needs and cannot find here is one the
+  registry is missing.
+
+  **No artwork ships with the format, and no icon library is endorsed.** bypp
+  distributes slugs; it does not distribute, license, or sublicense any icon
+  set. Each consumer is free to match these slugs against whatever icon
+  library it already draws with, or against art it self-hosts.
+
+  Every slug matches `ICON_SLUG_PATTERN` (`^[a-z0-9]+(?:[_-][a-z0-9]+)*$`) —
+  lowercase alphanumerics in `_`- or `-`-separated words — and a test enforces
+  it. The pattern constrains the REGISTRY, never the fields: a producer
+  spelling its own vocabulary another way is expressing itself, not making a
+  mistake. What it rules out is this list shipping a slug nobody can type
+  twice the same way.
+
+  The registry is additive and unversioned: adding a slug changes no schema
+  and breaks no document. Slugs are never removed or renamed — one that
+  vanished would silently reinterpret every document already using it.
+
+### Migrations
+
+- `v16 → v17` is a pure version bump. `icon` is optional on both arrays, so a
+  v16 tag is already a valid v17 one. Nothing is synthesized: a tag's name is
+  not an icon name, and guessing that "Weapon" means `"sword"` would put a
+  picture in the document that its author never chose, in whatever language
+  the author happened to write.
+- `v17 → v16` is **lossy**: the field is dropped from tags and categories and
+  the labels stand on their own again. The tags themselves stay — an icon-less
+  tag is perfectly expressible in v16, and dropping one would strip it from
+  every `entities[].tagsUid` naming it and orphan the tags of a dropped
+  category, deleting the author's classification to avoid losing a picture.
+
 ## Format v16 — 2026-08
 
 ### Added

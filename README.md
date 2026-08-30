@@ -166,8 +166,8 @@ The two rules that follow from that:
   the first time in bypp v8 → `quest.v8.schema.ts`.
 - **A model that changes in bypp vN** gets a new file `models/x.vN.schema.ts`
   alongside the older one. The old file is never modified. Example: if
-  `quest` (introduced at v8) later changes in bypp v17, you create
-  `quest.v17.schema.ts` and leave `quest.v8.schema.ts` untouched. A further
+  `quest` (introduced at v8) later changes in bypp v18, you create
+  `quest.v18.schema.ts` and leave `quest.v8.schema.ts` untouched. A further
   change in bypp v22 creates `quest.v22.schema.ts`. The full history is
   visible from `ls models/quest.*.schema.ts`.
 
@@ -225,15 +225,15 @@ Say you add a new `quest` model in bypp v8, then evolve it twice.
 | Event | Action | File(s) on disk |
 | --- | --- | --- |
 | bypp v8 introduces `quest` | Create `quest.v8.schema.ts` exporting `QuestV8Schema` | `quest.v8.schema.ts` |
-| bypp v9 — v16 (no quest changes) | Nothing to do | `quest.v8.schema.ts` |
-| bypp v17 changes quest | Create `quest.v17.schema.ts` exporting `QuestV17Schema`; leave v8 untouched | `quest.v8.schema.ts`, `quest.v17.schema.ts` |
-| bypp v18 — v21 (no quest changes) | Nothing to do | same |
-| bypp v22 changes quest again | Create `quest.v22.schema.ts`; leave previous files untouched | `quest.v8.schema.ts`, `quest.v17.schema.ts`, `quest.v22.schema.ts` |
+| bypp v9 — v17 (no quest changes) | Nothing to do | `quest.v8.schema.ts` |
+| bypp v18 changes quest | Create `quest.v18.schema.ts` exporting `QuestV18Schema`; leave v8 untouched | `quest.v8.schema.ts`, `quest.v18.schema.ts` |
+| bypp v19 — v21 (no quest changes) | Nothing to do | same |
+| bypp v22 changes quest again | Create `quest.v22.schema.ts`; leave previous files untouched | `quest.v8.schema.ts`, `quest.v18.schema.ts`, `quest.v22.schema.ts` |
 
 After all that:
 
-- `bypp.v8.schema.ts` … `bypp.v16.schema.ts` import `QuestV8Schema`.
-- `bypp.v17.schema.ts` … `bypp.v21.schema.ts` import `QuestV17Schema`.
+- `bypp.v8.schema.ts` … `bypp.v17.schema.ts` import `QuestV8Schema`.
+- `bypp.v18.schema.ts` … `bypp.v21.schema.ts` import `QuestV18Schema`.
 - `bypp.v22.schema.ts`+ import `QuestV22Schema`.
 - The "current alias" in `src/index.ts` re-exports `QuestV22Schema as QuestSchema`.
 

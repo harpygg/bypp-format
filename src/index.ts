@@ -1,6 +1,11 @@
 // Version
 export { BYPP_FORMAT_VERSION, BYPP_FORMAT_EXT } from "./version";
 
+// The reference icon REGISTRY is deliberately not re-exported here. It
+// validates nothing and moves independently of the format, so it lives off the
+// schema surface entirely: `bypp-format/icons`, or `bypp-format/icons.json`
+// for a consumer that isn't running JavaScript. See `./icons`.
+
 // Root schema — always points to the current shipped version
 export { BeyondPaperSchema, type BeyondPaper } from "./bypp.schema";
 
@@ -77,6 +82,10 @@ export {
   BeyondPaperV16Schema,
   type BeyondPaperV16,
 } from "./schemas/bypp.v16.schema";
+export {
+  BeyondPaperV17Schema,
+  type BeyondPaperV17,
+} from "./schemas/bypp.v17.schema";
 
 // Current aliases for license / attribution types. License and base
 // attribution shapes haven't changed in v4 — they stay rooted in v3.
@@ -592,6 +601,11 @@ export {
 } from "./models/random-table.v7.schema";
 
 export { TagV2Schema, type TagV2 } from "./models/tag.v2.schema";
+export { TagV3Schema, type TagV3 } from "./models/tag.v3.schema";
+export {
+  TagCategoryV2Schema,
+  type TagCategoryV2,
+} from "./models/tag-category.v2.schema";
 
 export {
   SceneV2Schema,
@@ -928,12 +942,16 @@ export {
   type GridDataV1 as GridData,
 } from "./models/scene-map.v1.schema";
 
-export { TagV2Schema as TagSchema, type TagV2 as Tag } from "./models/tag.v2.schema";
+// Current tag aliases point at v17: a tag and a category can name an icon.
+export {
+  TagV3Schema as TagSchema,
+  type TagV3 as Tag,
+} from "./models/tag.v3.schema";
 
 export {
-  TagCategoryV1Schema as TagCategorySchema,
-  type TagCategoryV1 as TagCategory,
-} from "./models/tag-category.v1.schema";
+  TagCategoryV2Schema as TagCategorySchema,
+  type TagCategoryV2 as TagCategory,
+} from "./models/tag-category.v2.schema";
 
 // Current variable aliases point at v8 — v16 merged the icon mixin into
 // every variant, so the base, the union and all ten variants forked at once.
@@ -1193,8 +1211,8 @@ export type { WidgetV9 as ByppWidget } from "./models/widget.v9.schema";
 export type { WidgetBaseV1 as ByppWidgetBase } from "./models/widget.v1.schema";
 export type { RandomTableV7 as ByppRandomTable } from "./models/random-table.v7.schema";
 export type { RandomTableRowV7 as ByppRandomTableRow } from "./models/random-table.v7.schema";
-export type { TagV2 as ByppTag } from "./models/tag.v2.schema";
-export type { TagCategoryV1 as ByppTagCategory } from "./models/tag-category.v1.schema";
+export type { TagV3 as ByppTag } from "./models/tag.v3.schema";
+export type { TagCategoryV2 as ByppTagCategory } from "./models/tag-category.v2.schema";
 export type { SceneV2 as ByppScene } from "./models/scene.v2.schema";
 export type { SceneMapV4 as ByppSceneMap } from "./models/scene-map.v4.schema";
 export type { SceneMapBaseV2 as ByppSceneMapBase } from "./models/scene-map.v2.schema";

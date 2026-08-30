@@ -1,10 +1,11 @@
-export { l as Attribution, H as CcLicense, r as DataTableColumn, ag as DataTableSchema, ak as DatasetSchema, ar as EntityImageFormat, at as EntityImageObjectFit, aw as GridData, ay as ObjectFit, u as Page, aB as PageSchema, aE as ParentAttribution, aK as RandomTableSchema, aS as SceneSchema, aV as Style, aW as StyleSchema, aZ as TagCategorySchema, a$ as TagSchema } from './data-table.v3.schema-C2QhxvaB.cjs';
-export { B as BeyondPaper, a as BeyondPaperSchema, o as Entity, p as EntitySchema, v as SceneBackground, w as SceneBackgroundSchema, z as SceneMapSchema, D as Sheet, F as SheetSchema } from './sheet.v5.schema-B3C96i9T.cjs';
-export { j as Chunk, k as ChunkSchema } from './chunk.v2.schema-YNQvaO7F.cjs';
-export { c as DialectSchema } from './dialect.v2.schema-CRu58Opf.cjs';
-export { b as Asset, c as AssetSchema } from './asset.v2.schema-CTP5jVKN.cjs';
-export { V as Variable, b as VariableSchema } from './variable.v7.schema-Ds-LxOa6.cjs';
-export { W as Widget, a as WidgetSchema } from './widget.v7.schema-BfykOgm7.cjs';
+export { l as Attribution, F as CcLicense, r as DataTableColumn, ae as DataTableSchema, ai as DatasetSchema, ap as EntityImageFormat, ar as EntityImageObjectFit, au as GridData, aw as ObjectFit, u as Page, az as PageSchema, aC as ParentAttribution, aI as RandomTableSchema, aQ as SceneSchema, aT as Style, aU as StyleSchema } from './data-table.v3.schema-1hgyBodW.cjs';
+export { B as BeyondPaper, a as BeyondPaperSchema, o as Entity, p as EntitySchema, v as SceneBackground, w as SceneBackgroundSchema, z as SceneMapSchema, D as Sheet, F as SheetSchema } from './sheet.v5.schema-gO6ty15x.cjs';
+export { a as TagCategorySchema, c as TagSchema } from './tag.v2.schema-BEi77DhL.cjs';
+export { j as Chunk, k as ChunkSchema } from './chunk.v2.schema-CChaY_nY.cjs';
+export { c as DialectSchema } from './dialect.v2.schema-8cEb19Zw.cjs';
+export { b as Asset, c as AssetSchema } from './asset.v2.schema-CPO88sfL.cjs';
+export { V as Variable, b as VariableSchema } from './variable.v7.schema-BCDx7NkX.cjs';
+export { W as Widget, a as WidgetSchema } from './widget.v7.schema-CZn9IrJD.cjs';
 import 'zod';
 
 /**

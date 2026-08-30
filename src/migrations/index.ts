@@ -15,6 +15,7 @@ import { BeyondPaperV13Schema } from "../schemas/bypp.v13.schema";
 import { BeyondPaperV14Schema } from "../schemas/bypp.v14.schema";
 import { BeyondPaperV15Schema } from "../schemas/bypp.v15.schema";
 import { BeyondPaperV16Schema } from "../schemas/bypp.v16.schema";
+import { BeyondPaperV17Schema } from "../schemas/bypp.v17.schema";
 import { BYPP_FORMAT_VERSION } from "../version";
 import type { Migrator } from "./types";
 import { v1ToV2 } from "./v1-to-v2";
@@ -47,6 +48,8 @@ import { v14ToV15 } from "./v14-to-v15";
 import { v15ToV14 } from "./v15-to-v14";
 import { v15ToV16 } from "./v15-to-v16";
 import { v16ToV15 } from "./v16-to-v15";
+import { v16ToV17 } from "./v16-to-v17";
+import { v17ToV16 } from "./v17-to-v16";
 
 // The registry holds heterogeneous migrators (each with its own typed input
 // and output). Function parameters are contravariant, so `Migrator<V1, V2>`
@@ -88,6 +91,7 @@ export const MIGRATIONS: Readonly<Record<number, MigrationEntry>> = {
   13: v13ToV14,
   14: v14ToV15,
   15: v15ToV16,
+  16: v16ToV17,
 };
 
 /**
@@ -120,6 +124,7 @@ export const DOWN_MIGRATIONS: Readonly<Record<number, MigrationEntry>> = {
   14: v14ToV13,
   15: v15ToV14,
   16: v16ToV15,
+  17: v17ToV16,
 };
 
 /**
@@ -147,6 +152,7 @@ export const SCHEMA_BY_VERSION: Readonly<Record<number, z.ZodTypeAny>> = {
   14: BeyondPaperV14Schema,
   15: BeyondPaperV15Schema,
   16: BeyondPaperV16Schema,
+  17: BeyondPaperV17Schema,
 };
 
 /**

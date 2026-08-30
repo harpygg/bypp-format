@@ -5,6 +5,7 @@ import { BeyondPaperV13Schema } from "../schemas/bypp.v13.schema";
 import { BeyondPaperV14Schema } from "../schemas/bypp.v14.schema";
 import { BeyondPaperV15Schema } from "../schemas/bypp.v15.schema";
 import { BeyondPaperV16Schema } from "../schemas/bypp.v16.schema";
+import { BeyondPaperV17Schema } from "../schemas/bypp.v17.schema";
 import { BYPP_FORMAT_VERSION } from "../version";
 import {
   DOWN_MIGRATIONS,
@@ -1752,6 +1753,133 @@ describe("migrate", () => {
             datasetsUids: ["ds-1"],
           },
         ],
+      });
+      expect(result.success).toBe(false);
+    });
+  });
+
+  describe("v16 → v17", () => {
+    const v16Minimal = {
+      version: 16 as const,
+      format: "bypp",
+      name: "v16 bundle",
+      exportedAt: "2026-08-30T12:00:00.000Z",
+      bundleVersion: "1.0.0",
+      license: "CC-BY",
+      licenseVersion: "4.0",
+      attribution: { authorName: "Alice" },
+      dialects: [],
+      entities: [
+        {
+          uid: "ent-1",
+          name: "Kestrel",
+          type: "character",
+          tagsUid: ["tag-1"],
+        },
+      ],
+      pages: [],
+      chunks: [],
+      datasets: [],
+      variables: [],
+      widgets: [],
+      sheets: [],
+      dataTables: [],
+      randomTables: [],
+      tags: [
+        { uid: "tag-1", name: "Weapon", categoryUid: "tc-1", useAsFolder: false },
+        { uid: "tag-2", name: "Noble", useAsFolder: false },
+      ],
+      tagCategories: [{ uid: "tc-1", name: "Gear" }],
+      scenes: [],
+      sceneMaps: [],
+      sceneBackgrounds: [],
+      assets: [],
+    };
+
+    type Labelled = {
+      version: number;
+      tags: { uid: string; name: string; icon?: string; categoryUid?: string }[];
+      tagCategories: { uid: string; name: string; icon?: string }[];
+      entities: { uid: string; tagsUid?: string[] }[];
+    };
+
+    const decorated = {
+      ...v16Minimal,
+      version: 17 as const,
+      tags: [
+        { ...v16Minimal.tags[0], icon: "sword" },
+        { ...v16Minimal.tags[1], icon: "crown" },
+      ],
+      tagCategories: [{ ...v16Minimal.tagCategories[0], icon: "bag" }],
+    };
+
+    it("upgrades a minimal v16 bundle to v17", () => {
+      const v17 = migrate(v16Minimal, 17) as { version: number };
+      expect(v17.version).toBe(17);
+    });
+
+    it("invents no icon on upgrade — a tag name is not an icon name", () => {
+      const v17 = migrate(v16Minimal, 17) as Labelled;
+      expect(v17.tags[0].icon).toBeUndefined();
+      expect(v17.tags[1].icon).toBeUndefined();
+      expect(v17.tagCategories[0].icon).toBeUndefined();
+    });
+
+    it("keeps everything else about the tag on upgrade", () => {
+      const v17 = migrate(v16Minimal, 17) as Labelled;
+      expect(v17.tags[0].name).toBe("Weapon");
+      expect(v17.tags[0].categoryUid).toBe("tc-1");
+      expect(v17.tags[1].categoryUid).toBeUndefined();
+      expect(v17.tagCategories[0].name).toBe("Gear");
+    });
+
+    it("accepts any icon name, not just the ones one reader ships", () => {
+      const result = BeyondPaperV17Schema.safeParse({
+        ...v16Minimal,
+        version: 17,
+        tags: [{ uid: "tag-1", name: "Weapon", icon: "my-own-house-glyph" }],
+        tagCategories: [{ uid: "tc-1", name: "Gear", icon: "another-one" }],
+      });
+      if (!result.success) console.error(result.error.format());
+      expect(result.success).toBe(true);
+    });
+
+    it("drops the icon on downgrade v17 → v16", () => {
+      const v16 = migrate(decorated, 16) as Labelled;
+      expect(v16.version).toBe(16);
+      expect(v16.tags[0].icon).toBeUndefined();
+      expect(v16.tags[1].icon).toBeUndefined();
+      expect(v16.tagCategories[0].icon).toBeUndefined();
+      expect(BeyondPaperV16Schema.safeParse(v16).success).toBe(true);
+    });
+
+    it("keeps the tags themselves on downgrade — entities point at them", () => {
+      const v16 = migrate(decorated, 16) as Labelled;
+      expect(v16.tags.map((t) => t.uid)).toEqual(["tag-1", "tag-2"]);
+      expect(v16.tagCategories.map((c) => c.uid)).toEqual(["tc-1"]);
+      expect(v16.entities[0].tagsUid).toEqual(["tag-1"]);
+    });
+
+    it("round-trips an icon-less v16 bundle v16 → v17 → v16 unchanged", () => {
+      const roundTripped = migrate(migrate(v16Minimal, 17), 16) as Labelled;
+      expect(roundTripped.tags).toEqual(v16Minimal.tags);
+      expect(roundTripped.tagCategories).toEqual(v16Minimal.tagCategories);
+      expect(BeyondPaperV16Schema.safeParse(roundTripped).success).toBe(true);
+    });
+
+    it("loses the icon round-tripping v17 → v16 → v17, and still parses as v17", () => {
+      const roundTripped = migrate(migrate(decorated, 16), 17) as Labelled;
+      expect(roundTripped.version).toBe(17);
+      expect(roundTripped.tags[0].icon).toBeUndefined();
+      expect(roundTripped.tagCategories[0].icon).toBeUndefined();
+      expect(BeyondPaperV17Schema.safeParse(roundTripped).success).toBe(true);
+    });
+
+    it("rejects a tag whose icon is not a string", () => {
+      const result = BeyondPaperV17Schema.safeParse({
+        ...v16Minimal,
+        version: 17,
+        tags: [{ uid: "tag-1", name: "Weapon", icon: 7 }],
       });
       expect(result.success).toBe(false);
     });

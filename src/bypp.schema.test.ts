@@ -1,9 +1,10 @@
 import { describe, it, expect } from "vitest";
 import { BeyondPaperSchema, type BeyondPaper } from "./bypp.schema";
+import { isByppIconName } from "./icons";
 
 describe("BeyondPaperSchema", () => {
   const validMinimal: BeyondPaper = {
-    version: 16,
+    version: 17,
     format: "bypp",
     name: "Test Bundle",
     exportedAt: "2026-03-22T12:00:00.000Z",
@@ -36,7 +37,7 @@ describe("BeyondPaperSchema", () => {
 
   it("parses a bundle that omits every content array", () => {
     const result = BeyondPaperSchema.safeParse({
-      version: 16,
+      version: 17,
       format: "bypp",
       name: "Empty Bundle",
       exportedAt: "2026-03-22T12:00:00.000Z",
@@ -926,5 +927,54 @@ describe("BeyondPaperSchema", () => {
       ],
     });
     expect(result.success).toBe(false);
+  });
+
+  // ─── v17 tag & tag-category icon ──────────────────────────────────────
+
+  it("parses a tag and a tag category that name an icon (v17)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      tags: [{ uid: "tag-1", name: "Weapon", icon: "sword", categoryUid: "tc-1" }],
+      tagCategories: [{ uid: "tc-1", name: "Gear", icon: "bag" }],
+    });
+    if (!result.success) console.error(result.error.format());
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.tags[0].icon).toBe("sword");
+      expect(result.data.tagCategories[0].icon).toBe("bag");
+    }
+  });
+
+  it("parses a tag and a category that name no icon (v17)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      tags: [{ uid: "tag-1", name: "Weapon" }],
+      tagCategories: [{ uid: "tc-1", name: "Gear" }],
+    });
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.tags[0].icon).toBeUndefined();
+      expect(result.data.tagCategories[0].icon).toBeUndefined();
+    }
+  });
+
+  it("rejects a tag whose icon is not a string (v17)", () => {
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      tags: [{ uid: "tag-1", name: "Weapon", icon: 7 }],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  // The catalog is a vocabulary, not a validator: a name outside it must still
+  // parse, or a producer with a richer icon set could not describe its own
+  // content — the reason every icon field is a loose string in the first place.
+  it("accepts an icon name outside the reference catalog (v17)", () => {
+    expect(isByppIconName("a-name-no-catalog-has")).toBe(false);
+    const result = BeyondPaperSchema.safeParse({
+      ...validMinimal,
+      tags: [{ uid: "tag-1", name: "Weapon", icon: "a-name-no-catalog-has" }],
+    });
+    expect(result.success).toBe(true);
   });
 });
