@@ -8,7 +8,7 @@ import { migrate, SCHEMA_BY_VERSION } from "./migrations";
 /**
  * One canonical `.bypp` per format version, all derived from a single source.
  *
- * `bypp.v17.example.bypp` is a real Harpy export — the only hand-managed file.
+ * `bypp.v18.example.bypp` is a real Harpy export — the only hand-managed file.
  * Every older version is GENERATED from it by running the down-migration
  * chain, so the set can never drift: an example that disagrees with its own
  * migrator is a broken migrator, and this test says so.
@@ -102,6 +102,7 @@ describe("versioned examples", () => {
     { field: "icon", since: 16, on: "variables" },
     { field: "icon", since: 17, on: "tags" },
     { field: "icon", since: 17, on: "tagCategories" },
+    { field: "requires", since: 18 },
   ];
 
   it.each(DERIVED)("v%i carries no field newer than itself", (version) => {

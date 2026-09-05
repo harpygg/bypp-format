@@ -6,6 +6,7 @@ import { BeyondPaperV14Schema } from "../schemas/bypp.v14.schema";
 import { BeyondPaperV15Schema } from "../schemas/bypp.v15.schema";
 import { BeyondPaperV16Schema } from "../schemas/bypp.v16.schema";
 import { BeyondPaperV17Schema } from "../schemas/bypp.v17.schema";
+import { BeyondPaperV18Schema } from "../schemas/bypp.v18.schema";
 import { BYPP_FORMAT_VERSION } from "../version";
 import {
   DOWN_MIGRATIONS,
@@ -1882,6 +1883,185 @@ describe("migrate", () => {
         tags: [{ uid: "tag-1", name: "Weapon", icon: 7 }],
       });
       expect(result.success).toBe(false);
+    });
+  });
+  describe("v17 → v18", () => {
+    const v17Minimal = {
+      version: 17 as const,
+      format: "bypp",
+      name: "v17 bundle",
+      exportedAt: "2026-09-05T12:00:00.000Z",
+      bundleVersion: "1.0.0",
+      license: "CC-BY",
+      licenseVersion: "4.0",
+      attribution: { authorName: "Alice" },
+      dialects: [],
+      entities: [
+        {
+          uid: "ent-1",
+          name: "Kestrel",
+          type: "character",
+          // Values for variables another bundle provides — the reason
+          // `requires` exists.
+          data: { "var-str": 14 },
+        },
+      ],
+      pages: [],
+      chunks: [],
+      datasets: [],
+      variables: [],
+      widgets: [],
+      sheets: [],
+      dataTables: [],
+      randomTables: [],
+      tags: [],
+      tagCategories: [],
+      scenes: [],
+      sceneMaps: [],
+      sceneBackgrounds: [],
+      assets: [],
+    };
+
+    type Requiring = {
+      version: number;
+      requires?: {
+        category: string;
+        uid: string;
+        name?: string;
+        from?: { byppUrl: string; bundleName?: string; bundleVersion?: string };
+      }[];
+      entities: { uid: string; data?: Record<string, unknown> }[];
+    };
+
+    const requiring = {
+      ...v17Minimal,
+      version: 18 as const,
+      requires: [
+        {
+          category: "variables",
+          uid: "var-str",
+          name: "Strength",
+          from: {
+            byppUrl: "https://example.org/bundles/fifth-edition-3.bypp",
+            bundleName: "Fifth Edition",
+            bundleVersion: "3",
+          },
+        },
+      ],
+    };
+
+    it("upgrades a minimal v17 bundle to v18", () => {
+      const v18 = migrate(v17Minimal, 18) as Requiring;
+      expect(v18.version).toBe(18);
+    });
+
+    it("requires nothing on upgrade — a v17 document declared no dependency", () => {
+      const v18 = migrate(v17Minimal, 18) as Requiring;
+      expect(v18.requires).toEqual([]);
+    });
+
+    it("keeps the content that reads the requirement", () => {
+      const v18 = migrate(v17Minimal, 18) as Requiring;
+      expect(v18.entities[0].data).toEqual({ "var-str": 14 });
+    });
+
+    it("accepts a requirement with only a category and a uid", () => {
+      const result = BeyondPaperV18Schema.safeParse({
+        ...requiring,
+        requires: [{ category: "dataTables", uid: "dt-1" }],
+      });
+      expect(result.success).toBe(true);
+    });
+
+    it("drops the requirements on downgrade v18 → v17", () => {
+      const v17 = migrate(requiring, 17) as Requiring;
+      expect(v17.version).toBe(17);
+      expect(v17.requires).toBeUndefined();
+    });
+
+    it("keeps the content itself on downgrade — the references still stand", () => {
+      const v17 = migrate(requiring, 17) as Requiring;
+      expect(v17.entities[0].data).toEqual({ "var-str": 14 });
+    });
+
+    it("round-trips a self-contained v17 bundle v17 → v18 → v17 unchanged", () => {
+      const back = migrate(migrate(v17Minimal, 18), 17) as Requiring;
+      expect(back.requires).toBeUndefined();
+      expect(back.entities[0].data).toEqual({ "var-str": 14 });
+      expect(BeyondPaperV17Schema.safeParse(back).success).toBe(true);
+    });
+
+    it("loses the requirements round-tripping v18 → v17 → v18, and still parses as v18", () => {
+      const back = migrate(migrate(requiring, 17), 18) as Requiring;
+      expect(back.requires).toEqual([]);
+      expect(BeyondPaperV18Schema.safeParse(back).success).toBe(true);
+    });
+
+    it("rejects a requirement without a uid", () => {
+      const result = BeyondPaperV18Schema.safeParse({
+        ...requiring,
+        requires: [{ category: "variables" }],
+      });
+      expect(result.success).toBe(false);
+    });
+
+    it("rejects a `from` hint that is not located by a URL", () => {
+      const result = BeyondPaperV18Schema.safeParse({
+        ...requiring,
+        requires: [
+          {
+            category: "variables",
+            uid: "var-str",
+            from: { bundleName: "Fifth Edition", bundleVersion: "3" },
+          },
+        ],
+      });
+      expect(result.success).toBe(false);
+    });
+
+    it("accepts a file URL with a query string after the name", () => {
+      const result = BeyondPaperV18Schema.safeParse({
+        ...requiring,
+        requires: [
+          {
+            category: "variables",
+            uid: "var-str",
+            from: {
+              byppUrl:
+                "https://storage.example.org/o/bundles%2Ffifth-edition_3.bypp?alt=media&token=abc",
+            },
+          },
+        ],
+      });
+      expect(result.success).toBe(true);
+    });
+
+    it("rejects a `from` that points at a web page rather than a file", () => {
+      const result = BeyondPaperV18Schema.safeParse({
+        ...requiring,
+        requires: [
+          {
+            category: "variables",
+            uid: "var-str",
+            from: { byppUrl: "https://example.org/bundles/fifth-edition/3" },
+          },
+        ],
+      });
+      expect(result.success).toBe(false);
+    });
+
+    it("accepts a `from` hint that is only the file's URL", () => {
+      const result = BeyondPaperV18Schema.safeParse({
+        ...requiring,
+        requires: [
+          {
+            category: "variables",
+            uid: "var-str",
+            from: { byppUrl: "https://example.org/bundles/fifth-edition.bypp" },
+          },
+        ],
+      });
+      expect(result.success).toBe(true);
     });
   });
 });

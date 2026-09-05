@@ -9,6 +9,64 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v18 — 2026-09
+
+### Added
+
+- **A document can say what it needs but does not carry.** The manifest gains
+  a top-level `requires[]`, default `[]`. Each entry names one item the
+  content reads but does not ship — `{ category, uid, name?, from? }`:
+  `category` is the content array the item would sit in (`"datasets"`,
+  `"variables"`, `"dataTables"`, …) and `uid` its identifier there; `name` is
+  a courtesy for the person who has to fix a missing one; `from` is a hint at
+  where it can be found — `{ byppUrl, bundleName?, bundleVersion? }`: the
+  address of the `.bypp` **file** that provides it, fetchable as-is, so a
+  reader can satisfy the requirement with nothing but this format, plus the
+  producer's own words for what it was reading. The URL's path must end in
+  `.bypp` (`ByppFileUrlSchema`; a query string or fragment after the name is
+  fine) — what keeps a storefront page from being mistaken for the file. No platform identifier of any
+  kind, and no web page either: a file URL is the one pointer every reader can
+  act on, and whoever serves the file is free to recognise the address as
+  their own.
+
+  This is what lets a bundle be written *on* another. A set of characters
+  authored against a rules system reads that system's sheets, variables and
+  data tables; before v18 the only way to ship them was to copy the whole
+  system into every bundle that used it, and every reader that lacked the
+  copy saw dangling references — a value with no variable, a lookup with no
+  table — and nothing that said why. Now the document declares them, a
+  reader checks presence up front, and one that knows the `from` bundle can
+  offer to fetch it.
+
+  **The contract is the uid, never the version.** Uids are stable across a
+  bundle's versions, so a requirement pinned at v2 is met by v3 as long as
+  the item is still there — and it is precisely what v3 removed that a
+  presence check reports, by name. `from` is a hint, not a lock: the same
+  uid provided by a newer version of that bundle, or by any other source,
+  satisfies the requirement.
+
+  Every field is a loose string. A requirement written by
+  one platform must stay readable by another that has never heard of the
+  first, and a category the reader does not know is simply one it cannot
+  satisfy itself.
+
+  Every content array is re-imported unchanged from v17: v18 adds one
+  manifest field and touches no item.
+
+### Migrations
+
+- `v17 → v18` is a pure version bump. A v17 document never named a
+  requirement, so `requires` is set to `[]` — which is exactly how every v17
+  reader treated it, as self-contained. Nothing is inferred: a dangling
+  reference in a v17 document may well point at something another bundle
+  provides, but guessing which one would put a dependency in the document
+  that its author never declared.
+- `v18 → v17` is **lossy**: the list is dropped. The document still reads the
+  same items — the references inside its content are untouched — it just no
+  longer says so up front, and a v17 reader installing it where the required
+  bundle is absent sees dangling references, as every v17 reader did before
+  requirements existed.
+
 ## Format v17 — 2026-08
 
 ### Added

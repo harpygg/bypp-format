@@ -17,13 +17,14 @@ var __copyProps = (to, from, except, desc) => {
 };
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// src/v17.ts
-var v17_exports = {};
-__export(v17_exports, {
+// src/v18.ts
+var v18_exports = {};
+__export(v18_exports, {
   AssetSchema: () => AssetV3Schema,
   BYPP_FORMAT_VERSION: () => BYPP_FORMAT_VERSION2,
-  BeyondPaperSchema: () => BeyondPaperV17Schema,
+  BeyondPaperSchema: () => BeyondPaperV18Schema,
   BundleImageSchema: () => BundleImageV14Schema,
+  ByppFileUrlSchema: () => ByppFileUrlV1Schema,
   ChunkSchema: () => ChunkV11Schema,
   CreditSchema: () => CreditV1Schema,
   DataTableSchema: () => DataTableV3Schema,
@@ -32,6 +33,8 @@ __export(v17_exports, {
   EntitySchema: () => EntityV4Schema,
   PageSchema: () => PageV1Schema,
   RandomTableSchema: () => RandomTableV7Schema,
+  RequirementSchema: () => RequirementV1Schema,
+  RequirementSourceSchema: () => RequirementSourceV1Schema,
   SceneBackgroundSchema: () => SceneBackgroundV4Schema,
   SceneMapSchema: () => SceneMapV4Schema,
   SceneSchema: () => SceneV2Schema,
@@ -44,7 +47,7 @@ __export(v17_exports, {
   WithCreditSchema: () => WithCreditV1Schema,
   WithIconSchema: () => WithIconV1Schema
 });
-module.exports = __toCommonJS(v17_exports);
+module.exports = __toCommonJS(v18_exports);
 
 // src/schemas/bypp.v18.schema.ts
 var import_zod80 = require("zod");
@@ -2314,14 +2317,15 @@ var BeyondPaperV17Schema = import_zod95.z.object({
   assets: import_zod95.z.array(AssetV3Schema).default([])
 });
 
-// src/v17.ts
-var BYPP_FORMAT_VERSION2 = 17;
+// src/v18.ts
+var BYPP_FORMAT_VERSION2 = 18;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   AssetSchema,
   BYPP_FORMAT_VERSION,
   BeyondPaperSchema,
   BundleImageSchema,
+  ByppFileUrlSchema,
   ChunkSchema,
   CreditSchema,
   DataTableSchema,
@@ -2330,6 +2334,8 @@ var BYPP_FORMAT_VERSION2 = 17;
   EntitySchema,
   PageSchema,
   RandomTableSchema,
+  RequirementSchema,
+  RequirementSourceSchema,
   SceneBackgroundSchema,
   SceneMapSchema,
   SceneSchema,
@@ -2342,4 +2348,4 @@ var BYPP_FORMAT_VERSION2 = 17;
   WithCreditSchema,
   WithIconSchema
 });
-//# sourceMappingURL=v17.cjs.map
+//# sourceMappingURL=v18.cjs.map

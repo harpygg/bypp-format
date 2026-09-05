@@ -86,6 +86,26 @@ export {
   BeyondPaperV17Schema,
   type BeyondPaperV17,
 } from "./schemas/bypp.v17.schema";
+export {
+  BeyondPaperV18Schema,
+  type BeyondPaperV18,
+} from "./schemas/bypp.v18.schema";
+
+// v18: what a document reads but does not carry.
+export {
+  RequirementV1Schema,
+  RequirementSourceV1Schema,
+  ByppFileUrlV1Schema,
+  type RequirementV1,
+  type RequirementSourceV1,
+} from "./models/requirement.v1.schema";
+export {
+  RequirementV1Schema as RequirementSchema,
+  RequirementSourceV1Schema as RequirementSourceSchema,
+  ByppFileUrlV1Schema as ByppFileUrlSchema,
+  type RequirementV1 as Requirement,
+  type RequirementSourceV1 as RequirementSource,
+} from "./models/requirement.v1.schema";
 
 // Current aliases for license / attribution types. License and base
 // attribution shapes haven't changed in v4 — they stay rooted in v3.
@@ -1229,3 +1249,5 @@ export type { DataTableRefVariableV8 as ByppDataTableRefVariable } from "./model
 export type { DataTableLookupVariableV8 as ByppDataTableLookupVariable } from "./models/variable.v8.schema";
 export type { CreditV1 as ByppCredit } from "./mixins/with-credit.v1.schema";
 export type { BundleImageV14 as ByppBundleImage } from "./models/bundle-image.v14.schema";
+export type { RequirementV1 as ByppRequirement } from "./models/requirement.v1.schema";
+export type { RequirementSourceV1 as ByppRequirementSource } from "./models/requirement.v1.schema";

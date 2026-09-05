@@ -1,8 +1,8 @@
 import { z } from 'zod';
-import { D as DialectUid, E as EntityUid, T as TagUid, a as DatasetUid, S as SheetUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, A as AssetUid, c as SceneUid, C as ChunkUid, R as RandomTableUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid, W as WidgetUid, d as RandomTableRowUid, e as TagCategoryUid, f as SceneMapUid, g as SceneBackgroundUid } from './data-table.v3.schema-1hgyBodW.cjs';
+import { D as DialectUid, E as EntityUid, T as TagUid, a as DatasetUid, S as SheetUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, A as AssetUid, c as SceneUid, C as ChunkUid, R as RandomTableUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid, W as WidgetUid, d as RandomTableRowUid, e as TagCategoryUid, f as SceneMapUid, g as SceneBackgroundUid } from './data-table.v3.schema-1hgyBodW.js';
 
-declare const BeyondPaperV17Schema: z.ZodObject<{
-    version: z.ZodLiteral<17>;
+declare const BeyondPaperV18Schema: z.ZodObject<{
+    version: z.ZodLiteral<18>;
     format: z.ZodLiteral<"bypp">;
     name: z.ZodString;
     exportedAt: z.ZodString;
@@ -98,6 +98,42 @@ declare const BeyondPaperV17Schema: z.ZodObject<{
         sourceUrl?: string | undefined;
     }>>;
     creatorLinks: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+    requires: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        category: z.ZodString;
+        uid: z.ZodString;
+        name: z.ZodOptional<z.ZodString>;
+        from: z.ZodOptional<z.ZodObject<{
+            byppUrl: z.ZodEffects<z.ZodString, string, string>;
+            bundleName: z.ZodOptional<z.ZodString>;
+            bundleVersion: z.ZodOptional<z.ZodString>;
+        }, "strip", z.ZodTypeAny, {
+            byppUrl: string;
+            bundleVersion?: string | undefined;
+            bundleName?: string | undefined;
+        }, {
+            byppUrl: string;
+            bundleVersion?: string | undefined;
+            bundleName?: string | undefined;
+        }>>;
+    }, "strip", z.ZodTypeAny, {
+        uid: string;
+        category: string;
+        name?: string | undefined;
+        from?: {
+            byppUrl: string;
+            bundleVersion?: string | undefined;
+            bundleName?: string | undefined;
+        } | undefined;
+    }, {
+        uid: string;
+        category: string;
+        name?: string | undefined;
+        from?: {
+            byppUrl: string;
+            bundleVersion?: string | undefined;
+            bundleName?: string | undefined;
+        } | undefined;
+    }>, "many">>;
     dialects: z.ZodDefault<z.ZodArray<z.ZodObject<{
         uid: z.ZodType<DialectUid, z.ZodTypeDef, DialectUid>;
         name: z.ZodString;
@@ -5852,7 +5888,7 @@ declare const BeyondPaperV17Schema: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     name: string;
     license: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR";
-    version: 17;
+    version: 18;
     format: "bypp";
     exportedAt: string;
     bundleVersion: string;
@@ -7265,6 +7301,16 @@ declare const BeyondPaperV17Schema: z.ZodObject<{
             license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
         } | undefined;
     })[];
+    requires: {
+        uid: string;
+        category: string;
+        name?: string | undefined;
+        from?: {
+            byppUrl: string;
+            bundleVersion?: string | undefined;
+            bundleName?: string | undefined;
+        } | undefined;
+    }[];
     image?: {
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -7290,7 +7336,7 @@ declare const BeyondPaperV17Schema: z.ZodObject<{
 }, {
     name: string;
     license: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR";
-    version: 17;
+    version: 18;
     format: "bypp";
     exportedAt: string;
     bundleVersion: string;
@@ -8725,84 +8771,104 @@ declare const BeyondPaperV17Schema: z.ZodObject<{
             license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
         } | undefined;
     })[] | undefined;
+    requires?: {
+        uid: string;
+        category: string;
+        name?: string | undefined;
+        from?: {
+            byppUrl: string;
+            bundleVersion?: string | undefined;
+            bundleName?: string | undefined;
+        } | undefined;
+    }[] | undefined;
 }>;
-type BeyondPaperV17 = z.infer<typeof BeyondPaperV17Schema>;
+type BeyondPaperV18 = z.infer<typeof BeyondPaperV18Schema>;
 
 /**
- * Tag — v3 adds an optional `icon`.
+ * One item this document reads but does not carry: it must already exist
+ * wherever the document is installed — most often because another bundle,
+ * present there, provides it.
  *
- * A tag is a label an author draws on entities, and in the tools that produce
- * them a tag is drawn as much as it is read: a sword next to "Weapon", a
- * crown next to "Noble". The format carried the word and dropped the picture,
- * so a bundle round-tripping through `.bypp` came back as a wall of text and
- * the author re-picked every icon by hand.
+ * `category` names the content array the item would sit in (`"datasets"`,
+ * `"variables"`, `"dataTables"`, …) and `uid` its identifier in that array.
+ * Uids are stable across a bundle's versions, so this pair is the contract; a
+ * reader checks presence by uid, never by version.
  *
- * Same convention as everywhere else in the format: a bare icon NAME, never
- * a URL or a file, loose `string` rather than an enum. It is a slug each
- * consumer maps onto whatever icon library it draws with — the format ships
- * no artwork and endorses none. See `../mixins/with-icon.v1.schema` for the
- * reasoning, and `../icons` for a reference registry of tabletop slugs a
- * reader is likely to recognise.
+ * `name` is a courtesy for the human who has to fix a missing requirement.
  *
- * Unlike a variable's `icon`, this one carries no grouping meaning — tags are
- * already grouped, by `categoryUid`. It is a decoration on the label.
+ * `from` is a hint at where the item can be found: `byppUrl` is the address
+ * of the `.bypp` document that provides it — a file, fetchable as-is, so any
+ * reader can satisfy the requirement with nothing but this format. Not a web
+ * page, and not an identifier of any platform: whoever serves the file is free
+ * to recognise the address as their own, the format does not. `bundleName`
+ * and `bundleVersion` say what the producer was reading, in the words of the
+ * manifest (`bundleVersion` is the same free string as the manifest's own).
+ * A hint only: the same uid provided by a newer version of that document, or
+ * by any other source, satisfies the requirement.
+ *
+ * Everything here is a loose string: a requirement produced by one platform
+ * must stay readable by another that has never heard of the first.
  */
-declare const TagV3Schema: z.ZodObject<{
-    uid: z.ZodType<TagUid, z.ZodTypeDef, TagUid>;
-} & {
-    name: z.ZodString;
-} & {
-    categoryUid: z.ZodOptional<z.ZodType<TagCategoryUid, z.ZodTypeDef, TagCategoryUid>>;
-    useAsFolder: z.ZodDefault<z.ZodBoolean>;
-} & {
-    icon: z.ZodOptional<z.ZodString>;
-}, "strip", z.ZodTypeAny, {
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "TagUid" | undefined;
-    };
-    useAsFolder: boolean;
-    icon?: string | undefined;
-    categoryUid?: TagCategoryUid | undefined;
-}, {
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "TagUid" | undefined;
-    };
-    icon?: string | undefined;
-    categoryUid?: TagCategoryUid | undefined;
-    useAsFolder?: boolean | undefined;
-}>;
-type TagV3 = z.infer<typeof TagV3Schema>;
-
 /**
- * A tag category — v2 adds an optional `icon`, for the same reason
- * `tag.v3.schema` does: the name of a bucket is half of how it reads, and a
- * category heading loses more than a tag does when its icon is dropped.
- *
- * A bare icon NAME, loose `string` — a slug the consumer maps onto its own
- * icon library. See `../mixins/with-icon.v1.schema` and the reference registry
- * in `../icons`.
+ * A URL whose path names a `.bypp` file. Checked on the path alone: a
+ * download link may well carry a query string (a token, `alt=media`) or a
+ * fragment after the name, and neither says anything about what is served.
+ * The extension is the format's own (`BYPP_FORMAT_EXT`), and requiring it is
+ * what keeps a web page — the bundle's storefront, say — from being mistaken
+ * for the file: a reader fetches this address and parses the answer, nothing
+ * else.
  */
-declare const TagCategoryV2Schema: z.ZodObject<{
-    uid: z.ZodType<TagCategoryUid, z.ZodTypeDef, TagCategoryUid>;
-} & {
-    name: z.ZodString;
-} & {
-    icon: z.ZodOptional<z.ZodString>;
+declare const ByppFileUrlV1Schema: z.ZodEffects<z.ZodString, string, string>;
+declare const RequirementSourceV1Schema: z.ZodObject<{
+    byppUrl: z.ZodEffects<z.ZodString, string, string>;
+    bundleName: z.ZodOptional<z.ZodString>;
+    bundleVersion: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "TagCategoryUid" | undefined;
-    };
-    icon?: string | undefined;
+    byppUrl: string;
+    bundleVersion?: string | undefined;
+    bundleName?: string | undefined;
 }, {
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "TagCategoryUid" | undefined;
-    };
-    icon?: string | undefined;
+    byppUrl: string;
+    bundleVersion?: string | undefined;
+    bundleName?: string | undefined;
 }>;
-type TagCategoryV2 = z.infer<typeof TagCategoryV2Schema>;
+type RequirementSourceV1 = z.infer<typeof RequirementSourceV1Schema>;
+declare const RequirementV1Schema: z.ZodObject<{
+    category: z.ZodString;
+    uid: z.ZodString;
+    name: z.ZodOptional<z.ZodString>;
+    from: z.ZodOptional<z.ZodObject<{
+        byppUrl: z.ZodEffects<z.ZodString, string, string>;
+        bundleName: z.ZodOptional<z.ZodString>;
+        bundleVersion: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        byppUrl: string;
+        bundleVersion?: string | undefined;
+        bundleName?: string | undefined;
+    }, {
+        byppUrl: string;
+        bundleVersion?: string | undefined;
+        bundleName?: string | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    uid: string;
+    category: string;
+    name?: string | undefined;
+    from?: {
+        byppUrl: string;
+        bundleVersion?: string | undefined;
+        bundleName?: string | undefined;
+    } | undefined;
+}, {
+    uid: string;
+    category: string;
+    name?: string | undefined;
+    from?: {
+        byppUrl: string;
+        bundleVersion?: string | undefined;
+        bundleName?: string | undefined;
+    } | undefined;
+}>;
+type RequirementV1 = z.infer<typeof RequirementV1Schema>;
 
-export { type BeyondPaperV17 as B, type TagV3 as T, BeyondPaperV17Schema as a, type TagCategoryV2 as b, TagCategoryV2Schema as c, TagV3Schema as d };
+export { type BeyondPaperV18 as B, type RequirementV1 as R, BeyondPaperV18Schema as a, ByppFileUrlV1Schema as b, type RequirementSourceV1 as c, RequirementV1Schema as d, RequirementSourceV1Schema as e };
