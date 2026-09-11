@@ -90,6 +90,10 @@ export {
   BeyondPaperV18Schema,
   type BeyondPaperV18,
 } from "./schemas/bypp.v18.schema";
+export {
+  BeyondPaperV19Schema,
+  type BeyondPaperV19,
+} from "./schemas/bypp.v19.schema";
 
 // v18: what a document reads but does not carry.
 export {
@@ -512,6 +516,17 @@ export {
   type DataTableDirectLookupVariableV8,
 } from "./models/variable.v8.schema";
 
+// Models (v9) — variable union extended with `entityRef` and `entityLookup`:
+// one entity pointing at others, and a value read across those links.
+export {
+  VariableV9Schema,
+  EntityRefVariableV9Schema,
+  EntityLookupVariableV9Schema,
+  type VariableV9,
+  type EntityRefVariableV9,
+  type EntityLookupVariableV9,
+} from "./models/variable.v9.schema";
+
 export {
   SheetV2Schema,
   type SheetV2,
@@ -803,6 +818,15 @@ export {
   type WidgetActionRollV9,
 } from "./models/widget.v9.schema";
 
+// Models (v10) — widget union extended with `entityGrid`, the tiles of the
+// entities an `entityRef` points at.
+export {
+  WidgetV10Schema,
+  WidgetEntityGridV10Schema,
+  type WidgetV10,
+  type WidgetEntityGridV10,
+} from "./models/widget.v10.schema";
+
 // ─── Current aliases ────────────────────────────────────────────────
 // These re-export the latest version of each sub-schema as the plain
 // `XSchema` / `type X` consumers expect when they don't care about a
@@ -978,10 +1002,16 @@ export {
 // (v7's `min`/`max`/`step` on the `number` variant and v6's
 // `dataTableDirectLookup` are carried forward by that fork, not undone.)
 export {
+  VariableV9Schema as VariableSchema,
+  type VariableV9 as Variable,
+  EntityRefVariableV9Schema as EntityRefVariableSchema,
+  EntityLookupVariableV9Schema as EntityLookupVariableSchema,
+  type EntityRefVariableV9 as EntityRefVariable,
+  type EntityLookupVariableV9 as EntityLookupVariable,
+} from "./models/variable.v9.schema";
+export {
   VariableV8Schema,
   type VariableV8,
-  VariableV8Schema as VariableSchema,
-  type VariableV8 as Variable,
   VariableBaseV8Schema as VariableBaseSchema,
   NumberVariableV8Schema as NumberVariableSchema,
   TextVariableV8Schema as TextVariableSchema,
@@ -1072,13 +1102,17 @@ export {
   WithWidgetActionsV8Schema as WithWidgetActionsSchema,
   type WithWidgetActionsV8 as WithWidgetActions,
 } from "./models/widget.v8.schema";
-// Current widget aliases point at v9 — v9 adds the per-file `credit` on every
-// variant. The entity-image variant is unchanged since v6, so its alias stays
-// on v6.
+// Current widget aliases point at v10 — v10 adds `entityGrid`. The action
+// roll variant is unchanged since v9 and the entity-image variant since v6,
+// so their aliases stay there.
 export {
-  WidgetV9Schema as WidgetSchema,
+  WidgetV10Schema as WidgetSchema,
+  WidgetEntityGridV10Schema as WidgetEntityGridSchema,
+  type WidgetV10 as Widget,
+  type WidgetEntityGridV10 as WidgetEntityGrid,
+} from "./models/widget.v10.schema";
+export {
   WidgetActionRollV9Schema as WidgetActionRollSchema,
-  type WidgetV9 as Widget,
   type WidgetActionRollV9 as WidgetActionRoll,
 } from "./models/widget.v9.schema";
 export {
@@ -1225,9 +1259,9 @@ export type { ChunkTextV11 as ByppChunkText } from "./models/chunk.v11.schema";
 export type { ChunkGalleryV2 as ByppChunkGallery } from "./models/chunk.v2.schema";
 export type { ChunkRandomV2 as ByppChunkRandom } from "./models/chunk.v2.schema";
 export type { DatasetV2 as ByppDataset } from "./models/dataset.v2.schema";
-export type { VariableV8 as ByppVariable } from "./models/variable.v8.schema";
+export type { VariableV9 as ByppVariable } from "./models/variable.v9.schema";
 export type { VariableBaseV8 as ByppVariableBase } from "./models/variable.v8.schema";
-export type { WidgetV9 as ByppWidget } from "./models/widget.v9.schema";
+export type { WidgetV10 as ByppWidget } from "./models/widget.v10.schema";
 export type { WidgetBaseV1 as ByppWidgetBase } from "./models/widget.v1.schema";
 export type { RandomTableV7 as ByppRandomTable } from "./models/random-table.v7.schema";
 export type { RandomTableRowV7 as ByppRandomTableRow } from "./models/random-table.v7.schema";

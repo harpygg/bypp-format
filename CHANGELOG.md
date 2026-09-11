@@ -9,6 +9,73 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v19 — 2026-09
+
+### Added
+
+- **An entity can point at other entities.** Two new variable types
+  (`src/models/variable.v9.schema.ts`), mirroring the pair a data table
+  already had (`dataTableRef` / `dataTableLookup`):
+
+  - `entityRef` stores, on the holder entity, the uids of the entities it
+    points at: `entities[].data[variableUid]` is a uid array, the same
+    carrier a multiple `choice` uses. The optional filter — `targetsTypes`,
+    `targetsTags`, `targetTagsGroup` (`"every"` / `"some"`) — narrows the
+    candidates a reader offers, with the same reading as a dataset's targets,
+    except that no criteria at all opens the pool to every entity.
+    `sourceVariableUid` names another `entityRef` whose **current value** is
+    the pool instead: one can only equip what one owns. `max` caps how many;
+    `maxVariable` names an attribute read for the cap instead, so a spell
+    list can grow with a level.
+  - `entityLookup` derives a value from the entities a sibling `entityRef`
+    (`sourceVariableUid`) points at. `keyVariableUid` is the attribute read
+    on each linked entity for calculation, `labelVariableUid` the one read
+    for display; either unset falls back to the other, then to the entity's
+    name. Several linked entities aggregate the way a data-table lookup
+    aggregates rows: `multiAggregator` is `concat` (joined with
+    `multiSeparator`), `sum`, `avg`, `min` or `max`. A linked entity that
+    never filled the key attribute is an empty cell — skipped by a sum,
+    `""` in a concat — not an error.
+
+  A character owns items, knows spells, lives somewhere, belongs to a group.
+  Until v19 the format had no field for that: a sheet could name a value, a
+  choice, a data-table row, but never another entity of the same document,
+  so an inventory had to be typed out as free text and every link the author
+  had drawn between its lines and the items themselves was lost on the way
+  out.
+
+  `targetsTypes` entries are entity type names kept as loose strings, so a
+  document written by a producer with more types than this reader knows
+  still carries them.
+
+- **A new widget, `entityGrid`** (`src/models/widget.v10.schema.ts`), draws
+  the entities an `entityRef` points at as tiles that wrap like pips do
+  (`gapX` / `gapY`, in em). Each tile shows the entity's image, its name, or
+  both (`listOptionStyle`, the same reader hint the list widgets carry). The
+  image is the entity's `formatSlug` rendition, sized `imageWidth` ×
+  `imageHeight` in em so it scales with the widget's text, and fitted with
+  `objectFit`. It takes the style, actions and credit mixins every other
+  widget has.
+
+  The list widgets need nothing new: a bullet or inline list bound to an
+  `entityRef` lists the linked entities' names.
+
+  Every earlier variable and widget variant is re-used unchanged; only the
+  two unions are re-declared over the wider sets. No content array other
+  than `variables` and `widgets` changes shape.
+
+### Migrations
+
+- `v18 → v19` is a pure version bump: nothing in a v18 document can express
+  a link, so there is nothing to synthesize.
+- `v19 → v18` is **lossy**: every `entityRef` and `entityLookup` variable is
+  dropped, and so is every `entityGrid` widget. What referenced them goes
+  with them — the values the entities stored under a dropped variable (a v18
+  reader would find no attribute to read them under), a sheet's mention of a
+  dropped widget, and the binding of a widget that displayed a dropped
+  variable, which is unbound rather than left pointing at nothing. The
+  entities themselves stay.
+
 ## Format v18 — 2026-09
 
 ### Added

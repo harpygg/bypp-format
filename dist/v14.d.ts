@@ -1,6 +1,6 @@
 export { l as Attribution, F as CcLicense, r as DataTableColumn, ae as DataTableSchema, ai as DatasetSchema, ap as EntityImageFormat, ar as EntityImageObjectFit, au as GridData, aw as ObjectFit, u as Page, az as PageSchema, aC as ParentAttribution, aI as RandomTableSchema, aQ as SceneSchema, aT as Style, aU as StyleSchema } from './data-table.v3.schema-1hgyBodW.js';
 export { B as BeyondPaper, a as BeyondPaperSchema } from './bypp.v14.schema-CG6EWT_4.js';
-export { a as Asset, d as AssetSchema, j as Credit, p as CreditSchema, E as Entity, D as EntitySchema, S as SceneBackground, M as SceneBackgroundSchema, l as SceneMap, O as SceneMapSchema, m as Sheet, Q as SheetSchema, W as Widget, U as WidgetActionRoll, Y as WidgetSchema, Z as WithCreditSchema } from './widget.v9.schema-DkF3xyk6.js';
+export { a as Asset, d as AssetSchema, j as Credit, p as CreditSchema, E as Entity, D as EntitySchema, S as SceneBackground, M as SceneBackgroundSchema, l as SceneMap, O as SceneMapSchema, m as Sheet, Q as SheetSchema, X as Widget, W as WidgetActionRoll, Y as WidgetSchema, Z as WithCreditSchema } from './widget.v9.schema-DxpBcCB2.js';
 export { a as TagCategorySchema, c as TagSchema } from './tag.v2.schema-COYJK_Rj.js';
 export { C as Chunk, b as ChunkSchema } from './chunk.v11.schema-CLL9q2zn.js';
 export { c as DialectSchema } from './dialect.v2.schema-D4UKL-1C.js';

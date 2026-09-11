@@ -7,6 +7,7 @@ import { BeyondPaperV15Schema } from "../schemas/bypp.v15.schema";
 import { BeyondPaperV16Schema } from "../schemas/bypp.v16.schema";
 import { BeyondPaperV17Schema } from "../schemas/bypp.v17.schema";
 import { BeyondPaperV18Schema } from "../schemas/bypp.v18.schema";
+import { BeyondPaperV19Schema } from "../schemas/bypp.v19.schema";
 import { BYPP_FORMAT_VERSION } from "../version";
 import {
   DOWN_MIGRATIONS,
@@ -2062,6 +2063,169 @@ describe("migrate", () => {
         ],
       });
       expect(result.success).toBe(true);
+    });
+  });
+
+  describe("v18 → v19", () => {
+    const v18Minimal = {
+      version: 18 as const,
+      format: "bypp",
+      name: "v18 bundle",
+      exportedAt: "2026-09-10T12:00:00.000Z",
+      bundleVersion: "1.0.0",
+      license: "CC-BY",
+      licenseVersion: "4.0",
+      attribution: { authorName: "Alice" },
+      requires: [],
+      dialects: [],
+      entities: [
+        {
+          uid: "ent-hero",
+          name: "Kestrel",
+          type: "character",
+          data: { "var-str": 14 },
+        },
+        { uid: "ent-sword", name: "Sword", type: "item" },
+      ],
+      pages: [],
+      chunks: [],
+      datasets: [],
+      variables: [
+        { uid: "var-str", type: "number", name: "Strength", datasetsUids: [] },
+      ],
+      widgets: [
+        { uid: "w-str", name: "Str", type: "bigNumber", variableUid: "var-str" },
+      ],
+      sheets: [{ uid: "sh-1", widgetUids: ["w-str"] }],
+      dataTables: [],
+      randomTables: [],
+      tags: [],
+      tagCategories: [],
+      scenes: [],
+      sceneMaps: [],
+      sceneBackgrounds: [],
+      assets: [],
+    };
+
+    type Linked = {
+      version: number;
+      variables: { uid: string; type: string }[];
+      widgets: { uid: string; type: string; variableUid?: string }[];
+      sheets: { uid: string; widgetUids: string[] }[];
+      entities: { uid: string; data?: Record<string, unknown> }[];
+    };
+
+    // A v19 document with every new piece: the hero owns the sword through an
+    // `entityRef`, an `entityLookup` sums the weight of what it owns, and an
+    // `entityGrid` draws the inventory on a sheet.
+    const linked = {
+      ...v18Minimal,
+      version: 19 as const,
+      entities: [
+        {
+          uid: "ent-hero",
+          name: "Kestrel",
+          type: "character",
+          data: { "var-str": 14, "var-items": ["ent-sword"] },
+        },
+        { uid: "ent-sword", name: "Sword", type: "item" },
+      ],
+      variables: [
+        ...v18Minimal.variables,
+        {
+          uid: "var-items",
+          type: "entityRef",
+          name: "Inventory",
+          datasetsUids: [],
+          targetsTypes: ["item"],
+          max: 6,
+        },
+        {
+          uid: "var-weight",
+          type: "entityLookup",
+          name: "Carried weight",
+          datasetsUids: [],
+          sourceVariableUid: "var-items",
+          keyVariableUid: "var-item-weight",
+          multiAggregator: "sum",
+        },
+      ],
+      widgets: [
+        ...v18Minimal.widgets,
+        {
+          uid: "w-items",
+          name: "Inventory",
+          type: "entityGrid",
+          variableUid: "var-items",
+          gapX: 0.2,
+          imageWidth: 3,
+          imageHeight: 3,
+          objectFit: "cover",
+        },
+        {
+          uid: "w-weight",
+          name: "Weight",
+          type: "bigNumber",
+          variableUid: "var-weight",
+        },
+      ],
+      sheets: [{ uid: "sh-1", widgetUids: ["w-str", "w-items", "w-weight"] }],
+    };
+
+    it("upgrades a minimal v18 bundle to v19", () => {
+      const v19 = migrate(v18Minimal, 19) as Linked;
+      expect(v19.version).toBe(19);
+      expect(v19.variables.map((v) => v.type)).toEqual(["number"]);
+    });
+
+    it("parses a document that links entities", () => {
+      const result = BeyondPaperV19Schema.safeParse(linked);
+      if (!result.success) console.error(result.error.format());
+      expect(result.success).toBe(true);
+    });
+
+    it("rejects an entityRef whose tag grouping is not every/some", () => {
+      const result = BeyondPaperV19Schema.safeParse({
+        ...linked,
+        variables: [
+          {
+            uid: "var-items",
+            type: "entityRef",
+            name: "Inventory",
+            datasetsUids: [],
+            targetTagsGroup: "most",
+          },
+        ],
+      });
+      expect(result.success).toBe(false);
+    });
+
+    it("drops the links on downgrade v19 → v18", () => {
+      const v18 = migrate(linked, 18) as Linked;
+      expect(v18.version).toBe(18);
+      expect(v18.variables.map((v) => v.uid)).toEqual(["var-str"]);
+      expect(v18.widgets.map((w) => w.uid)).toEqual(["w-str", "w-weight"]);
+      expect(BeyondPaperV18Schema.safeParse(v18).success).toBe(true);
+    });
+
+    it("unbinds a widget that displayed a dropped variable instead of leaving it dangling", () => {
+      const v18 = migrate(linked, 18) as Linked;
+      const weight = v18.widgets.find((w) => w.uid === "w-weight");
+      expect(weight?.variableUid).toBeUndefined();
+    });
+
+    it("forgets a dropped widget on its sheet, and a dropped variable's values on its entities", () => {
+      const v18 = migrate(linked, 18) as Linked;
+      expect(v18.sheets[0].widgetUids).toEqual(["w-str", "w-weight"]);
+      expect(v18.entities[0].data).toEqual({ "var-str": 14 });
+      expect(v18.entities[1].data).toBeUndefined();
+    });
+
+    it("round-trips a link-free v18 bundle v18 → v19 → v18 unchanged", () => {
+      const back = migrate(migrate(v18Minimal, 19), 18) as Linked;
+      expect(back.variables.map((v) => v.uid)).toEqual(["var-str"]);
+      expect(back.sheets[0].widgetUids).toEqual(["w-str"]);
+      expect(BeyondPaperV18Schema.safeParse(back).success).toBe(true);
     });
   });
 });
