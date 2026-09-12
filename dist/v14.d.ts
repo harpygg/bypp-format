@@ -2,7 +2,7 @@ export { l as Attribution, F as CcLicense, r as DataTableColumn, ae as DataTable
 export { B as BeyondPaper, a as BeyondPaperSchema } from './bypp.v14.schema-jjRVFo5Z.js';
 export { A as Asset, c as AssetSchema, C as Credit, j as CreditSchema, S as SceneBackground, u as SceneBackgroundSchema, h as SceneMap, v as SceneMapSchema, i as Sheet, w as SheetSchema, z as Widget, W as WidgetActionRoll, B as WidgetSchema, D as WithCreditSchema } from './widget.v9.schema-CPiFvpOG.js';
 export { a as TagCategorySchema, c as TagSchema } from './tag.v2.schema-6tQFMRu6.js';
-export { C as Chunk, b as ChunkSchema } from './chunk.v11.schema-Dko1li2T.js';
+export { b as Chunk, c as ChunkSchema } from './chunk.v11.schema-54QJVVbE.js';
 export { c as DialectSchema } from './dialect.v2.schema-BRQMYDWS.js';
 export { B as BundleImage, a as BundleImageSchema } from './bundle-image.v14.schema-BtlIaYQx.js';
 export { e as Entity, f as EntitySchema } from './entity.v4.schema-083RsWhS.js';

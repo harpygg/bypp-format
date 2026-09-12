@@ -4,7 +4,7 @@ export { A as Asset, c as AssetSchema, C as Credit, j as CreditSchema, S as Scen
 export { W as WithIcon, a as WithIconSchema } from './with-icon.v1.schema-XGIKtTTi.cjs';
 export { a as TagCategorySchema, c as TagSchema } from './tag.v2.schema-Ci3OxCil.cjs';
 export { n as Variable, o as VariableSchema } from './variable.v8.schema-BARWdAgi.cjs';
-export { C as Chunk, b as ChunkSchema } from './chunk.v11.schema-DNNsRnIo.cjs';
+export { b as Chunk, c as ChunkSchema } from './chunk.v11.schema-CFI9lDwU.cjs';
 export { a as DialectSchema } from './dialect.v3.schema-ss6RD00R.cjs';
 export { B as BundleImage, a as BundleImageSchema } from './bundle-image.v14.schema-BtlIaYQx.cjs';
 export { e as Entity, f as EntitySchema } from './entity.v4.schema-CLQB7owV.cjs';

@@ -3,7 +3,7 @@ export { B as BeyondPaper, a as BeyondPaperSchema } from './bypp.v17.schema-BDUS
 export { A as Asset, c as AssetSchema, C as Credit, j as CreditSchema, S as SceneBackground, u as SceneBackgroundSchema, h as SceneMap, v as SceneMapSchema, i as Sheet, w as SheetSchema, z as Widget, W as WidgetActionRoll, B as WidgetSchema, D as WithCreditSchema } from './widget.v9.schema-D_ccPOA-.cjs';
 export { W as WithIcon, a as WithIconSchema } from './with-icon.v1.schema-XGIKtTTi.cjs';
 export { n as Variable, o as VariableSchema } from './variable.v8.schema-BARWdAgi.cjs';
-export { C as Chunk, b as ChunkSchema } from './chunk.v11.schema-DNNsRnIo.cjs';
+export { b as Chunk, c as ChunkSchema } from './chunk.v11.schema-CFI9lDwU.cjs';
 export { a as DialectSchema } from './dialect.v3.schema-ss6RD00R.cjs';
 export { T as Tag, a as TagCategory, b as TagCategorySchema, c as TagSchema } from './tag-category.v2.schema-xJ1MzPJp.cjs';
 export { B as BundleImage, a as BundleImageSchema } from './bundle-image.v14.schema-BtlIaYQx.cjs';

@@ -98,6 +98,10 @@ export {
   BeyondPaperV20Schema,
   type BeyondPaperV20,
 } from "./schemas/bypp.v20.schema";
+export {
+  BeyondPaperV21Schema,
+  type BeyondPaperV21,
+} from "./schemas/bypp.v21.schema";
 
 // v18: what a document reads but does not carry.
 export {
@@ -601,6 +605,12 @@ export {
   type ChunkV11,
   type ChunkTextV11,
 } from "./models/chunk.v11.schema";
+export {
+  ChunkV12Schema,
+  ChunkMarkdownV12Schema,
+  type ChunkV12,
+  type ChunkMarkdownV12,
+} from "./models/chunk.v12.schema";
 
 export {
   DatasetV2Schema,
@@ -872,9 +882,13 @@ export {
 } from "./models/asset.v3.schema";
 
 export {
-  ChunkV11Schema as ChunkSchema,
+  ChunkV12Schema as ChunkSchema,
+  ChunkMarkdownV12Schema as ChunkMarkdownSchema,
+  type ChunkV12 as Chunk,
+  type ChunkMarkdownV12 as ChunkMarkdown,
+} from "./models/chunk.v12.schema";
+export {
   ChunkTextV11Schema as ChunkTextSchema,
-  type ChunkV11 as Chunk,
   type ChunkTextV11 as ChunkText,
 } from "./models/chunk.v11.schema";
 
@@ -1267,7 +1281,8 @@ export type { GroupRankCharacterV1 as ByppGroupRankCharacter } from "./models/en
 export type { PageV1 as ByppPage } from "./models/page.v1.schema";
 export type { PageStandardV1 as ByppPageStandard } from "./models/page.v1.schema";
 export type { PageEntityV1 as ByppPageEntity } from "./models/page.v1.schema";
-export type { ChunkV11 as ByppChunk } from "./models/chunk.v11.schema";
+export type { ChunkV12 as ByppChunk } from "./models/chunk.v12.schema";
+export type { ChunkMarkdownV12 as ByppChunkMarkdown } from "./models/chunk.v12.schema";
 export type { ChunkBaseV2 as ByppChunkBase } from "./models/chunk.v2.schema";
 export type { ChunkTextV11 as ByppChunkText } from "./models/chunk.v11.schema";
 export type { ChunkGalleryV2 as ByppChunkGallery } from "./models/chunk.v2.schema";

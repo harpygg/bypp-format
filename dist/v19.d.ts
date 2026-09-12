@@ -4,7 +4,7 @@ export { B as ByppFileUrlSchema, R as Requirement, b as RequirementSchema, a as 
 export { A as Asset, c as AssetSchema, C as Credit, j as CreditSchema, S as SceneBackground, u as SceneBackgroundSchema, h as SceneMap, v as SceneMapSchema, i as Sheet, w as SheetSchema, W as WidgetActionRoll, D as WithCreditSchema } from './widget.v9.schema-CPiFvpOG.js';
 export { W as WithIcon, a as WithIconSchema } from './with-icon.v1.schema-XGIKtTTi.js';
 export { E as EntityLookupVariable, b as EntityRefVariable, V as Variable, d as VariableSchema, W as Widget, e as WidgetEntityGrid, g as WidgetSchema } from './widget.v10.schema-B-C-nC9O.js';
-export { C as Chunk, b as ChunkSchema } from './chunk.v11.schema-Dko1li2T.js';
+export { b as Chunk, c as ChunkSchema } from './chunk.v11.schema-54QJVVbE.js';
 export { a as DialectSchema } from './dialect.v3.schema-iFxKVI2Z.js';
 export { T as Tag, a as TagCategory, b as TagCategorySchema, c as TagSchema } from './tag-category.v2.schema-6jel2lGq.js';
 export { B as BundleImage, a as BundleImageSchema } from './bundle-image.v14.schema-BtlIaYQx.js';

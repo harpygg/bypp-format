@@ -9,6 +9,35 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v21 — 2026-09
+
+### Added
+
+- **A markdown block.** `ChunkV12` (`src/models/chunk.v12.schema.ts`) gains a
+  `markdown` variant holding its `content` as markdown source, next to the
+  text block that holds HTML.
+
+  The text block is what a rich-text editor produces. Markdown is the other
+  way people write, and the one they keep their notes in: a table typed in
+  three lines, a heading typed with a hash, a file pasted whole out of
+  Obsidian or a repository. Converting it to HTML on the way in would lose
+  the source, so the author could no longer edit what they wrote — the format
+  carries the markdown itself and leaves the rendering to the reader.
+
+  It is a second block rather than a flag on the text one: the two carry
+  different languages, and a block that could be either would have every
+  consumer guess which. A reader with no markdown renderer still has the
+  words, because unrendered markdown reads.
+
+### Migrations
+
+- `v20 → v21` — a pure version bump. Non-lossy: nothing is converted, and a
+  text block's HTML is never guessed back into markdown.
+- `v21 → v20` — lossy. Each markdown block becomes a text block holding its
+  source preformatted and escaped (`<pre>…</pre>`): the words survive and
+  stay readable, the markup does not. Dropping the block instead would take a
+  page's content away, which is worse than showing it unrendered.
+
 ## Format v20 — 2026-09
 
 ### Added

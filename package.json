@@ -137,6 +137,16 @@
         "default": "./dist/v20.cjs"
       }
     },
+    "./v21": {
+      "import": {
+        "types": "./dist/v21.d.ts",
+        "default": "./dist/v21.js"
+      },
+      "require": {
+        "types": "./dist/v21.d.cts",
+        "default": "./dist/v21.cjs"
+      }
+    },
     "./icons": {
       "import": {
         "types": "./dist/icons.d.ts",

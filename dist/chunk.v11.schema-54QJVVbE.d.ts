@@ -160,4 +160,4 @@ declare const ChunkV11Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
 }>]>;
 type ChunkV11 = z.infer<typeof ChunkV11Schema>;
 
-export { type ChunkV11 as C, type ChunkTextV11 as a, ChunkV11Schema as b, ChunkTextV11Schema as c };
+export { type ChunkTextV11 as C, ChunkTextV11Schema as a, type ChunkV11 as b, ChunkV11Schema as c };
