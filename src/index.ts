@@ -94,6 +94,10 @@ export {
   BeyondPaperV19Schema,
   type BeyondPaperV19,
 } from "./schemas/bypp.v19.schema";
+export {
+  BeyondPaperV20Schema,
+  type BeyondPaperV20,
+} from "./schemas/bypp.v20.schema";
 
 // v18: what a document reads but does not carry.
 export {
@@ -203,7 +207,10 @@ export { WithNameV1Schema } from "./mixins/with-name.v1.schema";
 export { WithPagesV1Schema } from "./mixins/with-pages.v1.schema";
 export { WithPositionV1Schema } from "./mixins/with-position.v1.schema";
 export { WithScenesV1Schema } from "./mixins/with-scenes.v1.schema";
-export { WithStyleV1Schema, StyleV1Schema } from "./mixins/with-style.v1.schema";
+export {
+  WithStyleV1Schema,
+  StyleV1Schema,
+} from "./mixins/with-style.v1.schema";
 export {
   WithStyleV2Schema,
   StyleV2Schema,
@@ -239,9 +246,7 @@ export {
   TranslatableTextV2Schema,
   type TranslatableTextV2,
 } from "./mixins/translatable-text.v2.schema";
-export {
-  WithLocalizedNameV2Schema,
-} from "./mixins/with-localized-name.v2.schema";
+export { WithLocalizedNameV2Schema } from "./mixins/with-localized-name.v2.schema";
 export { WithArchiveV2Schema } from "./mixins/with-archive.v2.schema";
 export { WithPagesV2Schema } from "./mixins/with-pages.v2.schema";
 export { WithScenesV2Schema } from "./mixins/with-scenes.v2.schema";
@@ -383,10 +388,7 @@ export {
   type GridDataV1,
 } from "./models/scene-map.v1.schema";
 
-export {
-  TagV1Schema,
-  type TagV1,
-} from "./models/tag.v1.schema";
+export { TagV1Schema, type TagV1 } from "./models/tag.v1.schema";
 
 export {
   TagCategoryV1Schema,
@@ -527,10 +529,7 @@ export {
   type EntityLookupVariableV9,
 } from "./models/variable.v9.schema";
 
-export {
-  SheetV2Schema,
-  type SheetV2,
-} from "./models/sheet.v2.schema";
+export { SheetV2Schema, type SheetV2 } from "./models/sheet.v2.schema";
 
 export {
   DataTableV2Schema,
@@ -616,10 +615,7 @@ export {
   type DialectFontV2,
 } from "./models/dialect.v2.schema";
 
-export {
-  DialectV3Schema,
-  type DialectV3,
-} from "./models/dialect.v3.schema";
+export { DialectV3Schema, type DialectV3 } from "./models/dialect.v3.schema";
 
 export {
   RandomTableV2Schema,
@@ -642,10 +638,7 @@ export {
   type TagCategoryV2,
 } from "./models/tag-category.v2.schema";
 
-export {
-  SceneV2Schema,
-  type SceneV2,
-} from "./models/scene.v2.schema";
+export { SceneV2Schema, type SceneV2 } from "./models/scene.v2.schema";
 
 export {
   SceneBackgroundV2Schema,
@@ -792,6 +785,33 @@ export {
 } from "./models/entity.v4.schema";
 
 export {
+  EntityV5Schema,
+  EntityBaseV5Schema,
+  CharacterEntityV5Schema,
+  CreatureEntityV5Schema,
+  GroupEntityV5Schema,
+  PlaceEntityV5Schema,
+  ItemEntityV5Schema,
+  NoteEntityV5Schema,
+  AbilityEntityV5Schema,
+  StoryEntityV5Schema,
+  EventEntityV5Schema,
+  EntityTypeV5Schema,
+  type EntityV5,
+  type EntityBaseV5,
+  type CharacterEntityV5,
+  type CreatureEntityV5,
+  type GroupEntityV5,
+  type PlaceEntityV5,
+  type EntityTypeV5,
+} from "./models/entity.v5.schema";
+
+export {
+  EntityActionV1Schema,
+  type EntityActionV1,
+} from "./models/entity-action.v1.schema";
+
+export {
   SceneMapV4Schema,
   CustomImageSceneMapV4Schema,
   CustomVideoSceneMapV4Schema,
@@ -891,29 +911,34 @@ export {
   type DialectV3 as Dialect,
 } from "./models/dialect.v3.schema";
 
-// Current entity aliases point at v4 — v4 adds the per-file `credit` on the
-// base, hence on every variant.
+// Current entity aliases point at v5 — v5 adds the actions an entity carries
+// itself, beside the attributes its sheets give it.
 export {
-  EntityV4Schema as EntitySchema,
-  EntityBaseV4Schema as EntityBaseSchema,
-  CharacterEntityV4Schema as CharacterEntitySchema,
-  CreatureEntityV4Schema as CreatureEntitySchema,
-  GroupEntityV4Schema as GroupEntitySchema,
-  PlaceEntityV4Schema as PlaceEntitySchema,
-  ItemEntityV4Schema as ItemEntitySchema,
-  NoteEntityV4Schema as NoteEntitySchema,
-  AbilityEntityV4Schema as AbilityEntitySchema,
-  StoryEntityV4Schema as StoryEntitySchema,
-  EventEntityV4Schema as EventEntitySchema,
-  EntityTypeV4Schema as EntityTypeSchema,
-  type EntityV4 as Entity,
-  type EntityTypeV4 as EntityType,
-  type EntityBaseV4 as EntityBase,
-  type CharacterEntityV4 as CharacterEntity,
-  type CreatureEntityV4 as CreatureEntity,
-  type GroupEntityV4 as GroupEntity,
-  type PlaceEntityV4 as PlaceEntity,
-} from "./models/entity.v4.schema";
+  EntityV5Schema as EntitySchema,
+  EntityBaseV5Schema as EntityBaseSchema,
+  CharacterEntityV5Schema as CharacterEntitySchema,
+  CreatureEntityV5Schema as CreatureEntitySchema,
+  GroupEntityV5Schema as GroupEntitySchema,
+  PlaceEntityV5Schema as PlaceEntitySchema,
+  ItemEntityV5Schema as ItemEntitySchema,
+  NoteEntityV5Schema as NoteEntitySchema,
+  AbilityEntityV5Schema as AbilityEntitySchema,
+  StoryEntityV5Schema as StoryEntitySchema,
+  EventEntityV5Schema as EventEntitySchema,
+  EntityTypeV5Schema as EntityTypeSchema,
+  type EntityV5 as Entity,
+  type EntityTypeV5 as EntityType,
+  type EntityBaseV5 as EntityBase,
+  type CharacterEntityV5 as CharacterEntity,
+  type CreatureEntityV5 as CreatureEntity,
+  type GroupEntityV5 as GroupEntity,
+  type PlaceEntityV5 as PlaceEntity,
+} from "./models/entity.v5.schema";
+
+export {
+  EntityActionV1Schema as EntityActionSchema,
+  type EntityActionV1 as EntityAction,
+} from "./models/entity-action.v1.schema";
 
 // Group rank shapes unchanged in v2 — alias still points at v1.
 export {
@@ -1175,9 +1200,7 @@ export {
 } from "./models/data-table.v2.schema";
 
 // Action visual (used by RollVariable)
-export {
-  IconCompoSlotConfigV1Schema as ActionVisualIconCompoSlotConfigSchema,
-} from "./models/variable.v1.schema";
+export { IconCompoSlotConfigV1Schema as ActionVisualIconCompoSlotConfigSchema } from "./models/variable.v1.schema";
 
 // Mixin current aliases
 export {
@@ -1185,23 +1208,15 @@ export {
   type TranslatableTextV2 as TranslatableText,
 } from "./mixins/translatable-text.v2.schema";
 
-export {
-  WithImagesUrlsV2Schema as WithImagesUrlsSchema,
-} from "./mixins/with-images-urls.v2.schema";
-export {
-  WithAudioUrlsV2Schema as WithAudioUrlsSchema,
-} from "./mixins/with-audio-urls.v2.schema";
-export {
-  WithVideoUrlsV2Schema as WithVideoUrlsSchema,
-} from "./mixins/with-video-urls.v2.schema";
+export { WithImagesUrlsV2Schema as WithImagesUrlsSchema } from "./mixins/with-images-urls.v2.schema";
+export { WithAudioUrlsV2Schema as WithAudioUrlsSchema } from "./mixins/with-audio-urls.v2.schema";
+export { WithVideoUrlsV2Schema as WithVideoUrlsSchema } from "./mixins/with-video-urls.v2.schema";
 // `ImageDimensions` shape unchanged in v2 — alias kept on v1.
 export {
   ImageDimensionsV1Schema as ImageDimensionsSchema,
   type ImageDimensionsV1 as ImageDimensions,
 } from "./mixins/with-video-urls.v1.schema";
-export {
-  WithArchiveV2Schema as WithArchiveSchema,
-} from "./mixins/with-archive.v2.schema";
+export { WithArchiveV2Schema as WithArchiveSchema } from "./mixins/with-archive.v2.schema";
 export { WithPagesV2Schema as WithPagesSchema } from "./mixins/with-pages.v2.schema";
 export { WithScenesV2Schema as WithScenesSchema } from "./mixins/with-scenes.v2.schema";
 export {
@@ -1234,16 +1249,15 @@ export {
   type BundleImageV14 as BundleImage,
 } from "./models/bundle-image.v14.schema";
 export { WithNameV1Schema as WithNameSchema } from "./mixins/with-name.v1.schema";
-export {
-  WithLocalizedNameV2Schema as WithLocalizedNameSchema,
-} from "./mixins/with-localized-name.v2.schema";
+export { WithLocalizedNameV2Schema as WithLocalizedNameSchema } from "./mixins/with-localized-name.v2.schema";
 
 // ─── Bypp-prefixed type aliases ─────────────────────────────────────
 // For consumers (like Harpy) that have their own types with the same
 // names and want to avoid `import { Entity as ByppEntity }` aliasing.
 
-export type { EntityV4 as ByppEntity } from "./models/entity.v4.schema";
-export type { EntityBaseV4 as ByppEntityBase } from "./models/entity.v4.schema";
+export type { EntityV5 as ByppEntity } from "./models/entity.v5.schema";
+export type { EntityBaseV5 as ByppEntityBase } from "./models/entity.v5.schema";
+export type { EntityActionV1 as ByppEntityAction } from "./models/entity-action.v1.schema";
 export type { CharacterEntityV4 as ByppCharacterEntity } from "./models/entity.v4.schema";
 export type { CreatureEntityV4 as ByppCreatureEntity } from "./models/entity.v4.schema";
 export type { GroupEntityV4 as ByppGroupEntity } from "./models/entity.v4.schema";

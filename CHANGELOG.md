@@ -9,6 +9,47 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v20 — 2026-09
+
+### Added
+
+- **An entity can act on its own.** `EntityV5`
+  (`src/models/entity.v5.schema.ts`) gains `actions[]`, default `[]`, on the
+  base — so every entity kind carries it: a place has a trap, an ability has
+  its own roll, a character has a signature move.
+
+  Each entry (`src/models/entity-action.v1.schema.ts`) is
+  `{ uid, label, visual?, hue?, type: "roll", diceFormula? }`. `label` is a
+  `TranslatableText`. `visual` and `hue` are the pair a roll variable already
+  uses, unchanged: an action wears the same square as a sheet's roll, and
+  there is no reason for two vocabularies. `diceFormula` is HTML, like every
+  other formula in this format — the attributes it reads are
+  `<span data-variable="…">` tags, so a reader resolves them the same way and
+  an author sees their names.
+
+  Until v20 everything an entity could do came from a sheet, and a sheet's
+  roll belongs to every entity of its dataset: a named sword with its own
+  attack had nowhere to put it. An author who wrote one had it dropped on
+  export, without a word, because no field could hold it.
+
+  A reader that pulls an entity must pull the attributes its actions read,
+  the way it already pulls a formula variable's deps: an action shipped
+  without them lands unrollable.
+
+  No content array other than `entities` changes shape.
+
+### Migrations
+
+- `v19 → v20` is a pure version bump: every entity gets an empty `actions`.
+  Nothing is inferred — a roll a v19 author wrote as a sheet attribute stays
+  a sheet attribute, because it belongs to every entity of that sheet and
+  turning it into one entity's action would take it from the others.
+- `v20 → v19` is **lossy**: every action an entity carries itself is dropped.
+  They are not turned into sheet attributes on the way out, for the same
+  reason: a sword's own attack would land on every sword in the document.
+  The entities themselves stay, and so does everything their sheets give
+  them.
+
 ## Format v19 — 2026-09
 
 ### Added

@@ -1,6 +1,6 @@
 {
   "name": "bypp-format",
-  "version": "19.0.0",
+  "version": "20.0.0",
   "description": "Beyond Paper format \u2014 open schema for tabletop RPG content",
   "type": "module",
   "main": "dist/index.cjs",
@@ -125,6 +125,16 @@
       "require": {
         "types": "./dist/v19.d.cts",
         "default": "./dist/v19.cjs"
+      }
+    },
+    "./v20": {
+      "import": {
+        "types": "./dist/v20.d.ts",
+        "default": "./dist/v20.js"
+      },
+      "require": {
+        "types": "./dist/v20.d.cts",
+        "default": "./dist/v20.cjs"
       }
     },
     "./icons": {

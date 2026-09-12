@@ -38,6 +38,7 @@ export type VariableChoiceUid = Flavor<"VariableChoiceUid">;
 export type DataTableUid = Flavor<"DataTableUid">;
 export type DataTableRowUid = Flavor<"DataTableRowUid">;
 export type DataTableColumnUid = Flavor<"DataTableColumnUid">;
+export type EntityActionUid = Flavor<"EntityActionUid">;
 
 // ─── Zod schemas for branded UIDs ───────────────────────────────────
 // At runtime these are just z.string(). The `as` cast gives us the
@@ -48,20 +49,33 @@ export const EntityUidSchema = z.string() as unknown as z.ZodType<EntityUid>;
 export const PageUidSchema = z.string() as unknown as z.ZodType<PageUid>;
 export const ChunkUidSchema = z.string() as unknown as z.ZodType<ChunkUid>;
 export const DatasetUidSchema = z.string() as unknown as z.ZodType<DatasetUid>;
-export const VariableUidSchema = z.string() as unknown as z.ZodType<VariableUid>;
+export const VariableUidSchema =
+  z.string() as unknown as z.ZodType<VariableUid>;
 export const WidgetUidSchema = z.string() as unknown as z.ZodType<WidgetUid>;
-export const RandomTableUidSchema = z.string() as unknown as z.ZodType<RandomTableUid>;
-export const RandomTableRowUidSchema = z.string() as unknown as z.ZodType<RandomTableRowUid>;
+export const RandomTableUidSchema =
+  z.string() as unknown as z.ZodType<RandomTableUid>;
+export const RandomTableRowUidSchema =
+  z.string() as unknown as z.ZodType<RandomTableRowUid>;
 export const TagUidSchema = z.string() as unknown as z.ZodType<TagUid>;
-export const TagCategoryUidSchema = z.string() as unknown as z.ZodType<TagCategoryUid>;
+export const TagCategoryUidSchema =
+  z.string() as unknown as z.ZodType<TagCategoryUid>;
 export const SceneUidSchema = z.string() as unknown as z.ZodType<SceneUid>;
-export const SceneMapUidSchema = z.string() as unknown as z.ZodType<SceneMapUid>;
-export const SceneBackgroundUidSchema = z.string() as unknown as z.ZodType<SceneBackgroundUid>;
+export const SceneMapUidSchema =
+  z.string() as unknown as z.ZodType<SceneMapUid>;
+export const SceneBackgroundUidSchema =
+  z.string() as unknown as z.ZodType<SceneBackgroundUid>;
 export const AssetUidSchema = z.string() as unknown as z.ZodType<AssetUid>;
 export const DialectUidSchema = z.string() as unknown as z.ZodType<DialectUid>;
 export const SheetUidSchema = z.string() as unknown as z.ZodType<SheetUid>;
-export const EntityTokenUidSchema = z.string() as unknown as z.ZodType<EntityTokenUid>;
-export const VariableChoiceUidSchema = z.string() as unknown as z.ZodType<VariableChoiceUid>;
-export const DataTableUidSchema = z.string() as unknown as z.ZodType<DataTableUid>;
-export const DataTableRowUidSchema = z.string() as unknown as z.ZodType<DataTableRowUid>;
-export const DataTableColumnUidSchema = z.string() as unknown as z.ZodType<DataTableColumnUid>;
+export const EntityTokenUidSchema =
+  z.string() as unknown as z.ZodType<EntityTokenUid>;
+export const VariableChoiceUidSchema =
+  z.string() as unknown as z.ZodType<VariableChoiceUid>;
+export const DataTableUidSchema =
+  z.string() as unknown as z.ZodType<DataTableUid>;
+export const DataTableRowUidSchema =
+  z.string() as unknown as z.ZodType<DataTableRowUid>;
+export const DataTableColumnUidSchema =
+  z.string() as unknown as z.ZodType<DataTableColumnUid>;
+export const EntityActionUidSchema =
+  z.string() as unknown as z.ZodType<EntityActionUid>;

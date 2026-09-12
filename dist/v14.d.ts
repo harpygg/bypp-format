@@ -1,11 +1,12 @@
-export { l as Attribution, F as CcLicense, r as DataTableColumn, ae as DataTableSchema, ai as DatasetSchema, ap as EntityImageFormat, ar as EntityImageObjectFit, au as GridData, aw as ObjectFit, u as Page, az as PageSchema, aC as ParentAttribution, aI as RandomTableSchema, aQ as SceneSchema, aT as Style, aU as StyleSchema } from './data-table.v3.schema-1hgyBodW.js';
-export { B as BeyondPaper, a as BeyondPaperSchema } from './bypp.v14.schema-CG6EWT_4.js';
-export { a as Asset, d as AssetSchema, j as Credit, p as CreditSchema, E as Entity, D as EntitySchema, S as SceneBackground, M as SceneBackgroundSchema, l as SceneMap, O as SceneMapSchema, m as Sheet, Q as SheetSchema, X as Widget, W as WidgetActionRoll, Y as WidgetSchema, Z as WithCreditSchema } from './widget.v9.schema-DxpBcCB2.js';
-export { a as TagCategorySchema, c as TagSchema } from './tag.v2.schema-COYJK_Rj.js';
-export { C as Chunk, b as ChunkSchema } from './chunk.v11.schema-CLL9q2zn.js';
-export { c as DialectSchema } from './dialect.v2.schema-D4UKL-1C.js';
+export { l as Attribution, F as CcLicense, r as DataTableColumn, ae as DataTableSchema, ai as DatasetSchema, ap as EntityImageFormat, ar as EntityImageObjectFit, au as GridData, aw as ObjectFit, u as Page, az as PageSchema, aC as ParentAttribution, aI as RandomTableSchema, aQ as SceneSchema, aT as Style, aU as StyleSchema } from './data-table.v3.schema-qpxPwgjy.js';
+export { B as BeyondPaper, a as BeyondPaperSchema } from './bypp.v14.schema-jjRVFo5Z.js';
+export { A as Asset, c as AssetSchema, C as Credit, j as CreditSchema, S as SceneBackground, u as SceneBackgroundSchema, h as SceneMap, v as SceneMapSchema, i as Sheet, w as SheetSchema, z as Widget, W as WidgetActionRoll, B as WidgetSchema, D as WithCreditSchema } from './widget.v9.schema-CPiFvpOG.js';
+export { a as TagCategorySchema, c as TagSchema } from './tag.v2.schema-6tQFMRu6.js';
+export { C as Chunk, b as ChunkSchema } from './chunk.v11.schema-Dko1li2T.js';
+export { c as DialectSchema } from './dialect.v2.schema-BRQMYDWS.js';
 export { B as BundleImage, a as BundleImageSchema } from './bundle-image.v14.schema-BtlIaYQx.js';
-export { V as Variable, b as VariableSchema } from './variable.v7.schema-DiiToB0q.js';
+export { e as Entity, f as EntitySchema } from './entity.v4.schema-083RsWhS.js';
+export { V as Variable, b as VariableSchema } from './variable.v7.schema-ZLdmXQpg.js';
 import 'zod';
 
 /**
