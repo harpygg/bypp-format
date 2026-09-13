@@ -103,6 +103,8 @@ describe("versioned examples", () => {
     { field: "icon", since: 17, on: "tags" },
     { field: "icon", since: 17, on: "tagCategories" },
     { field: "requires", since: 18 },
+    { field: "fontWeight", since: 22 },
+    { field: "fontStyle", since: 22 },
   ];
 
   it.each(DERIVED)("v%i carries no field newer than itself", (version) => {

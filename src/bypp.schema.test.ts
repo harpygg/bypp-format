@@ -4,7 +4,7 @@ import { isByppIconName } from "./icons";
 
 describe("BeyondPaperSchema", () => {
   const validMinimal: BeyondPaper = {
-    version: 21,
+    version: 22,
     format: "bypp",
     name: "Test Bundle",
     exportedAt: "2026-03-22T12:00:00.000Z",
@@ -38,7 +38,7 @@ describe("BeyondPaperSchema", () => {
 
   it("parses a bundle that omits every content array", () => {
     const result = BeyondPaperSchema.safeParse({
-      version: 21,
+      version: 22,
       format: "bypp",
       name: "Empty Bundle",
       exportedAt: "2026-03-22T12:00:00.000Z",
@@ -615,7 +615,12 @@ describe("BeyondPaperSchema", () => {
     const result = BeyondPaperSchema.safeParse({
       ...validMinimal,
       widgets: [
-        { uid: "w-1", name: "w-1", type: "empty", style: { rotation: "45deg" } },
+        {
+          uid: "w-1",
+          name: "w-1",
+          type: "empty",
+          style: { rotation: "45deg" },
+        },
       ],
     });
     expect(result.success).toBe(false);
@@ -676,9 +681,7 @@ describe("BeyondPaperSchema", () => {
           credit: { name: "Eli Frost" },
         },
       ],
-      sheets: [
-        { uid: "s-1", widgetUids: [], credit: { name: "Fay Orrin" } },
-      ],
+      sheets: [{ uid: "s-1", widgetUids: [], credit: { name: "Fay Orrin" } }],
       sceneMaps: [
         {
           uid: "sm-1",
@@ -935,7 +938,9 @@ describe("BeyondPaperSchema", () => {
   it("parses a tag and a tag category that name an icon (v17)", () => {
     const result = BeyondPaperSchema.safeParse({
       ...validMinimal,
-      tags: [{ uid: "tag-1", name: "Weapon", icon: "sword", categoryUid: "tc-1" }],
+      tags: [
+        { uid: "tag-1", name: "Weapon", icon: "sword", categoryUid: "tc-1" },
+      ],
       tagCategories: [{ uid: "tc-1", name: "Gear", icon: "bag" }],
     });
     if (!result.success) console.error(result.error.format());

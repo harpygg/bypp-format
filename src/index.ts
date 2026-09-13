@@ -102,6 +102,10 @@ export {
   BeyondPaperV21Schema,
   type BeyondPaperV21,
 } from "./schemas/bypp.v21.schema";
+export {
+  BeyondPaperV22Schema,
+  type BeyondPaperV22,
+} from "./schemas/bypp.v22.schema";
 
 // v18: what a document reads but does not carry.
 export {
@@ -229,6 +233,11 @@ export {
   StyleV3Schema,
   type StyleV3,
 } from "./mixins/with-style.v3.schema";
+export {
+  WithStyleV4Schema,
+  StyleV4Schema,
+  type StyleV4,
+} from "./mixins/with-style.v4.schema";
 export {
   WithVideoUrlsV1Schema,
   ImageDimensionsV1Schema,
@@ -857,6 +866,10 @@ export {
   type WidgetEntityGridV10,
 } from "./models/widget.v10.schema";
 
+// Models (v11) — the v10 union carrying the v4 style, which adds
+// `fontWeight` and `fontStyle`.
+export { WidgetV11Schema, type WidgetV11 } from "./models/widget.v11.schema";
+
 // ─── Current aliases ────────────────────────────────────────────────
 // These re-export the latest version of each sub-schema as the plain
 // `XSchema` / `type X` consumers expect when they don't care about a
@@ -1141,13 +1154,15 @@ export {
   WithWidgetActionsV8Schema as WithWidgetActionsSchema,
   type WithWidgetActionsV8 as WithWidgetActions,
 } from "./models/widget.v8.schema";
-// Current widget aliases point at v10 — v10 adds `entityGrid`. The action
-// roll variant is unchanged since v9 and the entity-image variant since v6,
-// so their aliases stay there.
+// Current widget aliases point at v11 — v11 carries the v4 style. The union
+// itself is the v10 one, so the `entityGrid` variant alias stays there, as do
+// the action roll (v9) and entity-image (v6) ones.
 export {
-  WidgetV10Schema as WidgetSchema,
+  WidgetV11Schema as WidgetSchema,
+  type WidgetV11 as Widget,
+} from "./models/widget.v11.schema";
+export {
   WidgetEntityGridV10Schema as WidgetEntityGridSchema,
-  type WidgetV10 as Widget,
   type WidgetEntityGridV10 as WidgetEntityGrid,
 } from "./models/widget.v10.schema";
 export {
@@ -1247,12 +1262,12 @@ export {
   type WidgetBackgroundV6 as WidgetBackground,
   type ObjectFitV6 as ObjectFit,
 } from "./mixins/with-style.v2.schema";
-// Current style aliases point at v3 — v3 adds a cascading `rotation`.
+// Current style aliases point at v4 — v4 adds `fontWeight` and `fontStyle`.
 export {
-  WithStyleV3Schema as WithStyleSchema,
-  StyleV3Schema as StyleSchema,
-  type StyleV3 as Style,
-} from "./mixins/with-style.v3.schema";
+  WithStyleV4Schema as WithStyleSchema,
+  StyleV4Schema as StyleSchema,
+  type StyleV4 as Style,
+} from "./mixins/with-style.v4.schema";
 export {
   WithCreditV1Schema as WithCreditSchema,
   CreditV1Schema as CreditSchema,

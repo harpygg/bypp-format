@@ -9,6 +9,38 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v22 — 2026-09
+
+### Added
+
+- **Emphasis on a style.** `StyleV4` (`src/mixins/with-style.v4.schema.ts`)
+  adds `fontWeight` and `fontStyle` on top of the v3 whitelist, and
+  `WidgetV11` (`src/models/widget.v11.schema.ts`) carries it on every variant.
+
+  A style could already say which family, which scale and which colour; it
+  could not say bold or italic. So an author who wanted a bold label had to
+  bake it into the text itself, where it survives no restyling, no theme, and
+  no export to a reader that lays the document out differently.
+
+  Both are free CSS strings rather than an enum, like `borderStyle` before
+  them: the format describes what to render, not a menu of what an editor may
+  offer. Both accept `inherit`, which is what an unemphasised item says — not
+  `normal`. The difference matters under a theme: `normal` overrules the
+  surroundings, `inherit` defers to them, and a level that was never
+  emphasised must defer.
+
+  No widget variant is added, removed or otherwise changed: v11 is the v10
+  union with the v4 style merged over it.
+
+### Migrations
+
+- `v21 → v22` — a pure version bump. Non-lossy: a v21 document says nothing
+  about weight or slant, and an item that says nothing keeps inheriting both.
+- `v22 → v21` — lossy. `fontWeight` and `fontStyle` are dropped from every
+  widget style; the rest of the style is untouched. The emphasis is not folded
+  into the text instead: a widget renders a value, and wrapping that value in
+  markup would change what it is.
+
 ## Format v21 — 2026-09
 
 ### Added

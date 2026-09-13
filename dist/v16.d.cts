@@ -1,13 +1,14 @@
-export { l as Attribution, F as CcLicense, r as DataTableColumn, ae as DataTableSchema, ai as DatasetSchema, ap as EntityImageFormat, ar as EntityImageObjectFit, au as GridData, aw as ObjectFit, u as Page, az as PageSchema, aC as ParentAttribution, aI as RandomTableSchema, aQ as SceneSchema, aT as Style, aU as StyleSchema } from './data-table.v3.schema-qpxPwgjy.cjs';
-export { B as BeyondPaper, a as BeyondPaperSchema } from './bypp.v16.schema-BnM10mSB.cjs';
-export { A as Asset, c as AssetSchema, C as Credit, j as CreditSchema, S as SceneBackground, u as SceneBackgroundSchema, h as SceneMap, v as SceneMapSchema, i as Sheet, w as SheetSchema, z as Widget, W as WidgetActionRoll, B as WidgetSchema, D as WithCreditSchema } from './widget.v9.schema-D_ccPOA-.cjs';
+export { l as Attribution, F as CcLicense, r as DataTableColumn, ae as DataTableSchema, ai as DatasetSchema, ap as EntityImageFormat, ar as EntityImageObjectFit, au as GridData, aw as ObjectFit, u as Page, az as PageSchema, aC as ParentAttribution, aI as RandomTableSchema, aQ as SceneSchema } from './data-table.v3.schema-SKJA8p4m.cjs';
+export { B as BeyondPaper, a as BeyondPaperSchema } from './bypp.v16.schema-CY_eD1EU.cjs';
+export { S as Style, a as StyleSchema } from './with-style.v3.schema-CFZnC8Vu.cjs';
+export { A as Asset, c as AssetSchema, C as Credit, j as CreditSchema, S as SceneBackground, u as SceneBackgroundSchema, h as SceneMap, v as SceneMapSchema, i as Sheet, w as SheetSchema, z as Widget, W as WidgetActionRoll, B as WidgetSchema, D as WithCreditSchema } from './widget.v9.schema-DB5y0gMr.cjs';
 export { W as WithIcon, a as WithIconSchema } from './with-icon.v1.schema-XGIKtTTi.cjs';
-export { a as TagCategorySchema, c as TagSchema } from './tag.v2.schema-Ci3OxCil.cjs';
-export { n as Variable, o as VariableSchema } from './variable.v8.schema-BARWdAgi.cjs';
-export { b as Chunk, c as ChunkSchema } from './chunk.v11.schema-CFI9lDwU.cjs';
-export { a as DialectSchema } from './dialect.v3.schema-ss6RD00R.cjs';
+export { a as TagCategorySchema, c as TagSchema } from './tag.v2.schema-BVPG4OBJ.cjs';
+export { n as Variable, o as VariableSchema } from './variable.v8.schema-JO8nTfiO.cjs';
+export { b as Chunk, c as ChunkSchema } from './chunk.v11.schema-Duf3iqWf.cjs';
+export { a as DialectSchema } from './dialect.v3.schema-B7lk6coU.cjs';
 export { B as BundleImage, a as BundleImageSchema } from './bundle-image.v14.schema-BtlIaYQx.cjs';
-export { e as Entity, f as EntitySchema } from './entity.v4.schema-CLQB7owV.cjs';
+export { e as Entity, f as EntitySchema } from './entity.v4.schema-ynb8daXX.cjs';
 import 'zod';
 
 /**

@@ -1,11 +1,12 @@
-export { l as Attribution, F as CcLicense, r as DataTableColumn, ae as DataTableSchema, ai as DatasetSchema, ap as EntityImageFormat, ar as EntityImageObjectFit, au as GridData, aw as ObjectFit, u as Page, az as PageSchema, aC as ParentAttribution, aI as RandomTableSchema, aQ as SceneSchema, aT as Style, aU as StyleSchema } from './data-table.v3.schema-qpxPwgjy.js';
-export { B as BeyondPaper, a as BeyondPaperSchema, c as Widget, W as WidgetActionRoll, d as WidgetSchema } from './widget.v8.schema-Vbt6Fi0V.js';
-export { a as TagCategorySchema, c as TagSchema } from './tag.v2.schema-6tQFMRu6.js';
-export { b as Chunk, c as ChunkSchema } from './chunk.v11.schema-54QJVVbE.js';
-export { c as DialectSchema } from './dialect.v2.schema-BRQMYDWS.js';
-export { b as Asset, c as AssetSchema } from './asset.v2.schema-DVpJctlp.js';
-export { m as Entity, n as EntitySchema, S as SceneBackground, r as SceneBackgroundSchema, t as SceneMapSchema, u as Sheet, v as SheetSchema } from './scene-background.v3.schema-CTb-OZjf.js';
-export { V as Variable, b as VariableSchema } from './variable.v7.schema-ZLdmXQpg.js';
+export { l as Attribution, F as CcLicense, r as DataTableColumn, ae as DataTableSchema, ai as DatasetSchema, ap as EntityImageFormat, ar as EntityImageObjectFit, au as GridData, aw as ObjectFit, u as Page, az as PageSchema, aC as ParentAttribution, aI as RandomTableSchema, aQ as SceneSchema } from './data-table.v3.schema-SKJA8p4m.js';
+export { B as BeyondPaper, a as BeyondPaperSchema, c as Widget, W as WidgetActionRoll, d as WidgetSchema } from './widget.v8.schema-C7CFTVPY.js';
+export { S as Style, a as StyleSchema } from './with-style.v3.schema-DVGa1bcI.js';
+export { a as TagCategorySchema, c as TagSchema } from './tag.v2.schema-DSBNSFwX.js';
+export { b as Chunk, c as ChunkSchema } from './chunk.v11.schema-BGTxLzRK.js';
+export { c as DialectSchema } from './dialect.v2.schema-GoK4WMYo.js';
+export { b as Asset, c as AssetSchema } from './asset.v2.schema-x2weTSes.js';
+export { m as Entity, n as EntitySchema, S as SceneBackground, r as SceneBackgroundSchema, t as SceneMapSchema, u as Sheet, v as SheetSchema } from './scene-background.v3.schema-BoWGXhDS.js';
+export { V as Variable, b as VariableSchema } from './variable.v7.schema-BIbMBOuH.js';
 import 'zod';
 
 /**

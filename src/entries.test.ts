@@ -14,6 +14,7 @@ import * as v18 from "./v18";
 import * as v19 from "./v19";
 import * as v20 from "./v20";
 import * as v21 from "./v21";
+import * as v22 from "./v22";
 import * as v9 from "./v9";
 
 /**
@@ -38,6 +39,7 @@ const ENTRIES: Record<number, { BYPP_FORMAT_VERSION: number }> = {
   19: v19,
   20: v20,
   21: v21,
+  22: v22,
 };
 
 const SRC = dirname(fileURLToPath(import.meta.url));
@@ -58,8 +60,10 @@ describe("frozen entries", () => {
   );
 
   it("covers every entry the package ships", () => {
-    expect(Object.keys(ENTRIES).map(Number).sort((a, b) => a - b)).toEqual(
-      shippedEntries(),
-    );
+    expect(
+      Object.keys(ENTRIES)
+        .map(Number)
+        .sort((a, b) => a - b),
+    ).toEqual(shippedEntries());
   });
 });
