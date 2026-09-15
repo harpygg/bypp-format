@@ -9,6 +9,46 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v23 — 2026-09
+
+### Added
+
+- **A style in a flow of text.** `StyleV5`
+  (`src/mixins/with-style.v5.schema.ts`) adds `marginTop` / `marginRight` /
+  `marginBottom` / `marginLeft`, `backgroundColor`, `textDecoration` and
+  `backgroundRepeat` on top of the v4 whitelist, and `WidgetV12` (`src/models/widget.v12.schema.ts`)
+  carries it on every variant.
+
+  Until v22 a style described a box on a sheet: padded, bordered, placed. The
+  same vocabulary now has to describe an element inside prose — a heading, a
+  paragraph, an entity mentioned mid-sentence — and a page-wide surface behind
+  them. Four things were missing there. The air an element keeps around itself is `margin*`, in em like the
+  padding beside it, because spacing in a text scales with the text. A plain
+  colour behind it is `backgroundColor`, next to the `background` image v2
+  already carried, since a highlighted passage is not an illustration.
+
+  `textDecoration` matters for a reason worth stating: a theme underlines the
+  mentions it renders, and nothing in the format could say "not this one".
+  `none` is a value, not an absence — it is how a decoration a theme draws is
+  turned off.
+
+  `backgroundRepeat` goes with the `background` image v2 already carried. On a
+  widget the image fills a box and `objectFit` settles it; on a page-wide
+  surface the same image is more often a pattern, which has to tile at its own
+  size rather than stretch. The two readings cannot be told apart from the
+  asset, so the document says which one it means.
+
+  No widget variant is added, removed or otherwise changed: v12 is the v11
+  union with the v5 style merged over it.
+
+### Migrations
+
+- `v22 → v23` — a pure version bump. Non-lossy: a v22 document says nothing
+  about margins, background colour, decoration or tiling, and an item that
+  says nothing keeps what its surroundings give it.
+- `v23 → v22` — lossy. The seven fields are dropped from every widget style;
+  the rest of the style is untouched.
+
 ## Format v22 — 2026-09
 
 ### Added

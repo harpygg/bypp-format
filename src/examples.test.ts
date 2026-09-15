@@ -105,6 +105,10 @@ describe("versioned examples", () => {
     { field: "requires", since: 18 },
     { field: "fontWeight", since: 22 },
     { field: "fontStyle", since: 22 },
+    { field: "marginTop", since: 23 },
+    { field: "backgroundColor", since: 23 },
+    { field: "textDecoration", since: 23 },
+    { field: "backgroundRepeat", since: 23 },
   ];
 
   it.each(DERIVED)("v%i carries no field newer than itself", (version) => {

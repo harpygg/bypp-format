@@ -1,5 +1,5 @@
-// src/schemas/bypp.v22.schema.ts
-import { z as z87 } from "zod";
+// src/schemas/bypp.v23.schema.ts
+import { z as z88 } from "zod";
 
 // src/models/asset.v3.schema.ts
 import { z as z39 } from "zod";
@@ -1533,8 +1533,11 @@ var VariableV9Schema = z73.discriminatedUnion("type", [
   EntityLookupVariableV9Schema
 ]);
 
-// src/models/widget.v11.schema.ts
-import { z as z82 } from "zod";
+// src/models/widget.v12.schema.ts
+import { z as z83 } from "zod";
+
+// src/mixins/with-style.v5.schema.ts
+import { z as z75 } from "zod";
 
 // src/mixins/with-style.v4.schema.ts
 import { z as z74 } from "zod";
@@ -1546,24 +1549,38 @@ var WithStyleV4Schema = z74.object({
   style: StyleV4Schema
 });
 
+// src/mixins/with-style.v5.schema.ts
+var StyleV5Schema = StyleV4Schema.unwrap().unwrap().extend({
+  marginTop: z75.number().optional(),
+  marginRight: z75.number().optional(),
+  marginBottom: z75.number().optional(),
+  marginLeft: z75.number().optional(),
+  backgroundColor: z75.string().optional(),
+  textDecoration: z75.string().optional(),
+  backgroundRepeat: z75.boolean().optional()
+}).nullable().optional();
+var WithStyleV5Schema = z75.object({
+  style: StyleV5Schema
+});
+
 // src/models/widget.v6.schema.ts
-import { z as z77 } from "zod";
+import { z as z78 } from "zod";
 
 // src/models/widget.v5.schema.ts
-import { z as z76 } from "zod";
+import { z as z77 } from "zod";
 
 // src/models/entity-image-format.v5.schema.ts
-import { z as z75 } from "zod";
+import { z as z76 } from "zod";
 var ENTITY_IMAGE_RENDITIONS = [
   "original",
   "thumbnail",
   "square",
   "closeup"
 ];
-var EntityImageFormatV5Schema = z75.enum(ENTITY_IMAGE_RENDITIONS);
+var EntityImageFormatV5Schema = z76.enum(ENTITY_IMAGE_RENDITIONS);
 
 // src/models/widget.v5.schema.ts
-var EntityImageObjectFitV5Schema = z76.enum([
+var EntityImageObjectFitV5Schema = z77.enum([
   "contain",
   "cover",
   "fill",
@@ -1571,11 +1588,11 @@ var EntityImageObjectFitV5Schema = z76.enum([
   "scale-down"
 ]);
 var WidgetEntityImageV5Schema = WidgetBaseV1Schema.extend({
-  type: z76.literal("entityImage"),
+  type: z77.literal("entityImage"),
   formatSlug: EntityImageFormatV5Schema.optional(),
   objectFit: EntityImageObjectFitV5Schema.optional()
 });
-var WidgetV5Schema = z76.discriminatedUnion("type", [
+var WidgetV5Schema = z77.discriminatedUnion("type", [
   WidgetEmptyV1Schema,
   WidgetBigNumberV1Schema,
   WidgetPlainTextV1Schema,
@@ -1597,7 +1614,7 @@ var WidgetInlineListV6Schema = WidgetInlineListV1Schema.merge(WithStyleV2Schema)
 var WidgetPipsV6Schema = WidgetPipsV1Schema.merge(WithStyleV2Schema);
 var WidgetBarV6Schema = WidgetBarV1Schema.merge(WithStyleV2Schema);
 var WidgetEntityImageV6Schema = WidgetEntityImageV5Schema.merge(WithStyleV2Schema);
-var WidgetV6Schema = z77.discriminatedUnion("type", [
+var WidgetV6Schema = z78.discriminatedUnion("type", [
   WidgetEmptyV6Schema,
   WidgetBigNumberV6Schema,
   WidgetPlainTextV6Schema,
@@ -1610,16 +1627,16 @@ var WidgetV6Schema = z77.discriminatedUnion("type", [
 ]);
 
 // src/models/widget.v7.schema.ts
-import { z as z78 } from "zod";
+import { z as z79 } from "zod";
 var WidgetWheelV7Schema = WidgetBaseV1Schema.merge(
   WithStyleV3Schema
 ).extend({
-  type: z78.literal("wheel"),
-  readingPosition: z78.string().optional(),
-  labelOrientation: z78.string().optional(),
-  radius: z78.number().optional()
+  type: z79.literal("wheel"),
+  readingPosition: z79.string().optional(),
+  labelOrientation: z79.string().optional(),
+  radius: z79.number().optional()
 });
-var WidgetV7Schema = z78.discriminatedUnion("type", [
+var WidgetV7Schema = z79.discriminatedUnion("type", [
   WidgetEmptyV6Schema.merge(WithStyleV3Schema),
   WidgetBigNumberV6Schema.merge(WithStyleV3Schema),
   WidgetPlainTextV6Schema.merge(WithStyleV3Schema),
@@ -1633,16 +1650,16 @@ var WidgetV7Schema = z78.discriminatedUnion("type", [
 ]);
 
 // src/models/widget.v8.schema.ts
-import { z as z79 } from "zod";
-var WithWidgetActionsV8Schema = z79.object({
-  actionsVariablesUids: z79.array(VariableUidSchema).optional()
+import { z as z80 } from "zod";
+var WithWidgetActionsV8Schema = z80.object({
+  actionsVariablesUids: z80.array(VariableUidSchema).optional()
 });
 var WidgetActionRollV8Schema = WidgetBaseV1Schema.merge(
   WithStyleV3Schema
 ).merge(WithWidgetActionsV8Schema).extend({
-  type: z79.literal("actionRoll")
+  type: z80.literal("actionRoll")
 });
-var WidgetV8Schema = z79.discriminatedUnion("type", [
+var WidgetV8Schema = z80.discriminatedUnion("type", [
   WidgetEmptyV6Schema.merge(WithStyleV3Schema).merge(WithWidgetActionsV8Schema),
   WidgetBigNumberV6Schema.merge(WithStyleV3Schema).merge(
     WithWidgetActionsV8Schema
@@ -1669,9 +1686,9 @@ var WidgetV8Schema = z79.discriminatedUnion("type", [
 ]);
 
 // src/models/widget.v9.schema.ts
-import { z as z80 } from "zod";
+import { z as z81 } from "zod";
 var WidgetActionRollV9Schema = WidgetActionRollV8Schema.merge(WithCreditV1Schema);
-var WidgetV9Schema = z80.discriminatedUnion("type", [
+var WidgetV9Schema = z81.discriminatedUnion("type", [
   WidgetEmptyV6Schema.merge(WithStyleV3Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
   WidgetBigNumberV6Schema.merge(WithStyleV3Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
   WidgetPlainTextV6Schema.merge(WithStyleV3Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
@@ -1688,94 +1705,94 @@ var WidgetV9Schema = z80.discriminatedUnion("type", [
 ]);
 
 // src/models/widget.v10.schema.ts
-import { z as z81 } from "zod";
+import { z as z82 } from "zod";
 var WidgetEntityGridV10Schema = WidgetBaseV1Schema.extend({
-  type: z81.literal("entityGrid"),
-  gapX: z81.number().optional(),
-  gapY: z81.number().optional(),
-  listOptionStyle: z81.string().optional(),
+  type: z82.literal("entityGrid"),
+  gapX: z82.number().optional(),
+  gapY: z82.number().optional(),
+  listOptionStyle: z82.string().optional(),
   formatSlug: EntityImageFormatV5Schema.optional(),
   objectFit: EntityImageObjectFitV5Schema.optional(),
-  imageWidth: z81.number().optional(),
-  imageHeight: z81.number().optional()
+  imageWidth: z82.number().optional(),
+  imageHeight: z82.number().optional()
 }).merge(WithStyleV3Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema);
-var WidgetV10Schema = z81.discriminatedUnion("type", [
+var WidgetV10Schema = z82.discriminatedUnion("type", [
   ...WidgetV9Schema.options,
   WidgetEntityGridV10Schema
 ]);
 
-// src/models/widget.v11.schema.ts
-var WidgetV11Schema = z82.discriminatedUnion("type", [
-  WidgetEmptyV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
-  WidgetBigNumberV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
-  WidgetPlainTextV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
-  WidgetToggleV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
-  WidgetBulletListV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
-  WidgetInlineListV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
-  WidgetPipsV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
-  WidgetBarV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
-  WidgetEntityImageV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
-  WidgetWheelV7Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
-  WidgetActionRollV9Schema.merge(WithStyleV4Schema),
-  WidgetEntityGridV10Schema.merge(WithStyleV4Schema)
+// src/models/widget.v12.schema.ts
+var WidgetV12Schema = z83.discriminatedUnion("type", [
+  WidgetEmptyV6Schema.merge(WithStyleV5Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetBigNumberV6Schema.merge(WithStyleV5Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetPlainTextV6Schema.merge(WithStyleV5Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetToggleV6Schema.merge(WithStyleV5Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetBulletListV6Schema.merge(WithStyleV5Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetInlineListV6Schema.merge(WithStyleV5Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetPipsV6Schema.merge(WithStyleV5Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetBarV6Schema.merge(WithStyleV5Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetEntityImageV6Schema.merge(WithStyleV5Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetWheelV7Schema.merge(WithStyleV5Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetActionRollV9Schema.merge(WithStyleV5Schema),
+  WidgetEntityGridV10Schema.merge(WithStyleV5Schema)
 ]);
 
 // src/schemas/bypp.v4.schema.ts
-import { z as z86 } from "zod";
+import { z as z87 } from "zod";
 
 // src/models/dialect.v2.schema.ts
-import { z as z83 } from "zod";
-var DialectFontV2Schema = z83.object({
-  fontFamily: z83.string(),
-  fontUrl: z83.string().url()
+import { z as z84 } from "zod";
+var DialectFontV2Schema = z84.object({
+  fontFamily: z84.string(),
+  fontUrl: z84.string().url()
 });
-var DialectV2Schema = z83.object({
+var DialectV2Schema = z84.object({
   uid: DialectUidSchema,
-  name: z83.string(),
+  name: z84.string(),
   font: DialectFontV2Schema,
-  order: z83.number().optional(),
-  spokenByEntitiesUids: z83.array(EntityUidSchema).default([])
+  order: z84.number().optional(),
+  spokenByEntitiesUids: z84.array(EntityUidSchema).default([])
 });
 
 // src/models/entity.v2.schema.ts
-import { z as z84 } from "zod";
-var EntityBaseV2Schema = z84.object({
+import { z as z85 } from "zod";
+var EntityBaseV2Schema = z85.object({
   uid: EntityUidSchema,
-  displayName: z84.string().optional(),
-  description: z84.string().optional(),
-  tagsUid: z84.array(TagUidSchema).default([]),
-  sheetOverrides: z84.record(DatasetUidSchema, SheetUidSchema).optional()
+  displayName: z85.string().optional(),
+  description: z85.string().optional(),
+  tagsUid: z85.array(TagUidSchema).default([]),
+  sheetOverrides: z85.record(DatasetUidSchema, SheetUidSchema).optional()
 }).merge(WithNameV1Schema).merge(WithImagesUrlsV2Schema).merge(WithArchiveV2Schema).merge(WithPagesV2Schema).merge(WithDataV1Schema).merge(WithAssetsV1Schema);
 var CharacterEntityV2Schema = EntityBaseV2Schema.extend({
-  type: z84.literal("character")
+  type: z85.literal("character")
 });
 var CreatureEntityV2Schema = EntityBaseV2Schema.extend({
-  type: z84.literal("creature")
+  type: z85.literal("creature")
 });
 var GroupEntityV2Schema = EntityBaseV2Schema.extend({
-  type: z84.literal("group"),
-  ranks: z84.array(GroupRankV1Schema).default([]),
-  charactersUids: z84.array(EntityUidSchema).default([])
+  type: z85.literal("group"),
+  ranks: z85.array(GroupRankV1Schema).default([]),
+  charactersUids: z85.array(EntityUidSchema).default([])
 });
 var PlaceEntityV2Schema = EntityBaseV2Schema.merge(
   WithScenesV2Schema
-).extend({ type: z84.literal("place") });
+).extend({ type: z85.literal("place") });
 var ItemEntityV2Schema = EntityBaseV2Schema.extend({
-  type: z84.literal("item")
+  type: z85.literal("item")
 });
 var NoteEntityV2Schema = EntityBaseV2Schema.extend({
-  type: z84.literal("note")
+  type: z85.literal("note")
 });
 var AbilityEntityV2Schema = EntityBaseV2Schema.extend({
-  type: z84.literal("ability")
+  type: z85.literal("ability")
 });
 var StoryEntityV2Schema = EntityBaseV2Schema.extend({
-  type: z84.literal("story")
+  type: z85.literal("story")
 });
 var EventEntityV2Schema = EntityBaseV2Schema.extend({
-  type: z84.literal("event")
+  type: z85.literal("event")
 });
-var EntityV2Schema = z84.discriminatedUnion("type", [
+var EntityV2Schema = z85.discriminatedUnion("type", [
   CharacterEntityV2Schema,
   CreatureEntityV2Schema,
   GroupEntityV2Schema,
@@ -1788,133 +1805,106 @@ var EntityV2Schema = z84.discriminatedUnion("type", [
 ]);
 
 // src/models/random-table.v2.schema.ts
-import { z as z85 } from "zod";
-var RandomTableRowV2Schema = z85.object({
+import { z as z86 } from "zod";
+var RandomTableRowV2Schema = z86.object({
   uid: RandomTableRowUidSchema,
-  range: z85.number().default(1),
-  content: z85.string(),
+  range: z86.number().default(1),
+  content: z86.string(),
   randomTableUid: RandomTableUidSchema.optional()
 });
-var RandomTableV2Schema = z85.object({
+var RandomTableV2Schema = z86.object({
   uid: RandomTableUidSchema,
-  title: z85.string(),
-  rows: z85.array(RandomTableRowV2Schema).default([])
+  title: z86.string(),
+  rows: z86.array(RandomTableRowV2Schema).default([])
 });
 
 // src/schemas/bypp.v4.schema.ts
-var ParentAttributionV4Schema = z86.object({
-  bundleName: z86.string().min(1),
-  authorName: z86.string().min(1),
+var ParentAttributionV4Schema = z87.object({
+  bundleName: z87.string().min(1),
+  authorName: z87.string().min(1),
   license: CcLicenseV3Schema,
-  sourceUrl: z86.string().url().optional()
+  sourceUrl: z87.string().url().optional()
 });
-var BeyondPaperV4Schema = z86.object({
+var BeyondPaperV4Schema = z87.object({
   // Format metadata
-  version: z86.literal(4),
-  format: z86.literal("bypp"),
-  // Bundle metadata
-  name: z86.string(),
-  exportedAt: z86.string(),
-  bundleVersion: z86.string(),
-  // Licensing & attribution
-  license: CcLicenseV3Schema,
-  licenseVersion: z86.literal("4.0"),
-  attribution: AttributionV3Schema,
-  parentAttribution: ParentAttributionV4Schema.optional(),
-  creatorLinks: z86.array(z86.string().url()).optional(),
-  // Content — every category defaults to `[]`. Producers may omit any
-  // unused category to cut file size; readers always see a concrete array.
-  dialects: z86.array(DialectV2Schema).default([]),
-  entities: z86.array(EntityV2Schema).default([]),
-  pages: z86.array(PageV1Schema).default([]),
-  chunks: z86.array(ChunkV2Schema).default([]),
-  datasets: z86.array(DatasetV2Schema).default([]),
-  variables: z86.array(VariableV2Schema).default([]),
-  widgets: z86.array(WidgetV1Schema).default([]),
-  sheets: z86.array(SheetV3Schema).default([]),
-  dataTables: z86.array(DataTableV3Schema).default([]),
-  randomTables: z86.array(RandomTableV2Schema).default([]),
-  tags: z86.array(TagV2Schema).default([]),
-  tagCategories: z86.array(TagCategoryV1Schema).default([]),
-  scenes: z86.array(SceneV2Schema).default([]),
-  sceneMaps: z86.array(SceneMapV2Schema).default([]),
-  sceneBackgrounds: z86.array(SceneBackgroundV2Schema).default([]),
-  assets: z86.array(AssetV2Schema).default([])
-});
-
-// src/schemas/bypp.v22.schema.ts
-var BeyondPaperV22Schema = z87.object({
-  // Format metadata
-  version: z87.literal(22),
+  version: z87.literal(4),
   format: z87.literal("bypp"),
   // Bundle metadata
   name: z87.string(),
   exportedAt: z87.string(),
   bundleVersion: z87.string(),
-  // The bundle's cover. Optional: a bundle with no cover simply omits it,
-  // and so does every document produced before v14.
-  image: BundleImageV14Schema.optional(),
   // Licensing & attribution
   license: CcLicenseV3Schema,
   licenseVersion: z87.literal("4.0"),
   attribution: AttributionV3Schema,
   parentAttribution: ParentAttributionV4Schema.optional(),
   creatorLinks: z87.array(z87.string().url()).optional(),
-  // What the document reads but does not carry — items another bundle, linked
-  // alongside, is expected to provide. Empty for a self-contained document.
-  requires: z87.array(RequirementV1Schema).default([]),
   // Content — every category defaults to `[]`. Producers may omit any
   // unused category to cut file size; readers always see a concrete array.
-  dialects: z87.array(DialectV3Schema).default([]),
-  entities: z87.array(EntityV5Schema).default([]),
+  dialects: z87.array(DialectV2Schema).default([]),
+  entities: z87.array(EntityV2Schema).default([]),
   pages: z87.array(PageV1Schema).default([]),
-  chunks: z87.array(ChunkV12Schema).default([]),
+  chunks: z87.array(ChunkV2Schema).default([]),
   datasets: z87.array(DatasetV2Schema).default([]),
-  variables: z87.array(VariableV9Schema).default([]),
-  widgets: z87.array(WidgetV11Schema).default([]),
-  sheets: z87.array(SheetV7Schema).default([]),
+  variables: z87.array(VariableV2Schema).default([]),
+  widgets: z87.array(WidgetV1Schema).default([]),
+  sheets: z87.array(SheetV3Schema).default([]),
   dataTables: z87.array(DataTableV3Schema).default([]),
-  randomTables: z87.array(RandomTableV7Schema).default([]),
-  tags: z87.array(TagV3Schema).default([]),
-  tagCategories: z87.array(TagCategoryV2Schema).default([]),
+  randomTables: z87.array(RandomTableV2Schema).default([]),
+  tags: z87.array(TagV2Schema).default([]),
+  tagCategories: z87.array(TagCategoryV1Schema).default([]),
   scenes: z87.array(SceneV2Schema).default([]),
-  sceneMaps: z87.array(SceneMapV4Schema).default([]),
-  sceneBackgrounds: z87.array(SceneBackgroundV4Schema).default([]),
-  assets: z87.array(AssetV3Schema).default([])
+  sceneMaps: z87.array(SceneMapV2Schema).default([]),
+  sceneBackgrounds: z87.array(SceneBackgroundV2Schema).default([]),
+  assets: z87.array(AssetV2Schema).default([])
 });
 
-// src/schemas/bypp.v1.schema.ts
-import { z as z88 } from "zod";
-var BeyondPaperV1Schema = z88.object({
+// src/schemas/bypp.v23.schema.ts
+var BeyondPaperV23Schema = z88.object({
   // Format metadata
-  version: z88.literal(1),
+  version: z88.literal(23),
   format: z88.literal("bypp"),
   // Bundle metadata
   name: z88.string(),
   exportedAt: z88.string(),
   bundleVersion: z88.string(),
-  // Content
-  dialects: z88.array(DialectV1Schema),
-  entities: z88.array(EntityV1Schema),
-  pages: z88.array(PageV1Schema),
-  chunks: z88.array(ChunkV1Schema),
-  datasets: z88.array(DatasetV1Schema),
-  variables: z88.array(VariableV1Schema),
-  widgets: z88.array(WidgetV1Schema),
-  randomTables: z88.array(RandomTableV1Schema),
-  tags: z88.array(TagV1Schema),
-  tagCategories: z88.array(TagCategoryV1Schema),
-  scenes: z88.array(SceneV1Schema),
-  sceneMaps: z88.array(SceneMapV1Schema),
-  sceneBackgrounds: z88.array(SceneBackgroundV1Schema),
-  assets: z88.array(AssetV1Schema)
+  // The bundle's cover. Optional: a bundle with no cover simply omits it,
+  // and so does every document produced before v14.
+  image: BundleImageV14Schema.optional(),
+  // Licensing & attribution
+  license: CcLicenseV3Schema,
+  licenseVersion: z88.literal("4.0"),
+  attribution: AttributionV3Schema,
+  parentAttribution: ParentAttributionV4Schema.optional(),
+  creatorLinks: z88.array(z88.string().url()).optional(),
+  // What the document reads but does not carry — items another bundle, linked
+  // alongside, is expected to provide. Empty for a self-contained document.
+  requires: z88.array(RequirementV1Schema).default([]),
+  // Content — every category defaults to `[]`. Producers may omit any
+  // unused category to cut file size; readers always see a concrete array.
+  dialects: z88.array(DialectV3Schema).default([]),
+  entities: z88.array(EntityV5Schema).default([]),
+  pages: z88.array(PageV1Schema).default([]),
+  chunks: z88.array(ChunkV12Schema).default([]),
+  datasets: z88.array(DatasetV2Schema).default([]),
+  variables: z88.array(VariableV9Schema).default([]),
+  widgets: z88.array(WidgetV12Schema).default([]),
+  sheets: z88.array(SheetV7Schema).default([]),
+  dataTables: z88.array(DataTableV3Schema).default([]),
+  randomTables: z88.array(RandomTableV7Schema).default([]),
+  tags: z88.array(TagV3Schema).default([]),
+  tagCategories: z88.array(TagCategoryV2Schema).default([]),
+  scenes: z88.array(SceneV2Schema).default([]),
+  sceneMaps: z88.array(SceneMapV4Schema).default([]),
+  sceneBackgrounds: z88.array(SceneBackgroundV4Schema).default([]),
+  assets: z88.array(AssetV3Schema).default([])
 });
 
-// src/schemas/bypp.v2.schema.ts
+// src/schemas/bypp.v1.schema.ts
 import { z as z89 } from "zod";
-var BeyondPaperV2Schema = z89.object({
+var BeyondPaperV1Schema = z89.object({
   // Format metadata
-  version: z89.literal(2),
+  version: z89.literal(1),
   format: z89.literal("bypp"),
   // Bundle metadata
   name: z89.string(),
@@ -1926,10 +1916,8 @@ var BeyondPaperV2Schema = z89.object({
   pages: z89.array(PageV1Schema),
   chunks: z89.array(ChunkV1Schema),
   datasets: z89.array(DatasetV1Schema),
-  variables: z89.array(VariableV2Schema),
+  variables: z89.array(VariableV1Schema),
   widgets: z89.array(WidgetV1Schema),
-  sheets: z89.array(SheetV2Schema),
-  dataTables: z89.array(DataTableV2Schema),
   randomTables: z89.array(RandomTableV1Schema),
   tags: z89.array(TagV1Schema),
   tagCategories: z89.array(TagCategoryV1Schema),
@@ -1939,47 +1927,40 @@ var BeyondPaperV2Schema = z89.object({
   assets: z89.array(AssetV1Schema)
 });
 
-// src/schemas/bypp.v5.schema.ts
+// src/schemas/bypp.v2.schema.ts
 import { z as z90 } from "zod";
-var BeyondPaperV5Schema = z90.object({
+var BeyondPaperV2Schema = z90.object({
   // Format metadata
-  version: z90.literal(5),
+  version: z90.literal(2),
   format: z90.literal("bypp"),
   // Bundle metadata
   name: z90.string(),
   exportedAt: z90.string(),
   bundleVersion: z90.string(),
-  // Licensing & attribution
-  license: CcLicenseV3Schema,
-  licenseVersion: z90.literal("4.0"),
-  attribution: AttributionV3Schema,
-  parentAttribution: ParentAttributionV4Schema.optional(),
-  creatorLinks: z90.array(z90.string().url()).optional(),
-  // Content — every category defaults to `[]`. Producers may omit any
-  // unused category to cut file size; readers always see a concrete array.
-  dialects: z90.array(DialectV2Schema).default([]),
-  entities: z90.array(EntityV2Schema).default([]),
-  pages: z90.array(PageV1Schema).default([]),
-  chunks: z90.array(ChunkV2Schema).default([]),
-  datasets: z90.array(DatasetV2Schema).default([]),
-  variables: z90.array(VariableV5Schema).default([]),
-  widgets: z90.array(WidgetV5Schema).default([]),
-  sheets: z90.array(SheetV3Schema).default([]),
-  dataTables: z90.array(DataTableV3Schema).default([]),
-  randomTables: z90.array(RandomTableV2Schema).default([]),
-  tags: z90.array(TagV2Schema).default([]),
-  tagCategories: z90.array(TagCategoryV1Schema).default([]),
-  scenes: z90.array(SceneV2Schema).default([]),
-  sceneMaps: z90.array(SceneMapV2Schema).default([]),
-  sceneBackgrounds: z90.array(SceneBackgroundV2Schema).default([]),
-  assets: z90.array(AssetV2Schema).default([])
+  // Content
+  dialects: z90.array(DialectV1Schema),
+  entities: z90.array(EntityV1Schema),
+  pages: z90.array(PageV1Schema),
+  chunks: z90.array(ChunkV1Schema),
+  datasets: z90.array(DatasetV1Schema),
+  variables: z90.array(VariableV2Schema),
+  widgets: z90.array(WidgetV1Schema),
+  sheets: z90.array(SheetV2Schema),
+  dataTables: z90.array(DataTableV2Schema),
+  randomTables: z90.array(RandomTableV1Schema),
+  tags: z90.array(TagV1Schema),
+  tagCategories: z90.array(TagCategoryV1Schema),
+  scenes: z90.array(SceneV1Schema),
+  sceneMaps: z90.array(SceneMapV1Schema),
+  sceneBackgrounds: z90.array(SceneBackgroundV1Schema),
+  assets: z90.array(AssetV1Schema)
 });
 
-// src/schemas/bypp.v6.schema.ts
+// src/schemas/bypp.v5.schema.ts
 import { z as z91 } from "zod";
-var BeyondPaperV6Schema = z91.object({
+var BeyondPaperV5Schema = z91.object({
   // Format metadata
-  version: z91.literal(6),
+  version: z91.literal(5),
   format: z91.literal("bypp"),
   // Bundle metadata
   name: z91.string(),
@@ -1998,7 +1979,7 @@ var BeyondPaperV6Schema = z91.object({
   pages: z91.array(PageV1Schema).default([]),
   chunks: z91.array(ChunkV2Schema).default([]),
   datasets: z91.array(DatasetV2Schema).default([]),
-  variables: z91.array(VariableV6Schema).default([]),
+  variables: z91.array(VariableV5Schema).default([]),
   widgets: z91.array(WidgetV5Schema).default([]),
   sheets: z91.array(SheetV3Schema).default([]),
   dataTables: z91.array(DataTableV3Schema).default([]),
@@ -2011,11 +1992,11 @@ var BeyondPaperV6Schema = z91.object({
   assets: z91.array(AssetV2Schema).default([])
 });
 
-// src/schemas/bypp.v7.schema.ts
+// src/schemas/bypp.v6.schema.ts
 import { z as z92 } from "zod";
-var BeyondPaperV7Schema = z92.object({
+var BeyondPaperV6Schema = z92.object({
   // Format metadata
-  version: z92.literal(7),
+  version: z92.literal(6),
   format: z92.literal("bypp"),
   // Bundle metadata
   name: z92.string(),
@@ -2038,7 +2019,7 @@ var BeyondPaperV7Schema = z92.object({
   widgets: z92.array(WidgetV5Schema).default([]),
   sheets: z92.array(SheetV3Schema).default([]),
   dataTables: z92.array(DataTableV3Schema).default([]),
-  randomTables: z92.array(RandomTableV7Schema).default([]),
+  randomTables: z92.array(RandomTableV2Schema).default([]),
   tags: z92.array(TagV2Schema).default([]),
   tagCategories: z92.array(TagCategoryV1Schema).default([]),
   scenes: z92.array(SceneV2Schema).default([]),
@@ -2047,11 +2028,11 @@ var BeyondPaperV7Schema = z92.object({
   assets: z92.array(AssetV2Schema).default([])
 });
 
-// src/schemas/bypp.v8.schema.ts
+// src/schemas/bypp.v7.schema.ts
 import { z as z93 } from "zod";
-var BeyondPaperV8Schema = z93.object({
+var BeyondPaperV7Schema = z93.object({
   // Format metadata
-  version: z93.literal(8),
+  version: z93.literal(7),
   format: z93.literal("bypp"),
   // Bundle metadata
   name: z93.string(),
@@ -2071,8 +2052,8 @@ var BeyondPaperV8Schema = z93.object({
   chunks: z93.array(ChunkV2Schema).default([]),
   datasets: z93.array(DatasetV2Schema).default([]),
   variables: z93.array(VariableV6Schema).default([]),
-  widgets: z93.array(WidgetV6Schema).default([]),
-  sheets: z93.array(SheetV4Schema).default([]),
+  widgets: z93.array(WidgetV5Schema).default([]),
+  sheets: z93.array(SheetV3Schema).default([]),
   dataTables: z93.array(DataTableV3Schema).default([]),
   randomTables: z93.array(RandomTableV7Schema).default([]),
   tags: z93.array(TagV2Schema).default([]),
@@ -2083,11 +2064,11 @@ var BeyondPaperV8Schema = z93.object({
   assets: z93.array(AssetV2Schema).default([])
 });
 
-// src/schemas/bypp.v9.schema.ts
+// src/schemas/bypp.v8.schema.ts
 import { z as z94 } from "zod";
-var BeyondPaperV9Schema = z94.object({
+var BeyondPaperV8Schema = z94.object({
   // Format metadata
-  version: z94.literal(9),
+  version: z94.literal(8),
   format: z94.literal("bypp"),
   // Bundle metadata
   name: z94.string(),
@@ -2106,9 +2087,9 @@ var BeyondPaperV9Schema = z94.object({
   pages: z94.array(PageV1Schema).default([]),
   chunks: z94.array(ChunkV2Schema).default([]),
   datasets: z94.array(DatasetV2Schema).default([]),
-  variables: z94.array(VariableV7Schema).default([]),
-  widgets: z94.array(WidgetV7Schema).default([]),
-  sheets: z94.array(SheetV5Schema).default([]),
+  variables: z94.array(VariableV6Schema).default([]),
+  widgets: z94.array(WidgetV6Schema).default([]),
+  sheets: z94.array(SheetV4Schema).default([]),
   dataTables: z94.array(DataTableV3Schema).default([]),
   randomTables: z94.array(RandomTableV7Schema).default([]),
   tags: z94.array(TagV2Schema).default([]),
@@ -2119,11 +2100,11 @@ var BeyondPaperV9Schema = z94.object({
   assets: z94.array(AssetV2Schema).default([])
 });
 
-// src/schemas/bypp.v10.schema.ts
+// src/schemas/bypp.v9.schema.ts
 import { z as z95 } from "zod";
-var BeyondPaperV10Schema = z95.object({
+var BeyondPaperV9Schema = z95.object({
   // Format metadata
-  version: z95.literal(10),
+  version: z95.literal(9),
   format: z95.literal("bypp"),
   // Bundle metadata
   name: z95.string(),
@@ -2138,28 +2119,28 @@ var BeyondPaperV10Schema = z95.object({
   // Content — every category defaults to `[]`. Producers may omit any
   // unused category to cut file size; readers always see a concrete array.
   dialects: z95.array(DialectV2Schema).default([]),
-  entities: z95.array(EntityV3Schema).default([]),
+  entities: z95.array(EntityV2Schema).default([]),
   pages: z95.array(PageV1Schema).default([]),
   chunks: z95.array(ChunkV2Schema).default([]),
   datasets: z95.array(DatasetV2Schema).default([]),
   variables: z95.array(VariableV7Schema).default([]),
   widgets: z95.array(WidgetV7Schema).default([]),
-  sheets: z95.array(SheetV6Schema).default([]),
+  sheets: z95.array(SheetV5Schema).default([]),
   dataTables: z95.array(DataTableV3Schema).default([]),
   randomTables: z95.array(RandomTableV7Schema).default([]),
   tags: z95.array(TagV2Schema).default([]),
   tagCategories: z95.array(TagCategoryV1Schema).default([]),
   scenes: z95.array(SceneV2Schema).default([]),
-  sceneMaps: z95.array(SceneMapV3Schema).default([]),
-  sceneBackgrounds: z95.array(SceneBackgroundV3Schema).default([]),
+  sceneMaps: z95.array(SceneMapV2Schema).default([]),
+  sceneBackgrounds: z95.array(SceneBackgroundV2Schema).default([]),
   assets: z95.array(AssetV2Schema).default([])
 });
 
-// src/schemas/bypp.v11.schema.ts
+// src/schemas/bypp.v10.schema.ts
 import { z as z96 } from "zod";
-var BeyondPaperV11Schema = z96.object({
+var BeyondPaperV10Schema = z96.object({
   // Format metadata
-  version: z96.literal(11),
+  version: z96.literal(10),
   format: z96.literal("bypp"),
   // Bundle metadata
   name: z96.string(),
@@ -2176,7 +2157,7 @@ var BeyondPaperV11Schema = z96.object({
   dialects: z96.array(DialectV2Schema).default([]),
   entities: z96.array(EntityV3Schema).default([]),
   pages: z96.array(PageV1Schema).default([]),
-  chunks: z96.array(ChunkV11Schema).default([]),
+  chunks: z96.array(ChunkV2Schema).default([]),
   datasets: z96.array(DatasetV2Schema).default([]),
   variables: z96.array(VariableV7Schema).default([]),
   widgets: z96.array(WidgetV7Schema).default([]),
@@ -2191,11 +2172,11 @@ var BeyondPaperV11Schema = z96.object({
   assets: z96.array(AssetV2Schema).default([])
 });
 
-// src/schemas/bypp.v12.schema.ts
+// src/schemas/bypp.v11.schema.ts
 import { z as z97 } from "zod";
-var BeyondPaperV12Schema = z97.object({
+var BeyondPaperV11Schema = z97.object({
   // Format metadata
-  version: z97.literal(12),
+  version: z97.literal(11),
   format: z97.literal("bypp"),
   // Bundle metadata
   name: z97.string(),
@@ -2215,7 +2196,7 @@ var BeyondPaperV12Schema = z97.object({
   chunks: z97.array(ChunkV11Schema).default([]),
   datasets: z97.array(DatasetV2Schema).default([]),
   variables: z97.array(VariableV7Schema).default([]),
-  widgets: z97.array(WidgetV8Schema).default([]),
+  widgets: z97.array(WidgetV7Schema).default([]),
   sheets: z97.array(SheetV6Schema).default([]),
   dataTables: z97.array(DataTableV3Schema).default([]),
   randomTables: z97.array(RandomTableV7Schema).default([]),
@@ -2227,11 +2208,11 @@ var BeyondPaperV12Schema = z97.object({
   assets: z97.array(AssetV2Schema).default([])
 });
 
-// src/schemas/bypp.v13.schema.ts
+// src/schemas/bypp.v12.schema.ts
 import { z as z98 } from "zod";
-var BeyondPaperV13Schema = z98.object({
+var BeyondPaperV12Schema = z98.object({
   // Format metadata
-  version: z98.literal(13),
+  version: z98.literal(12),
   format: z98.literal("bypp"),
   // Bundle metadata
   name: z98.string(),
@@ -2246,36 +2227,33 @@ var BeyondPaperV13Schema = z98.object({
   // Content — every category defaults to `[]`. Producers may omit any
   // unused category to cut file size; readers always see a concrete array.
   dialects: z98.array(DialectV2Schema).default([]),
-  entities: z98.array(EntityV4Schema).default([]),
+  entities: z98.array(EntityV3Schema).default([]),
   pages: z98.array(PageV1Schema).default([]),
   chunks: z98.array(ChunkV11Schema).default([]),
   datasets: z98.array(DatasetV2Schema).default([]),
   variables: z98.array(VariableV7Schema).default([]),
-  widgets: z98.array(WidgetV9Schema).default([]),
-  sheets: z98.array(SheetV7Schema).default([]),
+  widgets: z98.array(WidgetV8Schema).default([]),
+  sheets: z98.array(SheetV6Schema).default([]),
   dataTables: z98.array(DataTableV3Schema).default([]),
   randomTables: z98.array(RandomTableV7Schema).default([]),
   tags: z98.array(TagV2Schema).default([]),
   tagCategories: z98.array(TagCategoryV1Schema).default([]),
   scenes: z98.array(SceneV2Schema).default([]),
-  sceneMaps: z98.array(SceneMapV4Schema).default([]),
-  sceneBackgrounds: z98.array(SceneBackgroundV4Schema).default([]),
-  assets: z98.array(AssetV3Schema).default([])
+  sceneMaps: z98.array(SceneMapV3Schema).default([]),
+  sceneBackgrounds: z98.array(SceneBackgroundV3Schema).default([]),
+  assets: z98.array(AssetV2Schema).default([])
 });
 
-// src/schemas/bypp.v14.schema.ts
+// src/schemas/bypp.v13.schema.ts
 import { z as z99 } from "zod";
-var BeyondPaperV14Schema = z99.object({
+var BeyondPaperV13Schema = z99.object({
   // Format metadata
-  version: z99.literal(14),
+  version: z99.literal(13),
   format: z99.literal("bypp"),
   // Bundle metadata
   name: z99.string(),
   exportedAt: z99.string(),
   bundleVersion: z99.string(),
-  // The bundle's cover. Optional: a bundle with no cover simply omits it,
-  // and so does every document produced before v14.
-  image: BundleImageV14Schema.optional(),
   // Licensing & attribution
   license: CcLicenseV3Schema,
   licenseVersion: z99.literal("4.0"),
@@ -2302,11 +2280,11 @@ var BeyondPaperV14Schema = z99.object({
   assets: z99.array(AssetV3Schema).default([])
 });
 
-// src/schemas/bypp.v15.schema.ts
+// src/schemas/bypp.v14.schema.ts
 import { z as z100 } from "zod";
-var BeyondPaperV15Schema = z100.object({
+var BeyondPaperV14Schema = z100.object({
   // Format metadata
-  version: z100.literal(15),
+  version: z100.literal(14),
   format: z100.literal("bypp"),
   // Bundle metadata
   name: z100.string(),
@@ -2323,7 +2301,7 @@ var BeyondPaperV15Schema = z100.object({
   creatorLinks: z100.array(z100.string().url()).optional(),
   // Content — every category defaults to `[]`. Producers may omit any
   // unused category to cut file size; readers always see a concrete array.
-  dialects: z100.array(DialectV3Schema).default([]),
+  dialects: z100.array(DialectV2Schema).default([]),
   entities: z100.array(EntityV4Schema).default([]),
   pages: z100.array(PageV1Schema).default([]),
   chunks: z100.array(ChunkV11Schema).default([]),
@@ -2341,11 +2319,11 @@ var BeyondPaperV15Schema = z100.object({
   assets: z100.array(AssetV3Schema).default([])
 });
 
-// src/schemas/bypp.v16.schema.ts
+// src/schemas/bypp.v15.schema.ts
 import { z as z101 } from "zod";
-var BeyondPaperV16Schema = z101.object({
+var BeyondPaperV15Schema = z101.object({
   // Format metadata
-  version: z101.literal(16),
+  version: z101.literal(15),
   format: z101.literal("bypp"),
   // Bundle metadata
   name: z101.string(),
@@ -2367,7 +2345,7 @@ var BeyondPaperV16Schema = z101.object({
   pages: z101.array(PageV1Schema).default([]),
   chunks: z101.array(ChunkV11Schema).default([]),
   datasets: z101.array(DatasetV2Schema).default([]),
-  variables: z101.array(VariableV8Schema).default([]),
+  variables: z101.array(VariableV7Schema).default([]),
   widgets: z101.array(WidgetV9Schema).default([]),
   sheets: z101.array(SheetV7Schema).default([]),
   dataTables: z101.array(DataTableV3Schema).default([]),
@@ -2380,11 +2358,11 @@ var BeyondPaperV16Schema = z101.object({
   assets: z101.array(AssetV3Schema).default([])
 });
 
-// src/schemas/bypp.v17.schema.ts
+// src/schemas/bypp.v16.schema.ts
 import { z as z102 } from "zod";
-var BeyondPaperV17Schema = z102.object({
+var BeyondPaperV16Schema = z102.object({
   // Format metadata
-  version: z102.literal(17),
+  version: z102.literal(16),
   format: z102.literal("bypp"),
   // Bundle metadata
   name: z102.string(),
@@ -2411,19 +2389,19 @@ var BeyondPaperV17Schema = z102.object({
   sheets: z102.array(SheetV7Schema).default([]),
   dataTables: z102.array(DataTableV3Schema).default([]),
   randomTables: z102.array(RandomTableV7Schema).default([]),
-  tags: z102.array(TagV3Schema).default([]),
-  tagCategories: z102.array(TagCategoryV2Schema).default([]),
+  tags: z102.array(TagV2Schema).default([]),
+  tagCategories: z102.array(TagCategoryV1Schema).default([]),
   scenes: z102.array(SceneV2Schema).default([]),
   sceneMaps: z102.array(SceneMapV4Schema).default([]),
   sceneBackgrounds: z102.array(SceneBackgroundV4Schema).default([]),
   assets: z102.array(AssetV3Schema).default([])
 });
 
-// src/schemas/bypp.v18.schema.ts
+// src/schemas/bypp.v17.schema.ts
 import { z as z103 } from "zod";
-var BeyondPaperV18Schema = z103.object({
+var BeyondPaperV17Schema = z103.object({
   // Format metadata
-  version: z103.literal(18),
+  version: z103.literal(17),
   format: z103.literal("bypp"),
   // Bundle metadata
   name: z103.string(),
@@ -2438,9 +2416,6 @@ var BeyondPaperV18Schema = z103.object({
   attribution: AttributionV3Schema,
   parentAttribution: ParentAttributionV4Schema.optional(),
   creatorLinks: z103.array(z103.string().url()).optional(),
-  // What the document reads but does not carry — items another bundle, linked
-  // alongside, is expected to provide. Empty for a self-contained document.
-  requires: z103.array(RequirementV1Schema).default([]),
   // Content — every category defaults to `[]`. Producers may omit any
   // unused category to cut file size; readers always see a concrete array.
   dialects: z103.array(DialectV3Schema).default([]),
@@ -2461,11 +2436,11 @@ var BeyondPaperV18Schema = z103.object({
   assets: z103.array(AssetV3Schema).default([])
 });
 
-// src/schemas/bypp.v19.schema.ts
+// src/schemas/bypp.v18.schema.ts
 import { z as z104 } from "zod";
-var BeyondPaperV19Schema = z104.object({
+var BeyondPaperV18Schema = z104.object({
   // Format metadata
-  version: z104.literal(19),
+  version: z104.literal(18),
   format: z104.literal("bypp"),
   // Bundle metadata
   name: z104.string(),
@@ -2490,8 +2465,8 @@ var BeyondPaperV19Schema = z104.object({
   pages: z104.array(PageV1Schema).default([]),
   chunks: z104.array(ChunkV11Schema).default([]),
   datasets: z104.array(DatasetV2Schema).default([]),
-  variables: z104.array(VariableV9Schema).default([]),
-  widgets: z104.array(WidgetV10Schema).default([]),
+  variables: z104.array(VariableV8Schema).default([]),
+  widgets: z104.array(WidgetV9Schema).default([]),
   sheets: z104.array(SheetV7Schema).default([]),
   dataTables: z104.array(DataTableV3Schema).default([]),
   randomTables: z104.array(RandomTableV7Schema).default([]),
@@ -2503,11 +2478,11 @@ var BeyondPaperV19Schema = z104.object({
   assets: z104.array(AssetV3Schema).default([])
 });
 
-// src/schemas/bypp.v20.schema.ts
+// src/schemas/bypp.v19.schema.ts
 import { z as z105 } from "zod";
-var BeyondPaperV20Schema = z105.object({
+var BeyondPaperV19Schema = z105.object({
   // Format metadata
-  version: z105.literal(20),
+  version: z105.literal(19),
   format: z105.literal("bypp"),
   // Bundle metadata
   name: z105.string(),
@@ -2528,7 +2503,7 @@ var BeyondPaperV20Schema = z105.object({
   // Content — every category defaults to `[]`. Producers may omit any
   // unused category to cut file size; readers always see a concrete array.
   dialects: z105.array(DialectV3Schema).default([]),
-  entities: z105.array(EntityV5Schema).default([]),
+  entities: z105.array(EntityV4Schema).default([]),
   pages: z105.array(PageV1Schema).default([]),
   chunks: z105.array(ChunkV11Schema).default([]),
   datasets: z105.array(DatasetV2Schema).default([]),
@@ -2545,11 +2520,11 @@ var BeyondPaperV20Schema = z105.object({
   assets: z105.array(AssetV3Schema).default([])
 });
 
-// src/schemas/bypp.v21.schema.ts
+// src/schemas/bypp.v20.schema.ts
 import { z as z106 } from "zod";
-var BeyondPaperV21Schema = z106.object({
+var BeyondPaperV20Schema = z106.object({
   // Format metadata
-  version: z106.literal(21),
+  version: z106.literal(20),
   format: z106.literal("bypp"),
   // Bundle metadata
   name: z106.string(),
@@ -2572,7 +2547,7 @@ var BeyondPaperV21Schema = z106.object({
   dialects: z106.array(DialectV3Schema).default([]),
   entities: z106.array(EntityV5Schema).default([]),
   pages: z106.array(PageV1Schema).default([]),
-  chunks: z106.array(ChunkV12Schema).default([]),
+  chunks: z106.array(ChunkV11Schema).default([]),
   datasets: z106.array(DatasetV2Schema).default([]),
   variables: z106.array(VariableV9Schema).default([]),
   widgets: z106.array(WidgetV10Schema).default([]),
@@ -2585,6 +2560,109 @@ var BeyondPaperV21Schema = z106.object({
   sceneMaps: z106.array(SceneMapV4Schema).default([]),
   sceneBackgrounds: z106.array(SceneBackgroundV4Schema).default([]),
   assets: z106.array(AssetV3Schema).default([])
+});
+
+// src/schemas/bypp.v21.schema.ts
+import { z as z107 } from "zod";
+var BeyondPaperV21Schema = z107.object({
+  // Format metadata
+  version: z107.literal(21),
+  format: z107.literal("bypp"),
+  // Bundle metadata
+  name: z107.string(),
+  exportedAt: z107.string(),
+  bundleVersion: z107.string(),
+  // The bundle's cover. Optional: a bundle with no cover simply omits it,
+  // and so does every document produced before v14.
+  image: BundleImageV14Schema.optional(),
+  // Licensing & attribution
+  license: CcLicenseV3Schema,
+  licenseVersion: z107.literal("4.0"),
+  attribution: AttributionV3Schema,
+  parentAttribution: ParentAttributionV4Schema.optional(),
+  creatorLinks: z107.array(z107.string().url()).optional(),
+  // What the document reads but does not carry — items another bundle, linked
+  // alongside, is expected to provide. Empty for a self-contained document.
+  requires: z107.array(RequirementV1Schema).default([]),
+  // Content — every category defaults to `[]`. Producers may omit any
+  // unused category to cut file size; readers always see a concrete array.
+  dialects: z107.array(DialectV3Schema).default([]),
+  entities: z107.array(EntityV5Schema).default([]),
+  pages: z107.array(PageV1Schema).default([]),
+  chunks: z107.array(ChunkV12Schema).default([]),
+  datasets: z107.array(DatasetV2Schema).default([]),
+  variables: z107.array(VariableV9Schema).default([]),
+  widgets: z107.array(WidgetV10Schema).default([]),
+  sheets: z107.array(SheetV7Schema).default([]),
+  dataTables: z107.array(DataTableV3Schema).default([]),
+  randomTables: z107.array(RandomTableV7Schema).default([]),
+  tags: z107.array(TagV3Schema).default([]),
+  tagCategories: z107.array(TagCategoryV2Schema).default([]),
+  scenes: z107.array(SceneV2Schema).default([]),
+  sceneMaps: z107.array(SceneMapV4Schema).default([]),
+  sceneBackgrounds: z107.array(SceneBackgroundV4Schema).default([]),
+  assets: z107.array(AssetV3Schema).default([])
+});
+
+// src/schemas/bypp.v22.schema.ts
+import { z as z109 } from "zod";
+
+// src/models/widget.v11.schema.ts
+import { z as z108 } from "zod";
+var WidgetV11Schema = z108.discriminatedUnion("type", [
+  WidgetEmptyV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetBigNumberV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetPlainTextV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetToggleV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetBulletListV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetInlineListV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetPipsV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetBarV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetEntityImageV6Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetWheelV7Schema.merge(WithStyleV4Schema).merge(WithWidgetActionsV8Schema).merge(WithCreditV1Schema),
+  WidgetActionRollV9Schema.merge(WithStyleV4Schema),
+  WidgetEntityGridV10Schema.merge(WithStyleV4Schema)
+]);
+
+// src/schemas/bypp.v22.schema.ts
+var BeyondPaperV22Schema = z109.object({
+  // Format metadata
+  version: z109.literal(22),
+  format: z109.literal("bypp"),
+  // Bundle metadata
+  name: z109.string(),
+  exportedAt: z109.string(),
+  bundleVersion: z109.string(),
+  // The bundle's cover. Optional: a bundle with no cover simply omits it,
+  // and so does every document produced before v14.
+  image: BundleImageV14Schema.optional(),
+  // Licensing & attribution
+  license: CcLicenseV3Schema,
+  licenseVersion: z109.literal("4.0"),
+  attribution: AttributionV3Schema,
+  parentAttribution: ParentAttributionV4Schema.optional(),
+  creatorLinks: z109.array(z109.string().url()).optional(),
+  // What the document reads but does not carry — items another bundle, linked
+  // alongside, is expected to provide. Empty for a self-contained document.
+  requires: z109.array(RequirementV1Schema).default([]),
+  // Content — every category defaults to `[]`. Producers may omit any
+  // unused category to cut file size; readers always see a concrete array.
+  dialects: z109.array(DialectV3Schema).default([]),
+  entities: z109.array(EntityV5Schema).default([]),
+  pages: z109.array(PageV1Schema).default([]),
+  chunks: z109.array(ChunkV12Schema).default([]),
+  datasets: z109.array(DatasetV2Schema).default([]),
+  variables: z109.array(VariableV9Schema).default([]),
+  widgets: z109.array(WidgetV11Schema).default([]),
+  sheets: z109.array(SheetV7Schema).default([]),
+  dataTables: z109.array(DataTableV3Schema).default([]),
+  randomTables: z109.array(RandomTableV7Schema).default([]),
+  tags: z109.array(TagV3Schema).default([]),
+  tagCategories: z109.array(TagCategoryV2Schema).default([]),
+  scenes: z109.array(SceneV2Schema).default([]),
+  sceneMaps: z109.array(SceneMapV4Schema).default([]),
+  sceneBackgrounds: z109.array(SceneBackgroundV4Schema).default([]),
+  assets: z109.array(AssetV3Schema).default([])
 });
 
 // src/v13.ts

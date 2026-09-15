@@ -106,6 +106,10 @@ export {
   BeyondPaperV22Schema,
   type BeyondPaperV22,
 } from "./schemas/bypp.v22.schema";
+export {
+  BeyondPaperV23Schema,
+  type BeyondPaperV23,
+} from "./schemas/bypp.v23.schema";
 
 // v18: what a document reads but does not carry.
 export {
@@ -238,6 +242,11 @@ export {
   StyleV4Schema,
   type StyleV4,
 } from "./mixins/with-style.v4.schema";
+export {
+  WithStyleV5Schema,
+  StyleV5Schema,
+  type StyleV5,
+} from "./mixins/with-style.v5.schema";
 export {
   WithVideoUrlsV1Schema,
   ImageDimensionsV1Schema,
@@ -870,6 +879,10 @@ export {
 // `fontWeight` and `fontStyle`.
 export { WidgetV11Schema, type WidgetV11 } from "./models/widget.v11.schema";
 
+// Models (v12) — the v11 union carrying the v5 style, which adds margins, a
+// background colour and a text decoration.
+export { WidgetV12Schema, type WidgetV12 } from "./models/widget.v12.schema";
+
 // ─── Current aliases ────────────────────────────────────────────────
 // These re-export the latest version of each sub-schema as the plain
 // `XSchema` / `type X` consumers expect when they don't care about a
@@ -1158,9 +1171,9 @@ export {
 // itself is the v10 one, so the `entityGrid` variant alias stays there, as do
 // the action roll (v9) and entity-image (v6) ones.
 export {
-  WidgetV11Schema as WidgetSchema,
-  type WidgetV11 as Widget,
-} from "./models/widget.v11.schema";
+  WidgetV12Schema as WidgetSchema,
+  type WidgetV12 as Widget,
+} from "./models/widget.v12.schema";
 export {
   WidgetEntityGridV10Schema as WidgetEntityGridSchema,
   type WidgetEntityGridV10 as WidgetEntityGrid,
@@ -1262,12 +1275,13 @@ export {
   type WidgetBackgroundV6 as WidgetBackground,
   type ObjectFitV6 as ObjectFit,
 } from "./mixins/with-style.v2.schema";
-// Current style aliases point at v4 — v4 adds `fontWeight` and `fontStyle`.
+// Current style aliases point at v5 — v5 adds margins, a background colour
+// and a text decoration.
 export {
-  WithStyleV4Schema as WithStyleSchema,
-  StyleV4Schema as StyleSchema,
-  type StyleV4 as Style,
-} from "./mixins/with-style.v4.schema";
+  WithStyleV5Schema as WithStyleSchema,
+  StyleV5Schema as StyleSchema,
+  type StyleV5 as Style,
+} from "./mixins/with-style.v5.schema";
 export {
   WithCreditV1Schema as WithCreditSchema,
   CreditV1Schema as CreditSchema,
