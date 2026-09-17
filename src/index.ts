@@ -110,6 +110,10 @@ export {
   BeyondPaperV23Schema,
   type BeyondPaperV23,
 } from "./schemas/bypp.v23.schema";
+export {
+  BeyondPaperV24Schema,
+  type BeyondPaperV24,
+} from "./schemas/bypp.v24.schema";
 
 // v18: what a document reads but does not carry.
 export {
@@ -247,6 +251,13 @@ export {
   StyleV5Schema,
   type StyleV5,
 } from "./mixins/with-style.v5.schema";
+export {
+  WithStyleV6Schema,
+  StyleV6Schema,
+  SidesV6Schema,
+  type StyleV6,
+  type SidesV6,
+} from "./mixins/with-style.v6.schema";
 export {
   WithVideoUrlsV1Schema,
   ImageDimensionsV1Schema,
@@ -883,6 +894,10 @@ export { WidgetV11Schema, type WidgetV11 } from "./models/widget.v11.schema";
 // background colour and a text decoration.
 export { WidgetV12Schema, type WidgetV12 } from "./models/widget.v12.schema";
 
+// Models (v13) — the v11 union carrying the v6 style, which writes a spacing
+// per side in one field.
+export { WidgetV13Schema, type WidgetV13 } from "./models/widget.v13.schema";
+
 // ─── Current aliases ────────────────────────────────────────────────
 // These re-export the latest version of each sub-schema as the plain
 // `XSchema` / `type X` consumers expect when they don't care about a
@@ -1171,9 +1186,9 @@ export {
 // itself is the v10 one, so the `entityGrid` variant alias stays there, as do
 // the action roll (v9) and entity-image (v6) ones.
 export {
-  WidgetV12Schema as WidgetSchema,
-  type WidgetV12 as Widget,
-} from "./models/widget.v12.schema";
+  WidgetV13Schema as WidgetSchema,
+  type WidgetV13 as Widget,
+} from "./models/widget.v13.schema";
 export {
   WidgetEntityGridV10Schema as WidgetEntityGridSchema,
   type WidgetEntityGridV10 as WidgetEntityGrid,
@@ -1275,13 +1290,15 @@ export {
   type WidgetBackgroundV6 as WidgetBackground,
   type ObjectFitV6 as ObjectFit,
 } from "./mixins/with-style.v2.schema";
-// Current style aliases point at v5 — v5 adds margins, a background colour
-// and a text decoration.
+// Current style aliases point at v6 — v6 writes a spacing per side in one
+// field, in the CSS shorthand.
 export {
-  WithStyleV5Schema as WithStyleSchema,
-  StyleV5Schema as StyleSchema,
-  type StyleV5 as Style,
-} from "./mixins/with-style.v5.schema";
+  WithStyleV6Schema as WithStyleSchema,
+  StyleV6Schema as StyleSchema,
+  SidesV6Schema as SidesSchema,
+  type StyleV6 as Style,
+  type SidesV6 as Sides,
+} from "./mixins/with-style.v6.schema";
 export {
   WithCreditV1Schema as WithCreditSchema,
   CreditV1Schema as CreditSchema,
@@ -1319,7 +1336,7 @@ export type { ChunkRandomV2 as ByppChunkRandom } from "./models/chunk.v2.schema"
 export type { DatasetV2 as ByppDataset } from "./models/dataset.v2.schema";
 export type { VariableV9 as ByppVariable } from "./models/variable.v9.schema";
 export type { VariableBaseV8 as ByppVariableBase } from "./models/variable.v8.schema";
-export type { WidgetV10 as ByppWidget } from "./models/widget.v10.schema";
+export type { WidgetV13 as ByppWidget } from "./models/widget.v13.schema";
 export type { WidgetBaseV1 as ByppWidgetBase } from "./models/widget.v1.schema";
 export type { RandomTableV7 as ByppRandomTable } from "./models/random-table.v7.schema";
 export type { RandomTableRowV7 as ByppRandomTableRow } from "./models/random-table.v7.schema";

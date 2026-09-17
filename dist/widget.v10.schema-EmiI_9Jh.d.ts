@@ -1,4 +1,4 @@
-import { V as VariableUid, a as DatasetUid, b as VariableChoiceUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid, T as TagUid, W as WidgetUid, A as AssetUid } from './data-table.v3.schema-SKJA8p4m.cjs';
+import { V as VariableUid, a as DatasetUid, b as VariableChoiceUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid, T as TagUid, W as WidgetUid, A as AssetUid } from './data-table.v3.schema-SKJA8p4m.js';
 import { z } from 'zod';
 
 declare const EntityRefVariableV9Schema: z.ZodObject<{
@@ -3667,4 +3667,4 @@ declare const WidgetV10Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
 }>]>;
 type WidgetV10 = z.infer<typeof WidgetV10Schema>;
 
-export { type EntityLookupVariableV9 as E, type VariableV9 as V, type WidgetV10 as W, EntityLookupVariableV9Schema as a, type EntityRefVariableV9 as b, EntityRefVariableV9Schema as c, VariableV9Schema as d, type WidgetEntityGridV10 as e, WidgetEntityGridV10Schema as f, WidgetV10Schema as g };
+export { type EntityLookupVariableV9 as E, type VariableV9 as V, type WidgetEntityGridV10 as W, EntityLookupVariableV9Schema as a, type EntityRefVariableV9 as b, EntityRefVariableV9Schema as c, VariableV9Schema as d, WidgetEntityGridV10Schema as e, type WidgetV10 as f, WidgetV10Schema as g };

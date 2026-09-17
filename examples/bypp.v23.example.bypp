@@ -360,7 +360,7 @@
         "11st8AJbF7Kb1AOtY5wf": "9tVh565gE8TxWqY3XKu5",
         "aJ4FjGqm87Bo1wdw5sWS": true,
         "zBaq6x6llDj1YUsFuMlG": 10,
-        "YBPwCWw2GyBOOkjnmBQS": "qsdqsdqsdqsdqsdazeazeqsd.\u00a0",
+        "YBPwCWw2GyBOOkjnmBQS": "qsdqsdqsdqsdqsdazeazeqsd. ",
         "MqJlCigqTdgt34gIliuL": 0,
         "qepyLBpOzxpCGYhkFcU5": "Smith's tools",
         "jKCjUC4X9wQjPEpKiqym": "Coucou Voila\nEt aussi",
@@ -749,132 +749,132 @@
       "options": [
         {
           "uid": "9F56-fJEI-RCFi-4LSs",
-          "label": "\u200e\u200e\u200e\u200e\u200e\u200e\u200e\u200e\u200e\u200e\u200e\ud802\udd1b",
+          "label": "‎‎‎‎‎‎‎‎‎‎‎𐤛",
           "icon": "face-hand-over-mouth"
         },
         {
           "uid": "OJ09-qvNN-gURW-IRG8",
-          "label": "\ud802\udd00",
+          "label": "𐤀",
           "icon": "face-smile-upside-down"
         },
         {
           "uid": "4qv3-hpIw-s2dz-y36a",
-          "label": "\ud802\udd01",
+          "label": "𐤁",
           "icon": "chess-rook-piece"
         },
         {
           "uid": "H4p1-nWpF-zMKZ-ZpA7",
-          "label": "\ud802\udd02",
+          "label": "𐤂",
           "icon": "dice-d8"
         },
         {
           "uid": "IZiz-K6cT-PMT7-ZBf4",
-          "label": "\ud802\udd03",
+          "label": "𐤃",
           "icon": "card-diamond"
         },
         {
           "uid": "Mx3D-f2KJ-g2bF-dN9I",
-          "label": "\ud802\udd04",
+          "label": "𐤄",
           "icon": "face-shush"
         },
         {
           "uid": "orjL-7Oiw-VsgK-W7wf",
-          "label": "\ud802\udd05",
+          "label": "𐤅",
           "icon": "shield-halved"
         },
         {
           "uid": "bwLZ-UvOz-snSu-aIUI",
-          "label": "\ud802\udd06",
+          "label": "𐤆",
           "icon": "rabbit"
         },
         {
           "uid": "DkUV-3EtY-Dx17-D7DW",
-          "label": "\ud802\udd07",
+          "label": "𐤇",
           "icon": "acorn"
         },
         {
           "uid": "PpAZ-FkLe-CXpH-LNVw",
-          "label": "\ud802\udd08",
+          "label": "𐤈",
           "icon": "dice-d12"
         },
         {
           "uid": "Wkuq-aRJW-hq2G-l0mz",
-          "label": "\ud802\udd09",
+          "label": "𐤉",
           "icon": "ribbon"
         },
         {
           "uid": "qHjR-1WD0-QhwN-eUsb",
-          "label": "\ud802\udd0a",
+          "label": "𐤊",
           "icon": "square-hollow"
         },
         {
           "uid": "4wXk-U8G1-ozLU-FFIF",
-          "label": "\u200e\ud802\udd0b\u200e",
+          "label": "‎𐤋‎",
           "icon": "wreath-laurel"
         },
         {
           "uid": "qFBH-JJOz-gXLd-fxaB",
-          "label": "\ud802\udd0c",
+          "label": "𐤌",
           "icon": "dash"
         },
         {
           "uid": "11HE-QHmL-1PQW-lETY",
-          "label": "\ud802\udd0d",
+          "label": "𐤍",
           "icon": "chess-board"
         },
         {
           "uid": "I6Fc-LTC7-wiKe-IPc9",
-          "label": "\ud802\udd0e\u200e",
+          "label": "𐤎‎",
           "icon": "game-board"
         },
         {
           "uid": "SvHD-nm5G-Lj5n-qp3s",
-          "label": "\ud802\udd10",
+          "label": "𐤐",
           "icon": "scroll"
         },
         {
           "uid": "DLkA-sFrP-qEgE-ODSV",
-          "label": "\ud802\udd11",
+          "label": "𐤑",
           "icon": "rabbit"
         },
         {
           "uid": "DqzA-oa7i-Jep2-dTkh",
-          "label": "\ud802\udd12",
+          "label": "𐤒",
           "icon": "face-grin-stars"
         },
         {
           "uid": "N1Ld-eDZK-sjr1-G7MB",
-          "label": "\ud802\udd13",
+          "label": "𐤓",
           "icon": "ear-deaf"
         },
         {
           "uid": "N7la-ddC3-gUbt-l46l",
-          "label": "\ud802\udd14",
+          "label": "𐤔",
           "icon": "octagon"
         },
         {
           "uid": "h3ya-vrKj-pOpk-DiVp",
-          "label": "\ud802\udd15",
+          "label": "𐤕",
           "icon": "face-smile-upside-down"
         },
         {
           "uid": "mAgv-nTei-NBGI-9DX4",
-          "label": "\ud802\udd16",
+          "label": "𐤖",
           "icon": "face-laugh-beam"
         },
         {
           "uid": "h7xK-Nb1F-lKxd-LuBs",
-          "label": "\ud802\udd17",
+          "label": "𐤗",
           "icon": "face-sleepy"
         },
         {
           "uid": "fw5u-xt6A-AVyh-uZ9g",
-          "label": "\ud802\udd18",
+          "label": "𐤘",
           "icon": "axe-battle"
         },
         {
           "uid": "8qcx-TqKe-dLVi-dmqc",
-          "label": "\ud802\udd19",
+          "label": "𐤙",
           "icon": "cards"
         }
       ],
@@ -1875,7 +1875,7 @@
       "isHiddenFromSheet": false,
       "label": "Animal Handling Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"HouITOmrZKxfUG77Qm0s\" data-variable-state=\"ok\">$Animal Handling mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"HouITOmrZKxfUG77Qm0s\" data-variable-state=\"ok\">$Animal Handling mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "5UeMbPgGdKaeAXPJiAqv",
@@ -1886,7 +1886,7 @@
       "isHiddenFromSheet": false,
       "label": "Intimidation Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"D7yZakafZHQRPNpCRHTu\" data-variable-state=\"ok\">$Intimidation mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"D7yZakafZHQRPNpCRHTu\" data-variable-state=\"ok\">$Intimidation mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "5dqmtpOKLcYLmARqXyE0",
@@ -1897,7 +1897,7 @@
       "isHiddenFromSheet": false,
       "label": "Charisma (mod)",
       "type": "formula",
-      "formula": "<p>AB_MOD(\u00a0<span class=\"mceNonEditable\" data-variable=\"zBaq6x6llDj1YUsFuMlG\">$Charisme</span> )</p>"
+      "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"zBaq6x6llDj1YUsFuMlG\">$Charisme</span> )</p>"
     },
     {
       "uid": "5vZhTL1YkANZpYY5kCC2",
@@ -1908,7 +1908,7 @@
       "isHiddenFromSheet": false,
       "label": "History Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"0FUQZyTXyJLhI2YnKXsp\" data-variable-state=\"ok\">$History mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"0FUQZyTXyJLhI2YnKXsp\" data-variable-state=\"ok\">$History mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "6Db2v59dLYgrKQhX8xW5",
@@ -1919,7 +1919,7 @@
       "isHiddenFromSheet": false,
       "label": "Dexterity (mod)",
       "type": "formula",
-      "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"nl12DLRs3aJ1lB6Y2yv1\">$Dexterit\u00e9</span> )</p>"
+      "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"nl12DLRs3aJ1lB6Y2yv1\">$Dexterité</span> )</p>"
     },
     {
       "uid": "6xhSSHaGrwjZ4n1dBWJp",
@@ -1960,7 +1960,7 @@
       "isHiddenFromSheet": false,
       "label": "Intelligence Save",
       "type": "formula",
-      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"fMhD3Yrj53H7IXPD4AFb\">$Ma\u00eetrise Intelligence</span>\u00a0 , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de ma\u00eetrise</span> + <span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\">$Intelligence (mod)</span>\u00a0 , <span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\">$Intelligence (mod)</span>\u00a0 )</p>"
+      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"fMhD3Yrj53H7IXPD4AFb\">$Maîtrise Intelligence</span>  , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de maîtrise</span> + <span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\">$Intelligence (mod)</span>  , <span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\">$Intelligence (mod)</span>  )</p>"
     },
     {
       "uid": "9J5qgafmlqCPUJp1a6yj",
@@ -1971,7 +1971,7 @@
       "isHiddenFromSheet": false,
       "label": "Investigation check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"M55Zhfu4pwWaBRpdCNbN\">$Investigation Mod</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"M55Zhfu4pwWaBRpdCNbN\">$Investigation Mod</span>  \"</p>",
       "visual": {
         "type": "compo",
         "icons": {
@@ -2017,7 +2017,7 @@
       "isHiddenFromSheet": false,
       "label": "Performance Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"LNdXFCAJxN5e1PUOdILH\" data-variable-state=\"ok\">$Performance mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"LNdXFCAJxN5e1PUOdILH\" data-variable-state=\"ok\">$Performance mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "9qVnbAxwTgXMb6EfNXpR",
@@ -2028,7 +2028,7 @@
       "isHiddenFromSheet": false,
       "label": "Survival check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"DGADEXxVJHoWT5663XuS\">$Survival Mod</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"DGADEXxVJHoWT5663XuS\">$Survival Mod</span>  \"</p>",
       "visual": {
         "type": "compo",
         "icons": {
@@ -2074,7 +2074,7 @@
       "isHiddenFromSheet": false,
       "label": "Religion Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"5ohxwYYvPOJO3sdbp4oq\" data-variable-state=\"ok\">$Religion mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"5ohxwYYvPOJO3sdbp4oq\" data-variable-state=\"ok\">$Religion mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "Abd1YAifISVssGjfwZB3",
@@ -2096,7 +2096,7 @@
       "isHiddenFromSheet": false,
       "label": "Hit die (dX)",
       "type": "formula",
-      "formula": "<p>\"d\" &amp; <span class=\"mceNonEditable\" data-variable=\"ZXdtJv0yc9SVlKyg1Bnt\">$Hit die</span>\u00a0</p>"
+      "formula": "<p>\"d\" &amp; <span class=\"mceNonEditable\" data-variable=\"ZXdtJv0yc9SVlKyg1Bnt\">$Hit die</span> </p>"
     },
     {
       "uid": "B80nAhPn33R3ClNcblkY",
@@ -2129,7 +2129,7 @@
       "isHiddenFromSheet": false,
       "label": "Survival Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"FyPxvyVeuUPb4yLDUq05\" data-variable-state=\"ok\">$Survival mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"FyPxvyVeuUPb4yLDUq05\" data-variable-state=\"ok\">$Survival mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "E4WeGPNnRKzzPn9RJb9q",
@@ -2140,7 +2140,7 @@
       "isHiddenFromSheet": false,
       "label": "Perception Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"11st8AJbF7Kb1AOtY5wf\" data-variable-state=\"ok\">$Perception mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"11st8AJbF7Kb1AOtY5wf\" data-variable-state=\"ok\">$Perception mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "Etmcmbrg4fQ9vR1prqig",
@@ -2151,7 +2151,7 @@
       "isHiddenFromSheet": false,
       "label": "Spellcasting Modifier",
       "type": "formula",
-      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"sYZSn2sHXYrpaNblz5wL\">$Spellcasting ability</span> ,</p>\n<p>\u00a0SWITCH_CONTAINS(</p>\n<p>\u00a0 <span class=\"mceNonEditable\" data-variable=\"sYZSn2sHXYrpaNblz5wL\" data-variable-state=\"ok\">$Spellcasting ability</span> ,</p>\n<p>\u00a0 \"cha\", <span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span> ,</p>\n<p>\u00a0 \"wis\", <span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>\u00a0 ,</p>\n<p>\u00a0 \"dex\", <span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterity (mod)</span> ,</p>\n<p>\u00a0 \"con\", <span class=\"mceNonEditable\" data-variable=\"TnvtbzZASMQDALM0gLKN\">$Constitution (mod)</span> ,</p>\n<p>\u00a0 \"str\", <span class=\"mceNonEditable\" data-variable=\"bqqcVDTWiYiBPtotYW3l\">$Strength (mod)</span> ,</p>\n<p>\u00a0 \"int\", <span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span> \u00a0</p>\n<p>\u00a0),</p>\n<p>\u00a00</p>\n<p>)</p>"
+      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"sYZSn2sHXYrpaNblz5wL\">$Spellcasting ability</span> ,</p>\n<p> SWITCH_CONTAINS(</p>\n<p>  <span class=\"mceNonEditable\" data-variable=\"sYZSn2sHXYrpaNblz5wL\" data-variable-state=\"ok\">$Spellcasting ability</span> ,</p>\n<p>  \"cha\", <span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span> ,</p>\n<p>  \"wis\", <span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>  ,</p>\n<p>  \"dex\", <span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterity (mod)</span> ,</p>\n<p>  \"con\", <span class=\"mceNonEditable\" data-variable=\"TnvtbzZASMQDALM0gLKN\">$Constitution (mod)</span> ,</p>\n<p>  \"str\", <span class=\"mceNonEditable\" data-variable=\"bqqcVDTWiYiBPtotYW3l\">$Strength (mod)</span> ,</p>\n<p>  \"int\", <span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>  </p>\n<p> ),</p>\n<p> 0</p>\n<p>)</p>"
     },
     {
       "uid": "F7U5DPhqOBf5o646Bl5Y",
@@ -2162,7 +2162,7 @@
       "isHiddenFromSheet": false,
       "label": "Religion check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"AEDg7ls4KNW5OH9wMmHE\">$Religion Mod</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"AEDg7ls4KNW5OH9wMmHE\">$Religion Mod</span>  \"</p>",
       "visual": {
         "type": "compo",
         "icons": {
@@ -2220,7 +2220,7 @@
       "isHiddenFromSheet": false,
       "label": "Arcana check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"jnVtU4SvClym6t0MkO2M\">$Arcana Mod</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"jnVtU4SvClym6t0MkO2M\">$Arcana Mod</span>  \"</p>",
       "visual": {
         "type": "compo",
         "icons": {
@@ -2282,7 +2282,7 @@
       "isHiddenFromSheet": false,
       "label": "Charisma Save",
       "type": "formula",
-      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"hwPS7lbUYOsSv8KKNfPg\">$Ma\u00eetrise Charisme</span>\u00a0 , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de ma\u00eetrise</span> + <span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\">$Charisme (mod)</span> \u00a0 , <span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\">$Charisme (mod)</span> \u00a0 \u00a0 )</p>"
+      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"hwPS7lbUYOsSv8KKNfPg\">$Maîtrise Charisme</span>  , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de maîtrise</span> + <span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\">$Charisme (mod)</span>   , <span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\">$Charisme (mod)</span>     )</p>"
     },
     {
       "uid": "JsB1yhc1xVrj4UIYRcOC",
@@ -2293,7 +2293,7 @@
       "isHiddenFromSheet": false,
       "label": "[AB] Wisdom check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\">$Wisdom (mod)</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\">$Wisdom (mod)</span>  \"</p>",
       "visual": {
         "type": "awesome",
         "icon": "ring"
@@ -2308,7 +2308,7 @@
       "isHiddenFromSheet": false,
       "label": "[AB] Intelligence check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\">$Intelligence (mod)</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\">$Intelligence (mod)</span>  \"</p>",
       "visual": {
         "type": "awesome",
         "icon": "hat-wizard"
@@ -2334,7 +2334,7 @@
       "isHiddenFromSheet": false,
       "label": "Medicine Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"eNSG6IgiY0Vx8lGfZ5GM\" data-variable-state=\"ok\">$Medicine mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"eNSG6IgiY0Vx8lGfZ5GM\" data-variable-state=\"ok\">$Medicine mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "KRK97ibPw3J9xwPIMN4I",
@@ -2345,7 +2345,7 @@
       "isHiddenFromSheet": false,
       "label": "Nature Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"4NCfJj2XvLIlQdb9PLFh\" data-variable-state=\"ok\">$Nature mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"4NCfJj2XvLIlQdb9PLFh\" data-variable-state=\"ok\">$Nature mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "KTenCb4IovsCWHHBd1z4",
@@ -2367,7 +2367,7 @@
       "isHiddenFromSheet": false,
       "label": "Animal handling check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"3LHNJJqt0VX9ZWibUuCg\">$Animal Handling Mod</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"3LHNJJqt0VX9ZWibUuCg\">$Animal Handling Mod</span>  \"</p>",
       "visual": {
         "type": "compo",
         "icons": {
@@ -2413,7 +2413,7 @@
       "isHiddenFromSheet": false,
       "label": "Investigation Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"jLdhVbZ91qAfCcELkhXW\" data-variable-state=\"ok\">$Investigation mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"jLdhVbZ91qAfCcELkhXW\" data-variable-state=\"ok\">$Investigation mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "MmubyoPlakPW72BW58Z6",
@@ -2481,7 +2481,7 @@
       "isHiddenFromSheet": false,
       "label": "Constitution Save",
       "type": "formula",
-      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"OSkj42vrIstXiThlY3eb\">$Ma\u00eetrise Constitution</span>\u00a0 , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de ma\u00eetrise</span> + <span class=\"mceNonEditable\" data-variable=\"TnvtbzZASMQDALM0gLKN\">$Constitution (mod)</span>\u00a0 , <span class=\"mceNonEditable\" data-variable=\"TnvtbzZASMQDALM0gLKN\">$Constitution (mod)</span>\u00a0 )</p>"
+      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"OSkj42vrIstXiThlY3eb\">$Maîtrise Constitution</span>  , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de maîtrise</span> + <span class=\"mceNonEditable\" data-variable=\"TnvtbzZASMQDALM0gLKN\">$Constitution (mod)</span>  , <span class=\"mceNonEditable\" data-variable=\"TnvtbzZASMQDALM0gLKN\">$Constitution (mod)</span>  )</p>"
     },
     {
       "uid": "QmdLKSm2cwWFI1M6qtf2",
@@ -2492,7 +2492,7 @@
       "isHiddenFromSheet": false,
       "label": "Persuasion check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"k7QSnFVYmVTJ5cOVBLO7\">$Persuasion Mod</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"k7QSnFVYmVTJ5cOVBLO7\">$Persuasion Mod</span>  \"</p>",
       "visual": {
         "type": "compo",
         "icons": {
@@ -2584,7 +2584,7 @@
       "isHiddenFromSheet": false,
       "label": "Medicine check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"KRG7foyxyWgLx3MC3GZ7\">$Medicine Mod</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"KRG7foyxyWgLx3MC3GZ7\">$Medicine Mod</span>  \"</p>",
       "visual": {
         "type": "compo",
         "icons": {
@@ -2712,7 +2712,7 @@
       "isHiddenFromSheet": false,
       "label": "Perception check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"E4WeGPNnRKzzPn9RJb9q\">$Perception Mod</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"E4WeGPNnRKzzPn9RJb9q\">$Perception Mod</span>  \"</p>",
       "visual": {
         "type": "compo",
         "icons": {
@@ -2758,7 +2758,7 @@
       "isHiddenFromSheet": false,
       "label": "Wisdom Save",
       "type": "formula",
-      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"lsO99a61PLKINJ7LXmxg\">$Ma\u00eetrise Sagesse</span> ,\u00a0<span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de ma\u00eetrise</span> + <span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\">$Sagesse (mod)</span>\u00a0 , <span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\">$Sagesse (mod)</span> \u00a0 \u00a0)</p>"
+      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"lsO99a61PLKINJ7LXmxg\">$Maîtrise Sagesse</span> , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de maîtrise</span> + <span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\">$Sagesse (mod)</span>  , <span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\">$Sagesse (mod)</span>    )</p>"
     },
     {
       "uid": "Z3Vb4Zol5ybkdlOvJRUh",
@@ -2769,7 +2769,7 @@
       "isHiddenFromSheet": false,
       "label": "Initiative",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterit\u00e9 (mod)</span>\u00a0</p>",
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterité (mod)</span> </p>",
       "icon": "heart"
     },
     {
@@ -2796,7 +2796,7 @@
       "isHiddenFromSheet": false,
       "label": "Sleight of Hand Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\" data-variable-state=\"ok\">$Dexterity (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"XmB6tQGDGDDv8uwLvwab\" data-variable-state=\"ok\">$Sleight of Hand mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\" data-variable-state=\"ok\">$Dexterity (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"XmB6tQGDGDDv8uwLvwab\" data-variable-state=\"ok\">$Sleight of Hand mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "aggayXtHI4YaaSete11d",
@@ -2807,7 +2807,7 @@
       "isHiddenFromSheet": false,
       "label": "Insight Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"R07fJ9o4V6bhjtr3aYHn\" data-variable-state=\"ok\">$Insight mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"R07fJ9o4V6bhjtr3aYHn\" data-variable-state=\"ok\">$Insight mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "b3yolgJyV7NcTmF17K8b",
@@ -2818,7 +2818,7 @@
       "isHiddenFromSheet": false,
       "label": "Dexterity Save",
       "type": "formula",
-      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"S3cvclAz9lcpRw9xUeAc\">$Ma\u00eetrise Dexterit\u00e9</span> , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de ma\u00eetrise</span> + <span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterit\u00e9 (mod)</span>\u00a0 , <span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterit\u00e9 (mod)</span>\u00a0 )</p>"
+      "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"S3cvclAz9lcpRw9xUeAc\">$Maîtrise Dexterité</span> , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de maîtrise</span> + <span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterité (mod)</span>  , <span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterité (mod)</span>  )</p>"
     },
     {
       "uid": "bTqfkhWdXKjcWGiHC2mP",
@@ -2829,7 +2829,7 @@
       "isHiddenFromSheet": false,
       "label": "Stealth check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"c3lyAOO7S97FY6xcIwXU\">$Stealth Mod</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"c3lyAOO7S97FY6xcIwXU\">$Stealth Mod</span>  \"</p>",
       "visual": {
         "type": "compo",
         "icons": {
@@ -2886,7 +2886,7 @@
       "isHiddenFromSheet": false,
       "label": "Stealth Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\" data-variable-state=\"ok\">$Dexterity (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"4DPYRS76IKmFbUHaCNIs\" data-variable-state=\"ok\">$Stealth mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\" data-variable-state=\"ok\">$Dexterity (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"4DPYRS76IKmFbUHaCNIs\" data-variable-state=\"ok\">$Stealth mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "cOzgCaoB1u98bfUgSzg3",
@@ -2897,7 +2897,7 @@
       "isHiddenFromSheet": false,
       "label": "Hit die (max)",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"tka2wD1462fODTBZLYov\">$Level</span>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"tka2wD1462fODTBZLYov\">$Level</span> </p>"
     },
     {
       "uid": "d3LbutLlKNdWwHiwHvbp",
@@ -2908,7 +2908,7 @@
       "isHiddenFromSheet": false,
       "label": "[AB] Constitution check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"TnvtbzZASMQDALM0gLKN\">$Constitution (mod)</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"TnvtbzZASMQDALM0gLKN\">$Constitution (mod)</span>  \"</p>",
       "visual": {
         "type": "awesome",
         "icon": "shield-halved"
@@ -2923,7 +2923,7 @@
       "isHiddenFromSheet": false,
       "label": "Deception check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"niXHqgJct6Bqh1XVEXnt\">$Deception Mod</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"niXHqgJct6Bqh1XVEXnt\">$Deception Mod</span>  \"</p>",
       "visual": {
         "type": "compo",
         "icons": {
@@ -2969,7 +2969,7 @@
       "isHiddenFromSheet": false,
       "label": "Wisdom (mod)",
       "type": "formula",
-      "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"04vuxqyy2bG4udQVwRAw\">$Sagesse</span>\u00a0 )</p>"
+      "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"04vuxqyy2bG4udQVwRAw\">$Sagesse</span>  )</p>"
     },
     {
       "uid": "j4fhMDjAl8OBeiMg98AQ",
@@ -3002,7 +3002,7 @@
       "isHiddenFromSheet": false,
       "label": "Arcana Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"AudSdODZVhENNIykIga1\" data-variable-state=\"ok\">$Arcana mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"AudSdODZVhENNIykIga1\" data-variable-state=\"ok\">$Arcana mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "k7QSnFVYmVTJ5cOVBLO7",
@@ -3013,7 +3013,7 @@
       "isHiddenFromSheet": false,
       "label": "Persuasion Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"pj1ZnsNovbXekNi8ncda\" data-variable-state=\"ok\">$Persuasion mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"pj1ZnsNovbXekNi8ncda\" data-variable-state=\"ok\">$Persuasion mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "kOiOThjodZBjPnReNHJZ",
@@ -3039,7 +3039,7 @@
       "isHiddenFromSheet": false,
       "label": "Nature check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"KRK97ibPw3J9xwPIMN4I\">$Nature Mod</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"KRK97ibPw3J9xwPIMN4I\">$Nature Mod</span>  \"</p>",
       "visual": {
         "type": "compo",
         "icons": {
@@ -3096,7 +3096,7 @@
       "isHiddenFromSheet": false,
       "label": "Deception Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"iKxBRoYg23fNPsjsZr0N\" data-variable-state=\"ok\">$Deception mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"iKxBRoYg23fNPsjsZr0N\" data-variable-state=\"ok\">$Deception mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "pIuQN8loVZ76zb1ldU3Y",
@@ -3107,7 +3107,7 @@
       "isHiddenFromSheet": false,
       "label": "Intimidation check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"5UeMbPgGdKaeAXPJiAqv\">$Intimidation Mod</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"5UeMbPgGdKaeAXPJiAqv\">$Intimidation Mod</span>  \"</p>",
       "visual": {
         "type": "compo",
         "icons": {
@@ -3163,7 +3163,7 @@
       "isHiddenFromSheet": false,
       "label": "[AB] Dexterity check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterity (mod)</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterity (mod)</span>  \"</p>",
       "visual": {
         "type": "awesome",
         "icon": "bow-arrow"
@@ -3250,7 +3250,7 @@
       "isHiddenFromSheet": false,
       "label": "Acrobatics Mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\" data-variable-state=\"ok\">$Dexterity (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"Yl0t5DgflBpPGdxk5tJT\" data-variable-state=\"ok\">$Acrobatics mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\" data-variable-state=\"ok\">$Dexterity (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"Yl0t5DgflBpPGdxk5tJT\" data-variable-state=\"ok\">$Acrobatics mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "vL3jidHOEtqnjvKcb81r",
@@ -3261,7 +3261,7 @@
       "isHiddenFromSheet": false,
       "label": "Sleight of Hand check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"af3pLEmbYh4DdILjgG0m\">$Sleight of Hand Mod</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"af3pLEmbYh4DdILjgG0m\">$Sleight of Hand Mod</span>  \"</p>",
       "visual": {
         "type": "compo",
         "icons": {
@@ -3307,7 +3307,7 @@
       "isHiddenFromSheet": false,
       "label": "Insight check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"aggayXtHI4YaaSete11d\">$Insight Mod</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"aggayXtHI4YaaSete11d\">$Insight Mod</span>  \"</p>",
       "visual": {
         "type": "compo",
         "icons": {
@@ -3353,7 +3353,7 @@
       "isHiddenFromSheet": false,
       "label": "Performance check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"9bMSo8CPog4WdWC4yITU\">$Performance Mod</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"9bMSo8CPog4WdWC4yITU\">$Performance Mod</span>  \"</p>",
       "visual": {
         "type": "compo",
         "icons": {
@@ -3399,7 +3399,7 @@
       "isHiddenFromSheet": false,
       "label": "History check",
       "type": "roll",
-      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"5vZhTL1YkANZpYY5kCC2\">$History Mod</span>\u00a0 \"</p>",
+      "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"5vZhTL1YkANZpYY5kCC2\">$History Mod</span>  \"</p>",
       "visual": {
         "type": "compo",
         "icons": {
@@ -3445,7 +3445,7 @@
       "isHiddenFromSheet": false,
       "label": "Athletics mod",
       "type": "formula",
-      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"bqqcVDTWiYiBPtotYW3l\" data-variable-state=\"ok\">$Strength (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"qQFHVD38OAmfSeFyEVgM\" data-variable-state=\"ok\">$Athletics mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p>\u00a0</p>"
+      "formula": "<p><span class=\"mceNonEditable\" data-variable=\"bqqcVDTWiYiBPtotYW3l\" data-variable-state=\"ok\">$Strength (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"qQFHVD38OAmfSeFyEVgM\" data-variable-state=\"ok\">$Athletics mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
     {
       "uid": "yjjTea5kDXPVw2HmfS4a",
@@ -3483,7 +3483,7 @@
           "uid": "0NiXwGHYokdGmUPx351o",
           "label": {
             "en": "Proficiency bonus",
-            "fr": "Bonus de ma\u00eetrise"
+            "fr": "Bonus de maîtrise"
           },
           "type": "number"
         }
@@ -3650,7 +3650,7 @@
           "uid": "oRjden4jFS6HrvcpKjEy",
           "label": {
             "en": "Icon",
-            "fr": "Ic\u00f4ne"
+            "fr": "Icône"
           },
           "type": "icon"
         },

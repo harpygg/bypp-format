@@ -9,6 +9,75 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v24 — 2026-09
+
+### Added
+
+- **A spacing that can differ per side, written the way CSS writes it.**
+  `StyleV6` (`src/mixins/with-style.v6.schema.ts`) adds `margin` and `padding`
+  in the CSS shorthand — one value for all four sides, two for vertical then
+  horizontal, four clockwise from the top — and **widens** `borderWidth` from
+  a single number to that same notation. `WidgetV13`
+  (`src/models/widget.v13.schema.ts`) carries it on every variant.
+
+  Until now a style spelled its margins and paddings out in four fields each,
+  and its border in one `borderWidth` that draws all four edges or none. But
+  what tells one block of content from another is very often WHICH edge the
+  line is on: a bar down the left side reads as a quote or an aside, a thin box
+  reads as a table or a panel. A producer with eight block styles to
+  distinguish had exactly one of them available.
+
+  An array rather than a tuple union, deliberately: a producer that stores its
+  styles in a document database gets the tuple widened to a plain array on the
+  way back out, so the format checks the length instead of insisting on a shape
+  no such reader can hold.
+
+  Nothing is removed. The per-side fields v1 and v5 introduced (`paddingTop…`,
+  `marginTop…`) stay exactly as they were, because older bundles carry them.
+  The precedence is stated once, in the schema: **the shorthand wins when it is
+  present; the four per-side fields are read only when it is absent.** A
+  document produced by the migrator below never carries both for the same box.
+
+  `borderWidth` is widened, not redefined: every value a v5 style could hold is
+  still valid and still means the same thing (a plain number is the same width
+  on all four sides), so every document written before v6 parses unchanged.
+
+  No widget variant is added, removed or otherwise changed: v13 is the v11
+  union with the v6 style merged over it.
+
+### Migrations
+
+- `v23 → v24` — the four per-side values of a spacing are folded into the one
+  field v24 writes them in, narrowed (four equal values become a single number,
+  a matching pair becomes two), and the four are dropped: leaving both in would
+  let a later edit change one and not the other, and the format would have two
+  answers for the same question. **Non-lossy.** A group only SOME of whose
+  sides are set is left exactly as it is — an unsaid side is not a zero, and
+  folding `{ marginTop: 4 }` into `[4, 0, 0, 0]` would have this layer flatten
+  whatever the cascade above it said about the other three. A legacy
+  `borderWidth` needs no work at all: a plain number is already valid v24.
+- `v24 → v23` — **faithful for spacing, lossy for a border that differs per
+  side.** `margin` and `padding` are expanded back into the four per-side
+  fields v23 already had, so no spacing is lost — not even a bar down one edge,
+  which v23 can say in four fields even though it cannot say it in one. The
+  expansion overwrites any per-side fields the document also carried, which is
+  the precedence rule above.
+
+  The border is the real loss, and this is the lossy edge to know about: v23
+  has one `borderWidth` for the whole box and **no per-side field to fall back
+  on**. When the four edges agree they ARE that single width, so the agreed
+  value is written to `borderWidth` and the border survives whole. When they
+  disagree — `[0, 0, 0, 4]`, a 4px bar down the left and three bare edges — or
+  when the array cannot be read at all, the border width is **dropped**: the
+  widget comes out with no border, keeping whatever `borderColor` /
+  `borderStyle` / `borderRadius` it had. Folding one edge into `borderWidth`
+  instead would draw that line on all four edges and turn a bar into a box. A
+  border in the wrong place misreads the block more badly than a border that is
+  simply absent, and absent is exactly what that widget looked like in every
+  document written before v24. A round trip v24 → v23 → v24 therefore returns
+  a per-side border as a widget with no border at all, while its padding,
+  margin and every other style field come back untouched.
+
 ## Format v23 — 2026-09
 
 ### Added
