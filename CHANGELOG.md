@@ -9,6 +9,86 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v25 — 2026-09
+
+### Added
+
+- **A document can say how its own prose should look.** A new ROOT key,
+  `theme` (`src/models/theme.v25.schema.ts`), optional.
+
+  Everything a style could touch until now was a box on a sheet: a widget,
+  placed, padded, bordered. The words themselves had nothing. A bundle whose
+  headings, quotes and asides are half of what it is arrived somewhere else as
+  unstyled text, and the look had to be rebuilt by hand — which is not
+  something an author can ship.
+
+  It carries three things:
+
+  - `elements` — a `StyleV6` per element of the content, keyed by a NAME. The
+    names a reader is expected to recognise: `base` (the content container,
+    which everything under it inherits from through the plain CSS cascade
+    rather than any rule of this format's own), `h1` … `h6`, `p`, `ul`, `ol`,
+    `blockquote`, `code`, `table`, `link`, `mention`, `mention-<type>` for one
+    entity type (`<type>` is a member of `EntityTypeV1Schema`), and
+    `block-<name>` for a block wearing a named look.
+  - `tagStyles` — a style per tag, as a LIST rather than a map, because the
+    order is the answer: a thing wears several tags in no particular order,
+    and this list is the author's own. A reader lays them first to last, later
+    ones winning. `tagUid` names an entry of the document's own `tags[]`; an
+    entry pointing at a tag the document does not carry is dropped like any
+    other dangling reference.
+  - `slug` — the name of the theme these styles were written against. A hint,
+    never the authority: `elements` alone says what the document looks like,
+    and a reader that has never heard of the slug ignores it and loses nothing.
+
+  **A root key rather than a content array**, because a theme is not an item.
+  A document has one look, not a list of them, and nothing else in the document
+  points at it — so it sits beside `requires` and `image`, which are the same
+  kind of thing: what the document IS, rather than what it CARRIES.
+
+  **The element key is a loose `z.string()`**, for the same reason an icon name
+  is loose (see `src/icons.ts`): `block-<name>` is the word a block is written
+  with — the fence of a markdown chunk, the entry of an editor's picker — and a
+  producer's set of callouts is its own. An open format has no standing to
+  freeze one vendor's. Nothing is rejected; what the list above buys is being
+  understood.
+
+  A theme's style is the v6 style with the two ways of saying nothing removed.
+  Everywhere else a style hangs off an item that exists for other reasons, so
+  `StyleV6Schema` is `nullable().optional()`; a theme entry exists for no other
+  reason, and a key mapped to `null` is a key that says nothing when the absent
+  key already says it better.
+
+  No content array is added, removed or otherwise changed: every one of them is
+  re-imported into `bypp.v25.schema.ts` exactly as v24 had it.
+
+### Migrations
+
+- `v24 → v25` — a pure version bump. **Non-lossy.** `theme` is left ABSENT
+  rather than set to an empty theme, and the difference is not cosmetic: an
+  empty theme is a document that has decided its content wears no style of its
+  own, while no theme at all is a document that never spoke about it — which is
+  what every pre-v25 document is. A reader installing one is free to keep
+  painting it the way it already did. Nothing is inferred from the widget
+  styles the document already carries: one of them might look like a heading,
+  but guessing a theme out of them would put a decision in the document its
+  author never made.
+- `v25 → v24` — **lossy: the theme is dropped whole.** v24 has nowhere to put
+  it, and there is no older field to fold it into either — every style v24 can
+  hold hangs off a widget, and the elements a theme paints (a heading, a quote,
+  an entity named mid-sentence) are not widgets and have no uid to hang
+  anything on. So the slug goes, the per-element styles go, and the per-tag
+  ones go with them.
+
+  What survives is everything else. The tags themselves stay in `tags[]` —
+  nothing referenced them BY the theme except the theme, and they are content
+  in their own right. The HTML and markdown of the content is untouched, and so
+  is every widget style. The document comes out looking exactly as it did in
+  every version before v25: painted by whatever surrounds it, which is the only
+  thing v24 could ever say about prose. A round trip v25 → v24 → v25 therefore
+  returns a document with no theme at all — the one edge to know about before
+  downgrading a themed bundle.
+
 ## Format v24 — 2026-09
 
 ### Added

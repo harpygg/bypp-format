@@ -111,6 +111,7 @@ describe("versioned examples", () => {
     { field: "backgroundRepeat", since: 23 },
     { field: "margin", since: 24 },
     { field: "padding", since: 24 },
+    { field: "theme", since: 25 },
   ];
 
   it.each(DERIVED)("v%i carries no field newer than itself", (version) => {

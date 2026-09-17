@@ -114,6 +114,10 @@ export {
   BeyondPaperV24Schema,
   type BeyondPaperV24,
 } from "./schemas/bypp.v24.schema";
+export {
+  BeyondPaperV25Schema,
+  type BeyondPaperV25,
+} from "./schemas/bypp.v25.schema";
 
 // v18: what a document reads but does not carry.
 export {
@@ -898,6 +902,17 @@ export { WidgetV12Schema, type WidgetV12 } from "./models/widget.v12.schema";
 // per side in one field.
 export { WidgetV13Schema, type WidgetV13 } from "./models/widget.v13.schema";
 
+// Models (v25) — how a document wants its own prose to look: a style per
+// element of the content, and a style per tag in the order they are laid.
+export {
+  ThemeV25Schema,
+  ThemeTagStyleV25Schema,
+  ThemeStyleV25Schema,
+  type ThemeV25,
+  type ThemeTagStyleV25,
+  type ThemeStyleV25,
+} from "./models/theme.v25.schema";
+
 // ─── Current aliases ────────────────────────────────────────────────
 // These re-export the latest version of each sub-schema as the plain
 // `XSchema` / `type X` consumers expect when they don't care about a
@@ -1308,6 +1323,15 @@ export {
   BundleImageV14Schema as BundleImageSchema,
   type BundleImageV14 as BundleImage,
 } from "./models/bundle-image.v14.schema";
+// Current theme aliases point at v25 — the version that introduced it.
+export {
+  ThemeV25Schema as ThemeSchema,
+  ThemeTagStyleV25Schema as ThemeTagStyleSchema,
+  ThemeStyleV25Schema as ThemeStyleSchema,
+  type ThemeV25 as Theme,
+  type ThemeTagStyleV25 as ThemeTagStyle,
+  type ThemeStyleV25 as ThemeStyle,
+} from "./models/theme.v25.schema";
 export { WithNameV1Schema as WithNameSchema } from "./mixins/with-name.v1.schema";
 export { WithLocalizedNameV2Schema as WithLocalizedNameSchema } from "./mixins/with-localized-name.v2.schema";
 

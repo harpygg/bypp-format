@@ -1,5 +1,5 @@
 {
-  "version": 22,
+  "version": 25,
   "format": "bypp",
   "name": "Shattered Reach [D&D 2024]",
   "exportedAt": "2026-07-22T10:43:17.949Z",
@@ -34,6 +34,57 @@
       }
     }
   ],
+  "theme": {
+    "slug": "standard",
+    "elements": {
+      "base": {
+        "fontFamilyId": "eb-garamond",
+        "lineHeight": 1.6
+      },
+      "h1": {
+        "fontScale": 2.4,
+        "fontWeight": "bold",
+        "color": "#221100"
+      },
+      "blockquote": {
+        "borderWidth": [
+          0,
+          0,
+          0,
+          4
+        ],
+        "borderColor": "#336699",
+        "padding": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "mention-place": {
+        "color": "#336699",
+        "textDecoration": "none"
+      },
+      "block-warning": {
+        "backgroundColor": "#fff3cd",
+        "padding": 0.5
+      }
+    },
+    "tagStyles": [
+      {
+        "tagUid": "zcNZUW8ZtgOqVK98iYRb",
+        "style": {
+          "color": "#6b21a8"
+        }
+      },
+      {
+        "tagUid": "U0dBZN3nPmh1z5O0dlQK",
+        "style": {
+          "color": "#b45309"
+        }
+      }
+    ]
+  },
   "dialects": [
     {
       "uid": "4Z2w-uI9t-8gwB-YOtT",
