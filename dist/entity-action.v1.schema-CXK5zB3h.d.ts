@@ -4708,4 +4708,4 @@ declare const EntityActionV1Schema: z.ZodObject<{
 }>;
 type EntityActionV1 = z.infer<typeof EntityActionV1Schema>;
 
-export { AbilityEntityV5Schema as A, type CharacterEntityV5 as C, type EntityV5 as E, type GroupEntityV5 as G, ItemEntityV5Schema as I, NoteEntityV5Schema as N, type PlaceEntityV5 as P, StoryEntityV5Schema as S, type EntityActionV1 as a, type EntityBaseV5 as b, CharacterEntityV5Schema as c, type CreatureEntityV5 as d, CreatureEntityV5Schema as e, EntityActionV1Schema as f, EntityBaseV5Schema as g, EntityV5Schema as h, EventEntityV5Schema as i, GroupEntityV5Schema as j, PlaceEntityV5Schema as k };
+export { AbilityEntityV5Schema as A, type CharacterEntityV5 as C, type EntityActionV1 as E, type GroupEntityV5 as G, ItemEntityV5Schema as I, NoteEntityV5Schema as N, type PlaceEntityV5 as P, StoryEntityV5Schema as S, CharacterEntityV5Schema as a, type CreatureEntityV5 as b, CreatureEntityV5Schema as c, EntityActionV1Schema as d, type EntityBaseV5 as e, EntityBaseV5Schema as f, type EntityV5 as g, EntityV5Schema as h, EventEntityV5Schema as i, GroupEntityV5Schema as j, PlaceEntityV5Schema as k };

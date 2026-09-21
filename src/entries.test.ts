@@ -18,6 +18,7 @@ import * as v22 from "./v22";
 import * as v23 from "./v23";
 import * as v24 from "./v24";
 import * as v25 from "./v25";
+import * as v26 from "./v26";
 import * as v9 from "./v9";
 
 /**
@@ -46,6 +47,7 @@ const ENTRIES: Record<number, { BYPP_FORMAT_VERSION: number }> = {
   23: v23,
   24: v24,
   25: v25,
+  26: v26,
 };
 
 const SRC = dirname(fileURLToPath(import.meta.url));

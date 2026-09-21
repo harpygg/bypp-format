@@ -38,13 +38,13 @@
     "slug": "standard",
     "elements": {
       "base": {
-        "fontFamilyId": "eb-garamond",
-        "lineHeight": 1.6
+        "lineHeight": 1.6,
+        "fontFamilyId": "eb-garamond"
       },
       "h1": {
         "fontScale": 2.4,
-        "fontWeight": "bold",
-        "color": "#221100"
+        "color": "#221100",
+        "fontWeight": "bold"
       },
       "blockquote": {
         "borderWidth": [
@@ -168,7 +168,17 @@
       "data": {
         "7SVOZlm9prNxciQk76dA": "h7xK-Nb1F-lKxd-LuBs"
       },
-      "actions": [],
+      "actions": [
+        {
+          "uid": "act0-roll-hurt-0001",
+          "label": {
+            "en": "Get hurt",
+            "fr": "Se blesser"
+          },
+          "type": "roll",
+          "diceFormula": "<p>\"1d20\"</p>"
+        }
+      ],
       "type": "character"
     },
     {
@@ -3508,6 +3518,18 @@
       "label": "Weapon 6 (name)",
       "type": "text",
       "icon": "sword"
+    },
+    {
+      "uid": "var0-roll-hurt-0001",
+      "name": "Get hurt",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "type": "roll",
+      "diceFormula": "<p>\"1d20\"</p>",
+      "depsVariablesUid": [
+        "v1OSJdasGRBfMV3oxgj2"
+      ]
     }
   ],
   "widgets": [],

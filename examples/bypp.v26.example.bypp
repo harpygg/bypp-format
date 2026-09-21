@@ -1,5 +1,5 @@
 {
-  "version": 23,
+  "version": 26,
   "format": "bypp",
   "name": "Shattered Reach [D&D 2024]",
   "exportedAt": "2026-07-22T10:43:17.949Z",
@@ -34,6 +34,57 @@
       }
     }
   ],
+  "theme": {
+    "slug": "standard",
+    "elements": {
+      "base": {
+        "fontFamilyId": "eb-garamond",
+        "lineHeight": 1.6
+      },
+      "h1": {
+        "fontScale": 2.4,
+        "fontWeight": "bold",
+        "color": "#221100"
+      },
+      "blockquote": {
+        "borderWidth": [
+          0,
+          0,
+          0,
+          4
+        ],
+        "borderColor": "#336699",
+        "padding": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "mention-place": {
+        "color": "#336699",
+        "textDecoration": "none"
+      },
+      "block-warning": {
+        "backgroundColor": "#fff3cd",
+        "padding": 0.5
+      }
+    },
+    "tagStyles": [
+      {
+        "tagUid": "zcNZUW8ZtgOqVK98iYRb",
+        "style": {
+          "color": "#6b21a8"
+        }
+      },
+      {
+        "tagUid": "U0dBZN3nPmh1z5O0dlQK",
+        "style": {
+          "color": "#b45309"
+        }
+      }
+    ]
+  },
   "dialects": [
     {
       "uid": "4Z2w-uI9t-8gwB-YOtT",
@@ -117,7 +168,36 @@
       "data": {
         "7SVOZlm9prNxciQk76dA": "h7xK-Nb1F-lKxd-LuBs"
       },
-      "actions": [],
+      "actions": [
+        {
+          "uid": "act0-roll-hurt-0001",
+          "label": {
+            "en": "Get hurt",
+            "fr": "Se blesser"
+          },
+          "type": "roll",
+          "diceFormula": "<p>\"1d20\"</p>",
+          "updates": [
+            {
+              "variableUid": "v1OSJdasGRBfMV3oxgj2",
+              "formula": "<p><span data-variable=\"v1OSJdasGRBfMV3oxgj2\">$x</span> - <span data-variable=\"system-action-result-dmg\">$Result</span></p>"
+            }
+          ],
+          "log": "<p>Took <span data-variable=\"system-action-result-dmg\">$Result</span> damage (<span data-variable=\"system-action-roll-dmg\">$Roll</span>) after <span data-variable=\"system-action-roll-atk\">$Roll</span>.</p>",
+          "rolls": [
+            {
+              "key": "atk",
+              "label": "Attack",
+              "diceFormula": "<p>\"1d20\"</p>"
+            },
+            {
+              "key": "dmg",
+              "label": "Damage",
+              "diceFormula": "<p>\"1d6\"</p>"
+            }
+          ]
+        }
+      ],
       "type": "character"
     },
     {
@@ -3457,6 +3537,37 @@
       "label": "Weapon 6 (name)",
       "type": "text",
       "icon": "sword"
+    },
+    {
+      "uid": "var0-roll-hurt-0001",
+      "type": "roll",
+      "name": "Get hurt",
+      "datasetsUids": [
+        "IWNSh0lQb3fyqUgW1R9X"
+      ],
+      "diceFormula": "<p>\"1d20\"</p>",
+      "updates": [
+        {
+          "variableUid": "v1OSJdasGRBfMV3oxgj2",
+          "formula": "<p><span data-variable=\"v1OSJdasGRBfMV3oxgj2\">$x</span> - <span data-variable=\"system-action-result-dmg\">$Result</span></p>"
+        }
+      ],
+      "log": "<p>Took <span data-variable=\"system-action-result-dmg\">$Result</span> damage (<span data-variable=\"system-action-roll-dmg\">$Roll</span>) after <span data-variable=\"system-action-roll-atk\">$Roll</span>.</p>",
+      "depsVariablesUid": [
+        "v1OSJdasGRBfMV3oxgj2"
+      ],
+      "rolls": [
+        {
+          "key": "atk",
+          "label": "Attack",
+          "diceFormula": "<p>\"1d20\"</p>"
+        },
+        {
+          "key": "dmg",
+          "label": "Damage",
+          "diceFormula": "<p>\"1d6\"</p>"
+        }
+      ]
     }
   ],
   "widgets": [],

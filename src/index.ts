@@ -118,6 +118,10 @@ export {
   BeyondPaperV25Schema,
   type BeyondPaperV25,
 } from "./schemas/bypp.v25.schema";
+export {
+  BeyondPaperV26Schema,
+  type BeyondPaperV26,
+} from "./schemas/bypp.v26.schema";
 
 // v18: what a document reads but does not carry.
 export {
@@ -566,6 +570,21 @@ export {
   type EntityLookupVariableV9,
 } from "./models/variable.v9.schema";
 
+// Models (v10) — the `roll` variant gains what to do after its dice: the
+// attributes it sets and the message it posts.
+export {
+  VariableV10Schema,
+  RollVariableV10Schema,
+  ActionSectionsV26Schema,
+  ActionRollV26Schema,
+  VariableUpdateV26Schema,
+  type VariableV10,
+  type RollVariableV10,
+  type ActionSectionsV26,
+  type ActionRollV26,
+  type VariableUpdateV26,
+} from "./models/variable.v10.schema";
+
 export { SheetV2Schema, type SheetV2 } from "./models/sheet.v2.schema";
 
 export {
@@ -855,6 +874,33 @@ export {
 } from "./models/entity-action.v1.schema";
 
 export {
+  EntityV6Schema,
+  EntityBaseV6Schema,
+  CharacterEntityV6Schema,
+  CreatureEntityV6Schema,
+  GroupEntityV6Schema,
+  PlaceEntityV6Schema,
+  ItemEntityV6Schema,
+  NoteEntityV6Schema,
+  AbilityEntityV6Schema,
+  StoryEntityV6Schema,
+  EventEntityV6Schema,
+  EntityTypeV6Schema,
+  type EntityV6,
+  type EntityBaseV6,
+  type CharacterEntityV6,
+  type CreatureEntityV6,
+  type GroupEntityV6,
+  type PlaceEntityV6,
+  type EntityTypeV6,
+} from "./models/entity.v6.schema";
+
+export {
+  EntityActionV2Schema,
+  type EntityActionV2,
+} from "./models/entity-action.v2.schema";
+
+export {
   SceneMapV4Schema,
   CustomImageSceneMapV4Schema,
   CustomVideoSceneMapV4Schema,
@@ -981,34 +1027,34 @@ export {
   type DialectV3 as Dialect,
 } from "./models/dialect.v3.schema";
 
-// Current entity aliases point at v5 — v5 adds the actions an entity carries
-// itself, beside the attributes its sheets give it.
+// Current entity aliases point at v6 — v6 re-types the actions an entity
+// carries itself so one can update attributes, not only roll.
 export {
-  EntityV5Schema as EntitySchema,
-  EntityBaseV5Schema as EntityBaseSchema,
-  CharacterEntityV5Schema as CharacterEntitySchema,
-  CreatureEntityV5Schema as CreatureEntitySchema,
-  GroupEntityV5Schema as GroupEntitySchema,
-  PlaceEntityV5Schema as PlaceEntitySchema,
-  ItemEntityV5Schema as ItemEntitySchema,
-  NoteEntityV5Schema as NoteEntitySchema,
-  AbilityEntityV5Schema as AbilityEntitySchema,
-  StoryEntityV5Schema as StoryEntitySchema,
-  EventEntityV5Schema as EventEntitySchema,
-  EntityTypeV5Schema as EntityTypeSchema,
-  type EntityV5 as Entity,
-  type EntityTypeV5 as EntityType,
-  type EntityBaseV5 as EntityBase,
-  type CharacterEntityV5 as CharacterEntity,
-  type CreatureEntityV5 as CreatureEntity,
-  type GroupEntityV5 as GroupEntity,
-  type PlaceEntityV5 as PlaceEntity,
-} from "./models/entity.v5.schema";
+  EntityV6Schema as EntitySchema,
+  EntityBaseV6Schema as EntityBaseSchema,
+  CharacterEntityV6Schema as CharacterEntitySchema,
+  CreatureEntityV6Schema as CreatureEntitySchema,
+  GroupEntityV6Schema as GroupEntitySchema,
+  PlaceEntityV6Schema as PlaceEntitySchema,
+  ItemEntityV6Schema as ItemEntitySchema,
+  NoteEntityV6Schema as NoteEntitySchema,
+  AbilityEntityV6Schema as AbilityEntitySchema,
+  StoryEntityV6Schema as StoryEntitySchema,
+  EventEntityV6Schema as EventEntitySchema,
+  EntityTypeV6Schema as EntityTypeSchema,
+  type EntityV6 as Entity,
+  type EntityTypeV6 as EntityType,
+  type EntityBaseV6 as EntityBase,
+  type CharacterEntityV6 as CharacterEntity,
+  type CreatureEntityV6 as CreatureEntity,
+  type GroupEntityV6 as GroupEntity,
+  type PlaceEntityV6 as PlaceEntity,
+} from "./models/entity.v6.schema";
 
 export {
-  EntityActionV1Schema as EntityActionSchema,
-  type EntityActionV1 as EntityAction,
-} from "./models/entity-action.v1.schema";
+  EntityActionV2Schema as EntityActionSchema,
+  type EntityActionV2 as EntityAction,
+} from "./models/entity-action.v2.schema";
 
 // Group rank shapes unchanged in v2 — alias still points at v1.
 export {
@@ -1097,13 +1143,23 @@ export {
 // (v7's `min`/`max`/`step` on the `number` variant and v6's
 // `dataTableDirectLookup` are carried forward by that fork, not undone.)
 export {
-  VariableV9Schema as VariableSchema,
-  type VariableV9 as Variable,
   EntityRefVariableV9Schema as EntityRefVariableSchema,
   EntityLookupVariableV9Schema as EntityLookupVariableSchema,
   type EntityRefVariableV9 as EntityRefVariable,
   type EntityLookupVariableV9 as EntityLookupVariable,
 } from "./models/variable.v9.schema";
+export {
+  VariableV10Schema as VariableSchema,
+  RollVariableV10Schema as RollVariableSchema,
+  ActionSectionsV26Schema as ActionSectionsSchema,
+  ActionRollV26Schema as ActionRollSchema,
+  VariableUpdateV26Schema as VariableUpdateSchema,
+  type VariableV10 as Variable,
+  type RollVariableV10 as RollVariable,
+  type ActionSectionsV26 as ActionSections,
+  type ActionRollV26 as ActionRoll,
+  type VariableUpdateV26 as VariableUpdate,
+} from "./models/variable.v10.schema";
 export {
   VariableV8Schema,
   type VariableV8,
@@ -1113,7 +1169,6 @@ export {
   BooleanVariableV8Schema as BooleanVariableSchema,
   ChoiceVariableV8Schema as ChoiceVariableSchema,
   FormulaVariableV8Schema as FormulaVariableSchema,
-  RollVariableV8Schema as RollVariableSchema,
   ImageVariableV8Schema as ImageVariableSchema,
   DataTableRefVariableV8Schema as DataTableRefVariableSchema,
   DataTableLookupVariableV8Schema as DataTableLookupVariableSchema,
@@ -1124,7 +1179,6 @@ export {
   type BooleanVariableV8 as BooleanVariable,
   type ChoiceVariableV8 as ChoiceVariable,
   type FormulaVariableV8 as FormulaVariable,
-  type RollVariableV8 as RollVariable,
   type ImageVariableV8 as ImageVariable,
   type DataTableRefVariableV8 as DataTableRefVariable,
   type DataTableLookupVariableV8 as DataTableLookupVariable,
@@ -1339,9 +1393,10 @@ export { WithLocalizedNameV2Schema as WithLocalizedNameSchema } from "./mixins/w
 // For consumers (like Harpy) that have their own types with the same
 // names and want to avoid `import { Entity as ByppEntity }` aliasing.
 
-export type { EntityV5 as ByppEntity } from "./models/entity.v5.schema";
-export type { EntityBaseV5 as ByppEntityBase } from "./models/entity.v5.schema";
-export type { EntityActionV1 as ByppEntityAction } from "./models/entity-action.v1.schema";
+export type { EntityV6 as ByppEntity } from "./models/entity.v6.schema";
+export type { EntityBaseV6 as ByppEntityBase } from "./models/entity.v6.schema";
+export type { EntityActionV2 as ByppEntityAction } from "./models/entity-action.v2.schema";
+export type { VariableUpdateV26 as ByppVariableUpdate } from "./models/variable.v10.schema";
 export type { CharacterEntityV4 as ByppCharacterEntity } from "./models/entity.v4.schema";
 export type { CreatureEntityV4 as ByppCreatureEntity } from "./models/entity.v4.schema";
 export type { GroupEntityV4 as ByppGroupEntity } from "./models/entity.v4.schema";
@@ -1358,7 +1413,7 @@ export type { ChunkTextV11 as ByppChunkText } from "./models/chunk.v11.schema";
 export type { ChunkGalleryV2 as ByppChunkGallery } from "./models/chunk.v2.schema";
 export type { ChunkRandomV2 as ByppChunkRandom } from "./models/chunk.v2.schema";
 export type { DatasetV2 as ByppDataset } from "./models/dataset.v2.schema";
-export type { VariableV9 as ByppVariable } from "./models/variable.v9.schema";
+export type { VariableV10 as ByppVariable } from "./models/variable.v10.schema";
 export type { VariableBaseV8 as ByppVariableBase } from "./models/variable.v8.schema";
 export type { WidgetV13 as ByppWidget } from "./models/widget.v13.schema";
 export type { WidgetBaseV1 as ByppWidgetBase } from "./models/widget.v1.schema";

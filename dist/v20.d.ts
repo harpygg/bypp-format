@@ -4,12 +4,12 @@ export { B as ByppFileUrlSchema, R as Requirement, b as RequirementSchema, a as 
 export { S as Style, a as StyleSchema } from './with-style.v3.schema-DVGa1bcI.js';
 export { A as Asset, c as AssetSchema, C as Credit, j as CreditSchema, S as SceneBackground, u as SceneBackgroundSchema, h as SceneMap, v as SceneMapSchema, i as Sheet, w as SheetSchema, W as WidgetActionRoll, D as WithCreditSchema } from './widget.v9.schema-c3utgKwR.js';
 export { W as WithIcon, a as WithIconSchema } from './with-icon.v1.schema-XGIKtTTi.js';
-export { E as EntityLookupVariable, b as EntityRefVariable, V as Variable, d as VariableSchema, f as Widget, W as WidgetEntityGrid, g as WidgetSchema } from './widget.v10.schema-EmiI_9Jh.js';
+export { E as EntityLookupVariable, b as EntityRefVariable, V as Variable, d as VariableSchema, f as Widget, W as WidgetEntityGrid, g as WidgetSchema } from './widget.v10.schema-XSz9PQA6.js';
 export { b as Chunk, c as ChunkSchema } from './chunk.v11.schema-BGTxLzRK.js';
 export { a as DialectSchema } from './dialect.v3.schema-B857Hb-P.js';
 export { T as Tag, a as TagCategory, b as TagCategorySchema, c as TagSchema } from './tag-category.v2.schema-C30XLI_r.js';
 export { B as BundleImage, a as BundleImageSchema } from './bundle-image.v14.schema-BtlIaYQx.js';
-export { E as Entity, a as EntityAction, f as EntityActionSchema, h as EntitySchema } from './entity-action.v1.schema-CRwwNHA9.js';
+export { g as Entity, E as EntityAction, d as EntityActionSchema, h as EntitySchema } from './entity-action.v1.schema-CXK5zB3h.js';
 import 'zod';
 
 /**

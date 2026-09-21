@@ -1,8 +1,8 @@
-import { A as AssetUid, T as TagUid, D as DialectUid, E as EntityUid, a as DatasetUid, S as SheetUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, b5 as EntityActionUid, c as SceneUid, C as ChunkUid, R as RandomTableUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid, W as WidgetUid, d as RandomTableRowUid, e as TagCategoryUid, f as SceneMapUid, g as SceneBackgroundUid } from './data-table.v3.schema-SKJA8p4m.cjs';
+import { A as AssetUid, T as TagUid, D as DialectUid, E as EntityUid, a as DatasetUid, S as SheetUid, P as PageUid, V as VariableUid, b as VariableChoiceUid, b5 as EntityActionUid, c as SceneUid, C as ChunkUid, R as RandomTableUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid, W as WidgetUid, d as RandomTableRowUid, e as TagCategoryUid, f as SceneMapUid, g as SceneBackgroundUid } from './data-table.v3.schema-SKJA8p4m.js';
 import { z } from 'zod';
 
-declare const BeyondPaperV25Schema: z.ZodObject<{
-    version: z.ZodLiteral<25>;
+declare const BeyondPaperV26Schema: z.ZodObject<{
+    version: z.ZodLiteral<26>;
     format: z.ZodLiteral<"bypp">;
     name: z.ZodString;
     exportedAt: z.ZodString;
@@ -716,6 +716,35 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
             hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
             type: z.ZodLiteral<"roll">;
             diceFormula: z.ZodOptional<z.ZodString>;
+        } & {
+            rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                key: z.ZodString;
+                label: z.ZodString;
+                diceFormula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }>, "many">>;
+            updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+                formula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }>, "many">>;
+            log: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             type: "roll";
             uid: string & {
@@ -736,6 +765,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }, {
             type: "roll";
             uid: string & {
@@ -756,6 +797,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }>, "many">>;
     } & {
         type: z.ZodLiteral<"character">;
@@ -788,6 +841,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -854,6 +919,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
@@ -952,6 +1029,35 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
             hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
             type: z.ZodLiteral<"roll">;
             diceFormula: z.ZodOptional<z.ZodString>;
+        } & {
+            rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                key: z.ZodString;
+                label: z.ZodString;
+                diceFormula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }>, "many">>;
+            updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+                formula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }>, "many">>;
+            log: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             type: "roll";
             uid: string & {
@@ -972,6 +1078,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }, {
             type: "roll";
             uid: string & {
@@ -992,6 +1110,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }>, "many">>;
     } & {
         type: z.ZodLiteral<"creature">;
@@ -1024,6 +1154,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -1090,6 +1232,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
@@ -1188,6 +1342,35 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
             hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
             type: z.ZodLiteral<"roll">;
             diceFormula: z.ZodOptional<z.ZodString>;
+        } & {
+            rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                key: z.ZodString;
+                label: z.ZodString;
+                diceFormula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }>, "many">>;
+            updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+                formula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }>, "many">>;
+            log: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             type: "roll";
             uid: string & {
@@ -1208,6 +1391,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }, {
             type: "roll";
             uid: string & {
@@ -1228,6 +1423,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }>, "many">>;
     } & {
         type: z.ZodLiteral<"group">;
@@ -1304,6 +1511,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -1380,6 +1599,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
@@ -1478,6 +1709,35 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
             hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
             type: z.ZodLiteral<"roll">;
             diceFormula: z.ZodOptional<z.ZodString>;
+        } & {
+            rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                key: z.ZodString;
+                label: z.ZodString;
+                diceFormula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }>, "many">>;
+            updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+                formula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }>, "many">>;
+            log: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             type: "roll";
             uid: string & {
@@ -1498,6 +1758,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }, {
             type: "roll";
             uid: string & {
@@ -1518,6 +1790,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }>, "many">>;
     } & {
         scenesUids: z.ZodDefault<z.ZodArray<z.ZodType<SceneUid, z.ZodTypeDef, SceneUid>, "many">>;
@@ -1553,6 +1837,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -1620,6 +1916,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
@@ -1718,6 +2026,35 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
             hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
             type: z.ZodLiteral<"roll">;
             diceFormula: z.ZodOptional<z.ZodString>;
+        } & {
+            rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                key: z.ZodString;
+                label: z.ZodString;
+                diceFormula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }>, "many">>;
+            updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+                formula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }>, "many">>;
+            log: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             type: "roll";
             uid: string & {
@@ -1738,6 +2075,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }, {
             type: "roll";
             uid: string & {
@@ -1758,6 +2107,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }>, "many">>;
     } & {
         type: z.ZodLiteral<"item">;
@@ -1790,6 +2151,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -1856,6 +2229,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
@@ -1954,6 +2339,35 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
             hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
             type: z.ZodLiteral<"roll">;
             diceFormula: z.ZodOptional<z.ZodString>;
+        } & {
+            rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                key: z.ZodString;
+                label: z.ZodString;
+                diceFormula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }>, "many">>;
+            updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+                formula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }>, "many">>;
+            log: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             type: "roll";
             uid: string & {
@@ -1974,6 +2388,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }, {
             type: "roll";
             uid: string & {
@@ -1994,6 +2420,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }>, "many">>;
     } & {
         type: z.ZodLiteral<"note">;
@@ -2026,6 +2464,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -2092,6 +2542,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
@@ -2190,6 +2652,35 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
             hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
             type: z.ZodLiteral<"roll">;
             diceFormula: z.ZodOptional<z.ZodString>;
+        } & {
+            rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                key: z.ZodString;
+                label: z.ZodString;
+                diceFormula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }>, "many">>;
+            updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+                formula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }>, "many">>;
+            log: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             type: "roll";
             uid: string & {
@@ -2210,6 +2701,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }, {
             type: "roll";
             uid: string & {
@@ -2230,6 +2733,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }>, "many">>;
     } & {
         type: z.ZodLiteral<"ability">;
@@ -2262,6 +2777,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -2328,6 +2855,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
@@ -2426,6 +2965,35 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
             hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
             type: z.ZodLiteral<"roll">;
             diceFormula: z.ZodOptional<z.ZodString>;
+        } & {
+            rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                key: z.ZodString;
+                label: z.ZodString;
+                diceFormula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }>, "many">>;
+            updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+                formula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }>, "many">>;
+            log: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             type: "roll";
             uid: string & {
@@ -2446,6 +3014,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }, {
             type: "roll";
             uid: string & {
@@ -2466,6 +3046,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }>, "many">>;
     } & {
         type: z.ZodLiteral<"story">;
@@ -2498,6 +3090,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -2564,6 +3168,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
@@ -2662,6 +3278,35 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
             hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
             type: z.ZodLiteral<"roll">;
             diceFormula: z.ZodOptional<z.ZodString>;
+        } & {
+            rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                key: z.ZodString;
+                label: z.ZodString;
+                diceFormula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }, {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }>, "many">>;
+            updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+                formula: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }, {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }>, "many">>;
+            log: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             type: "roll";
             uid: string & {
@@ -2682,6 +3327,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }, {
             type: "roll";
             uid: string & {
@@ -2702,6 +3359,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }>, "many">>;
     } & {
         type: z.ZodLiteral<"event">;
@@ -2734,6 +3403,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -2800,6 +3481,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     }>]>, "many">>;
     pages: z.ZodDefault<z.ZodArray<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
@@ -3313,6 +4006,35 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
         hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
     } & {
         icon: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         type: "roll";
         name: string;
@@ -3339,6 +4061,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
             }>;
         } | undefined;
         hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
     }, {
         type: "roll";
         name: string;
@@ -3365,6 +4099,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
             }>;
         } | undefined;
         hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
     }>, z.ZodObject<{
         uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
     } & {
@@ -8574,7 +9320,7 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     name: string;
     license: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR";
-    version: 25;
+    version: 26;
     format: "bypp";
     exportedAt: string;
     bundleVersion: string;
@@ -8622,6 +9368,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -8670,6 +9428,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -8728,6 +9498,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -8777,6 +9559,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -8825,6 +9619,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -8873,6 +9679,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -8921,6 +9739,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -8969,6 +9799,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -9017,6 +9859,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[];
         originalUrl?: string | undefined;
         thumbnailUrl?: string | undefined;
@@ -9186,32 +10040,6 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
         formula?: string | undefined;
         depsVariablesUid?: VariableUid[] | undefined;
     } | {
-        type: "roll";
-        name: string;
-        uid: string & {
-            readonly __bypp_flavor?: "VariableUid" | undefined;
-        };
-        datasetsUids: DatasetUid[];
-        label?: string | undefined;
-        icon?: string | undefined;
-        isMandatory?: boolean | undefined;
-        isHiddenFromSheet?: boolean | undefined;
-        depsVariablesUid?: VariableUid[] | undefined;
-        diceFormula?: string | undefined;
-        visual?: {
-            type: "awesome";
-            icon: string;
-        } | {
-            type: "compo";
-            icons: Record<string, {
-                icon: string | null;
-                size?: number | undefined;
-                rotate?: number | undefined;
-                revert?: boolean | undefined;
-            }>;
-        } | undefined;
-        hue?: number | null | undefined;
-    } | {
         type: "dataTableRef";
         name: string;
         uid: string & {
@@ -9306,6 +10134,44 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
         sourceVariableUid?: VariableUid | undefined;
         keyVariableUid?: VariableUid | undefined;
         labelVariableUid?: VariableUid | undefined;
+    } | {
+        type: "roll";
+        name: string;
+        uid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+        datasetsUids: DatasetUid[];
+        label?: string | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isHiddenFromSheet?: boolean | undefined;
+        depsVariablesUid?: VariableUid[] | undefined;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
     })[];
     widgets: ({
         type: "empty";
@@ -10516,7 +11382,7 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
 }, {
     name: string;
     license: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR";
-    version: 25;
+    version: 26;
     format: "bypp";
     exportedAt: string;
     bundleVersion: string;
@@ -10604,6 +11470,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     } | {
         type: "creature";
@@ -10652,6 +11530,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     } | {
         type: "group";
@@ -10710,6 +11600,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     } | {
         type: "place";
@@ -10759,6 +11661,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     } | {
         type: "item";
@@ -10807,6 +11721,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     } | {
         type: "note";
@@ -10855,6 +11781,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     } | {
         type: "ability";
@@ -10903,6 +11841,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     } | {
         type: "story";
@@ -10951,6 +11901,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     } | {
         type: "event";
@@ -10999,6 +11961,18 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
                 }>;
             } | undefined;
             hue?: number | null | undefined;
+            rolls?: {
+                label: string;
+                diceFormula: string;
+                key: string;
+            }[] | undefined;
+            updates?: {
+                formula: string;
+                variableUid: string & {
+                    readonly __bypp_flavor?: "VariableUid" | undefined;
+                };
+            }[] | undefined;
+            log?: string | undefined;
         }[] | undefined;
     })[] | undefined;
     pages?: ({
@@ -11150,32 +12124,6 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
         formula?: string | undefined;
         depsVariablesUid?: VariableUid[] | undefined;
     } | {
-        type: "roll";
-        name: string;
-        uid: string & {
-            readonly __bypp_flavor?: "VariableUid" | undefined;
-        };
-        datasetsUids: DatasetUid[];
-        label?: string | undefined;
-        icon?: string | undefined;
-        isMandatory?: boolean | undefined;
-        isHiddenFromSheet?: boolean | undefined;
-        depsVariablesUid?: VariableUid[] | undefined;
-        diceFormula?: string | undefined;
-        visual?: {
-            type: "awesome";
-            icon: string;
-        } | {
-            type: "compo";
-            icons: Record<string, {
-                icon: string | null;
-                size?: number | undefined;
-                rotate?: number | undefined;
-                revert?: boolean | undefined;
-            }>;
-        } | undefined;
-        hue?: number | null | undefined;
-    } | {
         type: "dataTableRef";
         name: string;
         uid: string & {
@@ -11270,6 +12218,44 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
         sourceVariableUid?: VariableUid | undefined;
         keyVariableUid?: VariableUid | undefined;
         labelVariableUid?: VariableUid | undefined;
+    } | {
+        type: "roll";
+        name: string;
+        uid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+        datasetsUids: DatasetUid[];
+        label?: string | undefined;
+        icon?: string | undefined;
+        isMandatory?: boolean | undefined;
+        isHiddenFromSheet?: boolean | undefined;
+        depsVariablesUid?: VariableUid[] | undefined;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
     })[] | undefined;
     widgets?: ({
         type: "empty";
@@ -12456,2230 +13442,7214 @@ declare const BeyondPaperV25Schema: z.ZodObject<{
         }[] | undefined;
     } | undefined;
 }>;
-type BeyondPaperV25 = z.infer<typeof BeyondPaperV25Schema>;
+type BeyondPaperV26 = z.infer<typeof BeyondPaperV26Schema>;
 
+declare const VariableUpdateV26Schema: z.ZodObject<{
+    variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+    formula: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    formula: string;
+    variableUid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+}, {
+    formula: string;
+    variableUid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+}>;
+type VariableUpdateV26 = z.infer<typeof VariableUpdateV26Schema>;
 /**
- * The taxonomy of entity kinds. Each value is a discriminator that
- * selects which entity variant a record is (and thus which extra fields
- * it carries). Stable across bypp versions — adding a new entity type is
- * a major change (would require a v3+ fork).
- *
- * - `character` — a playable / non-playable character.
- * - `creature` — a monster or similar non-character actor.
- * - `place` — a location (carries scenes).
- * - `group` — a collective (carries ranks + member list).
- * - `item` — a piece of equipment / inventory.
- * - `ability` — a single skill / power / spell.
- * - `event` — something that happens at a point in time.
- * - `story` — a story arc / legend / narrative fragment.
- * - `note` — a free-form GM / author note.
+ * One throw of dice in an action. `key` never changes once written: the
+ * reserved attributes of the throw derive from it (`system-action-result-`
+ * and `system-action-roll-` followed by the key). `label` is what the
+ * author calls the throw.
  */
-declare const EntityTypeV1Schema: z.ZodEnum<["character", "creature", "place", "group", "item", "ability", "event", "story", "note"]>;
-type EntityTypeV1 = z.infer<typeof EntityTypeV1Schema>;
-/**
- * A single character listed inside a group rank. `entityUid` references
- * the actual character (must resolve to a `character`-type entity in the
- * bundle). `label` is the rank-local label (e.g. "First Mate", "Acolyte")
- * — separate from the character's own name.
- */
-declare const GroupRankCharacterV1Schema: z.ZodObject<{
-    entityUid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+declare const ActionRollV26Schema: z.ZodObject<{
+    key: z.ZodString;
     label: z.ZodString;
+    diceFormula: z.ZodString;
 }, "strip", z.ZodTypeAny, {
-    entityUid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
     label: string;
+    diceFormula: string;
+    key: string;
 }, {
-    entityUid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
     label: string;
+    diceFormula: string;
+    key: string;
 }>;
-type GroupRankCharacterV1 = z.infer<typeof GroupRankCharacterV1Schema>;
+type ActionRollV26 = z.infer<typeof ActionRollV26Schema>;
 /**
- * A rank tier inside a group entity — captures hierarchical membership.
- * "Captain" rank may contain one character; "Crew" rank may contain
- * many. The order of `ranks[]` on a group entity is significant.
+ * What an action does, every part optional. `rolls` is the list of throws;
+ * the `diceFormula` a roll carried before v26 stays beside it, written again
+ * as the FIRST roll's formula, so a reader that shows one notation and a v25
+ * reader keep something to read. A reader takes `rolls` when present.
  */
-declare const GroupRankV1Schema: z.ZodObject<{
-    label: z.ZodString;
-    characters: z.ZodArray<z.ZodObject<{
-        entityUid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+declare const ActionSectionsV26Schema: z.ZodObject<{
+    rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        key: z.ZodString;
         label: z.ZodString;
-    }, "strip", z.ZodTypeAny, {
-        entityUid: string & {
-            readonly __bypp_flavor?: "EntityUid" | undefined;
-        };
-        label: string;
-    }, {
-        entityUid: string & {
-            readonly __bypp_flavor?: "EntityUid" | undefined;
-        };
-        label: string;
-    }>, "many">;
-}, "strip", z.ZodTypeAny, {
-    label: string;
-    characters: {
-        entityUid: string & {
-            readonly __bypp_flavor?: "EntityUid" | undefined;
-        };
-        label: string;
-    }[];
-}, {
-    label: string;
-    characters: {
-        entityUid: string & {
-            readonly __bypp_flavor?: "EntityUid" | undefined;
-        };
-        label: string;
-    }[];
-}>;
-type GroupRankV1 = z.infer<typeof GroupRankV1Schema>;
-/**
- * Fields common to every entity, before the type-specific extensions.
- *
- *  - `displayName` — what readers show instead of `name` in player-facing
- *    contexts. `null` means "use `name`". Lets the GM track a creature
- *    as "the assassin" while players see "hooded figure".
- *  - `description` — short summary string (one paragraph, not rich
- *    text — for that, use a page chunk).
- *  - `tagsUid` — every tag this entity has. Drives dataset targeting,
- *    filtering, grouping.
- *  - `sheetOverrides` — per-dataset sheet customization. When a viewer
- *    renders this entity under dataset D, it uses `sheetOverrides[D]`
- *    (if set) instead of the dataset's default `sheetUid`. Lets one
- *    character use a compact sheet while another uses a full one for the
- *    same dataset.
- *  - Mixins: `name`, image URLs, archive flag, owned pages, variable
- *    data, asset gallery.
- */
-declare const EntityBaseV1Schema: z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-}, "strip", z.ZodTypeAny, {
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>;
-type EntityBaseV1 = z.infer<typeof EntityBaseV1Schema>;
-/** A playable / non-playable character. No type-specific fields beyond the base. */
-declare const CharacterEntityV1Schema: z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    type: z.ZodLiteral<"character">;
-}, "strip", z.ZodTypeAny, {
-    type: "character";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "character";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>;
-type CharacterEntityV1 = z.infer<typeof CharacterEntityV1Schema>;
-/** A monster or similar non-character actor. No type-specific fields beyond the base. */
-declare const CreatureEntityV1Schema: z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    type: z.ZodLiteral<"creature">;
-}, "strip", z.ZodTypeAny, {
-    type: "creature";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "creature";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>;
-type CreatureEntityV1 = z.infer<typeof CreatureEntityV1Schema>;
-/**
- * A collective entity (party, faction, family, crew…) made of members
- * organized by rank.
- *
- *  - `ranks[]` — tiers of membership, in display order (top of hierarchy
- *    first).
- *  - `charactersUids[]` — flat list of all member uids across all ranks.
- *    Mirrors what `ranks[].characters[].entityUid` collectively contains;
- *    kept separate as a denormalized index so readers can filter "is
- *    entity X in this group?" without walking the rank tree.
- */
-declare const GroupEntityV1Schema: z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    type: z.ZodLiteral<"group">;
-    ranks: z.ZodArray<z.ZodObject<{
-        label: z.ZodString;
-        characters: z.ZodArray<z.ZodObject<{
-            entityUid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-            label: z.ZodString;
-        }, "strip", z.ZodTypeAny, {
-            entityUid: string & {
-                readonly __bypp_flavor?: "EntityUid" | undefined;
-            };
-            label: string;
-        }, {
-            entityUid: string & {
-                readonly __bypp_flavor?: "EntityUid" | undefined;
-            };
-            label: string;
-        }>, "many">;
+        diceFormula: z.ZodString;
     }, "strip", z.ZodTypeAny, {
         label: string;
-        characters: {
-            entityUid: string & {
-                readonly __bypp_flavor?: "EntityUid" | undefined;
-            };
-            label: string;
-        }[];
+        diceFormula: string;
+        key: string;
     }, {
         label: string;
-        characters: {
-            entityUid: string & {
-                readonly __bypp_flavor?: "EntityUid" | undefined;
-            };
-            label: string;
-        }[];
-    }>, "many">;
-    charactersUids: z.ZodArray<z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>, "many">;
-}, "strip", z.ZodTypeAny, {
-    type: "group";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    ranks: {
-        label: string;
-        characters: {
-            entityUid: string & {
-                readonly __bypp_flavor?: "EntityUid" | undefined;
-            };
-            label: string;
-        }[];
-    }[];
-    charactersUids: EntityUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "group";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    ranks: {
-        label: string;
-        characters: {
-            entityUid: string & {
-                readonly __bypp_flavor?: "EntityUid" | undefined;
-            };
-            label: string;
-        }[];
-    }[];
-    charactersUids: EntityUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>;
-type GroupEntityV1 = z.infer<typeof GroupEntityV1Schema>;
-/**
- * A location entity. Carries its `scenesUids` (the playable scenes attached
- * to this place — combat encounters, exploration scenes, etc.).
- */
-declare const PlaceEntityV1Schema: z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    scenesUids: z.ZodArray<z.ZodType<SceneUid, z.ZodTypeDef, SceneUid>, "many">;
-} & {
-    type: z.ZodLiteral<"place">;
-}, "strip", z.ZodTypeAny, {
-    type: "place";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    scenesUids: SceneUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "place";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    scenesUids: SceneUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>;
-type PlaceEntityV1 = z.infer<typeof PlaceEntityV1Schema>;
-/** Inventory / equipment item. No type-specific fields beyond the base. */
-declare const ItemEntityV1Schema: z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    type: z.ZodLiteral<"item">;
-}, "strip", z.ZodTypeAny, {
-    type: "item";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "item";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>;
-/** Free-form GM or author note. No type-specific fields beyond the base. */
-declare const NoteEntityV1Schema: z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    type: z.ZodLiteral<"note">;
-}, "strip", z.ZodTypeAny, {
-    type: "note";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "note";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>;
-/** A power, skill, spell, or similar ability. No type-specific fields beyond the base. */
-declare const AbilityEntityV1Schema: z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    type: z.ZodLiteral<"ability">;
-}, "strip", z.ZodTypeAny, {
-    type: "ability";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "ability";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>;
-/** A narrative fragment (legend, lore, backstory). No type-specific fields beyond the base. */
-declare const StoryEntityV1Schema: z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    type: z.ZodLiteral<"story">;
-}, "strip", z.ZodTypeAny, {
-    type: "story";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "story";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>;
-/** An event in the timeline. No type-specific fields beyond the base. */
-declare const EventEntityV1Schema: z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    type: z.ZodLiteral<"event">;
-}, "strip", z.ZodTypeAny, {
-    type: "event";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "event";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>;
-/**
- * Discriminated union of every entity kind. Narrow with `entity.type` —
- * the result carries the matching type-specific fields automatically.
- */
-declare const EntityV1Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    type: z.ZodLiteral<"character">;
-}, "strip", z.ZodTypeAny, {
-    type: "character";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "character";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>, z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    type: z.ZodLiteral<"creature">;
-}, "strip", z.ZodTypeAny, {
-    type: "creature";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "creature";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>, z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    type: z.ZodLiteral<"group">;
-    ranks: z.ZodArray<z.ZodObject<{
-        label: z.ZodString;
-        characters: z.ZodArray<z.ZodObject<{
-            entityUid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-            label: z.ZodString;
-        }, "strip", z.ZodTypeAny, {
-            entityUid: string & {
-                readonly __bypp_flavor?: "EntityUid" | undefined;
-            };
-            label: string;
-        }, {
-            entityUid: string & {
-                readonly __bypp_flavor?: "EntityUid" | undefined;
-            };
-            label: string;
-        }>, "many">;
+        diceFormula: string;
+        key: string;
+    }>, "many">>;
+    updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+        formula: z.ZodString;
     }, "strip", z.ZodTypeAny, {
-        label: string;
-        characters: {
-            entityUid: string & {
-                readonly __bypp_flavor?: "EntityUid" | undefined;
-            };
-            label: string;
-        }[];
-    }, {
-        label: string;
-        characters: {
-            entityUid: string & {
-                readonly __bypp_flavor?: "EntityUid" | undefined;
-            };
-            label: string;
-        }[];
-    }>, "many">;
-    charactersUids: z.ZodArray<z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>, "many">;
-}, "strip", z.ZodTypeAny, {
-    type: "group";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    ranks: {
-        label: string;
-        characters: {
-            entityUid: string & {
-                readonly __bypp_flavor?: "EntityUid" | undefined;
-            };
-            label: string;
-        }[];
-    }[];
-    charactersUids: EntityUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "group";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    ranks: {
-        label: string;
-        characters: {
-            entityUid: string & {
-                readonly __bypp_flavor?: "EntityUid" | undefined;
-            };
-            label: string;
-        }[];
-    }[];
-    charactersUids: EntityUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>, z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    scenesUids: z.ZodArray<z.ZodType<SceneUid, z.ZodTypeDef, SceneUid>, "many">;
-} & {
-    type: z.ZodLiteral<"place">;
-}, "strip", z.ZodTypeAny, {
-    type: "place";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    scenesUids: SceneUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "place";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    scenesUids: SceneUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>, z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    type: z.ZodLiteral<"item">;
-}, "strip", z.ZodTypeAny, {
-    type: "item";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "item";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>, z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    type: z.ZodLiteral<"note">;
-}, "strip", z.ZodTypeAny, {
-    type: "note";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "note";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>, z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    type: z.ZodLiteral<"ability">;
-}, "strip", z.ZodTypeAny, {
-    type: "ability";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "ability";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>, z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    type: z.ZodLiteral<"story">;
-}, "strip", z.ZodTypeAny, {
-    type: "story";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "story";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>, z.ZodObject<{
-    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
-    displayName: z.ZodNullable<z.ZodString>;
-    description: z.ZodNullable<z.ZodString>;
-    tagsUid: z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">;
-    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
-} & {
-    name: z.ZodString;
-} & {
-    originalUrl: z.ZodOptional<z.ZodString>;
-    thumbnailUrl: z.ZodOptional<z.ZodString>;
-    squareUrl: z.ZodOptional<z.ZodString>;
-    closeupUrl: z.ZodOptional<z.ZodString>;
-} & {
-    isArchived: z.ZodBoolean;
-} & {
-    pagesOrder: z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">;
-} & {
-    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
-} & {
-    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
-} & {
-    type: z.ZodLiteral<"event">;
-}, "strip", z.ZodTypeAny, {
-    type: "event";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}, {
-    type: "event";
-    name: string;
-    uid: string & {
-        readonly __bypp_flavor?: "EntityUid" | undefined;
-    };
-    isArchived: boolean;
-    pagesOrder: PageUid[];
-    displayName: string | null;
-    description: string | null;
-    tagsUid: TagUid[];
-    originalUrl?: string | undefined;
-    thumbnailUrl?: string | undefined;
-    squareUrl?: string | undefined;
-    closeupUrl?: string | undefined;
-    assetUids?: AssetUid[] | undefined;
-    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
-    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
-}>]>;
-type EntityV1 = z.infer<typeof EntityV1Schema>;
-
-/**
- * The style a theme lays on one element.
- *
- * The v6 style, minus the two ways of saying nothing. Everywhere else in the
- * format a style hangs off an item that exists for other reasons — a widget is
- * still a widget unstyled — so `StyleV6Schema` is `nullable().optional()` and
- * both mean "use the defaults". A theme entry exists for no other reason: a
- * key mapped to `null` is a key that says nothing, and an absent key already
- * says it, better. So the object itself is required wherever a theme names an
- * element.
- *
- * This file MUST NOT be modified once shipped.
- */
-declare const ThemeStyleV25Schema: z.ZodObject<{
-    justifyContent: z.ZodOptional<z.ZodString>;
-    alignItems: z.ZodOptional<z.ZodString>;
-    flexDirection: z.ZodOptional<z.ZodString>;
-    lineHeight: z.ZodOptional<z.ZodNumber>;
-    fontFamilyId: z.ZodOptional<z.ZodString>;
-    fontScale: z.ZodOptional<z.ZodNumber>;
-    color: z.ZodOptional<z.ZodString>;
-    paddingTop: z.ZodOptional<z.ZodNumber>;
-    paddingRight: z.ZodOptional<z.ZodNumber>;
-    paddingBottom: z.ZodOptional<z.ZodNumber>;
-    paddingLeft: z.ZodOptional<z.ZodNumber>;
-    borderStyle: z.ZodOptional<z.ZodString>;
-    borderColor: z.ZodOptional<z.ZodString>;
-    borderRadius: z.ZodOptional<z.ZodString>;
-    background: z.ZodOptional<z.ZodObject<{
-        assetUid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
-        objectFit: z.ZodOptional<z.ZodEnum<["cover", "contain", "fill", "none", "scale-down"]>>;
-    }, "strip", z.ZodTypeAny, {
-        assetUid: string & {
-            readonly __bypp_flavor?: "AssetUid" | undefined;
-        };
-        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-    }, {
-        assetUid: string & {
-            readonly __bypp_flavor?: "AssetUid" | undefined;
-        };
-        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-    }>>;
-    rotation: z.ZodOptional<z.ZodNumber>;
-    fontWeight: z.ZodOptional<z.ZodString>;
-    fontStyle: z.ZodOptional<z.ZodString>;
-    marginTop: z.ZodOptional<z.ZodNumber>;
-    marginRight: z.ZodOptional<z.ZodNumber>;
-    marginBottom: z.ZodOptional<z.ZodNumber>;
-    marginLeft: z.ZodOptional<z.ZodNumber>;
-    backgroundColor: z.ZodOptional<z.ZodString>;
-    textDecoration: z.ZodOptional<z.ZodString>;
-    backgroundRepeat: z.ZodOptional<z.ZodBoolean>;
-} & {
-    margin: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodEffects<z.ZodArray<z.ZodNumber, "many">, number[], number[]>]>>;
-    padding: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodEffects<z.ZodArray<z.ZodNumber, "many">, number[], number[]>]>>;
-    borderWidth: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodEffects<z.ZodArray<z.ZodNumber, "many">, number[], number[]>]>>;
-}, "strip", z.ZodTypeAny, {
-    color?: string | undefined;
-    justifyContent?: string | undefined;
-    alignItems?: string | undefined;
-    flexDirection?: string | undefined;
-    lineHeight?: number | undefined;
-    fontFamilyId?: string | undefined;
-    fontScale?: number | undefined;
-    paddingTop?: number | undefined;
-    paddingRight?: number | undefined;
-    paddingBottom?: number | undefined;
-    paddingLeft?: number | undefined;
-    borderWidth?: number | number[] | undefined;
-    borderStyle?: string | undefined;
-    borderColor?: string | undefined;
-    borderRadius?: string | undefined;
-    background?: {
-        assetUid: string & {
-            readonly __bypp_flavor?: "AssetUid" | undefined;
-        };
-        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-    } | undefined;
-    rotation?: number | undefined;
-    fontWeight?: string | undefined;
-    fontStyle?: string | undefined;
-    marginTop?: number | undefined;
-    marginRight?: number | undefined;
-    marginBottom?: number | undefined;
-    marginLeft?: number | undefined;
-    backgroundColor?: string | undefined;
-    textDecoration?: string | undefined;
-    backgroundRepeat?: boolean | undefined;
-    margin?: number | number[] | undefined;
-    padding?: number | number[] | undefined;
-}, {
-    color?: string | undefined;
-    justifyContent?: string | undefined;
-    alignItems?: string | undefined;
-    flexDirection?: string | undefined;
-    lineHeight?: number | undefined;
-    fontFamilyId?: string | undefined;
-    fontScale?: number | undefined;
-    paddingTop?: number | undefined;
-    paddingRight?: number | undefined;
-    paddingBottom?: number | undefined;
-    paddingLeft?: number | undefined;
-    borderWidth?: number | number[] | undefined;
-    borderStyle?: string | undefined;
-    borderColor?: string | undefined;
-    borderRadius?: string | undefined;
-    background?: {
-        assetUid: string & {
-            readonly __bypp_flavor?: "AssetUid" | undefined;
-        };
-        objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-    } | undefined;
-    rotation?: number | undefined;
-    fontWeight?: string | undefined;
-    fontStyle?: string | undefined;
-    marginTop?: number | undefined;
-    marginRight?: number | undefined;
-    marginBottom?: number | undefined;
-    marginLeft?: number | undefined;
-    backgroundColor?: string | undefined;
-    textDecoration?: string | undefined;
-    backgroundRepeat?: boolean | undefined;
-    margin?: number | number[] | undefined;
-    padding?: number | number[] | undefined;
-}>;
-type ThemeStyleV25 = z.infer<typeof ThemeStyleV25Schema>;
-/**
- * One tag's own style, and where it stands among the others.
- *
- * A list rather than a map, because the ORDER is the answer. A thing wears
- * several tags and carries them in whatever order it was given them, which is
- * no order at all; this list is the author's own, and a reader lays the styles
- * in it from first to last, later ones winning. Turn it into a map and that
- * answer is gone.
- *
- * `tagUid` names an entry of the document's own `tags[]`. A theme that paints
- * a tag the document does not carry is describing something the reader cannot
- * see: such an entry is dropped, exactly like any other dangling reference.
- */
-declare const ThemeTagStyleV25Schema: z.ZodObject<{
-    tagUid: z.ZodType<TagUid, z.ZodTypeDef, TagUid>;
-    style: z.ZodObject<{
-        justifyContent: z.ZodOptional<z.ZodString>;
-        alignItems: z.ZodOptional<z.ZodString>;
-        flexDirection: z.ZodOptional<z.ZodString>;
-        lineHeight: z.ZodOptional<z.ZodNumber>;
-        fontFamilyId: z.ZodOptional<z.ZodString>;
-        fontScale: z.ZodOptional<z.ZodNumber>;
-        color: z.ZodOptional<z.ZodString>;
-        paddingTop: z.ZodOptional<z.ZodNumber>;
-        paddingRight: z.ZodOptional<z.ZodNumber>;
-        paddingBottom: z.ZodOptional<z.ZodNumber>;
-        paddingLeft: z.ZodOptional<z.ZodNumber>;
-        borderStyle: z.ZodOptional<z.ZodString>;
-        borderColor: z.ZodOptional<z.ZodString>;
-        borderRadius: z.ZodOptional<z.ZodString>;
-        background: z.ZodOptional<z.ZodObject<{
-            assetUid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
-            objectFit: z.ZodOptional<z.ZodEnum<["cover", "contain", "fill", "none", "scale-down"]>>;
-        }, "strip", z.ZodTypeAny, {
-            assetUid: string & {
-                readonly __bypp_flavor?: "AssetUid" | undefined;
-            };
-            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-        }, {
-            assetUid: string & {
-                readonly __bypp_flavor?: "AssetUid" | undefined;
-            };
-            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-        }>>;
-        rotation: z.ZodOptional<z.ZodNumber>;
-        fontWeight: z.ZodOptional<z.ZodString>;
-        fontStyle: z.ZodOptional<z.ZodString>;
-        marginTop: z.ZodOptional<z.ZodNumber>;
-        marginRight: z.ZodOptional<z.ZodNumber>;
-        marginBottom: z.ZodOptional<z.ZodNumber>;
-        marginLeft: z.ZodOptional<z.ZodNumber>;
-        backgroundColor: z.ZodOptional<z.ZodString>;
-        textDecoration: z.ZodOptional<z.ZodString>;
-        backgroundRepeat: z.ZodOptional<z.ZodBoolean>;
-    } & {
-        margin: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodEffects<z.ZodArray<z.ZodNumber, "many">, number[], number[]>]>>;
-        padding: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodEffects<z.ZodArray<z.ZodNumber, "many">, number[], number[]>]>>;
-        borderWidth: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodEffects<z.ZodArray<z.ZodNumber, "many">, number[], number[]>]>>;
-    }, "strip", z.ZodTypeAny, {
-        color?: string | undefined;
-        justifyContent?: string | undefined;
-        alignItems?: string | undefined;
-        flexDirection?: string | undefined;
-        lineHeight?: number | undefined;
-        fontFamilyId?: string | undefined;
-        fontScale?: number | undefined;
-        paddingTop?: number | undefined;
-        paddingRight?: number | undefined;
-        paddingBottom?: number | undefined;
-        paddingLeft?: number | undefined;
-        borderWidth?: number | number[] | undefined;
-        borderStyle?: string | undefined;
-        borderColor?: string | undefined;
-        borderRadius?: string | undefined;
-        background?: {
-            assetUid: string & {
-                readonly __bypp_flavor?: "AssetUid" | undefined;
-            };
-            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-        } | undefined;
-        rotation?: number | undefined;
-        fontWeight?: string | undefined;
-        fontStyle?: string | undefined;
-        marginTop?: number | undefined;
-        marginRight?: number | undefined;
-        marginBottom?: number | undefined;
-        marginLeft?: number | undefined;
-        backgroundColor?: string | undefined;
-        textDecoration?: string | undefined;
-        backgroundRepeat?: boolean | undefined;
-        margin?: number | number[] | undefined;
-        padding?: number | number[] | undefined;
-    }, {
-        color?: string | undefined;
-        justifyContent?: string | undefined;
-        alignItems?: string | undefined;
-        flexDirection?: string | undefined;
-        lineHeight?: number | undefined;
-        fontFamilyId?: string | undefined;
-        fontScale?: number | undefined;
-        paddingTop?: number | undefined;
-        paddingRight?: number | undefined;
-        paddingBottom?: number | undefined;
-        paddingLeft?: number | undefined;
-        borderWidth?: number | number[] | undefined;
-        borderStyle?: string | undefined;
-        borderColor?: string | undefined;
-        borderRadius?: string | undefined;
-        background?: {
-            assetUid: string & {
-                readonly __bypp_flavor?: "AssetUid" | undefined;
-            };
-            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-        } | undefined;
-        rotation?: number | undefined;
-        fontWeight?: string | undefined;
-        fontStyle?: string | undefined;
-        marginTop?: number | undefined;
-        marginRight?: number | undefined;
-        marginBottom?: number | undefined;
-        marginLeft?: number | undefined;
-        backgroundColor?: string | undefined;
-        textDecoration?: string | undefined;
-        backgroundRepeat?: boolean | undefined;
-        margin?: number | number[] | undefined;
-        padding?: number | number[] | undefined;
-    }>;
-}, "strip", z.ZodTypeAny, {
-    style: {
-        color?: string | undefined;
-        justifyContent?: string | undefined;
-        alignItems?: string | undefined;
-        flexDirection?: string | undefined;
-        lineHeight?: number | undefined;
-        fontFamilyId?: string | undefined;
-        fontScale?: number | undefined;
-        paddingTop?: number | undefined;
-        paddingRight?: number | undefined;
-        paddingBottom?: number | undefined;
-        paddingLeft?: number | undefined;
-        borderWidth?: number | number[] | undefined;
-        borderStyle?: string | undefined;
-        borderColor?: string | undefined;
-        borderRadius?: string | undefined;
-        background?: {
-            assetUid: string & {
-                readonly __bypp_flavor?: "AssetUid" | undefined;
-            };
-            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-        } | undefined;
-        rotation?: number | undefined;
-        fontWeight?: string | undefined;
-        fontStyle?: string | undefined;
-        marginTop?: number | undefined;
-        marginRight?: number | undefined;
-        marginBottom?: number | undefined;
-        marginLeft?: number | undefined;
-        backgroundColor?: string | undefined;
-        textDecoration?: string | undefined;
-        backgroundRepeat?: boolean | undefined;
-        margin?: number | number[] | undefined;
-        padding?: number | number[] | undefined;
-    };
-    tagUid: string & {
-        readonly __bypp_flavor?: "TagUid" | undefined;
-    };
-}, {
-    style: {
-        color?: string | undefined;
-        justifyContent?: string | undefined;
-        alignItems?: string | undefined;
-        flexDirection?: string | undefined;
-        lineHeight?: number | undefined;
-        fontFamilyId?: string | undefined;
-        fontScale?: number | undefined;
-        paddingTop?: number | undefined;
-        paddingRight?: number | undefined;
-        paddingBottom?: number | undefined;
-        paddingLeft?: number | undefined;
-        borderWidth?: number | number[] | undefined;
-        borderStyle?: string | undefined;
-        borderColor?: string | undefined;
-        borderRadius?: string | undefined;
-        background?: {
-            assetUid: string & {
-                readonly __bypp_flavor?: "AssetUid" | undefined;
-            };
-            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-        } | undefined;
-        rotation?: number | undefined;
-        fontWeight?: string | undefined;
-        fontStyle?: string | undefined;
-        marginTop?: number | undefined;
-        marginRight?: number | undefined;
-        marginBottom?: number | undefined;
-        marginLeft?: number | undefined;
-        backgroundColor?: string | undefined;
-        textDecoration?: string | undefined;
-        backgroundRepeat?: boolean | undefined;
-        margin?: number | number[] | undefined;
-        padding?: number | number[] | undefined;
-    };
-    tagUid: string & {
-        readonly __bypp_flavor?: "TagUid" | undefined;
-    };
-}>;
-type ThemeTagStyleV25 = z.infer<typeof ThemeTagStyleV25Schema>;
-/**
- * How a document wants its own prose to look — introduced in bypp format v25.
- *
- * Everything else a style touches in this format is a box on a sheet: a
- * widget, placed, padded and bordered. Prose had nothing. A bundle whose
- * headings, quotes and asides are half of what it is arrived somewhere else as
- * unstyled text, and the look had to be rebuilt by hand — which is not
- * something an author can ship.
- *
- * ── `elements` ──────────────────────────────────────────────────────────
- *
- * A style per element of the content, keyed by a NAME. The names a reader is
- * expected to recognise:
- *
- *   base                the content container itself — what everything under
- *                       it inherits, through the plain CSS cascade rather
- *                       than any rule of this format's own
- *   h1 … h6             a heading of that level, whatever produced it
- *   p                   a paragraph
- *   ul / ol             a list, and what it marks its items with
- *   blockquote          a quote block
- *   code                inline code and code blocks
- *   table               a table, its caption and its cells
- *   link                a link
- *   mention             an entity named inside prose
- *   mention-<type>      the same, for one entity type — `<type>` is a member
- *                       of `EntityTypeV1Schema` (`mention-place`,
- *                       `mention-creature`, …). It overrides the generic
- *                       `mention` property by property: a place and a
- *                       creature are not read the same way, so they are not
- *                       necessarily painted the same way either.
- *   block-<name>        a block wearing a named look — a warning, a note, an
- *                       aside. `<name>` is the word the block is written with
- *                       (the fence of a markdown chunk, the picker of an
- *                       editor), and this format does not enumerate those:
- *                       a producer's set of callouts is its own, and an open
- *                       format has no standing to freeze one vendor's.
- *
- * The key stays a plain `z.string()` for that last reason, and the same one
- * that keeps an icon name loose (see `../icons`): a producer whose vocabulary
- * is richer than the reader's must still be able to say what it means, and a
- * reader that does not know a name simply does not paint it. Nothing is
- * rejected; what the list above buys is being UNDERSTOOD.
- *
- * ── `slug` ──────────────────────────────────────────────────────────────
- *
- * The name of the theme these styles were written against — a hint, never the
- * authority. `elements` alone says what the document looks like; `slug` lets a
- * reader that happens to ship the same theme start from it and apply the
- * entries as the overrides they are. A reader that has never heard of it
- * ignores it and loses nothing.
- *
- * This file MUST NOT be modified once shipped.
- */
-declare const ThemeV25Schema: z.ZodObject<{
-    slug: z.ZodOptional<z.ZodString>;
-    elements: z.ZodDefault<z.ZodRecord<z.ZodString, z.ZodObject<{
-        justifyContent: z.ZodOptional<z.ZodString>;
-        alignItems: z.ZodOptional<z.ZodString>;
-        flexDirection: z.ZodOptional<z.ZodString>;
-        lineHeight: z.ZodOptional<z.ZodNumber>;
-        fontFamilyId: z.ZodOptional<z.ZodString>;
-        fontScale: z.ZodOptional<z.ZodNumber>;
-        color: z.ZodOptional<z.ZodString>;
-        paddingTop: z.ZodOptional<z.ZodNumber>;
-        paddingRight: z.ZodOptional<z.ZodNumber>;
-        paddingBottom: z.ZodOptional<z.ZodNumber>;
-        paddingLeft: z.ZodOptional<z.ZodNumber>;
-        borderStyle: z.ZodOptional<z.ZodString>;
-        borderColor: z.ZodOptional<z.ZodString>;
-        borderRadius: z.ZodOptional<z.ZodString>;
-        background: z.ZodOptional<z.ZodObject<{
-            assetUid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
-            objectFit: z.ZodOptional<z.ZodEnum<["cover", "contain", "fill", "none", "scale-down"]>>;
-        }, "strip", z.ZodTypeAny, {
-            assetUid: string & {
-                readonly __bypp_flavor?: "AssetUid" | undefined;
-            };
-            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-        }, {
-            assetUid: string & {
-                readonly __bypp_flavor?: "AssetUid" | undefined;
-            };
-            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-        }>>;
-        rotation: z.ZodOptional<z.ZodNumber>;
-        fontWeight: z.ZodOptional<z.ZodString>;
-        fontStyle: z.ZodOptional<z.ZodString>;
-        marginTop: z.ZodOptional<z.ZodNumber>;
-        marginRight: z.ZodOptional<z.ZodNumber>;
-        marginBottom: z.ZodOptional<z.ZodNumber>;
-        marginLeft: z.ZodOptional<z.ZodNumber>;
-        backgroundColor: z.ZodOptional<z.ZodString>;
-        textDecoration: z.ZodOptional<z.ZodString>;
-        backgroundRepeat: z.ZodOptional<z.ZodBoolean>;
-    } & {
-        margin: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodEffects<z.ZodArray<z.ZodNumber, "many">, number[], number[]>]>>;
-        padding: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodEffects<z.ZodArray<z.ZodNumber, "many">, number[], number[]>]>>;
-        borderWidth: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodEffects<z.ZodArray<z.ZodNumber, "many">, number[], number[]>]>>;
-    }, "strip", z.ZodTypeAny, {
-        color?: string | undefined;
-        justifyContent?: string | undefined;
-        alignItems?: string | undefined;
-        flexDirection?: string | undefined;
-        lineHeight?: number | undefined;
-        fontFamilyId?: string | undefined;
-        fontScale?: number | undefined;
-        paddingTop?: number | undefined;
-        paddingRight?: number | undefined;
-        paddingBottom?: number | undefined;
-        paddingLeft?: number | undefined;
-        borderWidth?: number | number[] | undefined;
-        borderStyle?: string | undefined;
-        borderColor?: string | undefined;
-        borderRadius?: string | undefined;
-        background?: {
-            assetUid: string & {
-                readonly __bypp_flavor?: "AssetUid" | undefined;
-            };
-            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-        } | undefined;
-        rotation?: number | undefined;
-        fontWeight?: string | undefined;
-        fontStyle?: string | undefined;
-        marginTop?: number | undefined;
-        marginRight?: number | undefined;
-        marginBottom?: number | undefined;
-        marginLeft?: number | undefined;
-        backgroundColor?: string | undefined;
-        textDecoration?: string | undefined;
-        backgroundRepeat?: boolean | undefined;
-        margin?: number | number[] | undefined;
-        padding?: number | number[] | undefined;
-    }, {
-        color?: string | undefined;
-        justifyContent?: string | undefined;
-        alignItems?: string | undefined;
-        flexDirection?: string | undefined;
-        lineHeight?: number | undefined;
-        fontFamilyId?: string | undefined;
-        fontScale?: number | undefined;
-        paddingTop?: number | undefined;
-        paddingRight?: number | undefined;
-        paddingBottom?: number | undefined;
-        paddingLeft?: number | undefined;
-        borderWidth?: number | number[] | undefined;
-        borderStyle?: string | undefined;
-        borderColor?: string | undefined;
-        borderRadius?: string | undefined;
-        background?: {
-            assetUid: string & {
-                readonly __bypp_flavor?: "AssetUid" | undefined;
-            };
-            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-        } | undefined;
-        rotation?: number | undefined;
-        fontWeight?: string | undefined;
-        fontStyle?: string | undefined;
-        marginTop?: number | undefined;
-        marginRight?: number | undefined;
-        marginBottom?: number | undefined;
-        marginLeft?: number | undefined;
-        backgroundColor?: string | undefined;
-        textDecoration?: string | undefined;
-        backgroundRepeat?: boolean | undefined;
-        margin?: number | number[] | undefined;
-        padding?: number | number[] | undefined;
-    }>>>;
-    tagStyles: z.ZodDefault<z.ZodArray<z.ZodObject<{
-        tagUid: z.ZodType<TagUid, z.ZodTypeDef, TagUid>;
-        style: z.ZodObject<{
-            justifyContent: z.ZodOptional<z.ZodString>;
-            alignItems: z.ZodOptional<z.ZodString>;
-            flexDirection: z.ZodOptional<z.ZodString>;
-            lineHeight: z.ZodOptional<z.ZodNumber>;
-            fontFamilyId: z.ZodOptional<z.ZodString>;
-            fontScale: z.ZodOptional<z.ZodNumber>;
-            color: z.ZodOptional<z.ZodString>;
-            paddingTop: z.ZodOptional<z.ZodNumber>;
-            paddingRight: z.ZodOptional<z.ZodNumber>;
-            paddingBottom: z.ZodOptional<z.ZodNumber>;
-            paddingLeft: z.ZodOptional<z.ZodNumber>;
-            borderStyle: z.ZodOptional<z.ZodString>;
-            borderColor: z.ZodOptional<z.ZodString>;
-            borderRadius: z.ZodOptional<z.ZodString>;
-            background: z.ZodOptional<z.ZodObject<{
-                assetUid: z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>;
-                objectFit: z.ZodOptional<z.ZodEnum<["cover", "contain", "fill", "none", "scale-down"]>>;
-            }, "strip", z.ZodTypeAny, {
-                assetUid: string & {
-                    readonly __bypp_flavor?: "AssetUid" | undefined;
-                };
-                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-            }, {
-                assetUid: string & {
-                    readonly __bypp_flavor?: "AssetUid" | undefined;
-                };
-                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-            }>>;
-            rotation: z.ZodOptional<z.ZodNumber>;
-            fontWeight: z.ZodOptional<z.ZodString>;
-            fontStyle: z.ZodOptional<z.ZodString>;
-            marginTop: z.ZodOptional<z.ZodNumber>;
-            marginRight: z.ZodOptional<z.ZodNumber>;
-            marginBottom: z.ZodOptional<z.ZodNumber>;
-            marginLeft: z.ZodOptional<z.ZodNumber>;
-            backgroundColor: z.ZodOptional<z.ZodString>;
-            textDecoration: z.ZodOptional<z.ZodString>;
-            backgroundRepeat: z.ZodOptional<z.ZodBoolean>;
-        } & {
-            margin: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodEffects<z.ZodArray<z.ZodNumber, "many">, number[], number[]>]>>;
-            padding: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodEffects<z.ZodArray<z.ZodNumber, "many">, number[], number[]>]>>;
-            borderWidth: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodEffects<z.ZodArray<z.ZodNumber, "many">, number[], number[]>]>>;
-        }, "strip", z.ZodTypeAny, {
-            color?: string | undefined;
-            justifyContent?: string | undefined;
-            alignItems?: string | undefined;
-            flexDirection?: string | undefined;
-            lineHeight?: number | undefined;
-            fontFamilyId?: string | undefined;
-            fontScale?: number | undefined;
-            paddingTop?: number | undefined;
-            paddingRight?: number | undefined;
-            paddingBottom?: number | undefined;
-            paddingLeft?: number | undefined;
-            borderWidth?: number | number[] | undefined;
-            borderStyle?: string | undefined;
-            borderColor?: string | undefined;
-            borderRadius?: string | undefined;
-            background?: {
-                assetUid: string & {
-                    readonly __bypp_flavor?: "AssetUid" | undefined;
-                };
-                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-            } | undefined;
-            rotation?: number | undefined;
-            fontWeight?: string | undefined;
-            fontStyle?: string | undefined;
-            marginTop?: number | undefined;
-            marginRight?: number | undefined;
-            marginBottom?: number | undefined;
-            marginLeft?: number | undefined;
-            backgroundColor?: string | undefined;
-            textDecoration?: string | undefined;
-            backgroundRepeat?: boolean | undefined;
-            margin?: number | number[] | undefined;
-            padding?: number | number[] | undefined;
-        }, {
-            color?: string | undefined;
-            justifyContent?: string | undefined;
-            alignItems?: string | undefined;
-            flexDirection?: string | undefined;
-            lineHeight?: number | undefined;
-            fontFamilyId?: string | undefined;
-            fontScale?: number | undefined;
-            paddingTop?: number | undefined;
-            paddingRight?: number | undefined;
-            paddingBottom?: number | undefined;
-            paddingLeft?: number | undefined;
-            borderWidth?: number | number[] | undefined;
-            borderStyle?: string | undefined;
-            borderColor?: string | undefined;
-            borderRadius?: string | undefined;
-            background?: {
-                assetUid: string & {
-                    readonly __bypp_flavor?: "AssetUid" | undefined;
-                };
-                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-            } | undefined;
-            rotation?: number | undefined;
-            fontWeight?: string | undefined;
-            fontStyle?: string | undefined;
-            marginTop?: number | undefined;
-            marginRight?: number | undefined;
-            marginBottom?: number | undefined;
-            marginLeft?: number | undefined;
-            backgroundColor?: string | undefined;
-            textDecoration?: string | undefined;
-            backgroundRepeat?: boolean | undefined;
-            margin?: number | number[] | undefined;
-            padding?: number | number[] | undefined;
-        }>;
-    }, "strip", z.ZodTypeAny, {
-        style: {
-            color?: string | undefined;
-            justifyContent?: string | undefined;
-            alignItems?: string | undefined;
-            flexDirection?: string | undefined;
-            lineHeight?: number | undefined;
-            fontFamilyId?: string | undefined;
-            fontScale?: number | undefined;
-            paddingTop?: number | undefined;
-            paddingRight?: number | undefined;
-            paddingBottom?: number | undefined;
-            paddingLeft?: number | undefined;
-            borderWidth?: number | number[] | undefined;
-            borderStyle?: string | undefined;
-            borderColor?: string | undefined;
-            borderRadius?: string | undefined;
-            background?: {
-                assetUid: string & {
-                    readonly __bypp_flavor?: "AssetUid" | undefined;
-                };
-                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-            } | undefined;
-            rotation?: number | undefined;
-            fontWeight?: string | undefined;
-            fontStyle?: string | undefined;
-            marginTop?: number | undefined;
-            marginRight?: number | undefined;
-            marginBottom?: number | undefined;
-            marginLeft?: number | undefined;
-            backgroundColor?: string | undefined;
-            textDecoration?: string | undefined;
-            backgroundRepeat?: boolean | undefined;
-            margin?: number | number[] | undefined;
-            padding?: number | number[] | undefined;
-        };
-        tagUid: string & {
-            readonly __bypp_flavor?: "TagUid" | undefined;
+        formula: string;
+        variableUid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
         };
     }, {
-        style: {
-            color?: string | undefined;
-            justifyContent?: string | undefined;
-            alignItems?: string | undefined;
-            flexDirection?: string | undefined;
-            lineHeight?: number | undefined;
-            fontFamilyId?: string | undefined;
-            fontScale?: number | undefined;
-            paddingTop?: number | undefined;
-            paddingRight?: number | undefined;
-            paddingBottom?: number | undefined;
-            paddingLeft?: number | undefined;
-            borderWidth?: number | number[] | undefined;
-            borderStyle?: string | undefined;
-            borderColor?: string | undefined;
-            borderRadius?: string | undefined;
-            background?: {
-                assetUid: string & {
-                    readonly __bypp_flavor?: "AssetUid" | undefined;
-                };
-                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-            } | undefined;
-            rotation?: number | undefined;
-            fontWeight?: string | undefined;
-            fontStyle?: string | undefined;
-            marginTop?: number | undefined;
-            marginRight?: number | undefined;
-            marginBottom?: number | undefined;
-            marginLeft?: number | undefined;
-            backgroundColor?: string | undefined;
-            textDecoration?: string | undefined;
-            backgroundRepeat?: boolean | undefined;
-            margin?: number | number[] | undefined;
-            padding?: number | number[] | undefined;
-        };
-        tagUid: string & {
-            readonly __bypp_flavor?: "TagUid" | undefined;
+        formula: string;
+        variableUid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
         };
     }>, "many">>;
+    log: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
-    elements: Record<string, {
-        color?: string | undefined;
-        justifyContent?: string | undefined;
-        alignItems?: string | undefined;
-        flexDirection?: string | undefined;
-        lineHeight?: number | undefined;
-        fontFamilyId?: string | undefined;
-        fontScale?: number | undefined;
-        paddingTop?: number | undefined;
-        paddingRight?: number | undefined;
-        paddingBottom?: number | undefined;
-        paddingLeft?: number | undefined;
-        borderWidth?: number | number[] | undefined;
-        borderStyle?: string | undefined;
-        borderColor?: string | undefined;
-        borderRadius?: string | undefined;
-        background?: {
-            assetUid: string & {
-                readonly __bypp_flavor?: "AssetUid" | undefined;
-            };
-            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-        } | undefined;
-        rotation?: number | undefined;
-        fontWeight?: string | undefined;
-        fontStyle?: string | undefined;
-        marginTop?: number | undefined;
-        marginRight?: number | undefined;
-        marginBottom?: number | undefined;
-        marginLeft?: number | undefined;
-        backgroundColor?: string | undefined;
-        textDecoration?: string | undefined;
-        backgroundRepeat?: boolean | undefined;
-        margin?: number | number[] | undefined;
-        padding?: number | number[] | undefined;
-    }>;
-    tagStyles: {
-        style: {
-            color?: string | undefined;
-            justifyContent?: string | undefined;
-            alignItems?: string | undefined;
-            flexDirection?: string | undefined;
-            lineHeight?: number | undefined;
-            fontFamilyId?: string | undefined;
-            fontScale?: number | undefined;
-            paddingTop?: number | undefined;
-            paddingRight?: number | undefined;
-            paddingBottom?: number | undefined;
-            paddingLeft?: number | undefined;
-            borderWidth?: number | number[] | undefined;
-            borderStyle?: string | undefined;
-            borderColor?: string | undefined;
-            borderRadius?: string | undefined;
-            background?: {
-                assetUid: string & {
-                    readonly __bypp_flavor?: "AssetUid" | undefined;
-                };
-                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-            } | undefined;
-            rotation?: number | undefined;
-            fontWeight?: string | undefined;
-            fontStyle?: string | undefined;
-            marginTop?: number | undefined;
-            marginRight?: number | undefined;
-            marginBottom?: number | undefined;
-            marginLeft?: number | undefined;
-            backgroundColor?: string | undefined;
-            textDecoration?: string | undefined;
-            backgroundRepeat?: boolean | undefined;
-            margin?: number | number[] | undefined;
-            padding?: number | number[] | undefined;
-        };
-        tagUid: string & {
-            readonly __bypp_flavor?: "TagUid" | undefined;
-        };
-    }[];
-    slug?: string | undefined;
-}, {
-    slug?: string | undefined;
-    elements?: Record<string, {
-        color?: string | undefined;
-        justifyContent?: string | undefined;
-        alignItems?: string | undefined;
-        flexDirection?: string | undefined;
-        lineHeight?: number | undefined;
-        fontFamilyId?: string | undefined;
-        fontScale?: number | undefined;
-        paddingTop?: number | undefined;
-        paddingRight?: number | undefined;
-        paddingBottom?: number | undefined;
-        paddingLeft?: number | undefined;
-        borderWidth?: number | number[] | undefined;
-        borderStyle?: string | undefined;
-        borderColor?: string | undefined;
-        borderRadius?: string | undefined;
-        background?: {
-            assetUid: string & {
-                readonly __bypp_flavor?: "AssetUid" | undefined;
-            };
-            objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-        } | undefined;
-        rotation?: number | undefined;
-        fontWeight?: string | undefined;
-        fontStyle?: string | undefined;
-        marginTop?: number | undefined;
-        marginRight?: number | undefined;
-        marginBottom?: number | undefined;
-        marginLeft?: number | undefined;
-        backgroundColor?: string | undefined;
-        textDecoration?: string | undefined;
-        backgroundRepeat?: boolean | undefined;
-        margin?: number | number[] | undefined;
-        padding?: number | number[] | undefined;
-    }> | undefined;
-    tagStyles?: {
-        style: {
-            color?: string | undefined;
-            justifyContent?: string | undefined;
-            alignItems?: string | undefined;
-            flexDirection?: string | undefined;
-            lineHeight?: number | undefined;
-            fontFamilyId?: string | undefined;
-            fontScale?: number | undefined;
-            paddingTop?: number | undefined;
-            paddingRight?: number | undefined;
-            paddingBottom?: number | undefined;
-            paddingLeft?: number | undefined;
-            borderWidth?: number | number[] | undefined;
-            borderStyle?: string | undefined;
-            borderColor?: string | undefined;
-            borderRadius?: string | undefined;
-            background?: {
-                assetUid: string & {
-                    readonly __bypp_flavor?: "AssetUid" | undefined;
-                };
-                objectFit?: "fill" | "none" | "cover" | "contain" | "scale-down" | undefined;
-            } | undefined;
-            rotation?: number | undefined;
-            fontWeight?: string | undefined;
-            fontStyle?: string | undefined;
-            marginTop?: number | undefined;
-            marginRight?: number | undefined;
-            marginBottom?: number | undefined;
-            marginLeft?: number | undefined;
-            backgroundColor?: string | undefined;
-            textDecoration?: string | undefined;
-            backgroundRepeat?: boolean | undefined;
-            margin?: number | number[] | undefined;
-            padding?: number | number[] | undefined;
-        };
-        tagUid: string & {
-            readonly __bypp_flavor?: "TagUid" | undefined;
+    rolls?: {
+        label: string;
+        diceFormula: string;
+        key: string;
+    }[] | undefined;
+    updates?: {
+        formula: string;
+        variableUid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
         };
     }[] | undefined;
+    log?: string | undefined;
+}, {
+    rolls?: {
+        label: string;
+        diceFormula: string;
+        key: string;
+    }[] | undefined;
+    updates?: {
+        formula: string;
+        variableUid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+    }[] | undefined;
+    log?: string | undefined;
 }>;
-type ThemeV25 = z.infer<typeof ThemeV25Schema>;
+type ActionSectionsV26 = z.infer<typeof ActionSectionsV26Schema>;
+declare const RollVariableV10Schema: z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"roll">;
+    diceFormula: z.ZodOptional<z.ZodString>;
+    depsVariablesUid: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+    visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+        type: z.ZodLiteral<"awesome">;
+        icon: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        type: "awesome";
+        icon: string;
+    }, {
+        type: "awesome";
+        icon: string;
+    }>, z.ZodObject<{
+        type: z.ZodLiteral<"compo">;
+        icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+            icon: z.ZodNullable<z.ZodString>;
+            size: z.ZodOptional<z.ZodNumber>;
+            rotate: z.ZodOptional<z.ZodNumber>;
+            revert: z.ZodOptional<z.ZodBoolean>;
+        }, "strip", z.ZodTypeAny, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>>;
+    }, "strip", z.ZodTypeAny, {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    }, {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    }>]>>;
+    hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+} & {
+    icon: z.ZodOptional<z.ZodString>;
+} & {
+    rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        key: z.ZodString;
+        label: z.ZodString;
+        diceFormula: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        label: string;
+        diceFormula: string;
+        key: string;
+    }, {
+        label: string;
+        diceFormula: string;
+        key: string;
+    }>, "many">>;
+    updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+        formula: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        formula: string;
+        variableUid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+    }, {
+        formula: string;
+        variableUid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+    }>, "many">>;
+    log: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "roll";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    depsVariablesUid?: VariableUid[] | undefined;
+    diceFormula?: string | undefined;
+    visual?: {
+        type: "awesome";
+        icon: string;
+    } | {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    } | undefined;
+    hue?: number | null | undefined;
+    rolls?: {
+        label: string;
+        diceFormula: string;
+        key: string;
+    }[] | undefined;
+    updates?: {
+        formula: string;
+        variableUid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+    }[] | undefined;
+    log?: string | undefined;
+}, {
+    type: "roll";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    depsVariablesUid?: VariableUid[] | undefined;
+    diceFormula?: string | undefined;
+    visual?: {
+        type: "awesome";
+        icon: string;
+    } | {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    } | undefined;
+    hue?: number | null | undefined;
+    rolls?: {
+        label: string;
+        diceFormula: string;
+        key: string;
+    }[] | undefined;
+    updates?: {
+        formula: string;
+        variableUid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+    }[] | undefined;
+    log?: string | undefined;
+}>;
+type RollVariableV10 = z.infer<typeof RollVariableV10Schema>;
+/**
+ * Discriminated union of all variable variants as of bypp v26 — the v9 set
+ * with `roll` re-typed. Narrow with `variable.type`.
+ */
+declare const VariableV10Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"number">;
+    defaultValue: z.ZodOptional<z.ZodNumber>;
+} & {
+    min: z.ZodOptional<z.ZodNumber>;
+    max: z.ZodOptional<z.ZodNumber>;
+    step: z.ZodOptional<z.ZodNumber>;
+} & {
+    icon: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "number";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    min?: number | undefined;
+    max?: number | undefined;
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    defaultValue?: number | undefined;
+    step?: number | undefined;
+}, {
+    type: "number";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    min?: number | undefined;
+    max?: number | undefined;
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    defaultValue?: number | undefined;
+    step?: number | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"text">;
+    maxChars: z.ZodOptional<z.ZodNumber>;
+    defaultValue: z.ZodOptional<z.ZodString>;
+} & {
+    icon: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "text";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    defaultValue?: string | undefined;
+    maxChars?: number | undefined;
+}, {
+    type: "text";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    defaultValue?: string | undefined;
+    maxChars?: number | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"boolean">;
+    defaultValue: z.ZodOptional<z.ZodBoolean>;
+} & {
+    icon: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "boolean";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    defaultValue?: boolean | undefined;
+}, {
+    type: "boolean";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    defaultValue?: boolean | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"choice">;
+    options: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>;
+        label: z.ZodString;
+        icon: z.ZodOptional<z.ZodString>;
+        value: z.ZodOptional<z.ZodNumber>;
+    }, "strip", z.ZodTypeAny, {
+        uid: string & {
+            readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+        };
+        label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
+    }, {
+        uid: string & {
+            readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+        };
+        label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
+    }>, "many">>;
+    isMultiple: z.ZodOptional<z.ZodBoolean>;
+    hasNumericValue: z.ZodOptional<z.ZodBoolean>;
+    hasIcon: z.ZodOptional<z.ZodBoolean>;
+    defaultOptionUids: z.ZodOptional<z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">>;
+} & {
+    icon: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "choice";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    options?: {
+        uid: string & {
+            readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+        };
+        label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
+    }[] | undefined;
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    isMultiple?: boolean | undefined;
+    hasNumericValue?: boolean | undefined;
+    hasIcon?: boolean | undefined;
+    defaultOptionUids?: VariableChoiceUid[] | undefined;
+}, {
+    type: "choice";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    options?: {
+        uid: string & {
+            readonly __bypp_flavor?: "VariableChoiceUid" | undefined;
+        };
+        label: string;
+        value?: number | undefined;
+        icon?: string | undefined;
+    }[] | undefined;
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    isMultiple?: boolean | undefined;
+    hasNumericValue?: boolean | undefined;
+    hasIcon?: boolean | undefined;
+    defaultOptionUids?: VariableChoiceUid[] | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"formula">;
+    formula: z.ZodOptional<z.ZodString>;
+    depsVariablesUid: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+} & {
+    icon: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "formula";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    formula?: string | undefined;
+    depsVariablesUid?: VariableUid[] | undefined;
+}, {
+    type: "formula";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    formula?: string | undefined;
+    depsVariablesUid?: VariableUid[] | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"roll">;
+    diceFormula: z.ZodOptional<z.ZodString>;
+    depsVariablesUid: z.ZodOptional<z.ZodArray<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, "many">>;
+    visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+        type: z.ZodLiteral<"awesome">;
+        icon: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        type: "awesome";
+        icon: string;
+    }, {
+        type: "awesome";
+        icon: string;
+    }>, z.ZodObject<{
+        type: z.ZodLiteral<"compo">;
+        icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+            icon: z.ZodNullable<z.ZodString>;
+            size: z.ZodOptional<z.ZodNumber>;
+            rotate: z.ZodOptional<z.ZodNumber>;
+            revert: z.ZodOptional<z.ZodBoolean>;
+        }, "strip", z.ZodTypeAny, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>>;
+    }, "strip", z.ZodTypeAny, {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    }, {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    }>]>>;
+    hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+} & {
+    icon: z.ZodOptional<z.ZodString>;
+} & {
+    rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        key: z.ZodString;
+        label: z.ZodString;
+        diceFormula: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        label: string;
+        diceFormula: string;
+        key: string;
+    }, {
+        label: string;
+        diceFormula: string;
+        key: string;
+    }>, "many">>;
+    updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+        formula: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        formula: string;
+        variableUid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+    }, {
+        formula: string;
+        variableUid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+    }>, "many">>;
+    log: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "roll";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    depsVariablesUid?: VariableUid[] | undefined;
+    diceFormula?: string | undefined;
+    visual?: {
+        type: "awesome";
+        icon: string;
+    } | {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    } | undefined;
+    hue?: number | null | undefined;
+    rolls?: {
+        label: string;
+        diceFormula: string;
+        key: string;
+    }[] | undefined;
+    updates?: {
+        formula: string;
+        variableUid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+    }[] | undefined;
+    log?: string | undefined;
+}, {
+    type: "roll";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    depsVariablesUid?: VariableUid[] | undefined;
+    diceFormula?: string | undefined;
+    visual?: {
+        type: "awesome";
+        icon: string;
+    } | {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    } | undefined;
+    hue?: number | null | undefined;
+    rolls?: {
+        label: string;
+        diceFormula: string;
+        key: string;
+    }[] | undefined;
+    updates?: {
+        formula: string;
+        variableUid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+    }[] | undefined;
+    log?: string | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"dataTableRef">;
+    dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+    labelColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    valueColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    iconColumnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    isMultiple: z.ZodOptional<z.ZodBoolean>;
+    defaultRowUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableRowUid, z.ZodTypeDef, DataTableRowUid>, "many">>;
+} & {
+    icon: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "dataTableRef";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    isMultiple?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    labelColumnUid?: DataTableColumnUid | undefined;
+    valueColumnUid?: DataTableColumnUid | undefined;
+    iconColumnUid?: DataTableColumnUid | undefined;
+    defaultRowUids?: DataTableRowUid[] | undefined;
+}, {
+    type: "dataTableRef";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    isMultiple?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    labelColumnUid?: DataTableColumnUid | undefined;
+    valueColumnUid?: DataTableColumnUid | undefined;
+    iconColumnUid?: DataTableColumnUid | undefined;
+    defaultRowUids?: DataTableRowUid[] | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"dataTableLookup">;
+    sourceVariableUid: z.ZodOptional<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>;
+    dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+    columnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    chainedLabelColumnUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>, "many">>;
+    multiAggregator: z.ZodOptional<z.ZodEnum<["concat", "sum", "avg", "min", "max"]>>;
+    multiSeparator: z.ZodOptional<z.ZodString>;
+} & {
+    icon: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "dataTableLookup";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    columnUid?: DataTableColumnUid | undefined;
+    chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+    multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+    multiSeparator?: string | undefined;
+    sourceVariableUid?: VariableUid | undefined;
+}, {
+    type: "dataTableLookup";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    columnUid?: DataTableColumnUid | undefined;
+    chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+    multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+    multiSeparator?: string | undefined;
+    sourceVariableUid?: VariableUid | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"image">;
+} & {
+    icon: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "image";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+}, {
+    type: "image";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"dataTableDirectLookup">;
+    dataTableUid: z.ZodOptional<z.ZodType<DataTableUid, z.ZodTypeDef, DataTableUid>>;
+    columnUid: z.ZodOptional<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>>;
+    rowUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableRowUid, z.ZodTypeDef, DataTableRowUid>, "many">>;
+    chainedLabelColumnUids: z.ZodOptional<z.ZodArray<z.ZodType<DataTableColumnUid, z.ZodTypeDef, DataTableColumnUid>, "many">>;
+    multiAggregator: z.ZodOptional<z.ZodEnum<["concat", "sum", "avg", "min", "max"]>>;
+    multiSeparator: z.ZodOptional<z.ZodString>;
+} & {
+    icon: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "dataTableDirectLookup";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    columnUid?: DataTableColumnUid | undefined;
+    chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+    multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+    multiSeparator?: string | undefined;
+    rowUids?: DataTableRowUid[] | undefined;
+}, {
+    type: "dataTableDirectLookup";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    dataTableUid?: DataTableUid | undefined;
+    columnUid?: DataTableColumnUid | undefined;
+    chainedLabelColumnUids?: DataTableColumnUid[] | undefined;
+    multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+    multiSeparator?: string | undefined;
+    rowUids?: DataTableRowUid[] | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    icon: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"entityRef">;
+    sourceVariableUid: z.ZodOptional<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>;
+    targetsTypes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+    targetsTags: z.ZodOptional<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    targetTagsGroup: z.ZodOptional<z.ZodEnum<["every", "some"]>>;
+    max: z.ZodOptional<z.ZodNumber>;
+    maxVariable: z.ZodOptional<z.ZodNullable<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>>;
+}, "strip", z.ZodTypeAny, {
+    type: "entityRef";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    max?: number | undefined;
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    targetTagsGroup?: "every" | "some" | undefined;
+    sourceVariableUid?: VariableUid | undefined;
+    maxVariable?: VariableUid | null | undefined;
+    targetsTypes?: string[] | undefined;
+    targetsTags?: TagUid[] | undefined;
+}, {
+    type: "entityRef";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    max?: number | undefined;
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    targetTagsGroup?: "every" | "some" | undefined;
+    sourceVariableUid?: VariableUid | undefined;
+    maxVariable?: VariableUid | null | undefined;
+    targetsTypes?: string[] | undefined;
+    targetsTags?: TagUid[] | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+} & {
+    name: z.ZodString;
+} & {
+    datasetsUids: z.ZodArray<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, "many">;
+    isMandatory: z.ZodOptional<z.ZodBoolean>;
+    isHiddenFromSheet: z.ZodOptional<z.ZodBoolean>;
+    label: z.ZodOptional<z.ZodString>;
+} & {
+    icon: z.ZodOptional<z.ZodString>;
+} & {
+    type: z.ZodLiteral<"entityLookup">;
+    sourceVariableUid: z.ZodOptional<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>;
+    keyVariableUid: z.ZodOptional<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>;
+    labelVariableUid: z.ZodOptional<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>>;
+    multiAggregator: z.ZodOptional<z.ZodEnum<["concat", "sum", "avg", "min", "max"]>>;
+    multiSeparator: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "entityLookup";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+    multiSeparator?: string | undefined;
+    sourceVariableUid?: VariableUid | undefined;
+    keyVariableUid?: VariableUid | undefined;
+    labelVariableUid?: VariableUid | undefined;
+}, {
+    type: "entityLookup";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "VariableUid" | undefined;
+    };
+    datasetsUids: DatasetUid[];
+    label?: string | undefined;
+    icon?: string | undefined;
+    isMandatory?: boolean | undefined;
+    isHiddenFromSheet?: boolean | undefined;
+    multiAggregator?: "concat" | "min" | "max" | "sum" | "avg" | undefined;
+    multiSeparator?: string | undefined;
+    sourceVariableUid?: VariableUid | undefined;
+    keyVariableUid?: VariableUid | undefined;
+    labelVariableUid?: VariableUid | undefined;
+}>]>;
+type VariableV10 = z.infer<typeof VariableV10Schema>;
 
-export { AbilityEntityV1Schema as A, type BeyondPaperV25 as B, type CharacterEntityV1 as C, type EntityBaseV1 as E, type GroupRankV1 as G, ItemEntityV1Schema as I, NoteEntityV1Schema as N, type PlaceEntityV1 as P, StoryEntityV1Schema as S, type ThemeV25 as T, BeyondPaperV25Schema as a, type GroupRankCharacterV1 as b, CharacterEntityV1Schema as c, type CreatureEntityV1 as d, CreatureEntityV1Schema as e, EntityBaseV1Schema as f, type EntityTypeV1 as g, EntityTypeV1Schema as h, type EntityV1 as i, EntityV1Schema as j, EventEntityV1Schema as k, type GroupEntityV1 as l, GroupEntityV1Schema as m, GroupRankCharacterV1Schema as n, GroupRankV1Schema as o, PlaceEntityV1Schema as p, ThemeV25Schema as q, type ThemeStyleV25 as r, ThemeStyleV25Schema as s, type ThemeTagStyleV25 as t, ThemeTagStyleV25Schema as u };
+declare const EntityBaseV6Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+}, "strip", z.ZodTypeAny, {
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>;
+type EntityBaseV6 = z.infer<typeof EntityBaseV6Schema>;
+declare const CharacterEntityV6Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    type: z.ZodLiteral<"character">;
+}, "strip", z.ZodTypeAny, {
+    type: "character";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "character";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>;
+type CharacterEntityV6 = z.infer<typeof CharacterEntityV6Schema>;
+declare const CreatureEntityV6Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    type: z.ZodLiteral<"creature">;
+}, "strip", z.ZodTypeAny, {
+    type: "creature";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "creature";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>;
+type CreatureEntityV6 = z.infer<typeof CreatureEntityV6Schema>;
+declare const GroupEntityV6Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    type: z.ZodLiteral<"group">;
+    ranks: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        label: z.ZodString;
+        characters: z.ZodArray<z.ZodObject<{
+            entityUid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+            label: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }, {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }>, "many">;
+    }, "strip", z.ZodTypeAny, {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }, {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }>, "many">>;
+    charactersUids: z.ZodDefault<z.ZodArray<z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>, "many">>;
+}, "strip", z.ZodTypeAny, {
+    type: "group";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    ranks: {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }[];
+    charactersUids: EntityUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "group";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    ranks?: {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }[] | undefined;
+    charactersUids?: EntityUid[] | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>;
+type GroupEntityV6 = z.infer<typeof GroupEntityV6Schema>;
+declare const PlaceEntityV6Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    scenesUids: z.ZodDefault<z.ZodArray<z.ZodType<SceneUid, z.ZodTypeDef, SceneUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"place">;
+}, "strip", z.ZodTypeAny, {
+    type: "place";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    scenesUids: SceneUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "place";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    scenesUids?: SceneUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>;
+type PlaceEntityV6 = z.infer<typeof PlaceEntityV6Schema>;
+declare const ItemEntityV6Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    type: z.ZodLiteral<"item">;
+}, "strip", z.ZodTypeAny, {
+    type: "item";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "item";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>;
+declare const NoteEntityV6Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    type: z.ZodLiteral<"note">;
+}, "strip", z.ZodTypeAny, {
+    type: "note";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "note";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>;
+declare const AbilityEntityV6Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    type: z.ZodLiteral<"ability">;
+}, "strip", z.ZodTypeAny, {
+    type: "ability";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "ability";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>;
+declare const StoryEntityV6Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    type: z.ZodLiteral<"story">;
+}, "strip", z.ZodTypeAny, {
+    type: "story";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "story";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>;
+declare const EventEntityV6Schema: z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    type: z.ZodLiteral<"event">;
+}, "strip", z.ZodTypeAny, {
+    type: "event";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "event";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>;
+declare const EntityV6Schema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    type: z.ZodLiteral<"character">;
+}, "strip", z.ZodTypeAny, {
+    type: "character";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "character";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    type: z.ZodLiteral<"creature">;
+}, "strip", z.ZodTypeAny, {
+    type: "creature";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "creature";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    type: z.ZodLiteral<"group">;
+    ranks: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        label: z.ZodString;
+        characters: z.ZodArray<z.ZodObject<{
+            entityUid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+            label: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }, {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }>, "many">;
+    }, "strip", z.ZodTypeAny, {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }, {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }>, "many">>;
+    charactersUids: z.ZodDefault<z.ZodArray<z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>, "many">>;
+}, "strip", z.ZodTypeAny, {
+    type: "group";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    ranks: {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }[];
+    charactersUids: EntityUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "group";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    ranks?: {
+        label: string;
+        characters: {
+            entityUid: string & {
+                readonly __bypp_flavor?: "EntityUid" | undefined;
+            };
+            label: string;
+        }[];
+    }[] | undefined;
+    charactersUids?: EntityUid[] | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    scenesUids: z.ZodDefault<z.ZodArray<z.ZodType<SceneUid, z.ZodTypeDef, SceneUid>, "many">>;
+} & {
+    type: z.ZodLiteral<"place">;
+}, "strip", z.ZodTypeAny, {
+    type: "place";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    scenesUids: SceneUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "place";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    scenesUids?: SceneUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    type: z.ZodLiteral<"item">;
+}, "strip", z.ZodTypeAny, {
+    type: "item";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "item";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    type: z.ZodLiteral<"note">;
+}, "strip", z.ZodTypeAny, {
+    type: "note";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "note";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    type: z.ZodLiteral<"ability">;
+}, "strip", z.ZodTypeAny, {
+    type: "ability";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "ability";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    type: z.ZodLiteral<"story">;
+}, "strip", z.ZodTypeAny, {
+    type: "story";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "story";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>, z.ZodObject<{
+    uid: z.ZodType<EntityUid, z.ZodTypeDef, EntityUid>;
+    displayName: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
+    tagsUid: z.ZodDefault<z.ZodArray<z.ZodType<TagUid, z.ZodTypeDef, TagUid>, "many">>;
+    sheetOverrides: z.ZodOptional<z.ZodRecord<z.ZodType<DatasetUid, z.ZodTypeDef, DatasetUid>, z.ZodType<SheetUid, z.ZodTypeDef, SheetUid>>>;
+} & {
+    name: z.ZodString;
+} & {
+    originalUrl: z.ZodOptional<z.ZodString>;
+    thumbnailUrl: z.ZodOptional<z.ZodString>;
+    squareUrl: z.ZodOptional<z.ZodString>;
+    closeupUrl: z.ZodOptional<z.ZodString>;
+} & {
+    dimensions: z.ZodOptional<z.ZodObject<{
+        width: z.ZodNumber;
+        height: z.ZodNumber;
+    }, "strip", z.ZodTypeAny, {
+        width: number;
+        height: number;
+    }, {
+        width: number;
+        height: number;
+    }>>;
+} & {
+    isArchived: z.ZodDefault<z.ZodBoolean>;
+} & {
+    pagesOrder: z.ZodDefault<z.ZodArray<z.ZodType<PageUid, z.ZodTypeDef, PageUid>, "many">>;
+} & {
+    data: z.ZodOptional<z.ZodRecord<z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>, z.ZodUnion<[z.ZodString, z.ZodNumber, z.ZodBoolean, z.ZodArray<z.ZodType<VariableChoiceUid, z.ZodTypeDef, VariableChoiceUid>, "many">, z.ZodNull]>>>;
+} & {
+    assetUids: z.ZodOptional<z.ZodArray<z.ZodType<AssetUid, z.ZodTypeDef, AssetUid>, "many">>;
+} & {
+    credit: z.ZodOptional<z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodOptional<z.ZodString>;
+        license: z.ZodOptional<z.ZodEnum<["CC0", "CC-BY", "CC-BY-SA", "CC-BY-NC", "CC-BY-NC-SA", "CC-BY-ND", "CC-BY-NC-ND", "ARR"]>>;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }, {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    }>>;
+} & {
+    actions: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+        label: z.ZodRecord<z.ZodString, z.ZodString>;
+        visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"awesome">;
+            icon: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            type: "awesome";
+            icon: string;
+        }, {
+            type: "awesome";
+            icon: string;
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"compo">;
+            icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+                icon: z.ZodNullable<z.ZodString>;
+                size: z.ZodOptional<z.ZodNumber>;
+                rotate: z.ZodOptional<z.ZodNumber>;
+                revert: z.ZodOptional<z.ZodBoolean>;
+            }, "strip", z.ZodTypeAny, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }, {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        }>]>>;
+        hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+        type: z.ZodLiteral<"roll">;
+        diceFormula: z.ZodOptional<z.ZodString>;
+    } & {
+        rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            key: z.ZodString;
+            label: z.ZodString;
+            diceFormula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }, {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }>, "many">>;
+        updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+            formula: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }, {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }>, "many">>;
+        log: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }, {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }>, "many">>;
+} & {
+    type: z.ZodLiteral<"event">;
+}, "strip", z.ZodTypeAny, {
+    type: "event";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    isArchived: boolean;
+    pagesOrder: PageUid[];
+    tagsUid: TagUid[];
+    actions: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[];
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+}, {
+    type: "event";
+    name: string;
+    uid: string & {
+        readonly __bypp_flavor?: "EntityUid" | undefined;
+    };
+    originalUrl?: string | undefined;
+    thumbnailUrl?: string | undefined;
+    squareUrl?: string | undefined;
+    closeupUrl?: string | undefined;
+    dimensions?: {
+        width: number;
+        height: number;
+    } | undefined;
+    assetUids?: AssetUid[] | undefined;
+    data?: Record<VariableUid, string | number | boolean | VariableChoiceUid[] | null> | undefined;
+    isArchived?: boolean | undefined;
+    pagesOrder?: PageUid[] | undefined;
+    displayName?: string | undefined;
+    description?: string | undefined;
+    tagsUid?: TagUid[] | undefined;
+    sheetOverrides?: Record<DatasetUid, SheetUid> | undefined;
+    credit?: {
+        name: string;
+        url?: string | undefined;
+        license?: "CC0" | "CC-BY" | "CC-BY-SA" | "CC-BY-NC" | "CC-BY-NC-SA" | "CC-BY-ND" | "CC-BY-NC-ND" | "ARR" | undefined;
+    } | undefined;
+    actions?: {
+        type: "roll";
+        uid: string & {
+            readonly __bypp_flavor?: "EntityActionUid" | undefined;
+        };
+        label: Record<string, string>;
+        diceFormula?: string | undefined;
+        visual?: {
+            type: "awesome";
+            icon: string;
+        } | {
+            type: "compo";
+            icons: Record<string, {
+                icon: string | null;
+                size?: number | undefined;
+                rotate?: number | undefined;
+                revert?: boolean | undefined;
+            }>;
+        } | undefined;
+        hue?: number | null | undefined;
+        rolls?: {
+            label: string;
+            diceFormula: string;
+            key: string;
+        }[] | undefined;
+        updates?: {
+            formula: string;
+            variableUid: string & {
+                readonly __bypp_flavor?: "VariableUid" | undefined;
+            };
+        }[] | undefined;
+        log?: string | undefined;
+    }[] | undefined;
+}>]>;
+type EntityV6 = z.infer<typeof EntityV6Schema>;
+
+declare const EntityActionV2Schema: z.ZodObject<{
+    uid: z.ZodType<EntityActionUid, z.ZodTypeDef, EntityActionUid>;
+    label: z.ZodRecord<z.ZodString, z.ZodString>;
+    visual: z.ZodOptional<z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+        type: z.ZodLiteral<"awesome">;
+        icon: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        type: "awesome";
+        icon: string;
+    }, {
+        type: "awesome";
+        icon: string;
+    }>, z.ZodObject<{
+        type: z.ZodLiteral<"compo">;
+        icons: z.ZodRecord<z.ZodString, z.ZodObject<{
+            icon: z.ZodNullable<z.ZodString>;
+            size: z.ZodOptional<z.ZodNumber>;
+            rotate: z.ZodOptional<z.ZodNumber>;
+            revert: z.ZodOptional<z.ZodBoolean>;
+        }, "strip", z.ZodTypeAny, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>>;
+    }, "strip", z.ZodTypeAny, {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    }, {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    }>]>>;
+    hue: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+    type: z.ZodLiteral<"roll">;
+    diceFormula: z.ZodOptional<z.ZodString>;
+} & {
+    rolls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        key: z.ZodString;
+        label: z.ZodString;
+        diceFormula: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        label: string;
+        diceFormula: string;
+        key: string;
+    }, {
+        label: string;
+        diceFormula: string;
+        key: string;
+    }>, "many">>;
+    updates: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        variableUid: z.ZodType<VariableUid, z.ZodTypeDef, VariableUid>;
+        formula: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        formula: string;
+        variableUid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+    }, {
+        formula: string;
+        variableUid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+    }>, "many">>;
+    log: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    type: "roll";
+    uid: string & {
+        readonly __bypp_flavor?: "EntityActionUid" | undefined;
+    };
+    label: Record<string, string>;
+    diceFormula?: string | undefined;
+    visual?: {
+        type: "awesome";
+        icon: string;
+    } | {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    } | undefined;
+    hue?: number | null | undefined;
+    rolls?: {
+        label: string;
+        diceFormula: string;
+        key: string;
+    }[] | undefined;
+    updates?: {
+        formula: string;
+        variableUid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+    }[] | undefined;
+    log?: string | undefined;
+}, {
+    type: "roll";
+    uid: string & {
+        readonly __bypp_flavor?: "EntityActionUid" | undefined;
+    };
+    label: Record<string, string>;
+    diceFormula?: string | undefined;
+    visual?: {
+        type: "awesome";
+        icon: string;
+    } | {
+        type: "compo";
+        icons: Record<string, {
+            icon: string | null;
+            size?: number | undefined;
+            rotate?: number | undefined;
+            revert?: boolean | undefined;
+        }>;
+    } | undefined;
+    hue?: number | null | undefined;
+    rolls?: {
+        label: string;
+        diceFormula: string;
+        key: string;
+    }[] | undefined;
+    updates?: {
+        formula: string;
+        variableUid: string & {
+            readonly __bypp_flavor?: "VariableUid" | undefined;
+        };
+    }[] | undefined;
+    log?: string | undefined;
+}>;
+type EntityActionV2 = z.infer<typeof EntityActionV2Schema>;
+
+export { AbilityEntityV6Schema as A, type BeyondPaperV26 as B, type CharacterEntityV6 as C, type EntityV6 as E, type GroupEntityV6 as G, ItemEntityV6Schema as I, NoteEntityV6Schema as N, type PlaceEntityV6 as P, type RollVariableV10 as R, StoryEntityV6Schema as S, type VariableV10 as V, type ActionRollV26 as a, ActionRollV26Schema as b, type ActionSectionsV26 as c, ActionSectionsV26Schema as d, BeyondPaperV26Schema as e, type EntityActionV2 as f, type EntityBaseV6 as g, type VariableUpdateV26 as h, CharacterEntityV6Schema as i, type CreatureEntityV6 as j, CreatureEntityV6Schema as k, EntityActionV2Schema as l, EntityBaseV6Schema as m, EntityV6Schema as n, EventEntityV6Schema as o, GroupEntityV6Schema as p, PlaceEntityV6Schema as q, RollVariableV10Schema as r, VariableV10Schema as s, VariableUpdateV26Schema as t };

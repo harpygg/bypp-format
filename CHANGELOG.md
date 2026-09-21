@@ -9,6 +9,64 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v26 — 2026-09
+
+### Added
+
+- **An action can do more than roll.** A sheet's `roll` variable
+  (`RollVariableV10`, `src/models/variable.v10.schema.ts`) and an entity's
+  own action (`EntityActionV2`, `src/models/entity-action.v2.schema.ts`)
+  both gain the same optional sections, run in this order:
+
+  - `rolls[]` — one `{ key, label, diceFormula }` per throw (`ActionRollV26`):
+    an attack and its damage in one action. `diceFormula` stays on the
+    action as the first throw's formula, written again, so a reader of one
+    notation and a v25 reader keep something to read; a reader takes
+    `rolls` when present. `key` never changes once written: the reserved
+    attributes below derive from it.
+  - `updates[]` — one `{ variableUid, formula }` per attribute set
+    (`VariableUpdateV26`). `formula` is HTML like every other formula in
+    this format. Whose attribute `variableUid` names — the holder's own or
+    that of the entity using it — is NOT stored: a reader tells the two
+    apart the way it already does for a formula's spans, from the datasets
+    the holder belongs to. Every formula of one action reads the values as
+    they were before the action ran, so the order of the lines never
+    matters.
+  - `log` — a message, HTML with the same spans, posted once the action has
+    run.
+
+  The last two may name two reserved attributes per throw,
+  `system-action-result-<key>` (the total, a number) and
+  `system-action-roll-<key>` (the notation, text). A reader resolves them
+  from the throws it just made; they are never stored on an entity and never
+  listed in `variables[]`.
+
+  An action has no kind: it is what its sections say. A `roll` with no
+  `diceFormula` and an `updates` list is a purchase button; with all three
+  it rolls, spends and announces. `type: "roll"` stays on the entity action
+  for v1 readers and no longer says anything.
+
+  Until v26 an action could only throw dice. A "Purchase" button on an item,
+  taking its price out of the buyer's purse, had nowhere to live, and an
+  author who wrote one had it dropped on export.
+
+  A reader that pulls an entity or a sheet must pull the attributes every
+  section reads AND the ones the updates set, the way it already pulls a
+  roll's deps — but never the two reserved ones.
+
+  No content array other than `variables` and `entities` changes shape.
+
+### Migrations
+
+- `v25 → v26` is a pure version bump: every v25 action rolls, and a roll is
+  written the same way in v26. Nothing is inferred.
+- `v26 → v25` is **lossy**: every `updates` and `log` is dropped, on the
+  sheets' rolls and on the entities' own actions alike, and of the `rolls`
+  only the first survives, as `diceFormula`. The actions stay with their
+  dice; one that only updated or logged comes out doing nothing.
+  Nothing is turned into a roll — a roll has nothing to set, and a purchase
+  landing as a dice throw would be worse than its absence.
+
 ## Format v25 — 2026-09
 
 ### Added

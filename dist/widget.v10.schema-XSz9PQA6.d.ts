@@ -1,4 +1,4 @@
-import { V as VariableUid, a as DatasetUid, b as VariableChoiceUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid, T as TagUid, W as WidgetUid, A as AssetUid } from './data-table.v3.schema-SKJA8p4m.js';
+import { V as VariableUid, a as DatasetUid, T as TagUid, b as VariableChoiceUid, h as DataTableUid, i as DataTableColumnUid, j as DataTableRowUid, W as WidgetUid, A as AssetUid } from './data-table.v3.schema-SKJA8p4m.js';
 import { z } from 'zod';
 
 declare const EntityRefVariableV9Schema: z.ZodObject<{

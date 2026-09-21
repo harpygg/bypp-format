@@ -112,6 +112,9 @@ describe("versioned examples", () => {
     { field: "margin", since: 24 },
     { field: "padding", since: 24 },
     { field: "theme", since: 25 },
+    { field: "updates", since: 26 },
+    { field: "log", since: 26 },
+    { field: "rolls", since: 26 },
   ];
 
   it.each(DERIVED)("v%i carries no field newer than itself", (version) => {
