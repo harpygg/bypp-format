@@ -38,13 +38,13 @@
     "slug": "standard",
     "elements": {
       "base": {
-        "fontFamilyId": "eb-garamond",
-        "lineHeight": 1.6
+        "lineHeight": 1.6,
+        "fontFamilyId": "eb-garamond"
       },
       "h1": {
         "fontScale": 2.4,
-        "fontWeight": "bold",
-        "color": "#221100"
+        "color": "#221100",
+        "fontWeight": "bold"
       },
       "blockquote": {
         "borderWidth": [
@@ -177,13 +177,6 @@
           },
           "type": "roll",
           "diceFormula": "<p>\"1d20\"</p>",
-          "updates": [
-            {
-              "variableUid": "v1OSJdasGRBfMV3oxgj2",
-              "formula": "<p><span data-variable=\"v1OSJdasGRBfMV3oxgj2\">$x</span> - <span data-variable=\"system-action-result-dmg\">$Result</span></p>"
-            }
-          ],
-          "log": "<p>Took <span data-variable=\"system-action-result-dmg\">$Result</span> damage (<span data-variable=\"system-action-roll-dmg\">$Roll</span>) after <span data-variable=\"system-action-roll-atk\">$Roll</span>.</p>",
           "rolls": [
             {
               "key": "atk",
@@ -195,7 +188,14 @@
               "label": "Damage",
               "diceFormula": "<p>\"1d6\"</p>"
             }
-          ]
+          ],
+          "updates": [
+            {
+              "variableUid": "v1OSJdasGRBfMV3oxgj2",
+              "formula": "<p><span data-variable=\"v1OSJdasGRBfMV3oxgj2\">$x</span> - <span data-variable=\"system-action-result-dmg\">$Result</span></p>"
+            }
+          ],
+          "log": "<p>Took <span data-variable=\"system-action-result-dmg\">$Result</span> damage (<span data-variable=\"system-action-roll-dmg\">$Roll</span>) after <span data-variable=\"system-action-roll-atk\">$Roll</span>.</p>"
         }
       ],
       "type": "character"
@@ -3540,19 +3540,12 @@
     },
     {
       "uid": "var0-roll-hurt-0001",
-      "type": "roll",
       "name": "Get hurt",
       "datasetsUids": [
         "IWNSh0lQb3fyqUgW1R9X"
       ],
+      "type": "roll",
       "diceFormula": "<p>\"1d20\"</p>",
-      "updates": [
-        {
-          "variableUid": "v1OSJdasGRBfMV3oxgj2",
-          "formula": "<p><span data-variable=\"v1OSJdasGRBfMV3oxgj2\">$x</span> - <span data-variable=\"system-action-result-dmg\">$Result</span></p>"
-        }
-      ],
-      "log": "<p>Took <span data-variable=\"system-action-result-dmg\">$Result</span> damage (<span data-variable=\"system-action-roll-dmg\">$Roll</span>) after <span data-variable=\"system-action-roll-atk\">$Roll</span>.</p>",
       "depsVariablesUid": [
         "v1OSJdasGRBfMV3oxgj2"
       ],
@@ -3567,7 +3560,14 @@
           "label": "Damage",
           "diceFormula": "<p>\"1d6\"</p>"
         }
-      ]
+      ],
+      "updates": [
+        {
+          "variableUid": "v1OSJdasGRBfMV3oxgj2",
+          "formula": "<p><span data-variable=\"v1OSJdasGRBfMV3oxgj2\">$x</span> - <span data-variable=\"system-action-result-dmg\">$Result</span></p>"
+        }
+      ],
+      "log": "<p>Took <span data-variable=\"system-action-result-dmg\">$Result</span> damage (<span data-variable=\"system-action-roll-dmg\">$Roll</span>) after <span data-variable=\"system-action-roll-atk\">$Roll</span>.</p>"
     }
   ],
   "widgets": [],

@@ -122,6 +122,10 @@ export {
   BeyondPaperV26Schema,
   type BeyondPaperV26,
 } from "./schemas/bypp.v26.schema";
+export {
+  BeyondPaperV27Schema,
+  type BeyondPaperV27,
+} from "./schemas/bypp.v27.schema";
 
 // v18: what a document reads but does not carry.
 export {
@@ -584,6 +588,49 @@ export {
   type ActionRollV26,
   type VariableUpdateV26,
 } from "./models/variable.v10.schema";
+
+// Models (v11) — a variable's `label` and a choice option's `label` become
+// locale-keyed; the option shape is shared with the data-table choice column.
+export {
+  VariableV11Schema,
+  VariableLabelV27Schema,
+  ChoiceOptionV27Schema,
+  NumberVariableV11Schema,
+  TextVariableV11Schema,
+  BooleanVariableV11Schema,
+  ChoiceVariableV11Schema,
+  FormulaVariableV11Schema,
+  RollVariableV11Schema,
+  DataTableRefVariableV11Schema,
+  DataTableLookupVariableV11Schema,
+  ImageVariableV11Schema,
+  DataTableDirectLookupVariableV11Schema,
+  EntityRefVariableV11Schema,
+  EntityLookupVariableV11Schema,
+  type VariableV11,
+  type ChoiceOptionV27,
+  type NumberVariableV11,
+  type TextVariableV11,
+  type BooleanVariableV11,
+  type ChoiceVariableV11,
+  type FormulaVariableV11,
+  type RollVariableV11,
+  type DataTableRefVariableV11,
+  type DataTableLookupVariableV11,
+  type ImageVariableV11,
+  type DataTableDirectLookupVariableV11,
+  type EntityRefVariableV11,
+  type EntityLookupVariableV11,
+} from "./models/variable.v11.schema";
+
+export {
+  DataTableV4Schema,
+  DataTableColumnV4Schema,
+  DataTableColumnChoiceV4Schema,
+  type DataTableV4,
+  type DataTableColumnV4,
+  type DataTableColumnChoiceV4,
+} from "./models/data-table.v4.schema";
 
 export { SheetV2Schema, type SheetV2 } from "./models/sheet.v2.schema";
 
@@ -1143,19 +1190,39 @@ export {
 // (v7's `min`/`max`/`step` on the `number` variant and v6's
 // `dataTableDirectLookup` are carried forward by that fork, not undone.)
 export {
-  EntityRefVariableV9Schema as EntityRefVariableSchema,
-  EntityLookupVariableV9Schema as EntityLookupVariableSchema,
-  type EntityRefVariableV9 as EntityRefVariable,
-  type EntityLookupVariableV9 as EntityLookupVariable,
-} from "./models/variable.v9.schema";
+  VariableV11Schema as VariableSchema,
+  ChoiceOptionV27Schema as ChoiceOptionSchema,
+  NumberVariableV11Schema as NumberVariableSchema,
+  TextVariableV11Schema as TextVariableSchema,
+  BooleanVariableV11Schema as BooleanVariableSchema,
+  ChoiceVariableV11Schema as ChoiceVariableSchema,
+  FormulaVariableV11Schema as FormulaVariableSchema,
+  RollVariableV11Schema as RollVariableSchema,
+  DataTableRefVariableV11Schema as DataTableRefVariableSchema,
+  DataTableLookupVariableV11Schema as DataTableLookupVariableSchema,
+  ImageVariableV11Schema as ImageVariableSchema,
+  DataTableDirectLookupVariableV11Schema as DataTableDirectLookupVariableSchema,
+  EntityRefVariableV11Schema as EntityRefVariableSchema,
+  EntityLookupVariableV11Schema as EntityLookupVariableSchema,
+  type VariableV11 as Variable,
+  type ChoiceOptionV27 as ChoiceOption,
+  type NumberVariableV11 as NumberVariable,
+  type TextVariableV11 as TextVariable,
+  type BooleanVariableV11 as BooleanVariable,
+  type ChoiceVariableV11 as ChoiceVariable,
+  type FormulaVariableV11 as FormulaVariable,
+  type RollVariableV11 as RollVariable,
+  type DataTableRefVariableV11 as DataTableRefVariable,
+  type DataTableLookupVariableV11 as DataTableLookupVariable,
+  type ImageVariableV11 as ImageVariable,
+  type DataTableDirectLookupVariableV11 as DataTableDirectLookupVariable,
+  type EntityRefVariableV11 as EntityRefVariable,
+  type EntityLookupVariableV11 as EntityLookupVariable,
+} from "./models/variable.v11.schema";
 export {
-  VariableV10Schema as VariableSchema,
-  RollVariableV10Schema as RollVariableSchema,
   ActionSectionsV26Schema as ActionSectionsSchema,
   ActionRollV26Schema as ActionRollSchema,
   VariableUpdateV26Schema as VariableUpdateSchema,
-  type VariableV10 as Variable,
-  type RollVariableV10 as RollVariable,
   type ActionSectionsV26 as ActionSections,
   type ActionRollV26 as ActionRoll,
   type VariableUpdateV26 as VariableUpdate,
@@ -1164,25 +1231,7 @@ export {
   VariableV8Schema,
   type VariableV8,
   VariableBaseV8Schema as VariableBaseSchema,
-  NumberVariableV8Schema as NumberVariableSchema,
-  TextVariableV8Schema as TextVariableSchema,
-  BooleanVariableV8Schema as BooleanVariableSchema,
-  ChoiceVariableV8Schema as ChoiceVariableSchema,
-  FormulaVariableV8Schema as FormulaVariableSchema,
-  ImageVariableV8Schema as ImageVariableSchema,
-  DataTableRefVariableV8Schema as DataTableRefVariableSchema,
-  DataTableLookupVariableV8Schema as DataTableLookupVariableSchema,
-  DataTableDirectLookupVariableV8Schema as DataTableDirectLookupVariableSchema,
   type VariableBaseV8 as VariableBase,
-  type NumberVariableV8 as NumberVariable,
-  type TextVariableV8 as TextVariable,
-  type BooleanVariableV8 as BooleanVariable,
-  type ChoiceVariableV8 as ChoiceVariable,
-  type FormulaVariableV8 as FormulaVariable,
-  type ImageVariableV8 as ImageVariable,
-  type DataTableRefVariableV8 as DataTableRefVariable,
-  type DataTableLookupVariableV8 as DataTableLookupVariable,
-  type DataTableDirectLookupVariableV8 as DataTableDirectLookupVariable,
 } from "./models/variable.v8.schema";
 
 // The `number` variant's value domain, introduced in v7 and carried into the
@@ -1194,15 +1243,13 @@ export {
   type VariableV7,
 } from "./models/variable.v7.schema";
 
-// Shapes NESTED inside a variant rather than merged into it: an option of a
-// `choice`, the visual of a `roll`. v16 touched the variants, not these, so
-// their current aliases stay rooted in v1.
+// Shapes NESTED inside a variant rather than merged into it: the visual of a
+// `roll`. v16 touched the variants, not these, so their current aliases stay
+// rooted in v1. The choice option moved to v27 (see above).
 export {
-  ChoiceOptionV1Schema as ChoiceOptionSchema,
   ActionVisualV1Schema as ActionVisualSchema,
   IconCompoV1Schema as IconCompoSchema,
   IconCompoSlotConfigV1Schema as IconCompoSlotConfigSchema,
-  type ChoiceOptionV1 as ChoiceOption,
   type ActionVisualV1 as ActionVisual,
   type IconCompoV1 as IconCompo,
   type IconCompoSlotConfigV1 as IconCompoSlotConfig,
@@ -1295,29 +1342,32 @@ export {
 } from "./models/sheet.v7.schema";
 
 export {
-  DataTableV3Schema as DataTableSchema,
+  DataTableV4Schema as DataTableSchema,
+  DataTableColumnV4Schema as DataTableColumnSchema,
+  DataTableColumnChoiceV4Schema as DataTableColumnChoiceSchema,
+  type DataTableV4 as DataTable,
+  type DataTableColumnV4 as DataTableColumn,
+  type DataTableColumnChoiceV4 as DataTableColumnChoice,
+} from "./models/data-table.v4.schema";
+
+export {
   DataTableRowV3Schema as DataTableRowSchema,
-  type DataTableV3 as DataTable,
   type DataTableRowV3 as DataTableRow,
 } from "./models/data-table.v3.schema";
 
 // Column-level shapes unchanged from v2.
 export {
-  DataTableColumnV2Schema as DataTableColumnSchema,
   DataTableColumnNumberV2Schema as DataTableColumnNumberSchema,
   DataTableColumnTextV2Schema as DataTableColumnTextSchema,
   DataTableColumnBooleanV2Schema as DataTableColumnBooleanSchema,
-  DataTableColumnChoiceV2Schema as DataTableColumnChoiceSchema,
   DataTableColumnIconV2Schema as DataTableColumnIconSchema,
   DataTableColumnTranslatableTextV2Schema as DataTableColumnTranslatableTextSchema,
   DataTableColumnDataTableRefV2Schema as DataTableColumnDataTableRefSchema,
   DataTableColumnDataTableLookupV2Schema as DataTableColumnDataTableLookupSchema,
   DataTableCellValueV2Schema as DataTableCellValueSchema,
-  type DataTableColumnV2 as DataTableColumn,
   type DataTableColumnNumberV2 as DataTableColumnNumber,
   type DataTableColumnTextV2 as DataTableColumnText,
   type DataTableColumnBooleanV2 as DataTableColumnBoolean,
-  type DataTableColumnChoiceV2 as DataTableColumnChoice,
   type DataTableColumnIconV2 as DataTableColumnIcon,
   type DataTableColumnTranslatableTextV2 as DataTableColumnTranslatableText,
   type DataTableColumnDataTableRefV2 as DataTableColumnDataTableRef,
@@ -1413,7 +1463,7 @@ export type { ChunkTextV11 as ByppChunkText } from "./models/chunk.v11.schema";
 export type { ChunkGalleryV2 as ByppChunkGallery } from "./models/chunk.v2.schema";
 export type { ChunkRandomV2 as ByppChunkRandom } from "./models/chunk.v2.schema";
 export type { DatasetV2 as ByppDataset } from "./models/dataset.v2.schema";
-export type { VariableV10 as ByppVariable } from "./models/variable.v10.schema";
+export type { VariableV11 as ByppVariable } from "./models/variable.v11.schema";
 export type { VariableBaseV8 as ByppVariableBase } from "./models/variable.v8.schema";
 export type { WidgetV13 as ByppWidget } from "./models/widget.v13.schema";
 export type { WidgetBaseV1 as ByppWidgetBase } from "./models/widget.v1.schema";
@@ -1430,11 +1480,11 @@ export type { AssetV3 as ByppAsset } from "./models/asset.v3.schema";
 export type { AssetBaseV3 as ByppAssetBase } from "./models/asset.v3.schema";
 export type { DialectV3 as ByppDialect } from "./models/dialect.v3.schema";
 export type { SheetV7 as ByppSheet } from "./models/sheet.v7.schema";
-export type { DataTableV3 as ByppDataTable } from "./models/data-table.v3.schema";
-export type { DataTableColumnV2 as ByppDataTableColumn } from "./models/data-table.v2.schema";
+export type { DataTableV4 as ByppDataTable } from "./models/data-table.v4.schema";
+export type { DataTableColumnV4 as ByppDataTableColumn } from "./models/data-table.v4.schema";
 export type { DataTableRowV2 as ByppDataTableRow } from "./models/data-table.v2.schema";
-export type { DataTableRefVariableV8 as ByppDataTableRefVariable } from "./models/variable.v8.schema";
-export type { DataTableLookupVariableV8 as ByppDataTableLookupVariable } from "./models/variable.v8.schema";
+export type { DataTableRefVariableV11 as ByppDataTableRefVariable } from "./models/variable.v11.schema";
+export type { DataTableLookupVariableV11 as ByppDataTableLookupVariable } from "./models/variable.v11.schema";
 export type { CreditV1 as ByppCredit } from "./mixins/with-credit.v1.schema";
 export type { BundleImageV14 as ByppBundleImage } from "./models/bundle-image.v14.schema";
 export type { RequirementV1 as ByppRequirement } from "./models/requirement.v1.schema";

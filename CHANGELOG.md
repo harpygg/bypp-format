@@ -9,6 +9,39 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v27 — 2026-09
+
+### Changed
+
+- **A variable's words are locale-keyed.** Two labels that were one string
+  each become a `TranslatableText` (`{ en: "Strength", fr: "Force" }`):
+
+  - `variables[].label`, on every variant
+    (`src/models/variable.v11.schema.ts`). `name` stays a plain string: it is
+    the internal identifier formulas and structural views use, not a display
+    text.
+  - `options[].label` of a choice option (`ChoiceOptionV27`), on a `choice`
+    variable and on a data-table `choice` column alike
+    (`src/models/data-table.v4.schema.ts`): one option shape for both.
+
+  Everything around them already was locale-keyed — a data-table's name, a
+  column's label, a translatable cell, an entity action's label. A producer
+  whose attributes and options were authored in several languages had to
+  keep one on export and drop the others; a reader importing the file got
+  one language back, filed under `en` whatever it was.
+
+  No content array other than `variables` and `dataTables` changes shape.
+
+### Migrations
+
+- `v26 → v27` files every label string under `en`: `"Wizard"` becomes
+  `{ en: "Wizard" }`. A v26 label says nothing about its language, and `en`
+  is the one a v26 producer was expected to keep. Nothing else moves.
+- `v27 → v26` is **lossy**: every label keeps one language, `en` when
+  present, else the first non-empty one; the others are dropped. A choice
+  option whose label has no text at all gets `""` (v26 requires one); a
+  variable label with none is dropped, and a reader falls back to `name`.
+
 ## Format v26 — 2026-09
 
 ### Added

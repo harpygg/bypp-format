@@ -4,7 +4,7 @@ import { isByppIconName } from "./icons";
 
 describe("BeyondPaperSchema", () => {
   const validMinimal: BeyondPaper = {
-    version: 26,
+    version: 27,
     format: "bypp",
     name: "Test Bundle",
     exportedAt: "2026-03-22T12:00:00.000Z",
@@ -38,7 +38,7 @@ describe("BeyondPaperSchema", () => {
 
   it("parses a bundle that omits every content array", () => {
     const result = BeyondPaperSchema.safeParse({
-      version: 26,
+      version: 27,
       format: "bypp",
       name: "Empty Bundle",
       exportedAt: "2026-03-22T12:00:00.000Z",
@@ -260,7 +260,7 @@ describe("BeyondPaperSchema", () => {
           name: "Class",
           type: "choice",
           datasetsUids: ["ds-1"],
-          options: [{ uid: "opt-1", label: "Wizard" }],
+          options: [{ uid: "opt-1", label: { en: "Wizard", fr: "Magicien" } }],
           isMultiple: false,
         },
         {

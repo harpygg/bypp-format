@@ -21,6 +21,7 @@ export default defineConfig({
     "src/v24.ts",
     "src/v25.ts",
     "src/v26.ts",
+    "src/v27.ts",
     "src/icons.ts",
   ],
   format: ["esm", "cjs"],
