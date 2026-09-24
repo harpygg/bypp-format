@@ -9,6 +9,41 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v28 — 2026-09
+
+### Added
+
+- **Entity spawns.** `entitySpawns[]` (`src/models/entity-spawn.v1.schema.ts`)
+  carries copies of an entity: three light crossbows in an inventory, three
+  goblins with their own hit points, without three entities. A spawn is
+  `{ uid, entityUid, ownerUid?, label?, data? }`:
+
+  - `entityUid` is its model. Everything the spawn does not set (name, type,
+    tags, picture, sheets, values) is read from it, so fixing the model fixes
+    every spawn of it.
+  - `data` holds only its own values; a key it does not set, or sets to
+    `null`, reads the model's.
+  - `label` is its own name; absent or empty reads the model's.
+  - `ownerUid` is the entity it belongs to, whose rights apply to it, even
+    through a bag inside a bag.
+
+- **`entitySpawnRef` variable** (`src/models/variable.v12.schema.ts`). Its
+  value, on an entity or on a spawn (a bag), is the list of spawn uids it
+  holds. It takes `entityRef`'s settings (`targetsTypes`, `targetsTags`,
+  `targetTagsGroup`, `max`, `maxVariable`); with `sourceVariableUid` it picks
+  among the spawns another `entitySpawnRef` of the same holder holds
+  ("equipped" out of "inventory"). An `entityLookup` may read through one.
+
+  `entityRef` is unchanged: it still links unique entities.
+
+### Migrations
+
+- `v27 → v28` is a pure version bump: no spawn, no spawn ref.
+- `v28 → v27` is **lossy**: the spawns are dropped, and so is every
+  `entitySpawnRef` variable and every `entityLookup` reading through one, the
+  values entities stored for them, and the variable a widget was bound to
+  (the widget stays, unbound).
+
 ## Format v27 — 2026-09
 
 ### Changed

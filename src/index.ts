@@ -126,6 +126,10 @@ export {
   BeyondPaperV27Schema,
   type BeyondPaperV27,
 } from "./schemas/bypp.v27.schema";
+export {
+  BeyondPaperV28Schema,
+  type BeyondPaperV28,
+} from "./schemas/bypp.v28.schema";
 
 // v18: what a document reads but does not carry.
 export {
@@ -189,6 +193,7 @@ export type {
   DataTableUid,
   DataTableRowUid,
   DataTableColumnUid,
+  EntitySpawnUid,
 } from "./uid";
 
 // Branded UID Zod schemas (runtime validators)
@@ -213,6 +218,7 @@ export {
   DataTableUidSchema,
   DataTableRowUidSchema,
   DataTableColumnUidSchema,
+  EntitySpawnUidSchema,
 } from "./uid";
 
 // ─── Versioned sub-schemas ──────────────────────────────────────────
@@ -622,6 +628,19 @@ export {
   type EntityRefVariableV11,
   type EntityLookupVariableV11,
 } from "./models/variable.v11.schema";
+
+// Models (v12) — `entitySpawnRef`, the variable holding entity spawns.
+export {
+  VariableV12Schema,
+  EntitySpawnRefVariableV12Schema,
+  type VariableV12,
+  type EntitySpawnRefVariableV12,
+} from "./models/variable.v12.schema";
+
+export {
+  EntitySpawnV1Schema,
+  type EntitySpawnV1,
+} from "./models/entity-spawn.v1.schema";
 
 export {
   DataTableV4Schema,
@@ -1190,7 +1209,16 @@ export {
 // (v7's `min`/`max`/`step` on the `number` variant and v6's
 // `dataTableDirectLookup` are carried forward by that fork, not undone.)
 export {
-  VariableV11Schema as VariableSchema,
+  VariableV12Schema as VariableSchema,
+  EntitySpawnRefVariableV12Schema as EntitySpawnRefVariableSchema,
+  type VariableV12 as Variable,
+  type EntitySpawnRefVariableV12 as EntitySpawnRefVariable,
+} from "./models/variable.v12.schema";
+export {
+  EntitySpawnV1Schema as EntitySpawnSchema,
+  type EntitySpawnV1 as EntitySpawn,
+} from "./models/entity-spawn.v1.schema";
+export {
   ChoiceOptionV27Schema as ChoiceOptionSchema,
   NumberVariableV11Schema as NumberVariableSchema,
   TextVariableV11Schema as TextVariableSchema,
@@ -1204,7 +1232,6 @@ export {
   DataTableDirectLookupVariableV11Schema as DataTableDirectLookupVariableSchema,
   EntityRefVariableV11Schema as EntityRefVariableSchema,
   EntityLookupVariableV11Schema as EntityLookupVariableSchema,
-  type VariableV11 as Variable,
   type ChoiceOptionV27 as ChoiceOption,
   type NumberVariableV11 as NumberVariable,
   type TextVariableV11 as TextVariable,
@@ -1446,6 +1473,7 @@ export { WithLocalizedNameV2Schema as WithLocalizedNameSchema } from "./mixins/w
 export type { EntityV6 as ByppEntity } from "./models/entity.v6.schema";
 export type { EntityBaseV6 as ByppEntityBase } from "./models/entity.v6.schema";
 export type { EntityActionV2 as ByppEntityAction } from "./models/entity-action.v2.schema";
+export type { EntitySpawnV1 as ByppEntitySpawn } from "./models/entity-spawn.v1.schema";
 export type { VariableUpdateV26 as ByppVariableUpdate } from "./models/variable.v10.schema";
 export type { CharacterEntityV4 as ByppCharacterEntity } from "./models/entity.v4.schema";
 export type { CreatureEntityV4 as ByppCreatureEntity } from "./models/entity.v4.schema";
@@ -1463,7 +1491,7 @@ export type { ChunkTextV11 as ByppChunkText } from "./models/chunk.v11.schema";
 export type { ChunkGalleryV2 as ByppChunkGallery } from "./models/chunk.v2.schema";
 export type { ChunkRandomV2 as ByppChunkRandom } from "./models/chunk.v2.schema";
 export type { DatasetV2 as ByppDataset } from "./models/dataset.v2.schema";
-export type { VariableV11 as ByppVariable } from "./models/variable.v11.schema";
+export type { VariableV12 as ByppVariable } from "./models/variable.v12.schema";
 export type { VariableBaseV8 as ByppVariableBase } from "./models/variable.v8.schema";
 export type { WidgetV13 as ByppWidget } from "./models/widget.v13.schema";
 export type { WidgetBaseV1 as ByppWidgetBase } from "./models/widget.v1.schema";
