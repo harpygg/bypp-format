@@ -130,6 +130,10 @@ export {
   BeyondPaperV28Schema,
   type BeyondPaperV28,
 } from "./schemas/bypp.v28.schema";
+export {
+  BeyondPaperV29Schema,
+  type BeyondPaperV29,
+} from "./schemas/bypp.v29.schema";
 
 // v18: what a document reads but does not carry.
 export {
@@ -871,6 +875,12 @@ export {
   type BundleImageV14,
 } from "./models/bundle-image.v14.schema";
 
+// Model (v29) — everyone else who worked on the bundle.
+export {
+  BundleCreditV29Schema,
+  type BundleCreditV29,
+} from "./models/bundle-credit.v29.schema";
+
 // Models (v13 per-file `credit`) — every media-bearing model forked to carry
 // an optional `credit` block (see `with-credit.v1.schema`).
 export {
@@ -1454,6 +1464,10 @@ export {
   BundleImageV14Schema as BundleImageSchema,
   type BundleImageV14 as BundleImage,
 } from "./models/bundle-image.v14.schema";
+export {
+  BundleCreditV29Schema as BundleCreditSchema,
+  type BundleCreditV29 as BundleCredit,
+} from "./models/bundle-credit.v29.schema";
 // Current theme aliases point at v25 — the version that introduced it.
 export {
   ThemeV25Schema as ThemeSchema,
@@ -1515,5 +1529,6 @@ export type { DataTableRefVariableV11 as ByppDataTableRefVariable } from "./mode
 export type { DataTableLookupVariableV11 as ByppDataTableLookupVariable } from "./models/variable.v11.schema";
 export type { CreditV1 as ByppCredit } from "./mixins/with-credit.v1.schema";
 export type { BundleImageV14 as ByppBundleImage } from "./models/bundle-image.v14.schema";
+export type { BundleCreditV29 as ByppBundleCredit } from "./models/bundle-credit.v29.schema";
 export type { RequirementV1 as ByppRequirement } from "./models/requirement.v1.schema";
 export type { RequirementSourceV1 as ByppRequirementSource } from "./models/requirement.v1.schema";

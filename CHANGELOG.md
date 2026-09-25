@@ -9,6 +9,26 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v29 — 2026-09
+
+### Added
+
+- **Bundle credits.** `credits[]` (`src/models/bundle-credit.v29.schema.ts`)
+  names everyone who worked on the bundle besides its author, in display
+  order: an illustrator, a cartographer, a proofreader. A credit is the
+  per-file credit of v13 plus a `role`: `{ name, role?, url?, license? }`.
+
+  - `role` is free text ("illustrations", "maps", "proofreading").
+  - `license` is declarative: what this person's work is released under. It
+    overrides nothing, not the bundle's licence nor any file's.
+  - `attribution` is unchanged and still names the bundle's single author.
+
+### Migrations
+
+- `v28 → v29` adds an empty `credits`. **Non-lossy.**
+- `v29 → v28` is **lossy**: v28 has nowhere to put them, so `credits` is
+  dropped.
+
 ## Format v28 — 2026-09
 
 ### Added

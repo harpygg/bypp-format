@@ -1,5 +1,5 @@
 {
-  "version": 26,
+  "version": 29,
   "format": "bypp",
   "name": "Shattered Reach [D&D 2024]",
   "exportedAt": "2026-07-22T10:43:17.949Z",
@@ -22,6 +22,18 @@
   "attribution": {
     "authorName": "Maslow#3409"
   },
+  "credits": [
+    {
+      "name": "Corinne Caro",
+      "role": "cover illustration",
+      "url": "https://www.corinnecaro.com/",
+      "license": "CC-BY-NC"
+    },
+    {
+      "name": "Chloé",
+      "role": "proofreading"
+    }
+  ],
   "requires": [
     {
       "category": "randomTables",
@@ -620,6 +632,7 @@
       "type": "item"
     }
   ],
+  "entitySpawns": [],
   "pages": [
     {
       "uid": "f3qW8Y319eKN4czUFASN",
@@ -824,137 +837,191 @@
       "datasetsUids": [],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Noto wheel",
+      "label": {
+        "en": "Noto wheel"
+      },
       "type": "choice",
       "options": [
         {
           "uid": "9F56-fJEI-RCFi-4LSs",
-          "label": "‎‎‎‎‎‎‎‎‎‎‎𐤛",
+          "label": {
+            "en": "‎‎‎‎‎‎‎‎‎‎‎𐤛"
+          },
           "icon": "face-hand-over-mouth"
         },
         {
           "uid": "OJ09-qvNN-gURW-IRG8",
-          "label": "𐤀",
+          "label": {
+            "en": "𐤀"
+          },
           "icon": "face-smile-upside-down"
         },
         {
           "uid": "4qv3-hpIw-s2dz-y36a",
-          "label": "𐤁",
+          "label": {
+            "en": "𐤁"
+          },
           "icon": "chess-rook-piece"
         },
         {
           "uid": "H4p1-nWpF-zMKZ-ZpA7",
-          "label": "𐤂",
+          "label": {
+            "en": "𐤂"
+          },
           "icon": "dice-d8"
         },
         {
           "uid": "IZiz-K6cT-PMT7-ZBf4",
-          "label": "𐤃",
+          "label": {
+            "en": "𐤃"
+          },
           "icon": "card-diamond"
         },
         {
           "uid": "Mx3D-f2KJ-g2bF-dN9I",
-          "label": "𐤄",
+          "label": {
+            "en": "𐤄"
+          },
           "icon": "face-shush"
         },
         {
           "uid": "orjL-7Oiw-VsgK-W7wf",
-          "label": "𐤅",
+          "label": {
+            "en": "𐤅"
+          },
           "icon": "shield-halved"
         },
         {
           "uid": "bwLZ-UvOz-snSu-aIUI",
-          "label": "𐤆",
+          "label": {
+            "en": "𐤆"
+          },
           "icon": "rabbit"
         },
         {
           "uid": "DkUV-3EtY-Dx17-D7DW",
-          "label": "𐤇",
+          "label": {
+            "en": "𐤇"
+          },
           "icon": "acorn"
         },
         {
           "uid": "PpAZ-FkLe-CXpH-LNVw",
-          "label": "𐤈",
+          "label": {
+            "en": "𐤈"
+          },
           "icon": "dice-d12"
         },
         {
           "uid": "Wkuq-aRJW-hq2G-l0mz",
-          "label": "𐤉",
+          "label": {
+            "en": "𐤉"
+          },
           "icon": "ribbon"
         },
         {
           "uid": "qHjR-1WD0-QhwN-eUsb",
-          "label": "𐤊",
+          "label": {
+            "en": "𐤊"
+          },
           "icon": "square-hollow"
         },
         {
           "uid": "4wXk-U8G1-ozLU-FFIF",
-          "label": "‎𐤋‎",
+          "label": {
+            "en": "‎𐤋‎"
+          },
           "icon": "wreath-laurel"
         },
         {
           "uid": "qFBH-JJOz-gXLd-fxaB",
-          "label": "𐤌",
+          "label": {
+            "en": "𐤌"
+          },
           "icon": "dash"
         },
         {
           "uid": "11HE-QHmL-1PQW-lETY",
-          "label": "𐤍",
+          "label": {
+            "en": "𐤍"
+          },
           "icon": "chess-board"
         },
         {
           "uid": "I6Fc-LTC7-wiKe-IPc9",
-          "label": "𐤎‎",
+          "label": {
+            "en": "𐤎‎"
+          },
           "icon": "game-board"
         },
         {
           "uid": "SvHD-nm5G-Lj5n-qp3s",
-          "label": "𐤐",
+          "label": {
+            "en": "𐤐"
+          },
           "icon": "scroll"
         },
         {
           "uid": "DLkA-sFrP-qEgE-ODSV",
-          "label": "𐤑",
+          "label": {
+            "en": "𐤑"
+          },
           "icon": "rabbit"
         },
         {
           "uid": "DqzA-oa7i-Jep2-dTkh",
-          "label": "𐤒",
+          "label": {
+            "en": "𐤒"
+          },
           "icon": "face-grin-stars"
         },
         {
           "uid": "N1Ld-eDZK-sjr1-G7MB",
-          "label": "𐤓",
+          "label": {
+            "en": "𐤓"
+          },
           "icon": "ear-deaf"
         },
         {
           "uid": "N7la-ddC3-gUbt-l46l",
-          "label": "𐤔",
+          "label": {
+            "en": "𐤔"
+          },
           "icon": "octagon"
         },
         {
           "uid": "h3ya-vrKj-pOpk-DiVp",
-          "label": "𐤕",
+          "label": {
+            "en": "𐤕"
+          },
           "icon": "face-smile-upside-down"
         },
         {
           "uid": "mAgv-nTei-NBGI-9DX4",
-          "label": "𐤖",
+          "label": {
+            "en": "𐤖"
+          },
           "icon": "face-laugh-beam"
         },
         {
           "uid": "h7xK-Nb1F-lKxd-LuBs",
-          "label": "𐤗",
+          "label": {
+            "en": "𐤗"
+          },
           "icon": "face-sleepy"
         },
         {
           "uid": "fw5u-xt6A-AVyh-uZ9g",
-          "label": "𐤘",
+          "label": {
+            "en": "𐤘"
+          },
           "icon": "axe-battle"
         },
         {
           "uid": "8qcx-TqKe-dLVi-dmqc",
-          "label": "𐤙",
+          "label": {
+            "en": "𐤙"
+          },
           "icon": "cards"
         }
       ],
@@ -968,7 +1035,10 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Shields",
+      "label": {
+        "en": "Shields",
+        "fr": "Boucliers"
+      },
       "type": "boolean"
     },
     {
@@ -979,7 +1049,10 @@
       ],
       "isMandatory": true,
       "isHiddenFromSheet": false,
-      "label": "Level",
+      "label": {
+        "en": "Level",
+        "fr": "Niveau"
+      },
       "type": "dataTableRef",
       "dataTableUid": "D8PalTFAJFmpi5GYRG6D",
       "labelColumnUid": "gY1VGpFXelc0qplbTwN4",
@@ -994,7 +1067,10 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Hit Points (current)",
+      "label": {
+        "en": "Hit Points (current)",
+        "fr": "Points de vie (actuels)"
+      },
       "type": "number",
       "defaultValue": 10,
       "icon": "heart"
@@ -1006,7 +1082,10 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Light Armor",
+      "label": {
+        "en": "Light Armor",
+        "fr": "Armures légères"
+      },
       "type": "boolean"
     },
     {
@@ -1017,7 +1096,10 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Strength",
+      "label": {
+        "en": "Strength",
+        "fr": "Force"
+      },
       "type": "number",
       "defaultValue": 10,
       "icon": "hand-fist"
@@ -1029,7 +1111,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 2 (name)",
+      "label": {
+        "en": "Weapon 2 (name)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -1040,7 +1124,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 1 (bonus)",
+      "label": {
+        "en": "Weapon 1 (bonus)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -1051,7 +1137,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "History mastery",
+      "label": {
+        "en": "History mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1070,7 +1158,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Death Saves (successes)",
+      "label": {
+        "en": "Death Saves (successes)"
+      },
       "type": "number",
       "defaultValue": 0
     },
@@ -1081,7 +1171,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Heavy Armor",
+      "label": {
+        "en": "Heavy Armor"
+      },
       "type": "boolean"
     },
     {
@@ -1091,7 +1183,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Tool Proficiencies",
+      "label": {
+        "en": "Tool Proficiencies"
+      },
       "type": "text"
     },
     {
@@ -1101,7 +1195,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "Sleight of Hand mastery",
+      "label": {
+        "en": "Sleight of Hand mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1120,7 +1216,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Feats",
+      "label": {
+        "en": "Feats"
+      },
       "type": "text"
     },
     {
@@ -1131,7 +1229,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Death Saves (failures)",
+      "label": {
+        "en": "Death Saves (failures)"
+      },
       "type": "number",
       "defaultValue": 0
     },
@@ -1142,7 +1242,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "Insight mastery",
+      "label": {
+        "en": "Insight mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1160,7 +1262,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "Persuasion mastery",
+      "label": {
+        "en": "Persuasion mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1179,7 +1283,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Size",
+      "label": {
+        "en": "Size"
+      },
       "type": "number",
       "defaultValue": 1.7
     },
@@ -1191,7 +1297,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Dexterity",
+      "label": {
+        "en": "Dexterity"
+      },
       "type": "number",
       "defaultValue": 10,
       "icon": "hand-fist"
@@ -1204,7 +1312,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Wisdom",
+      "label": {
+        "en": "Wisdom"
+      },
       "type": "number",
       "defaultValue": 10,
       "icon": "hand-fist"
@@ -1217,7 +1327,9 @@
       ],
       "isMandatory": true,
       "isHiddenFromSheet": false,
-      "label": "Class",
+      "label": {
+        "en": "Class"
+      },
       "type": "dataTableRef",
       "dataTableUid": "8TRJT9wSr1yXy0EdQISl",
       "labelColumnUid": "skNw90YyMq1OKVFPWlY7",
@@ -1235,7 +1347,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Intelligence",
+      "label": {
+        "en": "Intelligence"
+      },
       "type": "number",
       "defaultValue": 10,
       "icon": "hand-fist"
@@ -1247,7 +1361,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Features (1)",
+      "label": {
+        "en": "Features (1)"
+      },
       "type": "text"
     },
     {
@@ -1258,7 +1374,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Background",
+      "label": {
+        "en": "Background"
+      },
       "type": "text"
     },
     {
@@ -1268,7 +1386,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Medium Armor",
+      "label": {
+        "en": "Medium Armor"
+      },
       "type": "boolean"
     },
     {
@@ -1279,7 +1399,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Charisma",
+      "label": {
+        "en": "Charisma"
+      },
       "type": "number",
       "defaultValue": 10,
       "icon": "hand-fist"
@@ -1292,7 +1414,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Acrobatics mastery",
+      "label": {
+        "en": "Acrobatics mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1308,7 +1432,9 @@
       "name": "Test number",
       "datasetsUids": [],
       "isHiddenFromSheet": false,
-      "label": "Test number",
+      "label": {
+        "en": "Test number"
+      },
       "type": "number"
     },
     {
@@ -1319,7 +1445,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Armor Class",
+      "label": {
+        "en": "Armor Class"
+      },
       "type": "number",
       "defaultValue": 10,
       "icon": "heart"
@@ -1331,7 +1459,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon Proficiencies",
+      "label": {
+        "en": "Weapon Proficiencies"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -1343,7 +1473,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Charisma Save (Proficiency)",
+      "label": {
+        "en": "Charisma Save (Proficiency)"
+      },
       "type": "boolean",
       "defaultValue": false,
       "icon": "shield"
@@ -1355,7 +1487,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "Perception mastery",
+      "label": {
+        "en": "Perception mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1373,7 +1507,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 1 (damage)",
+      "label": {
+        "en": "Weapon 1 (damage)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -1384,7 +1520,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "Arcana mastery",
+      "label": {
+        "en": "Arcana mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1402,7 +1540,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "Athletics mastery",
+      "label": {
+        "en": "Athletics mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1420,7 +1560,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "Intimidation mastery",
+      "label": {
+        "en": "Intimidation mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1438,7 +1580,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "Animal Handling mastery",
+      "label": {
+        "en": "Animal Handling mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1456,7 +1600,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 1 (notes)",
+      "label": {
+        "en": "Weapon 1 (notes)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -1468,7 +1614,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Hit Points (max)",
+      "label": {
+        "en": "Hit Points (max)"
+      },
       "type": "number",
       "defaultValue": 10,
       "icon": "heart"
@@ -1481,7 +1629,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "XP",
+      "label": {
+        "en": "XP"
+      },
       "type": "number",
       "defaultValue": 0
     },
@@ -1493,7 +1643,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Constitution",
+      "label": {
+        "en": "Constitution"
+      },
       "type": "number",
       "defaultValue": 10,
       "icon": "hand-fist"
@@ -1505,7 +1657,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Traits",
+      "label": {
+        "en": "Traits"
+      },
       "type": "text"
     },
     {
@@ -1516,7 +1670,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Subclass",
+      "label": {
+        "en": "Subclass"
+      },
       "type": "text",
       "defaultValue": "Subclass"
     },
@@ -1527,7 +1683,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "Deception mastery",
+      "label": {
+        "en": "Deception mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1545,7 +1703,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "Investigation mastery",
+      "label": {
+        "en": "Investigation mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1563,7 +1723,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "Survival mastery",
+      "label": {
+        "en": "Survival mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1581,7 +1743,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Features (2)",
+      "label": {
+        "en": "Features (2)"
+      },
       "type": "text"
     },
     {
@@ -1592,7 +1756,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Inspiration",
+      "label": {
+        "en": "Inspiration"
+      },
       "type": "boolean",
       "defaultValue": false
     },
@@ -1603,7 +1769,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Shield",
+      "label": {
+        "en": "Shield"
+      },
       "type": "boolean"
     },
     {
@@ -1614,7 +1782,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Dexterity Save (Proficiency)",
+      "label": {
+        "en": "Dexterity Save (Proficiency)"
+      },
       "type": "boolean",
       "defaultValue": false,
       "icon": "shield"
@@ -1626,7 +1796,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 1 (name)",
+      "label": {
+        "en": "Weapon 1 (name)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -1636,7 +1808,9 @@
       "datasetsUids": [],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Manual Level",
+      "label": {
+        "en": "Manual Level"
+      },
       "type": "dataTableRef",
       "dataTableUid": "D8PalTFAJFmpi5GYRG6D",
       "labelColumnUid": "gY1VGpFXelc0qplbTwN4",
@@ -1651,7 +1825,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Species",
+      "label": {
+        "en": "Species"
+      },
       "type": "text"
     },
     {
@@ -1662,7 +1838,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Spellcasting ability old",
+      "label": {
+        "en": "Spellcasting ability old"
+      },
       "type": "dataTableRef",
       "dataTableUid": "cf2UJBgg7XRpEcJT4ti8",
       "labelColumnUid": "lXiPm3rBJziYqSxCv3ok",
@@ -1676,7 +1854,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "Religion mastery",
+      "label": {
+        "en": "Religion mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1694,7 +1874,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "Performance mastery",
+      "label": {
+        "en": "Performance mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1713,7 +1895,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Hit Points (temp)",
+      "label": {
+        "en": "Hit Points (temp)"
+      },
       "type": "number",
       "defaultValue": 0,
       "icon": "heart"
@@ -1725,7 +1909,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "Medicine mastery",
+      "label": {
+        "en": "Medicine mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1743,7 +1929,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "Nature mastery",
+      "label": {
+        "en": "Nature mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1761,7 +1949,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isMandatory": false,
-      "label": "Stealth mastery",
+      "label": {
+        "en": "Stealth mastery"
+      },
       "type": "dataTableRef",
       "dataTableUid": "aSswRRaVsFWeRzfJ5Idw",
       "labelColumnUid": "GX6sd2Ppy4yZoQMQlOtW",
@@ -1780,7 +1970,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Intelligence Save (Proficiency)",
+      "label": {
+        "en": "Intelligence Save (Proficiency)"
+      },
       "type": "boolean",
       "defaultValue": false,
       "icon": "shield"
@@ -1790,7 +1982,9 @@
       "name": "Appearance",
       "datasetsUids": [],
       "isHiddenFromSheet": false,
-      "label": "Appearance",
+      "label": {
+        "en": "Appearance"
+      },
       "type": "text"
     },
     {
@@ -1799,22 +1993,30 @@
       "datasetsUids": [],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Some list",
+      "label": {
+        "en": "Some list"
+      },
       "type": "choice",
       "options": [
         {
           "uid": "xqpi-mVwE-UNwJ-sGeq",
-          "label": "Opt 1",
+          "label": {
+            "en": "Opt 1"
+          },
           "icon": "face-grin-wink"
         },
         {
           "uid": "oNQy-V4a1-IBMG-O6bJ",
-          "label": "Opt 2",
+          "label": {
+            "en": "Opt 2"
+          },
           "icon": "snowflake"
         },
         {
           "uid": "0v4a-WpsW-aYzA-pkFO",
-          "label": "Opt 3",
+          "label": {
+            "en": "Opt 3"
+          },
           "icon": "mace"
         }
       ],
@@ -1826,7 +2028,9 @@
       "name": "Backstory and personality",
       "datasetsUids": [],
       "isHiddenFromSheet": false,
-      "label": "Backstory and personality",
+      "label": {
+        "en": "Backstory and personality"
+      },
       "type": "text"
     },
     {
@@ -1837,7 +2041,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Wisdom Save (Proficiency)",
+      "label": {
+        "en": "Wisdom Save (Proficiency)"
+      },
       "type": "boolean",
       "defaultValue": false,
       "icon": "shield"
@@ -1848,22 +2054,33 @@
       "datasetsUids": [],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Languages",
+      "label": {
+        "en": "Languages"
+      },
       "type": "choice",
       "options": [
         {
           "uid": "vNwm-mtVE-wElk-LWnT",
-          "label": "Elvish",
+          "label": {
+            "en": "Elvish",
+            "fr": "Elfique"
+          },
           "icon": "people-group"
         },
         {
           "uid": "n4dU-Esqh-aSYR-MAdE",
-          "label": "Dwarven",
+          "label": {
+            "en": "Dwarven",
+            "fr": "Nain"
+          },
           "icon": "shield-quartered"
         },
         {
           "uid": "wkbb-DECU-BR1H-mxRe",
-          "label": "Common",
+          "label": {
+            "en": "Common",
+            "fr": "Commun"
+          },
           "icon": "face-glasses"
         }
       ],
@@ -1882,7 +2099,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Strength Save (Proficiency)",
+      "label": {
+        "en": "Strength Save (Proficiency)"
+      },
       "type": "boolean",
       "defaultValue": false,
       "icon": "shield"
@@ -1895,7 +2114,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Constitution Save (Proficiency)",
+      "label": {
+        "en": "Constitution Save (Proficiency)"
+      },
       "type": "boolean",
       "defaultValue": false,
       "icon": "shield"
@@ -1906,7 +2127,9 @@
       "datasetsUids": [],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Skill 1",
+      "label": {
+        "en": "Skill 1"
+      },
       "type": "dataTableRef",
       "dataTableUid": "BgwCqWDEZnTdGwd5gTr1",
       "labelColumnUid": "cVal22Rs5wXxMqYO0Eoq",
@@ -1920,7 +2143,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 6 (notes)",
+      "label": {
+        "en": "Weapon 6 (notes)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -1931,7 +2156,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 2 (damage)",
+      "label": {
+        "en": "Weapon 2 (damage)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -1942,7 +2169,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 5 (damage)",
+      "label": {
+        "en": "Weapon 5 (damage)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -1953,7 +2182,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Animal Handling Mod",
+      "label": {
+        "en": "Animal Handling Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"HouITOmrZKxfUG77Qm0s\" data-variable-state=\"ok\">$Animal Handling mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -1964,7 +2195,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Intimidation Mod",
+      "label": {
+        "en": "Intimidation Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"D7yZakafZHQRPNpCRHTu\" data-variable-state=\"ok\">$Intimidation mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -1975,7 +2208,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Charisma (mod)",
+      "label": {
+        "en": "Charisma (mod)"
+      },
       "type": "formula",
       "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"zBaq6x6llDj1YUsFuMlG\">$Charisme</span> )</p>"
     },
@@ -1986,7 +2221,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "History Mod",
+      "label": {
+        "en": "History Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"0FUQZyTXyJLhI2YnKXsp\" data-variable-state=\"ok\">$History mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -1997,7 +2234,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Dexterity (mod)",
+      "label": {
+        "en": "Dexterity (mod)"
+      },
       "type": "formula",
       "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"nl12DLRs3aJ1lB6Y2yv1\">$Dexterité</span> )</p>"
     },
@@ -2009,7 +2248,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Spellcasting ability",
+      "label": {
+        "en": "Spellcasting ability"
+      },
       "type": "dataTableLookup",
       "sourceVariableUid": "rj7ANYqyqPR4y3M0RHnS",
       "dataTableUid": "8TRJT9wSr1yXy0EdQISl",
@@ -2023,7 +2264,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "[AB] Strength check",
+      "label": {
+        "en": "[AB] Strength check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"bqqcVDTWiYiBPtotYW3l\">$Strength (mod)</span> \"</p>",
       "visual": {
@@ -2038,7 +2281,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Intelligence Save",
+      "label": {
+        "en": "Intelligence Save"
+      },
       "type": "formula",
       "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"fMhD3Yrj53H7IXPD4AFb\">$Maîtrise Intelligence</span>  , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de maîtrise</span> + <span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\">$Intelligence (mod)</span>  , <span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\">$Intelligence (mod)</span>  )</p>"
     },
@@ -2049,7 +2294,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Investigation check",
+      "label": {
+        "en": "Investigation check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"M55Zhfu4pwWaBRpdCNbN\">$Investigation Mod</span>  \"</p>",
       "visual": {
@@ -2095,7 +2342,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Performance Mod",
+      "label": {
+        "en": "Performance Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"LNdXFCAJxN5e1PUOdILH\" data-variable-state=\"ok\">$Performance mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -2106,7 +2355,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Survival check",
+      "label": {
+        "en": "Survival check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"DGADEXxVJHoWT5663XuS\">$Survival Mod</span>  \"</p>",
       "visual": {
@@ -2152,7 +2403,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Religion Mod",
+      "label": {
+        "en": "Religion Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"5ohxwYYvPOJO3sdbp4oq\" data-variable-state=\"ok\">$Religion mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -2163,7 +2416,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 4 (notes)",
+      "label": {
+        "en": "Weapon 4 (notes)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -2174,7 +2429,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Hit die (dX)",
+      "label": {
+        "en": "Hit die (dX)"
+      },
       "type": "formula",
       "formula": "<p>\"d\" &amp; <span class=\"mceNonEditable\" data-variable=\"ZXdtJv0yc9SVlKyg1Bnt\">$Hit die</span> </p>"
     },
@@ -2185,7 +2442,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 3 (damage)",
+      "label": {
+        "en": "Weapon 3 (damage)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -2196,7 +2455,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Strength save",
+      "label": {
+        "en": "Strength save"
+      },
       "type": "formula",
       "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"sNY1rOMGkPHuXUXbiH9q\">$Strength Save (Proficiency)</span> , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Proficiency Bonus</span> + <span class=\"mceNonEditable\" data-variable=\"bqqcVDTWiYiBPtotYW3l\">$Strength (mod)</span> , <span class=\"mceNonEditable\" data-variable=\"bqqcVDTWiYiBPtotYW3l\">$Strength (mod)</span> )</p>"
     },
@@ -2207,7 +2468,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Survival Mod",
+      "label": {
+        "en": "Survival Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"FyPxvyVeuUPb4yLDUq05\" data-variable-state=\"ok\">$Survival mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -2218,7 +2481,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Perception Mod",
+      "label": {
+        "en": "Perception Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"11st8AJbF7Kb1AOtY5wf\" data-variable-state=\"ok\">$Perception mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -2229,7 +2494,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Spellcasting Modifier",
+      "label": {
+        "en": "Spellcasting Modifier"
+      },
       "type": "formula",
       "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"sYZSn2sHXYrpaNblz5wL\">$Spellcasting ability</span> ,</p>\n<p> SWITCH_CONTAINS(</p>\n<p>  <span class=\"mceNonEditable\" data-variable=\"sYZSn2sHXYrpaNblz5wL\" data-variable-state=\"ok\">$Spellcasting ability</span> ,</p>\n<p>  \"cha\", <span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span> ,</p>\n<p>  \"wis\", <span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>  ,</p>\n<p>  \"dex\", <span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterity (mod)</span> ,</p>\n<p>  \"con\", <span class=\"mceNonEditable\" data-variable=\"TnvtbzZASMQDALM0gLKN\">$Constitution (mod)</span> ,</p>\n<p>  \"str\", <span class=\"mceNonEditable\" data-variable=\"bqqcVDTWiYiBPtotYW3l\">$Strength (mod)</span> ,</p>\n<p>  \"int\", <span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>  </p>\n<p> ),</p>\n<p> 0</p>\n<p>)</p>"
     },
@@ -2240,7 +2507,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Religion check",
+      "label": {
+        "en": "Religion check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"AEDg7ls4KNW5OH9wMmHE\">$Religion Mod</span>  \"</p>",
       "visual": {
@@ -2287,7 +2556,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Hit dice (spent)",
+      "label": {
+        "en": "Hit dice (spent)"
+      },
       "type": "number",
       "defaultValue": 0
     },
@@ -2298,7 +2569,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Arcana check",
+      "label": {
+        "en": "Arcana check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"jnVtU4SvClym6t0MkO2M\">$Arcana Mod</span>  \"</p>",
       "visual": {
@@ -2344,7 +2617,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "POW",
+      "label": {
+        "en": "POW"
+      },
       "type": "roll",
       "diceFormula": "<p>\"20d8\"</p>",
       "visual": {
@@ -2360,7 +2635,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Charisma Save",
+      "label": {
+        "en": "Charisma Save"
+      },
       "type": "formula",
       "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"hwPS7lbUYOsSv8KKNfPg\">$Maîtrise Charisme</span>  , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de maîtrise</span> + <span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\">$Charisme (mod)</span>   , <span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\">$Charisme (mod)</span>     )</p>"
     },
@@ -2371,7 +2648,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "[AB] Wisdom check",
+      "label": {
+        "en": "[AB] Wisdom check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\">$Wisdom (mod)</span>  \"</p>",
       "visual": {
@@ -2386,7 +2665,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "[AB] Intelligence check",
+      "label": {
+        "en": "[AB] Intelligence check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\">$Intelligence (mod)</span>  \"</p>",
       "visual": {
@@ -2401,7 +2682,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 3 (notes)",
+      "label": {
+        "en": "Weapon 3 (notes)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -2412,7 +2695,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Medicine Mod",
+      "label": {
+        "en": "Medicine Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"eNSG6IgiY0Vx8lGfZ5GM\" data-variable-state=\"ok\">$Medicine mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -2423,7 +2708,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Nature Mod",
+      "label": {
+        "en": "Nature Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"4NCfJj2XvLIlQdb9PLFh\" data-variable-state=\"ok\">$Nature mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -2434,7 +2721,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 2 (bonus)",
+      "label": {
+        "en": "Weapon 2 (bonus)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -2445,7 +2734,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Animal handling check",
+      "label": {
+        "en": "Animal handling check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"3LHNJJqt0VX9ZWibUuCg\">$Animal Handling Mod</span>  \"</p>",
       "visual": {
@@ -2491,7 +2782,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Investigation Mod",
+      "label": {
+        "en": "Investigation Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"jLdhVbZ91qAfCcELkhXW\" data-variable-state=\"ok\">$Investigation mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -2502,7 +2795,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 3 (name)",
+      "label": {
+        "en": "Weapon 3 (name)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -2513,7 +2808,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 6 (damage)",
+      "label": {
+        "en": "Weapon 6 (damage)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -2525,7 +2822,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Speed",
+      "label": {
+        "en": "Speed"
+      },
       "type": "number",
       "defaultValue": 30,
       "icon": "heart"
@@ -2537,7 +2836,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 2 (notes)",
+      "label": {
+        "en": "Weapon 2 (notes)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -2548,7 +2849,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 4 (damage)",
+      "label": {
+        "en": "Weapon 4 (damage)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -2559,7 +2862,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Constitution Save",
+      "label": {
+        "en": "Constitution Save"
+      },
       "type": "formula",
       "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"OSkj42vrIstXiThlY3eb\">$Maîtrise Constitution</span>  , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de maîtrise</span> + <span class=\"mceNonEditable\" data-variable=\"TnvtbzZASMQDALM0gLKN\">$Constitution (mod)</span>  , <span class=\"mceNonEditable\" data-variable=\"TnvtbzZASMQDALM0gLKN\">$Constitution (mod)</span>  )</p>"
     },
@@ -2570,7 +2875,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Persuasion check",
+      "label": {
+        "en": "Persuasion check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"k7QSnFVYmVTJ5cOVBLO7\">$Persuasion Mod</span>  \"</p>",
       "visual": {
@@ -2616,7 +2923,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Acrobatics check",
+      "label": {
+        "en": "Acrobatics check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"uyNvmXTX39nKE8aMFUBS\">$Acrobatics Mod</span> \"</p>",
       "visual": {
@@ -2662,7 +2971,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Medicine check",
+      "label": {
+        "en": "Medicine check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"KRG7foyxyWgLx3MC3GZ7\">$Medicine Mod</span>  \"</p>",
       "visual": {
@@ -2708,7 +3019,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Passive Perception",
+      "label": {
+        "en": "Passive Perception"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"E4WeGPNnRKzzPn9RJb9q\">$JdS Perception</span> + 10</p>"
     },
@@ -2719,7 +3032,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 5 (bonus)",
+      "label": {
+        "en": "Weapon 5 (bonus)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -2730,7 +3045,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Constitution (mod)",
+      "label": {
+        "en": "Constitution (mod)"
+      },
       "type": "formula",
       "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"lHs4FFsJDnc4ypyjWjkQ\">$Constitution</span> )</p>"
     },
@@ -2741,7 +3058,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Intelligence (mod)",
+      "label": {
+        "en": "Intelligence (mod)"
+      },
       "type": "formula",
       "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"TETqbvnEjoQVh2NxJovc\">$Intelligence</span> )</p>"
     },
@@ -2752,7 +3071,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "[AB] Charisma check",
+      "label": {
+        "en": "[AB] Charisma check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\">$Charisma (mod)</span> \"</p>",
       "visual": {
@@ -2768,7 +3089,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 5 (notes)",
+      "label": {
+        "en": "Weapon 5 (notes)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -2779,7 +3102,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 4 (name)",
+      "label": {
+        "en": "Weapon 4 (name)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -2790,7 +3115,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Perception check",
+      "label": {
+        "en": "Perception check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"E4WeGPNnRKzzPn9RJb9q\">$Perception Mod</span>  \"</p>",
       "visual": {
@@ -2836,7 +3163,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Wisdom Save",
+      "label": {
+        "en": "Wisdom Save"
+      },
       "type": "formula",
       "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"lsO99a61PLKINJ7LXmxg\">$Maîtrise Sagesse</span> , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de maîtrise</span> + <span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\">$Sagesse (mod)</span>  , <span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\">$Sagesse (mod)</span>    )</p>"
     },
@@ -2847,7 +3176,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Initiative",
+      "label": {
+        "en": "Initiative"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterité (mod)</span> </p>",
       "icon": "heart"
@@ -2860,7 +3191,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Hit die",
+      "label": {
+        "en": "Hit die"
+      },
       "type": "dataTableLookup",
       "sourceVariableUid": "rj7ANYqyqPR4y3M0RHnS",
       "dataTableUid": "8TRJT9wSr1yXy0EdQISl",
@@ -2874,7 +3207,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Sleight of Hand Mod",
+      "label": {
+        "en": "Sleight of Hand Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\" data-variable-state=\"ok\">$Dexterity (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"XmB6tQGDGDDv8uwLvwab\" data-variable-state=\"ok\">$Sleight of Hand mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -2885,7 +3220,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Insight Mod",
+      "label": {
+        "en": "Insight Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"gkUDaWw041CPbTeWaRFo\" data-variable-state=\"ok\">$Wisdom (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"R07fJ9o4V6bhjtr3aYHn\" data-variable-state=\"ok\">$Insight mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -2896,7 +3233,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Dexterity Save",
+      "label": {
+        "en": "Dexterity Save"
+      },
       "type": "formula",
       "formula": "<p>IF( <span class=\"mceNonEditable\" data-variable=\"S3cvclAz9lcpRw9xUeAc\">$Maîtrise Dexterité</span> , <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\">$Bonus de maîtrise</span> + <span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterité (mod)</span>  , <span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterité (mod)</span>  )</p>"
     },
@@ -2907,7 +3246,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Stealth check",
+      "label": {
+        "en": "Stealth check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"c3lyAOO7S97FY6xcIwXU\">$Stealth Mod</span>  \"</p>",
       "visual": {
@@ -2953,7 +3294,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Strength (mod)",
+      "label": {
+        "en": "Strength (mod)"
+      },
       "type": "formula",
       "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"HEj3wLXAKIvCrzXXdBcv\">$Force</span> )</p>"
     },
@@ -2964,7 +3307,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Stealth Mod",
+      "label": {
+        "en": "Stealth Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\" data-variable-state=\"ok\">$Dexterity (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"4DPYRS76IKmFbUHaCNIs\" data-variable-state=\"ok\">$Stealth mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -2975,7 +3320,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Hit die (max)",
+      "label": {
+        "en": "Hit die (max)"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"tka2wD1462fODTBZLYov\">$Level</span> </p>"
     },
@@ -2986,7 +3333,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "[AB] Constitution check",
+      "label": {
+        "en": "[AB] Constitution check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"TnvtbzZASMQDALM0gLKN\">$Constitution (mod)</span>  \"</p>",
       "visual": {
@@ -3001,7 +3350,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Deception check",
+      "label": {
+        "en": "Deception check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"niXHqgJct6Bqh1XVEXnt\">$Deception Mod</span>  \"</p>",
       "visual": {
@@ -3047,7 +3398,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Wisdom (mod)",
+      "label": {
+        "en": "Wisdom (mod)"
+      },
       "type": "formula",
       "formula": "<p>AB_MOD( <span class=\"mceNonEditable\" data-variable=\"04vuxqyy2bG4udQVwRAw\">$Sagesse</span>  )</p>"
     },
@@ -3058,7 +3411,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 3 (bonus)",
+      "label": {
+        "en": "Weapon 3 (bonus)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -3069,7 +3424,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 5 (name)",
+      "label": {
+        "en": "Weapon 5 (name)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -3080,7 +3437,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Arcana Mod",
+      "label": {
+        "en": "Arcana Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"U6TcdcIFltxmPw2keR81\" data-variable-state=\"ok\">$Intelligence (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"AudSdODZVhENNIykIga1\" data-variable-state=\"ok\">$Arcana mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -3091,7 +3450,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Persuasion Mod",
+      "label": {
+        "en": "Persuasion Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"pj1ZnsNovbXekNi8ncda\" data-variable-state=\"ok\">$Persuasion mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -3103,7 +3464,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Proficiency Bonus",
+      "label": {
+        "en": "Proficiency Bonus"
+      },
       "type": "dataTableLookup",
       "sourceVariableUid": "tka2wD1462fODTBZLYov",
       "dataTableUid": "D8PalTFAJFmpi5GYRG6D",
@@ -3117,7 +3480,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Nature check",
+      "label": {
+        "en": "Nature check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"KRK97ibPw3J9xwPIMN4I\">$Nature Mod</span>  \"</p>",
       "visual": {
@@ -3163,7 +3528,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 4 (bonus)",
+      "label": {
+        "en": "Weapon 4 (bonus)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -3174,7 +3541,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Deception Mod",
+      "label": {
+        "en": "Deception Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"5dqmtpOKLcYLmARqXyE0\" data-variable-state=\"ok\">$Charisma (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"iKxBRoYg23fNPsjsZr0N\" data-variable-state=\"ok\">$Deception mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -3185,7 +3554,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Intimidation check",
+      "label": {
+        "en": "Intimidation check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"5UeMbPgGdKaeAXPJiAqv\">$Intimidation Mod</span>  \"</p>",
       "visual": {
@@ -3231,7 +3602,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Hie die",
+      "label": {
+        "en": "Hie die"
+      },
       "type": "dataTableLookup"
     },
     {
@@ -3241,7 +3614,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "[AB] Dexterity check",
+      "label": {
+        "en": "[AB] Dexterity check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20+ <span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\">$Dexterity (mod)</span>  \"</p>",
       "visual": {
@@ -3256,7 +3631,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 6 (bonus)",
+      "label": {
+        "en": "Weapon 6 (bonus)"
+      },
       "type": "text",
       "icon": "sword"
     },
@@ -3267,7 +3644,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Athletics check",
+      "label": {
+        "en": "Athletics check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"xpw8K4qsmACX8dkN3S1L\">$Athletics mod</span> \"</p>",
       "visual": {
@@ -3314,7 +3693,9 @@
       ],
       "isMandatory": false,
       "isHiddenFromSheet": false,
-      "label": "Test lookup lookup",
+      "label": {
+        "en": "Test lookup lookup"
+      },
       "type": "dataTableLookup",
       "sourceVariableUid": "rj7ANYqyqPR4y3M0RHnS",
       "dataTableUid": "8TRJT9wSr1yXy0EdQISl",
@@ -3328,7 +3709,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Acrobatics Mod",
+      "label": {
+        "en": "Acrobatics Mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"6Db2v59dLYgrKQhX8xW5\" data-variable-state=\"ok\">$Dexterity (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"Yl0t5DgflBpPGdxk5tJT\" data-variable-state=\"ok\">$Acrobatics mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -3339,7 +3722,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Sleight of Hand check",
+      "label": {
+        "en": "Sleight of Hand check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"af3pLEmbYh4DdILjgG0m\">$Sleight of Hand Mod</span>  \"</p>",
       "visual": {
@@ -3385,7 +3770,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Insight check",
+      "label": {
+        "en": "Insight check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"aggayXtHI4YaaSete11d\">$Insight Mod</span>  \"</p>",
       "visual": {
@@ -3431,7 +3818,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Performance check",
+      "label": {
+        "en": "Performance check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"9bMSo8CPog4WdWC4yITU\">$Performance Mod</span>  \"</p>",
       "visual": {
@@ -3477,7 +3866,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "History check",
+      "label": {
+        "en": "History check"
+      },
       "type": "roll",
       "diceFormula": "<p>\"1d20 + <span class=\"mceNonEditable\" data-variable=\"5vZhTL1YkANZpYY5kCC2\">$History Mod</span>  \"</p>",
       "visual": {
@@ -3523,7 +3914,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Athletics mod",
+      "label": {
+        "en": "Athletics mod"
+      },
       "type": "formula",
       "formula": "<p><span class=\"mceNonEditable\" data-variable=\"bqqcVDTWiYiBPtotYW3l\" data-variable-state=\"ok\">$Strength (mod)</span>+ROUNDDOWN(<span class=\"mceNonEditable\" data-variable=\"qQFHVD38OAmfSeFyEVgM\" data-variable-state=\"ok\">$Athletics mastery</span> * <span class=\"mceNonEditable\" data-variable=\"kOiOThjodZBjPnReNHJZ\" data-variable-state=\"ok\">$Proficiency Bonus</span> , 0)</p>\n<p> </p>"
     },
@@ -3534,7 +3927,9 @@
         "IWNSh0lQb3fyqUgW1R9X"
       ],
       "isHiddenFromSheet": false,
-      "label": "Weapon 6 (name)",
+      "label": {
+        "en": "Weapon 6 (name)"
+      },
       "type": "text",
       "icon": "sword"
     },

@@ -217,6 +217,16 @@
         "default": "./dist/v28.cjs"
       }
     },
+    "./v29": {
+      "import": {
+        "types": "./dist/v29.d.ts",
+        "default": "./dist/v29.js"
+      },
+      "require": {
+        "types": "./dist/v29.d.cts",
+        "default": "./dist/v29.cjs"
+      }
+    },
     "./icons": {
       "import": {
         "types": "./dist/icons.d.ts",
