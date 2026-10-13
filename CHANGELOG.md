@@ -9,6 +9,44 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v30 — 2026-10
+
+### Added
+
+- **Entity sub-types.** `entitySubtypes[]`
+  (`src/models/entity-subtype.v30.schema.ts`) are shelves a producer adds on
+  the entity types: Weapons, Armor and Adventuring gear on `item`; Cities on
+  `place`. A sub-type is `{ uid, name, baseType, icon?, help? }`:
+
+  - `name` and `help` are translatable texts; `icon` is a bare icon name.
+  - Without `icon` or `help`, a reader shows the base type's.
+  - How a reader orders, hides or nests them is its own business.
+
+- **An entity's sub-type.** `subtypeUid` (`src/models/entity.v7.schema.ts`):
+  the longsword, an `item`, on Weapons. It stays an `item`. A `subtypeUid`
+  naming no sub-type of the document, or one on another base type, reads as
+  none.
+
+- **A dataset on sub-types.** `targetsSubtypes` (`src/models/dataset.v3.schema.ts`):
+  the Weapon sheet on Weapons. It sits apart from `targets`, where any string
+  that is not an entity type reads as a tag uid. A dataset applies to an
+  entity whose type is in `targets` or whose sub-type is in
+  `targetsSubtypes`; a dataset on `item` therefore takes the longsword too.
+
+### Changed
+
+- **`entityRef` and `entitySpawnRef` `targetsTypes`** may name a sub-type uid
+  beside the entity types: "In hand" offers Weapons only. The schema already
+  took any string; only its reading changes.
+
+### Migrations
+
+- `v29 → v30` adds an empty `entitySubtypes` and an empty `targetsSubtypes` on
+  every dataset. **Non-lossy.**
+- `v30 → v29` is **lossy**: `entitySubtypes` and every `subtypeUid` are
+  dropped, and each sub-type folds into its base type. A dataset on Weapons
+  becomes a dataset on `item`; an `entityRef` on Weapons offers every item.
+
 ## Format v29 — 2026-09
 
 ### Added

@@ -134,6 +134,10 @@ export {
   BeyondPaperV29Schema,
   type BeyondPaperV29,
 } from "./schemas/bypp.v29.schema";
+export {
+  BeyondPaperV30Schema,
+  type BeyondPaperV30,
+} from "./schemas/bypp.v30.schema";
 
 // v18: what a document reads but does not carry.
 export {
@@ -198,6 +202,7 @@ export type {
   DataTableRowUid,
   DataTableColumnUid,
   EntitySpawnUid,
+  EntitySubtypeUid,
 } from "./uid";
 
 // Branded UID Zod schemas (runtime validators)
@@ -223,6 +228,7 @@ export {
   DataTableRowUidSchema,
   DataTableColumnUidSchema,
   EntitySpawnUidSchema,
+  EntitySubtypeUidSchema,
 } from "./uid";
 
 // ─── Versioned sub-schemas ──────────────────────────────────────────
@@ -740,6 +746,8 @@ export {
   type DatasetV2,
 } from "./models/dataset.v2.schema";
 
+export { DatasetV3Schema, type DatasetV3 } from "./models/dataset.v3.schema";
+
 export {
   DialectV2Schema,
   DialectFontV2Schema,
@@ -972,6 +980,32 @@ export {
 } from "./models/entity.v6.schema";
 
 export {
+  EntityV7Schema,
+  EntityBaseV7Schema,
+  CharacterEntityV7Schema,
+  CreatureEntityV7Schema,
+  GroupEntityV7Schema,
+  PlaceEntityV7Schema,
+  ItemEntityV7Schema,
+  NoteEntityV7Schema,
+  AbilityEntityV7Schema,
+  StoryEntityV7Schema,
+  EventEntityV7Schema,
+  type EntityV7,
+  type EntityBaseV7,
+  type CharacterEntityV7,
+  type CreatureEntityV7,
+  type GroupEntityV7,
+  type PlaceEntityV7,
+} from "./models/entity.v7.schema";
+
+// Model (v30) — shelves on the entity types.
+export {
+  EntitySubtypeV30Schema,
+  type EntitySubtypeV30,
+} from "./models/entity-subtype.v30.schema";
+
+export {
   EntityActionV2Schema,
   type EntityActionV2,
 } from "./models/entity-action.v2.schema";
@@ -1089,11 +1123,12 @@ export {
   type ChunkHeadingLevelV1 as ChunkHeadingLevel,
 } from "./models/chunk.v1.schema";
 
+// Current dataset aliases point at v3 — v3 adds `targetsSubtypes`.
 export {
-  DatasetV2Schema as DatasetSchema,
-  DatasetTargetV2Schema as DatasetTargetSchema,
-  type DatasetV2 as Dataset,
-} from "./models/dataset.v2.schema";
+  DatasetV3Schema as DatasetSchema,
+  type DatasetV3 as Dataset,
+} from "./models/dataset.v3.schema";
+export { DatasetTargetV2Schema as DatasetTargetSchema } from "./models/dataset.v2.schema";
 
 // v15 dropped the `font` object for a bare `fontFamily`, so there is no
 // current `DialectFont` alias any more — `DialectFontV1`/`V2` stay exported
@@ -1103,29 +1138,36 @@ export {
   type DialectV3 as Dialect,
 } from "./models/dialect.v3.schema";
 
-// Current entity aliases point at v6 — v6 re-types the actions an entity
-// carries itself so one can update attributes, not only roll.
+// Current entity aliases point at v7 — v7 adds `subtypeUid`, the sub-type an
+// entity sits on.
 export {
-  EntityV6Schema as EntitySchema,
-  EntityBaseV6Schema as EntityBaseSchema,
-  CharacterEntityV6Schema as CharacterEntitySchema,
-  CreatureEntityV6Schema as CreatureEntitySchema,
-  GroupEntityV6Schema as GroupEntitySchema,
-  PlaceEntityV6Schema as PlaceEntitySchema,
-  ItemEntityV6Schema as ItemEntitySchema,
-  NoteEntityV6Schema as NoteEntitySchema,
-  AbilityEntityV6Schema as AbilityEntitySchema,
-  StoryEntityV6Schema as StoryEntitySchema,
-  EventEntityV6Schema as EventEntitySchema,
+  EntityV7Schema as EntitySchema,
+  EntityBaseV7Schema as EntityBaseSchema,
+  CharacterEntityV7Schema as CharacterEntitySchema,
+  CreatureEntityV7Schema as CreatureEntitySchema,
+  GroupEntityV7Schema as GroupEntitySchema,
+  PlaceEntityV7Schema as PlaceEntitySchema,
+  ItemEntityV7Schema as ItemEntitySchema,
+  NoteEntityV7Schema as NoteEntitySchema,
+  AbilityEntityV7Schema as AbilityEntitySchema,
+  StoryEntityV7Schema as StoryEntitySchema,
+  EventEntityV7Schema as EventEntitySchema,
+  type EntityV7 as Entity,
+  type EntityBaseV7 as EntityBase,
+  type CharacterEntityV7 as CharacterEntity,
+  type CreatureEntityV7 as CreatureEntity,
+  type GroupEntityV7 as GroupEntity,
+  type PlaceEntityV7 as PlaceEntity,
+} from "./models/entity.v7.schema";
+// The entity types are unchanged since v1.
+export {
   EntityTypeV6Schema as EntityTypeSchema,
-  type EntityV6 as Entity,
   type EntityTypeV6 as EntityType,
-  type EntityBaseV6 as EntityBase,
-  type CharacterEntityV6 as CharacterEntity,
-  type CreatureEntityV6 as CreatureEntity,
-  type GroupEntityV6 as GroupEntity,
-  type PlaceEntityV6 as PlaceEntity,
 } from "./models/entity.v6.schema";
+export {
+  EntitySubtypeV30Schema as EntitySubtypeSchema,
+  type EntitySubtypeV30 as EntitySubtype,
+} from "./models/entity-subtype.v30.schema";
 
 export {
   EntityActionV2Schema as EntityActionSchema,
@@ -1484,7 +1526,8 @@ export { WithLocalizedNameV2Schema as WithLocalizedNameSchema } from "./mixins/w
 // For consumers (like Harpy) that have their own types with the same
 // names and want to avoid `import { Entity as ByppEntity }` aliasing.
 
-export type { EntityV6 as ByppEntity } from "./models/entity.v6.schema";
+export type { EntityV7 as ByppEntity } from "./models/entity.v7.schema";
+export type { EntitySubtypeV30 as ByppEntitySubtype } from "./models/entity-subtype.v30.schema";
 export type { EntityBaseV6 as ByppEntityBase } from "./models/entity.v6.schema";
 export type { EntityActionV2 as ByppEntityAction } from "./models/entity-action.v2.schema";
 export type { EntitySpawnV1 as ByppEntitySpawn } from "./models/entity-spawn.v1.schema";
@@ -1504,7 +1547,7 @@ export type { ChunkBaseV2 as ByppChunkBase } from "./models/chunk.v2.schema";
 export type { ChunkTextV11 as ByppChunkText } from "./models/chunk.v11.schema";
 export type { ChunkGalleryV2 as ByppChunkGallery } from "./models/chunk.v2.schema";
 export type { ChunkRandomV2 as ByppChunkRandom } from "./models/chunk.v2.schema";
-export type { DatasetV2 as ByppDataset } from "./models/dataset.v2.schema";
+export type { DatasetV3 as ByppDataset } from "./models/dataset.v3.schema";
 export type { VariableV12 as ByppVariable } from "./models/variable.v12.schema";
 export type { VariableBaseV8 as ByppVariableBase } from "./models/variable.v8.schema";
 export type { WidgetV13 as ByppWidget } from "./models/widget.v13.schema";

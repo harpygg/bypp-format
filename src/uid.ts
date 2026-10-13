@@ -40,6 +40,7 @@ export type DataTableRowUid = Flavor<"DataTableRowUid">;
 export type DataTableColumnUid = Flavor<"DataTableColumnUid">;
 export type EntityActionUid = Flavor<"EntityActionUid">;
 export type EntitySpawnUid = Flavor<"EntitySpawnUid">;
+export type EntitySubtypeUid = Flavor<"EntitySubtypeUid">;
 
 // ─── Zod schemas for branded UIDs ───────────────────────────────────
 // At runtime these are just z.string(). The `as` cast gives us the
@@ -82,3 +83,5 @@ export const EntityActionUidSchema =
   z.string() as unknown as z.ZodType<EntityActionUid>;
 export const EntitySpawnUidSchema =
   z.string() as unknown as z.ZodType<EntitySpawnUid>;
+export const EntitySubtypeUidSchema =
+  z.string() as unknown as z.ZodType<EntitySubtypeUid>;

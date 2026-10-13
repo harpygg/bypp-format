@@ -25,9 +25,9 @@
   "credits": [
     {
       "name": "Corinne Caro",
-      "role": "cover illustration",
       "url": "https://www.corinnecaro.com/",
-      "license": "CC-BY-NC"
+      "license": "CC-BY-NC",
+      "role": "cover illustration"
     },
     {
       "name": "Chloé",

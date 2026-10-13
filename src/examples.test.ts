@@ -116,6 +116,7 @@ describe("versioned examples", () => {
     { field: "log", since: 26 },
     { field: "rolls", since: 26 },
     { field: "credits", since: 29 },
+    { field: "entitySubtypes", since: 30 },
   ];
 
   it.each(DERIVED)("v%i carries no field newer than itself", (version) => {
