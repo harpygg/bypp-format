@@ -9,6 +9,91 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v31 — 2026-10
+
+### Added
+
+- **An entity's modes.** `modes` (`src/models/entity-mode.v31.schema.ts`) are
+  groups of effects true while checked on a spawn of the entity: the Bracer of
+  Kord's "Worn" (`$<AC = $<AC + 2`) and "Bulwark"; Poisoned, locked on. A mode
+  is `{ uid, label, icon?, arrival, locked?, gameDisplay?, updates }`:
+
+  - `arrival` (`off` / `on`) says whether it is checked when a spawn arrives.
+  - `locked` keeps it checked once it is.
+  - `gameDisplay: { color }` shows it on whoever bears it, in play.
+  - `updates` are an action's updates; `$<` reads the bearer.
+
+- **Modes checked on a spawn.** `activeModes`
+  (`src/models/entity-spawn.v2.schema.ts`). Absent, each mode is as its
+  `arrival` says.
+
+- **The order of a stack.** `stackOrder` on an entity (`entity.v8`) and on a
+  spawn that bears its own contents: `[{ spawnUid, modeUid }]`, the order its
+  bearer's checked modes apply in.
+
+- **What an item is.** `item` (`src/models/entity.v8.schema.ts`):
+  `{ kind: "container", slots }` for Rana's backpack, `{ kind: "countable" }`
+  for her gold pieces. Absent, a plain item.
+
+- **Synonyms.** `synonyms` on an entity: other names to find it under.
+
+- **Shortcut rows.** `shortcutRows` on an entity
+  (`src/models/entity-shortcut.v31.schema.ts`): Bobby's rows of ten squares in
+  play, as his player put them away. A row is `{ slots }`, each square `null`
+  or a reference, never a copy:
+
+  - `{ kind: "action", actionKey, from }`: an entity action's `uid` or a roll
+    attribute's variable uid, from the entity itself (`subject`), an entity
+    one of its links points at (`linked`, `entityUid`: his class), or a spawn
+    one of its fields holds (`held`, `spawnUid`: the Fireball in his Spells).
+  - `{ kind: "item", spawnUid }`: one of the spawns it holds, that Potion.
+
+- **Reserved variables.** Six uids every reader may know without a variable
+  in `variables[]` (`src/models/system-variable.v31.schema.ts`):
+  `system-name`, `system-description`, `system-image`, which widgets already
+  bound to, and three that key `data`:
+
+  - `system-inventory`: what a character, a creature, a place or a container
+    holds, an ordered list of spawn uids.
+  - `system-quantity`: how many a spawn of a countable item counts (absent
+    reads 1).
+  - `system-weight`: what one copy of an item weighs, set on the item.
+
+- **A number's max off another attribute.** `maxVariable`
+  (`src/models/variable.v13.schema.ts`): HP up to Max HP.
+
+- **A sheet's height.** `height` (`src/models/sheet.v8.schema.ts`), with its
+  rule: a sheet with a height is 1000 units wide, and its widgets' `top` and
+  `height` are read in percent of its width, so stretching it moves nothing.
+  A sheet without one is drawn as before.
+
+- **A dataset's icon and `adminOnly`** (`src/models/dataset.v4.schema.ts`):
+  the "Monster secrets" sheet, hidden from players.
+
+### Changed
+
+- **A spawn's bearer.** `owner: { kind: "entity" | "spawn", uid }` replaces
+  `ownerUid`: Caramel, a donkey Rana owns as a spawn, bears his saddlebags.
+- **An action's `type`** is optional (`src/models/entity-action.v3.schema.ts`).
+  It said nothing since v26.
+
+### Removed
+
+- **The tile settings of `entityGrid`** (`src/models/widget.v14.schema.ts`):
+  `listOptionStyle`, `formatSlug`, `objectFit`, `imageHeight`. The grid draws
+  squares, `imageWidth` em a side.
+
+### Migrations
+
+- `v30 → v31` turns each `ownerUid` into `owner: { kind: "entity", uid }` and
+  trims `entityGrid` to its squares. **Non-lossy** for what a reader draws.
+- `v31 → v30` is **lossy**: modes, `activeModes`, `stackOrder`, `item`,
+  `synonyms`, `shortcutRows`, `maxVariable`, a sheet's `height` (its widgets slide), a
+  dataset's `icon` and `adminOnly` are dropped; an action gets
+  `type: "roll"` back. A spawn borne by a spawn takes the entity up its chain
+  (the saddlebags become Rana's), or nobody. The `system-` keys stay in
+  `data`, read by nothing in v30.
+
 ## Format v30 — 2026-10
 
 ### Added

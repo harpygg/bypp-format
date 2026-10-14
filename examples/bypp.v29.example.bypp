@@ -505,7 +505,10 @@
         "OSkj42vrIstXiThlY3eb": true,
         "FD0FD3hHFdWhci8kSRCf": "",
         "sNY1rOMGkPHuXUXbiH9q": true,
-        "qQFHVD38OAmfSeFyEVgM": "9tVh565gE8TxWqY3XKu5"
+        "qQFHVD38OAmfSeFyEVgM": "9tVh565gE8TxWqY3XKu5",
+        "system-inventory": [
+          "yonai-shield"
+        ]
       },
       "credit": {
         "name": "Corinne Caro",
@@ -598,6 +601,9 @@
       "pagesOrder": [
         "XG2pQxKNipFeICRlfDBj"
       ],
+      "data": {
+        "system-weight": 6
+      },
       "actions": [],
       "type": "item"
     },
@@ -632,7 +638,13 @@
       "type": "item"
     }
   ],
-  "entitySpawns": [],
+  "entitySpawns": [
+    {
+      "uid": "yonai-shield",
+      "entityUid": "qDrjmYSFgHYxORuzgZfm",
+      "ownerUid": "nVEnyBkDwAqKk4uSRuD1"
+    }
+  ],
   "pages": [
     {
       "uid": "f3qW8Y319eKN4czUFASN",

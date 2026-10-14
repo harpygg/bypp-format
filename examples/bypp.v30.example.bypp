@@ -25,9 +25,9 @@
   "credits": [
     {
       "name": "Corinne Caro",
-      "role": "cover illustration",
       "url": "https://www.corinnecaro.com/",
-      "license": "CC-BY-NC"
+      "license": "CC-BY-NC",
+      "role": "cover illustration"
     },
     {
       "name": "Chloé",
@@ -529,7 +529,10 @@
         "OSkj42vrIstXiThlY3eb": true,
         "FD0FD3hHFdWhci8kSRCf": "",
         "sNY1rOMGkPHuXUXbiH9q": true,
-        "qQFHVD38OAmfSeFyEVgM": "9tVh565gE8TxWqY3XKu5"
+        "qQFHVD38OAmfSeFyEVgM": "9tVh565gE8TxWqY3XKu5",
+        "system-inventory": [
+          "yonai-shield"
+        ]
       },
       "credit": {
         "name": "Corinne Caro",
@@ -622,9 +625,12 @@
       "pagesOrder": [
         "XG2pQxKNipFeICRlfDBj"
       ],
+      "data": {
+        "system-weight": 6
+      },
       "actions": [],
-      "type": "item",
-      "subtypeUid": "pTn4Rj2xArmor"
+      "subtypeUid": "pTn4Rj2xArmor",
+      "type": "item"
     },
     {
       "uid": "xDgcUM2zeiLLOdt2N4fP",
@@ -654,11 +660,17 @@
         "license": "CC-BY-NC"
       },
       "actions": [],
-      "type": "item",
-      "subtypeUid": "kVwq3Sb7Weapons"
+      "subtypeUid": "kVwq3Sb7Weapons",
+      "type": "item"
     }
   ],
-  "entitySpawns": [],
+  "entitySpawns": [
+    {
+      "uid": "yonai-shield",
+      "entityUid": "qDrjmYSFgHYxORuzgZfm",
+      "ownerUid": "nVEnyBkDwAqKk4uSRuD1"
+    }
+  ],
   "pages": [
     {
       "uid": "f3qW8Y319eKN4czUFASN",
