@@ -117,6 +117,14 @@ describe("versioned examples", () => {
     { field: "rolls", since: 26 },
     { field: "credits", since: 29 },
     { field: "entitySubtypes", since: 30 },
+    { field: "modes", since: 31, on: "entities" },
+    { field: "activeModes", since: 31 },
+    { field: "stackOrder", since: 31 },
+    { field: "synonyms", since: 31 },
+    { field: "owner", since: 31, on: "entitySpawns" },
+    { field: "height", since: 31, on: "sheets" },
+    { field: "adminOnly", since: 31, on: "datasets" },
+    { field: "icon", since: 31, on: "datasets" },
   ];
 
   it.each(DERIVED)("v%i carries no field newer than itself", (version) => {

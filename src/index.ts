@@ -138,6 +138,10 @@ export {
   BeyondPaperV30Schema,
   type BeyondPaperV30,
 } from "./schemas/bypp.v30.schema";
+export {
+  BeyondPaperV31Schema,
+  type BeyondPaperV31,
+} from "./schemas/bypp.v31.schema";
 
 // v18: what a document reads but does not carry.
 export {
@@ -203,6 +207,7 @@ export type {
   DataTableColumnUid,
   EntitySpawnUid,
   EntitySubtypeUid,
+  EntityModeUid,
 } from "./uid";
 
 // Branded UID Zod schemas (runtime validators)
@@ -229,6 +234,7 @@ export {
   DataTableColumnUidSchema,
   EntitySpawnUidSchema,
   EntitySubtypeUidSchema,
+  EntityModeUidSchema,
 } from "./uid";
 
 // ─── Versioned sub-schemas ──────────────────────────────────────────
@@ -651,6 +657,64 @@ export {
   EntitySpawnV1Schema,
   type EntitySpawnV1,
 } from "./models/entity-spawn.v1.schema";
+
+// Models (v31) — a number's `maxVariable`; a spawn borne by a spawn, and its
+// modes; an entity's modes, item kind and synonyms; the reserved variables.
+export {
+  VariableV13Schema,
+  NumberVariableV13Schema,
+  type VariableV13,
+  type NumberVariableV13,
+} from "./models/variable.v13.schema";
+export {
+  EntitySpawnV2Schema,
+  SpawnOwnerV2Schema,
+  type EntitySpawnV2,
+  type SpawnOwnerV2,
+} from "./models/entity-spawn.v2.schema";
+export {
+  EntityModeV31Schema,
+  StackOrderEntryV31Schema,
+  type EntityModeV31,
+  type StackOrderEntryV31,
+} from "./models/entity-mode.v31.schema";
+export {
+  SystemVariableUidV31Schema,
+  type SystemVariableUidV31,
+} from "./models/system-variable.v31.schema";
+export {
+  EntityV8Schema,
+  EntityBaseV8Schema,
+  ItemKindV31Schema,
+  CharacterEntityV8Schema,
+  CreatureEntityV8Schema,
+  GroupEntityV8Schema,
+  PlaceEntityV8Schema,
+  ItemEntityV8Schema,
+  NoteEntityV8Schema,
+  AbilityEntityV8Schema,
+  StoryEntityV8Schema,
+  EventEntityV8Schema,
+  type EntityV8,
+  type EntityBaseV8,
+  type ItemKindV31,
+  type CharacterEntityV8,
+  type CreatureEntityV8,
+  type GroupEntityV8,
+  type PlaceEntityV8,
+} from "./models/entity.v8.schema";
+export {
+  EntityActionV3Schema,
+  type EntityActionV3,
+} from "./models/entity-action.v3.schema";
+export { DatasetV4Schema, type DatasetV4 } from "./models/dataset.v4.schema";
+export { SheetV8Schema, type SheetV8 } from "./models/sheet.v8.schema";
+export {
+  WidgetV14Schema,
+  WidgetEntityGridV14Schema,
+  type WidgetV14,
+  type WidgetEntityGridV14,
+} from "./models/widget.v14.schema";
 
 export {
   DataTableV4Schema,
@@ -1123,11 +1187,11 @@ export {
   type ChunkHeadingLevelV1 as ChunkHeadingLevel,
 } from "./models/chunk.v1.schema";
 
-// Current dataset aliases point at v3 — v3 adds `targetsSubtypes`.
+// Current dataset aliases point at v4 — v4 adds `icon` and `adminOnly`.
 export {
-  DatasetV3Schema as DatasetSchema,
-  type DatasetV3 as Dataset,
-} from "./models/dataset.v3.schema";
+  DatasetV4Schema as DatasetSchema,
+  type DatasetV4 as Dataset,
+} from "./models/dataset.v4.schema";
 export { DatasetTargetV2Schema as DatasetTargetSchema } from "./models/dataset.v2.schema";
 
 // v15 dropped the `font` object for a bare `fontFamily`, so there is no
@@ -1141,24 +1205,26 @@ export {
 // Current entity aliases point at v7 — v7 adds `subtypeUid`, the sub-type an
 // entity sits on.
 export {
-  EntityV7Schema as EntitySchema,
-  EntityBaseV7Schema as EntityBaseSchema,
-  CharacterEntityV7Schema as CharacterEntitySchema,
-  CreatureEntityV7Schema as CreatureEntitySchema,
-  GroupEntityV7Schema as GroupEntitySchema,
-  PlaceEntityV7Schema as PlaceEntitySchema,
-  ItemEntityV7Schema as ItemEntitySchema,
-  NoteEntityV7Schema as NoteEntitySchema,
-  AbilityEntityV7Schema as AbilityEntitySchema,
-  StoryEntityV7Schema as StoryEntitySchema,
-  EventEntityV7Schema as EventEntitySchema,
-  type EntityV7 as Entity,
-  type EntityBaseV7 as EntityBase,
-  type CharacterEntityV7 as CharacterEntity,
-  type CreatureEntityV7 as CreatureEntity,
-  type GroupEntityV7 as GroupEntity,
-  type PlaceEntityV7 as PlaceEntity,
-} from "./models/entity.v7.schema";
+  EntityV8Schema as EntitySchema,
+  EntityBaseV8Schema as EntityBaseSchema,
+  CharacterEntityV8Schema as CharacterEntitySchema,
+  CreatureEntityV8Schema as CreatureEntitySchema,
+  GroupEntityV8Schema as GroupEntitySchema,
+  PlaceEntityV8Schema as PlaceEntitySchema,
+  ItemEntityV8Schema as ItemEntitySchema,
+  NoteEntityV8Schema as NoteEntitySchema,
+  AbilityEntityV8Schema as AbilityEntitySchema,
+  StoryEntityV8Schema as StoryEntitySchema,
+  EventEntityV8Schema as EventEntitySchema,
+  ItemKindV31Schema as ItemKindSchema,
+  type ItemKindV31 as ItemKind,
+  type EntityV8 as Entity,
+  type EntityBaseV8 as EntityBase,
+  type CharacterEntityV8 as CharacterEntity,
+  type CreatureEntityV8 as CreatureEntity,
+  type GroupEntityV8 as GroupEntity,
+  type PlaceEntityV8 as PlaceEntity,
+} from "./models/entity.v8.schema";
 // The entity types are unchanged since v1.
 export {
   EntityTypeV6Schema as EntityTypeSchema,
@@ -1170,9 +1236,19 @@ export {
 } from "./models/entity-subtype.v30.schema";
 
 export {
-  EntityActionV2Schema as EntityActionSchema,
-  type EntityActionV2 as EntityAction,
-} from "./models/entity-action.v2.schema";
+  EntityActionV3Schema as EntityActionSchema,
+  type EntityActionV3 as EntityAction,
+} from "./models/entity-action.v3.schema";
+export {
+  EntityModeV31Schema as EntityModeSchema,
+  StackOrderEntryV31Schema as StackOrderEntrySchema,
+  type EntityModeV31 as EntityMode,
+  type StackOrderEntryV31 as StackOrderEntry,
+} from "./models/entity-mode.v31.schema";
+export {
+  SystemVariableUidV31Schema as SystemVariableUidSchema,
+  type SystemVariableUidV31 as SystemVariableUid,
+} from "./models/system-variable.v31.schema";
 
 // Group rank shapes unchanged in v2 — alias still points at v1.
 export {
@@ -1261,18 +1337,23 @@ export {
 // (v7's `min`/`max`/`step` on the `number` variant and v6's
 // `dataTableDirectLookup` are carried forward by that fork, not undone.)
 export {
-  VariableV12Schema as VariableSchema,
+  VariableV13Schema as VariableSchema,
+  NumberVariableV13Schema as NumberVariableSchema,
+  type VariableV13 as Variable,
+  type NumberVariableV13 as NumberVariable,
+} from "./models/variable.v13.schema";
+export {
   EntitySpawnRefVariableV12Schema as EntitySpawnRefVariableSchema,
-  type VariableV12 as Variable,
   type EntitySpawnRefVariableV12 as EntitySpawnRefVariable,
 } from "./models/variable.v12.schema";
 export {
-  EntitySpawnV1Schema as EntitySpawnSchema,
-  type EntitySpawnV1 as EntitySpawn,
-} from "./models/entity-spawn.v1.schema";
+  EntitySpawnV2Schema as EntitySpawnSchema,
+  SpawnOwnerV2Schema as SpawnOwnerSchema,
+  type EntitySpawnV2 as EntitySpawn,
+  type SpawnOwnerV2 as SpawnOwner,
+} from "./models/entity-spawn.v2.schema";
 export {
   ChoiceOptionV27Schema as ChoiceOptionSchema,
-  NumberVariableV11Schema as NumberVariableSchema,
   TextVariableV11Schema as TextVariableSchema,
   BooleanVariableV11Schema as BooleanVariableSchema,
   ChoiceVariableV11Schema as ChoiceVariableSchema,
@@ -1285,7 +1366,6 @@ export {
   EntityRefVariableV11Schema as EntityRefVariableSchema,
   EntityLookupVariableV11Schema as EntityLookupVariableSchema,
   type ChoiceOptionV27 as ChoiceOption,
-  type NumberVariableV11 as NumberVariable,
   type TextVariableV11 as TextVariable,
   type BooleanVariableV11 as BooleanVariable,
   type ChoiceVariableV11 as ChoiceVariable,
@@ -1377,17 +1457,15 @@ export {
   WithWidgetActionsV8Schema as WithWidgetActionsSchema,
   type WithWidgetActionsV8 as WithWidgetActions,
 } from "./models/widget.v8.schema";
-// Current widget aliases point at v11 — v11 carries the v4 style. The union
-// itself is the v10 one, so the `entityGrid` variant alias stays there, as do
-// the action roll (v9) and entity-image (v6) ones.
+// Current widget aliases point at v14 — v14 trims `entityGrid` to its squares.
+// The action roll (v9) and entity-image (v6) variant aliases stay where they
+// were last forked.
 export {
-  WidgetV13Schema as WidgetSchema,
-  type WidgetV13 as Widget,
-} from "./models/widget.v13.schema";
-export {
-  WidgetEntityGridV10Schema as WidgetEntityGridSchema,
-  type WidgetEntityGridV10 as WidgetEntityGrid,
-} from "./models/widget.v10.schema";
+  WidgetV14Schema as WidgetSchema,
+  WidgetEntityGridV14Schema as WidgetEntityGridSchema,
+  type WidgetV14 as Widget,
+  type WidgetEntityGridV14 as WidgetEntityGrid,
+} from "./models/widget.v14.schema";
 export {
   WidgetActionRollV9Schema as WidgetActionRollSchema,
   type WidgetActionRollV9 as WidgetActionRoll,
@@ -1412,13 +1490,13 @@ export {
 // Raw v5 sheet re-export kept for migration authors.
 export { SheetV5Schema, type SheetV5 } from "./models/sheet.v5.schema";
 
-// Current sheet aliases point at v7 — v7 adds the per-file `credit`. The raw
-// v6 sheet (which added the original image's `dimensions`) stays exported
-// above for migration authors.
+// Current sheet aliases point at v8 — v8 adds `height`. The raw v6 sheet
+// (which added the original image's `dimensions`) stays exported above for
+// migration authors.
 export {
-  SheetV7Schema as SheetSchema,
-  type SheetV7 as Sheet,
-} from "./models/sheet.v7.schema";
+  SheetV8Schema as SheetSchema,
+  type SheetV8 as Sheet,
+} from "./models/sheet.v8.schema";
 
 export {
   DataTableV4Schema as DataTableSchema,
@@ -1526,11 +1604,14 @@ export { WithLocalizedNameV2Schema as WithLocalizedNameSchema } from "./mixins/w
 // For consumers (like Harpy) that have their own types with the same
 // names and want to avoid `import { Entity as ByppEntity }` aliasing.
 
-export type { EntityV7 as ByppEntity } from "./models/entity.v7.schema";
+export type { EntityV8 as ByppEntity } from "./models/entity.v8.schema";
+export type { EntityModeV31 as ByppEntityMode } from "./models/entity-mode.v31.schema";
+export type { StackOrderEntryV31 as ByppStackOrderEntry } from "./models/entity-mode.v31.schema";
+export type { ItemKindV31 as ByppItemKind } from "./models/entity.v8.schema";
 export type { EntitySubtypeV30 as ByppEntitySubtype } from "./models/entity-subtype.v30.schema";
 export type { EntityBaseV6 as ByppEntityBase } from "./models/entity.v6.schema";
-export type { EntityActionV2 as ByppEntityAction } from "./models/entity-action.v2.schema";
-export type { EntitySpawnV1 as ByppEntitySpawn } from "./models/entity-spawn.v1.schema";
+export type { EntityActionV3 as ByppEntityAction } from "./models/entity-action.v3.schema";
+export type { EntitySpawnV2 as ByppEntitySpawn } from "./models/entity-spawn.v2.schema";
 export type { VariableUpdateV26 as ByppVariableUpdate } from "./models/variable.v10.schema";
 export type { CharacterEntityV4 as ByppCharacterEntity } from "./models/entity.v4.schema";
 export type { CreatureEntityV4 as ByppCreatureEntity } from "./models/entity.v4.schema";
@@ -1547,10 +1628,10 @@ export type { ChunkBaseV2 as ByppChunkBase } from "./models/chunk.v2.schema";
 export type { ChunkTextV11 as ByppChunkText } from "./models/chunk.v11.schema";
 export type { ChunkGalleryV2 as ByppChunkGallery } from "./models/chunk.v2.schema";
 export type { ChunkRandomV2 as ByppChunkRandom } from "./models/chunk.v2.schema";
-export type { DatasetV3 as ByppDataset } from "./models/dataset.v3.schema";
-export type { VariableV12 as ByppVariable } from "./models/variable.v12.schema";
+export type { DatasetV4 as ByppDataset } from "./models/dataset.v4.schema";
+export type { VariableV13 as ByppVariable } from "./models/variable.v13.schema";
 export type { VariableBaseV8 as ByppVariableBase } from "./models/variable.v8.schema";
-export type { WidgetV13 as ByppWidget } from "./models/widget.v13.schema";
+export type { WidgetV14 as ByppWidget } from "./models/widget.v14.schema";
 export type { WidgetBaseV1 as ByppWidgetBase } from "./models/widget.v1.schema";
 export type { RandomTableV7 as ByppRandomTable } from "./models/random-table.v7.schema";
 export type { RandomTableRowV7 as ByppRandomTableRow } from "./models/random-table.v7.schema";
@@ -1564,7 +1645,7 @@ export type { SceneBackgroundBaseV2 as ByppSceneBackgroundBase } from "./models/
 export type { AssetV3 as ByppAsset } from "./models/asset.v3.schema";
 export type { AssetBaseV3 as ByppAssetBase } from "./models/asset.v3.schema";
 export type { DialectV3 as ByppDialect } from "./models/dialect.v3.schema";
-export type { SheetV7 as ByppSheet } from "./models/sheet.v7.schema";
+export type { SheetV8 as ByppSheet } from "./models/sheet.v8.schema";
 export type { DataTableV4 as ByppDataTable } from "./models/data-table.v4.schema";
 export type { DataTableColumnV4 as ByppDataTableColumn } from "./models/data-table.v4.schema";
 export type { DataTableRowV2 as ByppDataTableRow } from "./models/data-table.v2.schema";

@@ -8,6 +8,6 @@
  */
 
 export {
-  BeyondPaperV30Schema as BeyondPaperSchema,
-  type BeyondPaperV30 as BeyondPaper,
-} from "./schemas/bypp.v30.schema";
+  BeyondPaperV31Schema as BeyondPaperSchema,
+  type BeyondPaperV31 as BeyondPaper,
+} from "./schemas/bypp.v31.schema";
