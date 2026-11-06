@@ -1,5 +1,5 @@
 {
-  "version": 29,
+  "version": 32,
   "format": "bypp",
   "name": "Shattered Reach [D&D 2024]",
   "exportedAt": "2026-07-22T10:43:17.949Z",
@@ -25,9 +25,9 @@
   "credits": [
     {
       "name": "Corinne Caro",
+      "role": "cover illustration",
       "url": "https://www.corinnecaro.com/",
-      "license": "CC-BY-NC",
-      "role": "cover illustration"
+      "license": "CC-BY-NC"
     },
     {
       "name": "Chloé",
@@ -159,6 +159,30 @@
       "spokenByEntitiesUids": [
         "12fQPWmUzZNI9kxudIgi"
       ]
+    }
+  ],
+  "entitySubtypes": [
+    {
+      "uid": "kVwq3Sb7Weapons",
+      "name": {
+        "en": "Weapons",
+        "fr": "Armes"
+      },
+      "baseType": "item",
+      "icon": "sword",
+      "help": {
+        "en": "Swords, axes, bows…",
+        "fr": "Épées, haches, arcs…"
+      }
+    },
+    {
+      "uid": "pTn4Rj2xArmor",
+      "name": {
+        "en": "Armor",
+        "fr": "Armures"
+      },
+      "baseType": "item",
+      "icon": "shield"
     }
   ],
   "entities": [
@@ -601,11 +625,32 @@
       "pagesOrder": [
         "XG2pQxKNipFeICRlfDBj"
       ],
+      "actions": [],
+      "type": "item",
+      "subtypeUid": "pTn4Rj2xArmor",
+      "synonyms": [
+        "Dawn shield"
+      ],
       "data": {
         "system-weight": 6
       },
-      "actions": [],
-      "type": "item"
+      "modes": [
+        {
+          "uid": "shield-worn",
+          "label": {
+            "en": "Worn",
+            "fr": "Porté"
+          },
+          "icon": "shield-halved",
+          "arrival": "off",
+          "updates": [
+            {
+              "variableUid": "IfvsKunDU4hcFPzt8WxP",
+              "formula": "<p><span data-variable=\"IfvsKunDU4hcFPzt8WxP\" data-variable-scope=\"external\">$&lt;Armor Class</span> + 2</p>"
+            }
+          ]
+        }
+      ]
     },
     {
       "uid": "xDgcUM2zeiLLOdt2N4fP",
@@ -635,14 +680,21 @@
         "license": "CC-BY-NC"
       },
       "actions": [],
-      "type": "item"
+      "type": "item",
+      "subtypeUid": "kVwq3Sb7Weapons"
     }
   ],
   "entitySpawns": [
     {
       "uid": "yonai-shield",
       "entityUid": "qDrjmYSFgHYxORuzgZfm",
-      "ownerUid": "nVEnyBkDwAqKk4uSRuD1"
+      "owner": {
+        "kind": "entity",
+        "uid": "nVEnyBkDwAqKk4uSRuD1"
+      },
+      "activeModes": [
+        "shield-worn"
+      ]
     }
   ],
   "pages": [
@@ -839,7 +891,9 @@
       "targets": [
         "character"
       ],
-      "targetTagsGroup": "some"
+      "targetTagsGroup": "some",
+      "targetsSubtypes": [],
+      "icon": "scroll"
     }
   ],
   "variables": [
@@ -1085,7 +1139,8 @@
       },
       "type": "number",
       "defaultValue": 10,
-      "icon": "heart"
+      "icon": "heart",
+      "maxVariable": "A6U9faRjhawqbvXQfNej"
     },
     {
       "uid": "AULSl5A8IRGuyfMDFynL",

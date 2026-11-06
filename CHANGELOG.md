@@ -9,6 +9,41 @@ adjacent versions live in `src/migrations/`.
 When you add a new version, append a new section at the top of this file
 following the structure below.
 
+## Format v32 — 2026-11
+
+### Added
+
+- **Pips along a curve.** A `pips` widget
+  (`src/models/widget.v15.schema.ts`) may lay its pips out along one line
+  that starts on the first pip, instead of a wrapping row: Bobby's five death
+  saves in an arc over his portrait, or round a circle. Four optional fields:
+
+  - `layout`: `wrap` (a row, the only layout before v32) or `path` (a line).
+  - `curve`: how much the line bends, 1 / its radius in em, signed (positive
+    bends clockwise); `0` is straight.
+  - `startAngle`: the direction the line leaves the first pip in, in degrees,
+    clockwise from +x (screen coordinates).
+  - `closed`: the pips go exactly once round a circle, whatever their count;
+    overrides `curve`.
+
+  Along a line, the pips are `gapX` apart. Absent, a reader lays out a row,
+  as before.
+
+### Migrations
+
+- **v31 → v32**: non-lossy; a v31 `pips` widget stays a row.
+- **v32 → v31**: lossy; a `pips` widget loses `layout`, `curve`, `startAngle`
+  and `closed`, and is drawn as a row again.
+
+### Package
+
+- New frozen entry point `bypp-format/v32`, which also names `WidgetPips` and
+  `PipsLayout`.
+- The package root's `Widget`, `WidgetSchema` and `ByppWidget` point at v15,
+  and it names `WidgetPips` and `PipsLayout` too.
+- `examples/bypp.v32.example.bypp` is the source example;
+  `bypp.v29.example.bypp` leaves the shipped window.
+
 ## Format v31 — 2026-10
 
 ### Added

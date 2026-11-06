@@ -25,9 +25,9 @@
   "credits": [
     {
       "name": "Corinne Caro",
-      "role": "cover illustration",
       "url": "https://www.corinnecaro.com/",
-      "license": "CC-BY-NC"
+      "license": "CC-BY-NC",
+      "role": "cover illustration"
     },
     {
       "name": "Chloé",
@@ -234,6 +234,7 @@
           "log": "<p>Took <span data-variable=\"system-action-result-dmg\">$Result</span> damage (<span data-variable=\"system-action-roll-dmg\">$Roll</span>) after <span data-variable=\"system-action-roll-atk\">$Roll</span>.</p>"
         }
       ],
+      "modes": [],
       "type": "character"
     },
     {
@@ -252,6 +253,7 @@
         "WgTbnnFMCTPdVPMKahpW"
       ],
       "actions": [],
+      "modes": [],
       "type": "character"
     },
     {
@@ -344,6 +346,7 @@
         "license": "CC-BY-NC"
       },
       "actions": [],
+      "modes": [],
       "type": "character"
     },
     {
@@ -437,6 +440,7 @@
         "license": "CC-BY-NC"
       },
       "actions": [],
+      "modes": [],
       "type": "character"
     },
     {
@@ -540,6 +544,7 @@
         "license": "CC-BY-NC"
       },
       "actions": [],
+      "modes": [],
       "type": "character"
     },
     {
@@ -574,6 +579,7 @@
         "license": "CC-BY-NC"
       },
       "actions": [],
+      "modes": [],
       "type": "character"
     },
     {
@@ -608,6 +614,7 @@
         "license": "CC-BY-NC"
       },
       "actions": [],
+      "modes": [],
       "type": "character"
     },
     {
@@ -625,15 +632,11 @@
       "pagesOrder": [
         "XG2pQxKNipFeICRlfDBj"
       ],
-      "actions": [],
-      "type": "item",
-      "subtypeUid": "pTn4Rj2xArmor",
-      "synonyms": [
-        "Dawn shield"
-      ],
       "data": {
         "system-weight": 6
       },
+      "actions": [],
+      "subtypeUid": "pTn4Rj2xArmor",
       "modes": [
         {
           "uid": "shield-worn",
@@ -650,7 +653,11 @@
             }
           ]
         }
-      ]
+      ],
+      "synonyms": [
+        "Dawn shield"
+      ],
+      "type": "item"
     },
     {
       "uid": "xDgcUM2zeiLLOdt2N4fP",
@@ -680,8 +687,9 @@
         "license": "CC-BY-NC"
       },
       "actions": [],
-      "type": "item",
-      "subtypeUid": "kVwq3Sb7Weapons"
+      "subtypeUid": "kVwq3Sb7Weapons",
+      "modes": [],
+      "type": "item"
     }
   ],
   "entitySpawns": [

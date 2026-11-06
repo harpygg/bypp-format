@@ -247,6 +247,16 @@
         "default": "./dist/v31.cjs"
       }
     },
+    "./v32": {
+      "import": {
+        "types": "./dist/v32.d.ts",
+        "default": "./dist/v32.js"
+      },
+      "require": {
+        "types": "./dist/v32.d.cts",
+        "default": "./dist/v32.cjs"
+      }
+    },
     "./icons": {
       "import": {
         "types": "./dist/icons.d.ts",

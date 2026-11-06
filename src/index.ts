@@ -142,6 +142,10 @@ export {
   BeyondPaperV31Schema,
   type BeyondPaperV31,
 } from "./schemas/bypp.v31.schema";
+export {
+  BeyondPaperV32Schema,
+  type BeyondPaperV32,
+} from "./schemas/bypp.v32.schema";
 
 // v18: what a document reads but does not carry.
 export {
@@ -723,6 +727,16 @@ export {
   type WidgetV14,
   type WidgetEntityGridV14,
 } from "./models/widget.v14.schema";
+
+// Models (v32) — pips along a curve.
+export {
+  WidgetV15Schema,
+  WidgetPipsV15Schema,
+  PipsLayoutV15Schema,
+  type WidgetV15,
+  type WidgetPipsV15,
+  type PipsLayoutV15,
+} from "./models/widget.v15.schema";
 
 export {
   DataTableV4Schema,
@@ -1438,7 +1452,6 @@ export {
   WidgetToggleV1Schema as WidgetToggleSchema,
   WidgetBulletListV1Schema as WidgetBulletListSchema,
   WidgetInlineListV1Schema as WidgetInlineListSchema,
-  WidgetPipsV1Schema as WidgetPipsSchema,
   WidgetBarV1Schema as WidgetBarSchema,
   BarOrientationV1Schema as BarOrientationSchema,
   type WidgetBaseV1 as WidgetBase,
@@ -1448,7 +1461,6 @@ export {
   type WidgetToggleV1 as WidgetToggle,
   type WidgetBulletListV1 as WidgetBulletList,
   type WidgetInlineListV1 as WidgetInlineList,
-  type WidgetPipsV1 as WidgetPips,
   type WidgetBarV1 as WidgetBar,
   type BarOrientationV1 as BarOrientation,
 } from "./models/widget.v1.schema";
@@ -1473,13 +1485,19 @@ export {
   WithWidgetActionsV8Schema as WithWidgetActionsSchema,
   type WithWidgetActionsV8 as WithWidgetActions,
 } from "./models/widget.v8.schema";
-// Current widget aliases point at v14 — v14 trims `entityGrid` to its squares.
-// The action roll (v9) and entity-image (v6) variant aliases stay where they
-// were last forked.
+// Current widget aliases point at v15 — v15 lets pips follow a curve. The
+// entity grid (v14), action roll (v9) and entity-image (v6) variant aliases
+// stay where they were last forked.
 export {
-  WidgetV14Schema as WidgetSchema,
+  WidgetV15Schema as WidgetSchema,
+  WidgetPipsV15Schema as WidgetPipsSchema,
+  PipsLayoutV15Schema as PipsLayoutSchema,
+  type WidgetV15 as Widget,
+  type WidgetPipsV15 as WidgetPips,
+  type PipsLayoutV15 as PipsLayout,
+} from "./models/widget.v15.schema";
+export {
   WidgetEntityGridV14Schema as WidgetEntityGridSchema,
-  type WidgetV14 as Widget,
   type WidgetEntityGridV14 as WidgetEntityGrid,
 } from "./models/widget.v14.schema";
 export {
@@ -1648,7 +1666,7 @@ export type { ChunkRandomV2 as ByppChunkRandom } from "./models/chunk.v2.schema"
 export type { DatasetV4 as ByppDataset } from "./models/dataset.v4.schema";
 export type { VariableV13 as ByppVariable } from "./models/variable.v13.schema";
 export type { VariableBaseV8 as ByppVariableBase } from "./models/variable.v8.schema";
-export type { WidgetV14 as ByppWidget } from "./models/widget.v14.schema";
+export type { WidgetV15 as ByppWidget } from "./models/widget.v15.schema";
 export type { WidgetBaseV1 as ByppWidgetBase } from "./models/widget.v1.schema";
 export type { RandomTableV7 as ByppRandomTable } from "./models/random-table.v7.schema";
 export type { RandomTableRowV7 as ByppRandomTableRow } from "./models/random-table.v7.schema";
